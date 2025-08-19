@@ -48,6 +48,135 @@
     </ul>
   </section>
 
+
+
+
+
+
+<!-- Portfolio Section -->
+<section class="max-w-6xl mx-auto py-20 px-6">
+  <h2 class="text-3xl font-bold text-center mb-12">Portfolio</h2>
+
+  <div id="portfolioGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+    <!-- Card -->
+    <div class="portfolio-card bg-white rounded-2xl shadow-xl overflow-hidden cursor-pointer transform transition hover:scale-105"
+         data-title="BaseWeb"
+         data-img="https://via.placeholder.com/800x500"
+         data-description="Sito istituzionale moderno e SEO friendly."
+         data-features='["Ottimizzazione SEO","Design personalizzabile","Performance elevate"]'
+         data-link="https://baseweb.studioimmens.com">
+
+      <img src="https://via.placeholder.com/600x400" class="w-full h-48 object-cover">
+      <div class="p-6">
+        <h3 class="text-xl font-semibold">BaseWeb</h3>
+        <p class="text-gray-600 text-sm mt-2">Sito istituzionale moderno e SEO friendly.</p>
+      </div>
+    </div>
+
+    <!-- Card -->
+    <div class="portfolio-card bg-white rounded-2xl shadow-xl overflow-hidden cursor-pointer transform transition hover:scale-105"
+         data-title="ShopWeb"
+         data-img="https://via.placeholder.com/800x500"
+         data-description="E-commerce completo per scalare le vendite."
+         data-features='["Gestione ordini integrata","Checkout ottimizzato","Design responsive"]'
+         data-link="https://shopweb.studioimmens.com">
+
+      <img src="https://via.placeholder.com/600x400" class="w-full h-48 object-cover">
+      <div class="p-6">
+        <h3 class="text-xl font-semibold">ShopWeb</h3>
+        <p class="text-gray-600 text-sm mt-2">E-commerce completo per scalare le vendite.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Overlay -->
+<div id="overlay" class="fixed inset-0 bg-black bg-opacity-70 hidden items-center justify-center z-50 p-6">
+  <div id="overlayContent"
+       class="bg-white rounded-2xl shadow-2xl max-w-3xl w-full relative overflow-hidden transform scale-75 opacity-0 rotate-x-12 transition-all duration-700 ease-out">
+    
+    <!-- Chiudi -->
+    <button onclick="closeOverlay()" class="absolute top-4 right-4 text-gray-600 hover:text-black text-2xl">✕</button>
+
+    <!-- Immagine -->
+    <img id="overlayImg" src="" class="w-full h-64 object-cover animate-reveal">
+
+    <!-- Contenuto -->
+    <div class="p-8">
+      <h2 id="overlayTitle" class="text-2xl font-bold mb-4"></h2>
+      <p id="overlayDescription" class="text-gray-700 mb-6"></p>
+      <ul id="overlayFeatures" class="space-y-2 mb-6"></ul>
+      <div class="flex space-x-4">
+        <a id="overlayLink" href="#" target="_blank"
+           class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Visita Sito</a>
+        <button class="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300">Demo</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Script -->
+<script>
+  const cards = document.querySelectorAll('.portfolio-card');
+  const overlay = document.getElementById('overlay');
+  const overlayContent = document.getElementById('overlayContent');
+
+  const overlayTitle = document.getElementById('overlayTitle');
+  const overlayImg = document.getElementById('overlayImg');
+  const overlayDescription = document.getElementById('overlayDescription');
+  const overlayFeatures = document.getElementById('overlayFeatures');
+  const overlayLink = document.getElementById('overlayLink');
+
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      // Prendi dati dalla card
+      overlayTitle.textContent = card.dataset.title;
+      overlayImg.src = card.dataset.img;
+      overlayDescription.textContent = card.dataset.description;
+
+      // Features
+      const features = JSON.parse(card.dataset.features);
+      overlayFeatures.innerHTML = "";
+      features.forEach(f => {
+        const li = document.createElement('li');
+        li.className = "flex items-center text-gray-600";
+        li.innerHTML = `<span class="mr-2 text-blue-600">✔</span> ${f}`;
+        overlayFeatures.appendChild(li);
+      });
+
+      // Link
+      overlayLink.href = card.dataset.link;
+
+      // Mostra overlay con animazione
+      overlay.classList.remove('hidden');
+      setTimeout(() => {
+        overlayContent.classList.remove("scale-75", "opacity-0", "rotate-x-12");
+        overlayContent.classList.add("scale-100", "opacity-100", "rotate-x-0");
+      }, 50);
+    });
+  });
+
+  function closeOverlay() {
+    overlayContent.classList.add("scale-75", "opacity-0", "rotate-x-12");
+    overlayContent.classList.remove("scale-100", "opacity-100", "rotate-x-0");
+    setTimeout(() => {
+      overlay.classList.add('hidden');
+    }, 500);
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+  
   <!-- Portfolio -->
 <section class="max-w-6xl mx-auto py-20 px-6">
   <h2 class="text-3xl font-bold text-center mb-12">Portfolio</h2>
