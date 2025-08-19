@@ -5,67 +5,108 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mauro Arnone | CV Interattivo</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </head>
-<body class="bg-gray-100 text-gray-900 font-sans">
+<body class="bg-gray-50 text-gray-900 font-sans">
 
-  <!-- Header -->
-  <header class="bg-gradient-to-r from-blue-600 to-teal-500 text-white py-10 shadow-lg">
-    <div class="max-w-4xl mx-auto text-center">
-      <img src="https://avatars.githubusercontent.com/u/129175879?v=4" alt="Foto profilo" class="mx-auto rounded-full w-32 h-32 border-4 border-white shadow-md">
-      <h1 class="text-4xl font-bold mt-4">Mauro Arnone</h1>
-      <p class="text-lg mt-2">Web Developer | WordPress | PHP | JavaScript</p>
-      <div class="mt-4 space-x-4">
-        <a href="mailto:mauro.arnone.ma@gmail.com" class="px-4 py-2 bg-white text-blue-600 rounded-lg shadow hover:bg-gray-200">Contattami</a>
-        <a href="https://www.linkedin.com/in/mauro-arnone/" class="px-4 py-2 bg-white text-blue-600 rounded-lg shadow hover:bg-gray-200">LinkedIn</a>
-        <a href="https://github.com/Immens95" class="px-4 py-2 bg-white text-blue-600 rounded-lg shadow hover:bg-gray-200">GitHub</a>
+  <!-- Hero -->
+  <header class="relative bg-gradient-to-r from-blue-800 to-teal-600 text-white py-20">
+    <div class="max-w-5xl mx-auto text-center px-6">
+      <img src="https://avatars.githubusercontent.com/u/1?v=4" alt="Mauro Arnone" class="mx-auto rounded-full w-32 h-32 border-4 border-white shadow-xl">
+      <h1 class="text-5xl font-extrabold mt-6">Mauro Arnone</h1>
+      <p class="mt-4 text-xl italic text-gray-200">Sviluppatore Web & Consulente Digitale</p>
+      <p class="mt-2 text-lg text-gray-300">Trasformo idee in soluzioni scalabili, affidabili e concrete.</p>
+      <div class="mt-6 space-x-4">
+        <a href="mailto:tuamail@example.com" class="px-5 py-2 bg-white text-blue-700 rounded-xl shadow hover:bg-gray-200">Contattami</a>
+        <a href="MauroArnone-CV.pdf" class="px-5 py-2 bg-white text-blue-700 rounded-xl shadow hover:bg-gray-200">Scarica CV</a>
       </div>
     </div>
   </header>
 
-  <!-- Bio -->
-  <section class="max-w-4xl mx-auto py-12 px-6">
-    <h2 class="text-2xl font-bold mb-4">Chi sono</h2>
-    <p class="text-lg leading-relaxed">
-      Sono uno sviluppatore web con esperienza in WordPress, PHP e JavaScript.
-      Mi occupo di creare soluzioni digitali scalabili, affidabili e orientate al business, 
-      aiutando aziende e professionisti a crescere online con siti, app e automazioni.
+  <!-- Chi sono -->
+  <section class="max-w-4xl mx-auto py-16 px-6">
+    <h2 class="text-3xl font-bold mb-6">Chi sono</h2>
+    <p class="text-lg leading-relaxed text-gray-700">
+      Da oltre 10 anni mi occupo di sviluppo web e soluzioni digitali su misura. 
+      Il mio approccio è semplice: unire competenza tecnica, visione strategica e concretezza, 
+      creando strumenti che fanno crescere i business e semplificano la vita alle persone.
     </p>
   </section>
 
   <!-- Competenze -->
-  <section class="bg-white shadow-md rounded-2xl max-w-4xl mx-auto my-8 p-8">
-    <h2 class="text-2xl font-bold mb-6">Competenze</h2>
-    <ul class="grid grid-cols-2 md:grid-cols-3 gap-4 text-lg">
-      <li>WordPress</li>
-      <li>PHP</li>
-      <li>JavaScript</li>
-      <li>jQuery</li>
-      <li>html</li>
-      <li>css</li>
-      <li>CRM & Automazioni</li>
-      <li>SEO & Marketing</li>
-    </ul>
-  </section>
-
-  <!-- Esperienze -->
-  <section class="max-w-4xl mx-auto py-12 px-6">
-    <h2 class="text-2xl font-bold mb-6">Esperienze & Progetti</h2>
-    <div class="space-y-6">
-      <div class="p-6 bg-white rounded-2xl shadow hover:shadow-lg transition">
-        <h3 class="text-xl font-semibold">Studio Immens</h3>
-        <p class="mt-2">Fondatore e sviluppatore. Creazione di siti WordPress, e-commerce, e sistemi CRM/ERP personalizzati.</p>
-        <a href="https://studioimmens.com" class="text-blue-600 font-semibold hover:underline">Visita il sito</a>
-      </div>
-      <div class="p-6 bg-white rounded-2xl shadow hover:shadow-lg transition">
-        <h3 class="text-xl font-semibold">Progetto GitHub Open Source</h3>
-        <p class="mt-2">Plugin e tool sviluppati per semplificare l’uso di WordPress e automazioni digitali.</p>
-        <a href="https://github.com/tuo-username" class="text-blue-600 font-semibold hover:underline">Vai al repo</a>
+  <section class="bg-white py-16 shadow-inner">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-10 text-center">Competenze Chiave</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div class="p-6 bg-gray-50 rounded-xl shadow hover:shadow-lg transition">
+          <h3 class="font-semibold text-lg">WordPress & PHP</h3>
+          <p class="mt-2 text-sm text-gray-600">Siti ed e-commerce performanti e scalabili.</p>
+        </div>
+        <div class="p-6 bg-gray-50 rounded-xl shadow hover:shadow-lg transition">
+          <h3 class="font-semibold text-lg">JavaScript</h3>
+          <p class="mt-2 text-sm text-gray-600">Interfacce moderne, fluide e interattive.</p>
+        </div>
+        <div class="p-6 bg-gray-50 rounded-xl shadow hover:shadow-lg transition">
+          <h3 class="font-semibold text-lg">CRM & Automazioni</h3>
+          <p class="mt-2 text-sm text-gray-600">Sistemi che fanno risparmiare tempo e riducono errori.</p>
+        </div>
+        <div class="p-6 bg-gray-50 rounded-xl shadow hover:shadow-lg transition">
+          <h3 class="font-semibold text-lg">SEO & Marketing</h3>
+          <p class="mt-2 text-sm text-gray-600">Ogni riga di codice ha senso solo se porta risultati.</p>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- Timeline Esperienze -->
+  <section class="max-w-4xl mx-auto py-16 px-6">
+    <h2 class="text-3xl font-bold mb-10 text-center">Esperienze & Progetti</h2>
+    <div class="relative border-l border-gray-300">
+
+      <div class="mb-10 ml-6">
+        <div class="absolute -left-3 w-6 h-6 bg-blue-600 rounded-full border-2 border-white"></div>
+        <h3 class="text-xl font-semibold">Studio Immens</h3>
+        <span class="text-sm text-gray-500">2025 – Oggi</span>
+        <p class="mt-2 text-gray-700">Fondatore e sviluppatore. Creazione di siti WordPress, e-commerce, CRM e automazioni digitali.</p>
+      </div>
+
+      <div class="mb-10 ml-6">
+        <div class="absolute -left-3 w-6 h-6 bg-blue-600 rounded-full border-2 border-white"></div>
+        <h3 class="text-xl font-semibold">Freelance Web Developer</h3>
+        <span class="text-sm text-gray-500">2018 – 2024</span>
+        <p class="mt-2 text-gray-700">Progetti per PMI e professionisti: siti vetrina, gestionali e piattaforme personalizzate.</p>
+      </div>
+
+      <div class="ml-6">
+        <div class="absolute -left-3 w-6 h-6 bg-blue-600 rounded-full border-2 border-white"></div>
+        <h3 class="text-xl font-semibold">Agenzie Digitali</h3>
+        <span class="text-sm text-gray-500">2015 – 2018</span>
+        <p class="mt-2 text-gray-700">Collaborazioni come sviluppatore backend/frontend in team multidisciplinari.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Citazione -->
+  <section class="bg-blue-700 py-20">
+    <div class="max-w-3xl mx-auto text-center px-6">
+      <p class="text-2xl italic text-white">"Non vendo siti web, vendo strumenti che generano risultati. Ogni progetto nasce con un obiettivo: creare valore reale."</p>
+    </div>
+  </section>
+
+  <!-- Contatti -->
+  <section class="max-w-4xl mx-auto py-16 px-6 text-center">
+    <h2 class="text-3xl font-bold mb-6">Contatti</h2>
+    <p class="text-lg mb-6">Vuoi parlarmi di un progetto o vedere come posso aiutarti? Scrivimi, sarò felice di rispondere.</p>
+    <div class="space-x-4">
+      <a href="mailto:tuamail@example.com" class="px-5 py-2 bg-blue-700 text-white rounded-xl shadow hover:bg-blue-800">Email</a>
+      <a href="https://www.linkedin.com/in/tuo-linkedin" class="px-5 py-2 bg-blue-700 text-white rounded-xl shadow hover:bg-blue-800">LinkedIn</a>
+      <a href="https://github.com/immens95" class="px-5 py-2 bg-blue-700 text-white rounded-xl shadow hover:bg-blue-800">GitHub</a>
+    </div>
+  </section>
+
   <!-- Footer -->
-  <footer class="bg-gray-800 text-gray-300 py-6 mt-12">
+  <footer class="bg-gray-900 text-gray-400 py-6 mt-12">
     <div class="max-w-4xl mx-auto text-center">
       <p>© 2025 Mauro Arnone - Tutti i diritti riservati</p>
     </div>
