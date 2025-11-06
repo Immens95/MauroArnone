@@ -64,10 +64,14 @@
 <body class="bg-gray-100 text-gray-900 font-sans dark:bg-gray-900 dark:text-gray-100">
 
   <a href="#contenuto" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-white text-blue-600 px-3 py-2 rounded shadow" data-i18n="skip_to_content">Salta al contenuto</a>
+  <!-- Reactive particles background -->
+  <canvas id="bg-particles" class="fixed inset-0 -z-10 pointer-events-none"></canvas>
 
   <!-- Header -->
   <!-- Navbar -->
   <nav class="fixed top-0 inset-x-0 z-50 bg-white/70 backdrop-blur shadow-sm dark:bg-gray-900/70">
+    <!-- Scroll progress bar -->
+    <div id="scroll-progress" class="absolute left-0 bottom-0 h-0.5 bg-brand dark:bg-brand w-0 pointer-events-none"></div>
     <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
       <a href="#home" class="flex items-center gap-2">
         <img src="https://avatars.githubusercontent.com/u/129175879?v=4" alt="Logo" class="w-8 h-8 rounded-full" data-i18n-alt="alt_logo">
@@ -157,7 +161,7 @@
   <main id="contenuto" class="pt-6">
   <section id="chi-sono" class="max-w-5xl mx-auto py-10 px-6 bg-white/70 backdrop-blur rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-gray-800/70 dark:text-gray-100" data-reveal>
     <h2 class="text-2xl font-bold mb-4 transition-colors hover:text-brand hover:underline decoration-2 underline-offset-4" data-i18n="about_title">Chi sono</h2>
-    <p class="text-lg leading-relaxed">
+    <p class="text-lg leading-relaxed" data-i18n="about_intro">
       Sono uno sviluppatore web con esperienza in WordPress, PHP e JavaScript.
       Unisco competenza tecnica e visione strategica per trasformare idee in strumenti concreti, scalabili e orientati ai risultati. 
       Questo progetto, realizzato con HTML, Tailwind e GitHub Pages, presenta competenze, esperienze e progetti in modo semplice, moderno e d’impatto, 
@@ -189,17 +193,17 @@
       <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0s">
         <h3 class="text-xl font-semibold flex items-center gap-2 text-brand transition-transform transform-gpu hover:skew-x-1">
           <svg class="w-5 h-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M3 10v10a1 1 0 0 0 1 1h10"/><path d="M21 8v9a1 1 0 0 1-1 1h-9"/></svg>
-          Sviluppo Plugin e Temi
+          <span data-i18n="wp_dev_title">Sviluppo Plugin e Temi</span>
         </h3>
-        <p class="mt-2 text-gray-700 dark:text-gray-300">Best practice, sicurezza, hooks e custom post types. Pubblicazioni su wordpress.org.</p>
-        <a href="https://github.com/Studio-Immens/studio-immens-css-classes" class="text-blue-600 font-semibold hover:underline">Esempio plugin</a>
+        <p class="mt-2 text-gray-700 dark:text-gray-300" data-i18n="wp_dev_desc">Best practice, sicurezza, hooks e custom post types. Pubblicazioni su wordpress.org.</p>
+        <a href="https://github.com/Studio-Immens/studio-immens-css-classes" class="text-blue-600 font-semibold hover:underline" data-i18n="wp_dev_link">Esempio plugin</a>
       </div>
       <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0.12s">
         <h3 class="text-xl font-semibold flex items-center gap-2 text-brand transition-transform transform-gpu hover:rotate-1">
           <svg class="w-5 h-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12h18"/><path d="M12 3v18"/></svg>
-          Performance & SEO
+          <span data-i18n="wp_perf_title">Performance & SEO</span>
         </h3>
-        <p class="mt-2 text-gray-700 dark:text-gray-300">Ottimizzazioni LCP, caching, immagini e struttura HTML semantica con schema.org.</p>
+        <p class="mt-2 text-gray-700 dark:text-gray-300" data-i18n="wp_perf_desc">Ottimizzazioni LCP, caching, immagini e struttura HTML semantica con schema.org.</p>
       </div>
     </div>
   </section>
@@ -210,119 +214,119 @@
       <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0s">
         <h3 class="text-xl font-semibold flex items-center gap-2 text-brand transition-transform hover:scale-105 transform-gpu">
           <svg class="w-5 h-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-          Architettura & OOP
+          <span data-i18n="php_arch_title">Architettura & OOP</span>
         </h3>
-        <p class="mt-2 text-gray-700 dark:text-gray-300">Pattern, organizzazione codice, sicurezza input/output, integrazione con WordPress.</p>
+        <p class="mt-2 text-gray-700 dark:text-gray-300" data-i18n="php_arch_desc">Pattern, organizzazione codice, sicurezza input/output, integrazione con WordPress.</p>
       </div>
       <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0.12s">
         <h3 class="text-xl font-semibold flex items-center gap-2 text-brand transition-transform hover:scale-105 transform-gpu">
           <svg class="w-5 h-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 7l10 10M17 7L7 17"/></svg>
-          API & integrazioni
+          <span data-i18n="php_api_title">API & integrazioni</span>
         </h3>
-        <p class="mt-2 text-gray-700 dark:text-gray-300">REST, webhook, automazioni CRM e servizi terzi.</p>
+        <p class="mt-2 text-gray-700 dark:text-gray-300" data-i18n="php_api_desc">REST, webhook, automazioni CRM e servizi terzi.</p>
       </div>
     </div>
   </section>
 
   <section id="javascript" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900 dark:text-gray-100" data-reveal>
-    <h2 class="text-2xl font-bold mb-4 motion-safe:animate-reveal-up transition-colors transition-transform transform-gpu hover:text-brand hover:underline decoration-2 underline-offset-4 hover:scale-105">⚡ JavaScript</h2>
+    <h2 class="text-2xl font-bold mb-4 motion-safe:animate-reveal-up transition-colors transition-transform transform-gpu hover:text-brand hover:underline decoration-2 underline-offset-4 hover:scale-105" data-i18n="js_title">⚡ JavaScript</h2>
     <div class="grid sm:grid-cols-2 gap-6">
       <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0s">
         <h3 class="text-xl font-semibold flex items-center gap-2 text-brand transition-transform transform-gpu hover:-translate-y-0.5">
           <svg class="w-5 h-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h7v8l10-12h-7z"/></svg>
-          Interattività & UX
+          <span data-i18n="js_interactivity_title">Interattività & UX</span>
         </h3>
-        <p class="mt-2 text-gray-700 dark:text-gray-300">Esperienze fluide, animazioni, gestione stato lato client, integrazione editor WP.</p>
+        <p class="mt-2 text-gray-700 dark:text-gray-300" data-i18n="js_interactivity_desc">Esperienze fluide, animazioni, gestione stato lato client, integrazione editor WP.</p>
       </div>
       <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0.12s">
         <h3 class="text-xl font-semibold flex items-center gap-2 text-brand transition-transform transform-gpu hover:rotate-1">
           <svg class="w-5 h-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12h6l2-3 2 6 2-3h6"/></svg>
-          Fetch & Async
+          <span data-i18n="js_fetch_title">Fetch & Async</span>
         </h3>
-        <p class="mt-2 text-gray-700 dark:text-gray-300">Richieste asincrone, error handling, progressive enhancement.</p>
+        <p class="mt-2 text-gray-700 dark:text-gray-300" data-i18n="js_fetch_desc">Richieste asincrone, error handling, progressive enhancement.</p>
       </div>
     </div>
   </section>
 
   <section id="css" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-pink-50 to-rose-50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900 dark:text-gray-100" data-reveal>
-    <h2 class="text-2xl font-bold mb-4 motion-safe:animate-reveal-up transition-colors transition-transform transform-gpu hover:text-brand hover:underline decoration-2 underline-offset-4 hover:-translate-y-0.5">🎨 CSS Avanzato</h2>
+    <h2 class="text-2xl font-bold mb-4 motion-safe:animate-reveal-up transition-colors transition-transform transform-gpu hover:text-brand hover:underline decoration-2 underline-offset-4 hover:-translate-y-0.5" data-i18n="css_title">🎨 CSS Avanzato</h2>
     <div class="grid sm:grid-cols-2 gap-6">
       <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0s">
         <h3 class="text-xl font-semibold flex items-center gap-2 text-brand transition-transform transform-gpu hover:skew-x-1">
           <svg class="w-5 h-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 20l6-6 4 4 6-10"/></svg>
-          Layout & Animazioni
+          <span data-i18n="css_layout_title">Layout & Animazioni</span>
         </h3>
-        <p class="mt-2 text-gray-700 dark:text-gray-300">Grid, flex, transizioni e animazioni complesse con performance ottimali.</p>
+        <p class="mt-2 text-gray-700 dark:text-gray-300" data-i18n="css_layout_desc">Grid, flex, transizioni e animazioni complesse con performance ottimali.</p>
       </div>
       <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0.12s">
         <h3 class="text-xl font-semibold flex items-center gap-2 text-brand transition-transform transform-gpu hover:-skew-y-1">
           <svg class="w-5 h-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="7"/></svg>
           Design System
         </h3>
-        <p class="mt-2 text-gray-700 dark:text-gray-300">Componenti riutilizzabili, tipografia e palette coerenti.</p>
+        <p class="mt-2 text-gray-700 dark:text-gray-300" data-i18n="css_design_system_desc">Componenti riutilizzabili, tipografia e palette coerenti.</p>
       </div>
     </div>
   </section>
 
   <section id="tailwind" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-teal-50 to-emerald-50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900 dark:text-gray-100" data-reveal>
-    <h2 class="text-2xl font-bold mb-4 motion-safe:animate-reveal-up transition-colors transition-transform transform-gpu hover:text-brand hover:underline decoration-2 underline-offset-4 hover:skew-x-1">🌬️ Tailwind CSS</h2>
+    <h2 class="text-2xl font-bold mb-4 motion-safe:animate-reveal-up transition-colors transition-transform transform-gpu hover:text-brand hover:underline decoration-2 underline-offset-4 hover:skew-x-1" data-i18n="tailwind_title">🌬️ Tailwind CSS</h2>
     <div class="grid sm:grid-cols-2 gap-6">
       <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0s">
         <h3 class="text-xl font-semibold flex items-center gap-2 text-brand transition-all transform-gpu hover:tracking-wide">
           <svg class="w-5 h-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12c4-8 14-8 18 0-4 8-14 8-18 0z"/></svg>
-          Utility-first UI
+          <span data-i18n="tailwind_utility_title">Utility-first UI</span>
         </h3>
-        <p class="mt-2 text-gray-700 dark:text-gray-300">Componenti moderni, responsive mobile-first, stato hover/focus accessibile.</p>
+        <p class="mt-2 text-gray-700 dark:text-gray-300" data-i18n="tailwind_utility_desc">Componenti moderni, responsive mobile-first, stato hover/focus accessibile.</p>
       </div>
       <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0.12s">
         <h3 class="text-xl font-semibold flex items-center gap-2 text-brand transition-transform transform-gpu hover:rotate-1">
           <svg class="w-5 h-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 6h12v12H6z"/><path d="M9 9h6v6H9z"/></svg>
-          Build & Performance
+          <span data-i18n="tailwind_build_title">Build & Performance</span>
         </h3>
-        <p class="mt-2 text-gray-700 dark:text-gray-300">Purge CSS, ottimizzazione production, riduzione CSS critico.</p>
+        <p class="mt-2 text-gray-700 dark:text-gray-300" data-i18n="tailwind_build_desc">Purge CSS, ottimizzazione production, riduzione CSS critico.</p>
       </div>
     </div>
 
     <!-- Demo Modal -->
     <div class="mt-6">
-      <button id="open-modal" class="px-4 py-2 bg-brand text-white rounded-lg shadow hover:bg-brandDark transition" data-reveal data-delay="0.18s">Apri Modal Demo</button>
+      <button id="open-modal" class="px-4 py-2 bg-brand text-white rounded-lg shadow hover:bg-brandDark transition" data-reveal data-delay="0.18s" data-i18n="modal_open">Apri Modal Demo</button>
     </div>
     <div id="modal" class="fixed inset-0 hidden items-center justify-center">
       <div id="modal-overlay" class="absolute inset-0 bg-black/40"></div>
       <div role="dialog" aria-modal="true" aria-labelledby="modal-title" class="relative bg-white rounded-xl shadow-xl w-11/12 sm:w-96 p-6 dark:bg-gray-800 dark:text-gray-100">
         <h3 id="modal-title" class="text-xl font-semibold flex items-center gap-2 transition-transform hover:scale-105 transform-gpu">
           <svg class="w-5 h-5 text-emerald-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l9 4-9 4-9-4 9-4z"/><path d="M3 12l9 4 9-4"/></svg>
-          Modal Tailwind Demo
+          <span data-i18n="modal_title">Modal Tailwind Demo</span>
         </h3>
-        <p class="mt-2 text-gray-700 dark:text-gray-300">Esempio di componente UI con Tailwind e JavaScript minimale.</p>
+        <p class="mt-2 text-gray-700 dark:text-gray-300" data-i18n="modal_desc">Esempio di componente UI con Tailwind e JavaScript minimale.</p>
         <div class="mt-4 flex justify-end gap-2">
-          <button id="close-modal" class="px-3 py-2 bg-gray-100 rounded hover:bg-gray-200 transition">Chiudi</button>
+          <button id="close-modal" class="px-3 py-2 bg-gray-100 rounded hover:bg-gray-200 transition" data-i18n="modal_close">Chiudi</button>
         </div>
       </div>
     </div>
   </section>
 
   <section id="html" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-cyan-50 to-sky-50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900 dark:text-gray-100" data-reveal>
-    <h2 class="text-2xl font-bold mb-4 motion-safe:animate-reveal-up transition-colors transition-transform transform-gpu hover:text-brand hover:underline decoration-2 underline-offset-4 hover:translate-x-0.5">🔤 HTML Semantico</h2>
-    <p class="text-gray-700">Struttura semantica, accessibilità, SEO tecnico e dati strutturati JSON-LD.</p>
+    <h2 class="text-2xl font-bold mb-4 motion-safe:animate-reveal-up transition-colors transition-transform transform-gpu hover:text-brand hover:underline decoration-2 underline-offset-4 hover:translate-x-0.5" data-i18n="html_title">🔤 HTML Semantico</h2>
+    <p class="text-gray-700" data-i18n="html_desc">Struttura semantica, accessibilità, SEO tecnico e dati strutturati JSON-LD.</p>
   </section>
 
   <section id="database" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-lime-50 to-green-50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900 dark:text-gray-100" data-reveal>
-    <h2 class="text-2xl font-bold mb-4 motion-safe:animate-reveal-up transition-colors transition-transform transform-gpu hover:text-brand hover:underline decoration-2 underline-offset-4 hover:rotate-1">🗄️ Database (MySQL)</h2>
+    <h2 class="text-2xl font-bold mb-4 motion-safe:animate-reveal-up transition-colors transition-transform transform-gpu hover:text-brand hover:underline decoration-2 underline-offset-4 hover:rotate-1" data-i18n="db_title">🗄️ Database (MySQL)</h2>
     <div class="grid sm:grid-cols-2 gap-6">
       <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0s">
         <h3 class="text-xl font-semibold flex items-center gap-2 text-brand transition-transform transform-gpu hover:rotate-1">
           <svg class="w-5 h-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="6" rx="9" ry="4"/><path d="M3 6v6c0 2.2 4 4 9 4s9-1.8 9-4V6"/></svg>
-          Modellazione & Query
+          <span data-i18n="db_model_title">Modellazione & Query</span>
         </h3>
-        <p class="mt-2 text-gray-700 dark:text-gray-300">Schema ottimizzato, normalizzazione, query complesse e indici.</p>
+        <p class="mt-2 text-gray-700 dark:text-gray-300" data-i18n="db_model_desc">Schema ottimizzato, normalizzazione, query complesse e indici.</p>
       </div>
       <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0.12s">
         <h3 class="text-xl font-semibold flex items-center gap-2 text-brand transition-transform transform-gpu hover:-skew-y-1">
           <svg class="w-5 h-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l7 4v6c0 4-5 6-7 8-2-2-7-4-7-8V6l7-4z"/></svg>
-          Migrazioni & Sicurezza
+          <span data-i18n="db_migrate_title">Migrazioni & Sicurezza</span>
         </h3>
-        <p class="mt-2 text-gray-700 dark:text-gray-300">Backup, migrazioni, gestione permessi e protezione dati.</p>
+        <p class="mt-2 text-gray-700 dark:text-gray-300" data-i18n="db_migrate_desc">Backup, migrazioni, gestione permessi e protezione dati.</p>
       </div>
     </div>
   </section>
@@ -330,7 +334,7 @@
 
 
   <section id="progetti" class="max-w-5xl mx-auto py-12 px-6 data-[reveal] opacity-0 translate-y-6 transition-all duration-700 dark:text-gray-100" data-reveal>
-    <h2 class="text-2xl font-bold mb-6 motion-safe:animate-reveal-up transition-colors transition-transform transform-gpu hover:text-brand hover:underline decoration-2 underline-offset-4 hover:scale-105">Esperienze & Progetti</h2>
+    <h2 class="text-2xl font-bold mb-6 motion-safe:animate-reveal-up transition-colors transition-transform transform-gpu hover:text-brand hover:underline decoration-2 underline-offset-4 hover:scale-105" data-i18n="projects_title">Esperienze & Progetti</h2>
     
      <!-- Card sito con preview live -->
     <a href="https://innovazioneweb.com/" target="_blank" rel="noopener noreferrer" data-reveal data-delay="0.12s"
@@ -344,15 +348,15 @@
     <div class="space-y-6">
       
       <div class="p-6 bg-white rounded-2xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100">
-        <h3 class="text-xl font-semibold transition-transform transform-gpu hover:rotate-1">Progetti GitHub Open Source</h3>
-        <p class="mt-2 dark:text-gray-300">Plugin e tool sviluppati per semplificare l’uso di WordPress e automazioni digitali.</p>
-        <a href="https://github.com/Immens95" class="text-blue-600 font-semibold hover:underline">Vai ai repo</a>
+        <h3 class="text-xl font-semibold transition-transform transform-gpu hover:rotate-1" data-i18n="projects_github_title">Progetti GitHub Open Source</h3>
+        <p class="mt-2 dark:text-gray-300" data-i18n="projects_github_desc">Plugin e tool sviluppati per semplificare l’uso di WordPress e automazioni digitali.</p>
+        <a href="https://github.com/Immens95" class="text-blue-600 font-semibold hover:underline" data-i18n="projects_github_link">Vai ai repo</a>
       </div>
 
       <div class="p-6 bg-white rounded-2xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100">
         <h3 class="text-xl font-semibold transition-transform transform-gpu hover:-skew-y-1">Studio Immens CSS Classes</h3>
-        <p class="mt-2 dark:text-gray-300">Plugin pubblicato su wordpress.org per creare rapidamente classi CSS e aggiungerle ai blocchi dell'editor di WordPress con un clic e con anteprima in tempo reale..</p>
-        <a href="https://github.com/Studio-Immens/studio-immens-css-classes" class="text-blue-600 font-semibold hover:underline">Vai al repo</a>
+        <p class="mt-2 dark:text-gray-300" data-i18n="projects_cssclasses_desc">Plugin pubblicato su wordpress.org per creare rapidamente classi CSS e aggiungerle ai blocchi dell'editor di WordPress con un clic e con anteprima in tempo reale.</p>
+        <a href="https://github.com/Studio-Immens/studio-immens-css-classes" class="text-blue-600 font-semibold hover:underline" data-i18n="projects_repo_link">Vai al repo</a>
       </div>
       
     </div>
@@ -391,7 +395,7 @@
   <!-- Footer -->
   <footer class="bg-gray-800 text-gray-300 py-6 mt-12">
     <div class="max-w-4xl mx-auto text-center">
-      <p>© 2025 Mauro Arnone - Tutti i diritti riservati</p>
+      <p data-i18n="footer_rights">© 2025 Mauro Arnone - Tutti i diritti riservati</p>
     </div>
   </footer>
 
@@ -725,7 +729,6 @@
         });
       };
 
-      updateHUD();
       applyClickableHeadings();
 
       // Animazione di click globale simile all’effetto degli h3
@@ -813,6 +816,7 @@
         cta_linkedin: 'LinkedIn',
         cta_github: 'GitHub',
         about_title: 'Chi sono',
+        about_intro: 'Sono uno sviluppatore web con esperienza in WordPress, PHP e JavaScript. Unisco competenza tecnica e visione strategica per trasformare idee in strumenti concreti, scalabili e orientati ai risultati. Questo progetto, realizzato con HTML, Tailwind e GitHub Pages, presenta competenze, esperienze e progetti in modo semplice, moderno e d’impatto, offrendo una panoramica chiara, elegante e immediata del mio percorso professionale e delle mie capacità.',
         skills_wordpress: 'WordPress',
         skills_php: 'PHP',
         skills_js: 'JavaScript',
@@ -850,8 +854,51 @@
           'Veterano': 'Hai esplorato a fondo ogni parte.',
           'Leggenda': 'Impegno epico nel tour del CV.',
           'Mitico': 'Hai raggiunto un traguardo altissimo.',
-          'Immortale': 'Hai portato l’XP al massimo livello.'
-        }
+          'Immortale': 'Hai portato l’XP al massimo livello.',
+          'Debugger': 'Hai risolto l’enigma via console.'
+        },
+        // Sezioni dettagliate
+        wp_dev_title: 'Sviluppo Plugin e Temi',
+        wp_dev_desc: 'Best practice, sicurezza, hooks e custom post types. Pubblicazioni su wordpress.org.',
+        wp_dev_link: 'Esempio plugin',
+        wp_perf_title: 'Performance & SEO',
+        wp_perf_desc: 'Ottimizzazioni LCP, caching, immagini e struttura HTML semantica con schema.org.',
+        php_arch_title: 'Architettura & OOP',
+        php_arch_desc: 'Pattern, organizzazione codice, sicurezza input/output, integrazione con WordPress.',
+        php_api_title: 'API & integrazioni',
+        php_api_desc: 'REST, webhook, automazioni CRM e servizi terzi.',
+        js_title: '⚡ JavaScript',
+        js_interactivity_title: 'Interattività & UX',
+        js_interactivity_desc: 'Esperienze fluide, animazioni, gestione stato lato client, integrazione editor WP.',
+        js_fetch_title: 'Fetch & Async',
+        js_fetch_desc: 'Richieste asincrone, error handling, progressive enhancement.',
+        css_title: '🎨 CSS Avanzato',
+        css_layout_title: 'Layout & Animazioni',
+        css_layout_desc: 'Grid, flex, transizioni e animazioni complesse con performance ottimali.',
+        css_design_system_desc: 'Componenti riutilizzabili, tipografia e palette coerenti.',
+        tailwind_title: '🌬️ Tailwind CSS',
+        tailwind_utility_title: 'UI utility-first',
+        tailwind_utility_desc: 'Componenti moderni, responsive mobile-first, stato hover/focus accessibile.',
+        tailwind_build_title: 'Build & performance',
+        tailwind_build_desc: 'Purge CSS, ottimizzazione production, riduzione CSS critico.',
+        modal_open: 'Apri Modal Demo',
+        modal_title: 'Demo Modal Tailwind',
+        modal_desc: 'Esempio di componente UI con Tailwind e JavaScript minimale.',
+        modal_close: 'Chiudi',
+        html_title: '🔤 HTML Semantico',
+        html_desc: 'Struttura semantica, accessibilità, SEO tecnico e dati strutturati JSON-LD.',
+        db_title: '🗄️ Database (MySQL)',
+        db_model_title: 'Modellazione & Query',
+        db_model_desc: 'Schema ottimizzato, normalizzazione, query complesse e indici.',
+        db_migrate_title: 'Migrazioni & Sicurezza',
+        db_migrate_desc: 'Backup, migrazioni, gestione permessi e protezione dati.',
+        projects_title: 'Esperienze & Progetti',
+        projects_github_title: 'Progetti GitHub Open Source',
+        projects_github_desc: 'Plugin e tool sviluppati per semplificare l’uso di WordPress e automazioni digitali.',
+        projects_github_link: 'Vai ai repo',
+        projects_cssclasses_desc: "Plugin pubblicato su wordpress.org per creare rapidamente classi CSS e aggiungerle ai blocchi dell'editor di WordPress con un clic e con anteprima in tempo reale.",
+        projects_repo_link: 'Vai al repo',
+        footer_rights: '© 2025 Mauro Arnone - Tutti i diritti riservati'
       });
       Object.assign(T.en, {
         doc_title: 'Mauro Arnone | Interactive CV',
@@ -874,6 +921,7 @@
         cta_linkedin: 'LinkedIn',
         cta_github: 'GitHub',
         about_title: 'About',
+        about_intro: 'I am a web developer with experience in WordPress, PHP, and JavaScript. I combine technical expertise and strategic vision to turn ideas into concrete, scalable, results‑oriented tools. This project, built with HTML, Tailwind, and GitHub Pages, showcases skills, experiences, and projects in a simple, modern, and impactful way, offering a clear, elegant, and immediate overview of my professional journey and capabilities.',
         skills_wordpress: 'WordPress',
         skills_php: 'PHP',
         skills_js: 'JavaScript',
@@ -911,8 +959,51 @@
           'Veterano': 'You explored every part in depth.',
           'Leggenda': 'Epic commitment in the CV tour.',
           'Mitico': 'You reached a very high milestone.',
-          'Immortale': 'You brought XP to the highest level.'
-        }
+          'Immortale': 'You brought XP to the highest level.',
+          'Debugger': 'You solved the console riddle.'
+        },
+        // Detailed sections
+        wp_dev_title: 'Plugin and Theme Development',
+        wp_dev_desc: 'Best practices, security, hooks and custom post types. Published on wordpress.org.',
+        wp_dev_link: 'Plugin example',
+        wp_perf_title: 'Performance & SEO',
+        wp_perf_desc: 'LCP optimizations, caching, images and semantic HTML structure with schema.org.',
+        php_arch_title: 'Architecture & OOP',
+        php_arch_desc: 'Patterns, code organization, input/output security, WordPress integration.',
+        php_api_title: 'APIs & integrations',
+        php_api_desc: 'REST, webhooks, CRM automations and third-party services.',
+        js_title: '⚡ JavaScript',
+        js_interactivity_title: 'Interactivity & UX',
+        js_interactivity_desc: 'Fluid experiences, animations, client-side state management, WP editor integration.',
+        js_fetch_title: 'Fetch & Async',
+        js_fetch_desc: 'Async requests, error handling, progressive enhancement.',
+        css_title: '🎨 Advanced CSS',
+        css_layout_title: 'Layout & Animations',
+        css_layout_desc: 'Grid, flex, transitions and complex animations with optimal performance.',
+        css_design_system_desc: 'Reusable components, consistent typography and palette.',
+        tailwind_title: '🌬️ Tailwind CSS',
+        tailwind_utility_title: 'Utility-first UI',
+        tailwind_utility_desc: 'Modern components, mobile-first responsive, accessible hover/focus states.',
+        tailwind_build_title: 'Build & Performance',
+        tailwind_build_desc: 'Purge CSS, production optimization, reduce critical CSS.',
+        modal_open: 'Open Modal Demo',
+        modal_title: 'Tailwind Modal Demo',
+        modal_desc: 'Example UI component with Tailwind and minimal JavaScript.',
+        modal_close: 'Close',
+        html_title: '🔤 Semantic HTML',
+        html_desc: 'Semantic structure, accessibility, technical SEO and JSON-LD structured data.',
+        db_title: '🗄️ Database (MySQL)',
+        db_model_title: 'Modeling & Queries',
+        db_model_desc: 'Optimized schema, normalization, complex queries and indexes.',
+        db_migrate_title: 'Migrations & Security',
+        db_migrate_desc: 'Backups, migrations, permission management and data protection.',
+        projects_title: 'Experience & Projects',
+        projects_github_title: 'Open Source GitHub Projects',
+        projects_github_desc: 'Plugins and tools built to simplify WordPress and digital automations.',
+        projects_github_link: 'Go to repos',
+        projects_cssclasses_desc: "Plugin published on wordpress.org to quickly create CSS classes and add them to WordPress editor blocks with one click and live preview.",
+        projects_repo_link: 'Go to repo',
+        footer_rights: '© 2025 Mauro Arnone - All rights reserved'
       });
       Object.assign(T.es, {
         doc_title: 'Mauro Arnone | CV Interactivo',
@@ -972,7 +1063,8 @@
           'Veterano': 'Exploraste cada parte a fondo.',
           'Leggenda': 'Compromiso épico en el recorrido del CV.',
           'Mitico': 'Alcanzaste un hito muy alto.',
-          'Immortale': 'Llevaste el XP al nivel más alto.'
+          'Immortale': 'Llevaste el XP al nivel más alto.',
+          'Debugger': 'Resolviste el acertijo de la consola.'
         }
       });
       // Utilità i18n
@@ -1042,6 +1134,8 @@
       console.log('%c'+T[L].welcome, 'color:#1065ff; font-weight:bold', T[L].welcomeHelp);
       applyI18nStatic();
       document.title = t('doc_title');
+      // Initialize HUD after i18n is ready
+      updateHUD();
       // Wire language buttons
       document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.addEventListener('click', () => {
@@ -1068,25 +1162,225 @@
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') toggleBadgeOverlay(false);
       });
+
+      // Scroll progress bar (navbar bottom)
+      const scrollProgressEl = document.getElementById('scroll-progress');
+      let scrollTicking = false;
+      const updateScrollProgress = () => {
+        if (!scrollProgressEl) return;
+        const doc = document.documentElement;
+        const top = window.scrollY || doc.scrollTop || document.body.scrollTop || 0;
+        const height = Math.max(1, doc.scrollHeight - doc.clientHeight);
+        const pct = Math.min(100, Math.max(0, (top / height) * 100));
+        scrollProgressEl.style.width = pct + '%';
+      };
+      const onScroll = () => {
+        if (scrollTicking) return;
+        scrollTicking = true;
+        requestAnimationFrame(() => {
+          updateScrollProgress();
+          scrollTicking = false;
+        });
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', updateScrollProgress);
+      updateScrollProgress();
+
+      // Reactive particles background
+      const particleCanvas = document.getElementById('bg-particles');
+      const pctx = particleCanvas ? particleCanvas.getContext('2d') : null;
+      const DPR = Math.max(1, Math.floor(window.devicePixelRatio || 1));
+      let particlesBg = [];
+      let mouseX = 0, mouseY = 0, hasMouse = false;
+      let scrollYPrev = window.scrollY;
+      let scrollImpulse = 0; // decays over time
+      const isDarkTheme = document.documentElement.classList.contains('dark');
+      const brandColor = isDarkTheme ? '#1065ff' : '#1065ff';
+      // Mesh and performance parameters
+      let cellSize = 120;
+      let linkRadius = 120;
+      let maxLinksPerParticle = 6;
+      let grid = new Map(); // spatial hash grid
+      let particleTargetCount = 120; // updated on init
+      const computeDensityFactor = () => {
+        const override = localStorage.getItem('particleDensity');
+        if (override === 'low') return 0.6;
+        if (override === 'medium') return 1.0;
+        if (override === 'high') return 1.4;
+        const cores = (navigator.hardwareConcurrency || 4);
+        const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+        let f = 1.0;
+        if (DPR > 1.5) f *= 0.8;
+        if (cores <= 4) f *= 0.85;
+        if (isTouch) f *= 0.8;
+        return f;
+      };
+      const setCanvasSize = () => {
+        if (!particleCanvas || !pctx) return;
+        const w = window.innerWidth;
+        const h = window.innerHeight;
+        particleCanvas.width = Math.max(1, Math.floor(w * DPR));
+        particleCanvas.height = Math.max(1, Math.floor(h * DPR));
+        particleCanvas.style.width = w + 'px';
+        particleCanvas.style.height = h + 'px';
+        pctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+      };
+      const rand = (min, max) => Math.random() * (max - min) + min;
+      const initParticles = () => {
+        if (!particleCanvas) return;
+        const area = window.innerWidth * window.innerHeight;
+        const density = computeDensityFactor();
+        const target = Math.round(Math.min(200, Math.max(60, (area / 15000) * density)));
+        particleTargetCount = target;
+        // adjust link radius for higher counts
+        const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+        linkRadius = isTouch ? 100 : 120;
+        particlesBg = new Array(target).fill(0).map(() => ({
+          x: rand(0, window.innerWidth),
+          y: rand(0, window.innerHeight),
+          vx: rand(-0.25, 0.25),
+          vy: rand(-0.25, 0.25),
+          size: rand(1.2, 2.4),
+          hue: rand(200, 220),
+          alpha: rand(0.35, 0.75)
+        }));
+        // reset grid
+        grid.clear();
+      };
+      const drawParticles = () => {
+        if (!pctx || !particleCanvas) return;
+        pctx.clearRect(0, 0, particleCanvas.width, particleCanvas.height);
+        grid.clear();
+        particlesBg.forEach((p, i) => {
+          // Interaction: mouse repulsion
+          if (hasMouse) {
+            const dx = p.x - mouseX;
+            const dy = p.y - mouseY;
+            const d2 = dx*dx + dy*dy;
+            const r = 120; // influence radius
+            if (d2 < r*r) {
+              const force = Math.max(0.05, 0.25 - (d2 / (r*r)) * 0.25);
+              const inv = 1 / Math.max(8, Math.sqrt(d2));
+              p.vx += dx * inv * force;
+              p.vy += dy * inv * force;
+            }
+          }
+          // Interaction: scroll impulse
+          if (Math.abs(scrollImpulse) > 0.001) {
+            p.vy += scrollImpulse * 0.08;
+          }
+          // Natural motion
+          p.x += p.vx;
+          p.y += p.vy;
+          // Gentle friction
+          p.vx *= 0.99;
+          p.vy *= 0.99;
+          // Wrap around edges
+          if (p.x < -5) p.x = window.innerWidth + 5;
+          if (p.x > window.innerWidth + 5) p.x = -5;
+          if (p.y < -5) p.y = window.innerHeight + 5;
+          if (p.y > window.innerHeight + 5) p.y = -5;
+          // Register into grid
+          const gx = Math.floor(p.x / cellSize);
+          const gy = Math.floor(p.y / cellSize);
+          const key = gx + ',' + gy;
+          const arr = grid.get(key);
+          if (arr) arr.push(i); else grid.set(key, [i]);
+          // Draw circle
+          pctx.beginPath();
+          pctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+          pctx.fillStyle = `hsla(${p.hue}, 85%, 55%, ${p.alpha})`;
+          pctx.fill();
+        });
+        // Draw mesh connections
+        const linkR2 = linkRadius * linkRadius;
+        particlesBg.forEach((p, i) => {
+          const gx = Math.floor(p.x / cellSize);
+          const gy = Math.floor(p.y / cellSize);
+          let links = 0;
+          for (let dx = -1; dx <= 1; dx++) {
+            for (let dy = -1; dy <= 1; dy++) {
+              const key = (gx + dx) + ',' + (gy + dy);
+              const indices = grid.get(key);
+              if (!indices) continue;
+              for (let k = 0; k < indices.length; k++) {
+                const j = indices[k];
+                if (j <= i) continue; // avoid duplicates
+                const q = particlesBg[j];
+                const ddx = p.x - q.x;
+                const ddy = p.y - q.y;
+                const d2 = ddx*ddx + ddy*ddy;
+                if (d2 < linkR2) {
+                  const d = Math.sqrt(d2);
+                  const alpha = Math.max(0.05, 0.35 - (d / linkRadius) * 0.35);
+                  pctx.beginPath();
+                  pctx.moveTo(p.x, p.y);
+                  pctx.lineTo(q.x, q.y);
+                  pctx.strokeStyle = `rgba(16,101,255, ${alpha})`;
+                  pctx.lineWidth = 0.8;
+                  pctx.stroke();
+                  links++;
+                  if (links >= maxLinksPerParticle) break;
+                }
+              }
+              if (links >= maxLinksPerParticle) break;
+            }
+            if (links >= maxLinksPerParticle) break;
+          }
+        });
+        // Decay scroll impulse
+        scrollImpulse *= 0.92;
+      };
+      let rafId = 0;
+      const animate = () => {
+        drawParticles();
+        rafId = requestAnimationFrame(animate);
+      };
+      const onMouseMove = (e) => {
+        hasMouse = true;
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      };
+      const onMouseLeave = () => { hasMouse = false; };
+      const onClickBurst = (e) => {
+        if (!particlesBg.length) return;
+        const x = e.clientX;
+        const y = e.clientY;
+        for (let i = 0; i < 12; i++) {
+          particlesBg.push({
+            x, y,
+            vx: rand(-2.2, 2.2),
+            vy: rand(-2.2, 2.2),
+            size: rand(1.2, 2.6),
+            hue: rand(200, 220),
+            alpha: rand(0.45, 0.85)
+          });
+        }
+        // Trim to target count to avoid unbounded growth
+        const maxCount = Math.round(Math.min(220, Math.max(80, particleTargetCount)));
+        if (particlesBg.length > maxCount) {
+          particlesBg.splice(0, particlesBg.length - maxCount);
+        }
+      };
+      const onScrollParticles = () => {
+        const cur = window.scrollY;
+        const delta = cur - scrollYPrev;
+        scrollYPrev = cur;
+        scrollImpulse += Math.max(-4, Math.min(4, delta / 200));
+      };
+      // Init if canvas available
+      if (particleCanvas && pctx) {
+        setCanvasSize();
+        initParticles();
+        animate();
+        window.addEventListener('resize', () => { setCanvasSize(); initParticles(); });
+        window.addEventListener('mousemove', onMouseMove, { passive: true });
+        window.addEventListener('mouseleave', onMouseLeave, { passive: true });
+        window.addEventListener('scroll', onScrollParticles, { passive: true });
+        document.addEventListener('click', onClickBurst);
+      }
     });
   </script>
 
 </body>
 </html>
-        <li class="col-span-2">
-          <div class="lang-switch flex items-center justify-center gap-2 px-2 py-2 rounded border text-sm bg-white text-gray-800 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700">
-            <span class="sr-only" data-i18n="lang_label">Lingua</span>
-            <button class="lang-btn px-2 py-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700" data-lang="it" data-i18n-aria="aria_lang_it" aria-label="Italiano">IT</button>
-            <span class="mx-1">|</span>
-            <button class="lang-btn px-2 py-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700" data-lang="en" data-i18n-aria="aria_lang_en" aria-label="English">EN</button>
-          </div>
-        </li>
-        lang_label: 'Lingua',
-        aria_lang_it: 'Italiano',
-        aria_lang_en: 'Inglese',
-        lang_label: 'Language',
-        aria_lang_it: 'Italian',
-        aria_lang_en: 'English',
-        lang_label: 'Idioma',
-        aria_lang_it: 'Italiano',
-        aria_lang_en: 'Inglés',
