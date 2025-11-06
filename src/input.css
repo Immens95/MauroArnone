@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Component tweaks for smoother animations */
+.reveal-enter {
+  @apply opacity-0 translate-y-6 transition-all duration-700;
+}
+.reveal-enter-active {
+  @apply opacity-100 translate-y-0;
+}

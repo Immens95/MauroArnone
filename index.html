@@ -1,31 +1,162 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mauro Arnone | CV Interattivo</title>
+  <meta name="description" content="Curriculum interattivo di Mauro Arnone. Competenze: WordPress, PHP, JavaScript, CSS avanzato, Tailwind, HTML e Database (MySQL).">
+  <link rel="canonical" href="https://immens95.github.io/MauroArnone/">
+  <link rel="icon" href="https://avatars.githubusercontent.com/u/129175879?v=4">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Mauro Arnone | CV Interattivo">
+  <meta property="og:description" content="Competenze dimostrate: WordPress, PHP, JavaScript, CSS avanzato, Tailwind, HTML e Database.">
+  <meta property="og:url" content="https://immens95.github.io/MauroArnone/">
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/129175879?v=4">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mauro Arnone | CV Interattivo">
+  <meta name="twitter:description" content="Portfolio e CV con focus su WordPress, PHP, JS, CSS, Tailwind, HTML e Database.">
+  <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/129175879?v=4">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: '#1065ff',
+            brandDark: '#0b4ecc',
+            accent: '#10b981',
+          },
+          keyframes: {
+            revealUp: {
+              '0%': { opacity: '0', transform: 'translateY(12px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-4px)' },
+            },
+          },
+          animation: {
+            'reveal-up': 'revealUp 0.6s ease-out both',
+            float: 'float 6s ease-in-out infinite',
+            'pulse-subtle': 'pulse 3s ease-in-out infinite',
+          },
+        },
+      },
+    };
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Mauro Arnone",
+    "email": "mailto:mauro.arnone.ma@gmail.com",
+    "jobTitle": "Web Developer",
+    "url": "https://immens95.github.io/MauroArnone/",
+    "sameAs": [
+      "https://github.com/Immens95",
+      "https://www.linkedin.com/in/mauro-arnone/"
+    ]
+  }
+  </script>
 </head>
-<body class="bg-gray-100 text-gray-900 font-sans">
+<body class="bg-gray-100 text-gray-900 font-sans dark:bg-gray-900 dark:text-gray-100">
+
+  <a href="#contenuto" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-white text-blue-600 px-3 py-2 rounded shadow" data-i18n="skip_to_content">Salta al contenuto</a>
 
   <!-- Header -->
-  <header class="bg-gradient-to-r from-blue-600 to-teal-500 text-white py-10 shadow-lg">
-    <div class="max-w-4xl mx-auto text-center">
-      <img src="https://avatars.githubusercontent.com/u/129175879?v=4" alt="Foto profilo" class="mx-auto rounded-full w-64 h-64 border-4 border-white shadow-md">
-      <h1 class="text-4xl font-bold mt-4">Mauro Arnone</h1>
-      <p class="text-lg mt-2">Web Developer | WordPress | PHP | JavaScript</p>
-      <div class="mt-4 space-x-4">
-        <a href="mailto:mauro.arnone.ma@gmail.com" class="px-4 py-2 bg-white text-blue-600 rounded-lg shadow hover:bg-gray-200">Contattami</a>
-        <a href="https://www.linkedin.com/in/mauro-arnone/" class="px-4 py-2 bg-white text-blue-600 rounded-lg shadow hover:bg-gray-200">LinkedIn</a>
-        <a href="https://github.com/Immens95" class="px-4 py-2 bg-white text-blue-600 rounded-lg shadow hover:bg-gray-200">GitHub</a>
+  <!-- Navbar -->
+  <nav class="fixed top-0 inset-x-0 z-50 bg-white/70 backdrop-blur shadow-sm dark:bg-gray-900/70">
+    <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#home" class="flex items-center gap-2">
+        <img src="https://avatars.githubusercontent.com/u/129175879?v=4" alt="Logo" class="w-8 h-8 rounded-full" data-i18n-alt="alt_logo">
+        <span class="font-semibold">Mauro Arnone</span>
+      </a>
+      <button id="menu-btn" class="md:hidden px-3 py-2 rounded bg-brand text-white hover:bg-brandDark transition" data-i18n="menu_button_text">Menu</button>
+      <ul id="menu" class="hidden md:flex items-center gap-4 text-sm">
+        <li><a class="hover:text-brand" href="#chi-sono" data-i18n="nav_about">Chi sono</a></li>
+        <li><a class="hover:text-brand" href="#wordpress" data-i18n="nav_wordpress">WordPress</a></li>
+        <li><a class="hover:text-brand" href="#php" data-i18n="nav_php">PHP</a></li>
+        <li><a class="hover:text-brand" href="#javascript" data-i18n="nav_javascript">JavaScript</a></li>
+        <li><a class="hover:text-brand" href="#css" data-i18n="nav_css">CSS</a></li>
+        <li><a class="hover:text-brand" href="#tailwind" data-i18n="nav_tailwind">Tailwind</a></li>
+        <li><a class="hover:text-brand" href="#html" data-i18n="nav_html">HTML</a></li>
+        <li><a class="hover:text-brand" href="#database" data-i18n="nav_database">Database</a></li>
+        <li><a class="hover:text-brand" href="#progetti" data-i18n="nav_projects">Progetti</a></li>
+        <li>
+          <div id="gamify-hud" class="hidden md:flex items-center gap-1 px-2 py-1 rounded border text-xs bg-white/70 text-gray-800 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700">
+            <span class="font-semibold" data-i18n="hud_xp_label">XP</span>
+            <span id="xp-count">0</span>
+            <span id="xp-progress" class="ml-1 text-gray-500 dark:text-gray-300"></span>
+            <div id="xp-bar" class="ml-2 w-20 h-1 rounded bg-gray-200 dark:bg-gray-700 overflow-hidden">
+              <div id="xp-bar-fill" class="h-1 bg-brand w-0 transition-all duration-300"></div>
+            </div>
+            <span class="mx-1">|</span>
+            <span class="font-semibold" data-i18n="hud_badge_label">Badge</span>
+            <span id="badge-count">0</span>
+          </div>
+        </li>
+        <li>
+          <div class="lang-switch hidden md:flex items-center gap-1 px-2 py-1 rounded border text-xs bg-white/70 text-gray-800 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700">
+            <span class="sr-only" data-i18n="lang_label">Lingua</span>
+            <button class="lang-btn px-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700" data-lang="it" data-i18n-aria="aria_lang_it" aria-label="Italiano">IT</button>
+            <span class="mx-1">|</span>
+            <button class="lang-btn px-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700" data-lang="en" data-i18n-aria="aria_lang_en" aria-label="English">EN</button>
+          </div>
+        </li>
+        <li>
+          <button class="theme-toggle px-3 py-2 rounded border text-sm bg-white hover:bg-gray-100 transition dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700 dark:hover:bg-gray-700 flex items-center gap-2" aria-label="Cambia tema" aria-pressed="false" data-i18n-aria="aria_theme_toggle">
+            <svg class="moon-icon w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <svg class="sun-icon w-4 h-4 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><path d="M12 1v3M12 20v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M1 12h3M20 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
+            <span class="hidden sm:inline theme-text" data-i18n="theme_button_text">Tema</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+    <!-- Mobile dropdown -->
+    <div id="menu-mobile" class="md:hidden hidden border-t bg-white dark:bg-gray-900">
+      <ul class="max-w-5xl mx-auto px-4 py-3 grid grid-cols-2 gap-2 text-sm">
+        <li><a class="block px-3 py-2 rounded hover:bg-blue-50" href="#chi-sono" data-i18n="nav_about">Chi sono</a></li>
+        <li><a class="block px-3 py-2 rounded hover:bg-blue-50" href="#wordpress" data-i18n="nav_wordpress">WordPress</a></li>
+        <li><a class="block px-3 py-2 rounded hover:bg-blue-50" href="#php" data-i18n="nav_php">PHP</a></li>
+        <li><a class="block px-3 py-2 rounded hover:bg-blue-50" href="#javascript" data-i18n="nav_javascript">JavaScript</a></li>
+        <li><a class="block px-3 py-2 rounded hover:bg-blue-50" href="#css" data-i18n="nav_css">CSS</a></li>
+        <li><a class="block px-3 py-2 rounded hover:bg-blue-50" href="#tailwind" data-i18n="nav_tailwind">Tailwind</a></li>
+        <li><a class="block px-3 py-2 rounded hover:bg-blue-50" href="#html" data-i18n="nav_html">HTML</a></li>
+        <li><a class="block px-3 py-2 rounded hover:bg-blue-50" href="#database" data-i18n="nav_database">Database</a></li>
+        <li><a class="block px-3 py-2 rounded hover:bg-blue-50" href="#progetti" data-i18n="nav_projects">Progetti</a></li>
+        <li class="col-span-2">
+          <button class="theme-toggle w-full px-3 py-2 rounded border text-sm bg-white hover:bg-gray-100 transition dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700 dark:hover:bg-gray-700 flex items-center justify-center gap-2" aria-label="Cambia tema" aria-pressed="false" data-i18n-aria="aria_theme_toggle">
+            <svg class="moon-icon w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <svg class="sun-icon w-4 h-4 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><path d="M12 1v3M12 20v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M1 12h3M20 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
+            <span class="theme-text" data-i18n="theme_button_text">Tema</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header id="home" class="relative bg-gradient-to-br from-blue-600 via-teal-500 to-purple-600 text-white pt-28 pb-16 shadow-lg overflow-hidden">
+    <div class="absolute -top-20 -left-20 w-72 h-72 bg-white/10 rounded-full blur-2xl"></div>
+    <div class="absolute bottom-0 right-0 w-80 h-80 bg-black/10 rounded-full blur-3xl"></div>
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <img src="https://avatars.githubusercontent.com/u/129175879?v=4" alt="Foto profilo di Mauro Arnone" class="mx-auto rounded-full w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 border-4 border-white shadow-md animate-float" decoding="async" data-i18n-alt="alt_profile_photo">
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mt-4">Mauro Arnone</h1>
+      <p class="text-base sm:text-lg mt-2 opacity-90" data-i18n="hero_tagline">Web Developer • WordPress • PHP • JavaScript</p>
+      <div class="mt-6 flex flex-wrap items-center justify-center gap-3">
+        <a href="mailto:mauro.arnone.ma@gmail.com" class="px-4 py-2 bg-white text-brand rounded-lg shadow hover:bg-gray-200 transition" data-i18n="cta_contact">Contattami</a>
+        <a href="https://www.linkedin.com/in/mauro-arnone/" rel="noopener noreferrer" class="px-4 py-2 bg-white text-brand rounded-lg shadow hover:bg-gray-200 transition" data-i18n="cta_linkedin">LinkedIn</a>
+        <a href="https://github.com/Immens95" rel="noopener noreferrer" class="px-4 py-2 bg-white text-brand rounded-lg shadow hover:bg-gray-200 transition" data-i18n="cta_github">GitHub</a>
       </div>
-      <p class="text-lg mt-2">mauro.arnone.ma@gmail.com</p>
+      <p class="text-sm sm:text-base mt-3">mauro.arnone.ma@gmail.com</p>
     </div>
   </header>
 
-  <!-- Bio -->
-  <section class="max-w-4xl mx-auto py-12 px-6">
-    <h2 class="text-2xl font-bold mb-4">Chi sono</h2>
+  <main id="contenuto" class="pt-6">
+  <section id="chi-sono" class="max-w-5xl mx-auto py-10 px-6 bg-white/70 backdrop-blur rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-gray-800/70 dark:text-gray-100" data-reveal>
+    <h2 class="text-2xl font-bold mb-4 transition-colors hover:text-brand hover:underline decoration-2 underline-offset-4" data-i18n="about_title">Chi sono</h2>
     <p class="text-lg leading-relaxed">
       Sono uno sviluppatore web con esperienza in WordPress, PHP e JavaScript.
       Unisco competenza tecnica e visione strategica per trasformare idee in strumenti concreti, scalabili e orientati ai risultati. 
@@ -34,59 +165,228 @@
     </p>
   </section>
 
-  <!-- Competenze -->
-  <section class="bg-white shadow-md rounded-2xl max-w-4xl mx-auto my-8 p-8">
-    <h2 class="text-2xl font-bold mb-6">Competenze</h2>
+  <!-- Competenze elenco -->
+  <section class="bg-white shadow-md rounded-2xl max-w-5xl mx-auto my-8 p-8 opacity-0 translate-y-6 transition-all duration-700 dark:bg-gray-900 dark:text-gray-100" data-reveal>
+    <h2 class="text-2xl font-bold mb-6 transition-colors hover:text-brand hover:underline decoration-2 underline-offset-4" data-i18n="skills_title">Competenze</h2>
     <ul class="grid grid-cols-2 md:grid-cols-3 gap-4 text-lg">
-      <li>WordPress</li>
-      <li>PHP</li>
-      <li>JavaScript</li>
-      <li>jQuery</li>
-      <li>html</li>
-      <li>css</li>
-      <li>CRM & Automazioni</li>
-      <li>SEO & Marketing</li>
+      <li data-i18n="skills_wordpress">WordPress</li>
+      <li data-i18n="skills_php">PHP</li>
+      <li data-i18n="skills_js">JavaScript</li>
+      <li data-i18n="skills_jquery">jQuery</li>
+      <li data-i18n="skills_html">HTML</li>
+      <li data-i18n="skills_css_advanced">CSS avanzato</li>
+      <li data-i18n="skills_tailwind">Tailwind CSS</li>
+      <li data-i18n="skills_db_mysql">Database (MySQL)</li>
+      <li data-i18n="skills_crm_automation">CRM & Automazioni</li>
+      <li data-i18n="skills_seo_marketing">SEO & Marketing</li>
     </ul>
+  </section>
+
+  <!-- Sezioni dedicate -->
+  <section id="wordpress" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-blue-50 to-teal-50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900 dark:text-gray-100" data-reveal>
+    <h2 class="text-2xl font-bold mb-4 flex items-center gap-2 motion-safe:animate-reveal-up transition-colors transition-transform transform-gpu hover:text-brand hover:underline decoration-2 underline-offset-4 hover:scale-105">🧩 WordPress</h2>
+    <div class="grid sm:grid-cols-2 gap-6">
+      <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0s">
+        <h3 class="text-xl font-semibold flex items-center gap-2 text-brand transition-transform transform-gpu hover:skew-x-1">
+          <svg class="w-5 h-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M3 10v10a1 1 0 0 0 1 1h10"/><path d="M21 8v9a1 1 0 0 1-1 1h-9"/></svg>
+          Sviluppo Plugin e Temi
+        </h3>
+        <p class="mt-2 text-gray-700 dark:text-gray-300">Best practice, sicurezza, hooks e custom post types. Pubblicazioni su wordpress.org.</p>
+        <a href="https://github.com/Studio-Immens/studio-immens-css-classes" class="text-blue-600 font-semibold hover:underline">Esempio plugin</a>
+      </div>
+      <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0.12s">
+        <h3 class="text-xl font-semibold flex items-center gap-2 text-brand transition-transform transform-gpu hover:rotate-1">
+          <svg class="w-5 h-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12h18"/><path d="M12 3v18"/></svg>
+          Performance & SEO
+        </h3>
+        <p class="mt-2 text-gray-700 dark:text-gray-300">Ottimizzazioni LCP, caching, immagini e struttura HTML semantica con schema.org.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="php" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900 dark:text-gray-100" data-reveal>
+    <h2 class="text-2xl font-bold mb-4 motion-safe:animate-reveal-up transition-colors hover:text-brand hover:underline decoration-2 underline-offset-4">🐘 PHP</h2>
+    <div class="grid sm:grid-cols-2 gap-6">
+      <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0s">
+        <h3 class="text-xl font-semibold flex items-center gap-2 text-brand transition-transform hover:scale-105 transform-gpu">
+          <svg class="w-5 h-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          Architettura & OOP
+        </h3>
+        <p class="mt-2 text-gray-700 dark:text-gray-300">Pattern, organizzazione codice, sicurezza input/output, integrazione con WordPress.</p>
+      </div>
+      <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0.12s">
+        <h3 class="text-xl font-semibold flex items-center gap-2 text-brand transition-transform hover:scale-105 transform-gpu">
+          <svg class="w-5 h-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 7l10 10M17 7L7 17"/></svg>
+          API & integrazioni
+        </h3>
+        <p class="mt-2 text-gray-700 dark:text-gray-300">REST, webhook, automazioni CRM e servizi terzi.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="javascript" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900 dark:text-gray-100" data-reveal>
+    <h2 class="text-2xl font-bold mb-4 motion-safe:animate-reveal-up transition-colors transition-transform transform-gpu hover:text-brand hover:underline decoration-2 underline-offset-4 hover:scale-105">⚡ JavaScript</h2>
+    <div class="grid sm:grid-cols-2 gap-6">
+      <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0s">
+        <h3 class="text-xl font-semibold flex items-center gap-2 text-brand transition-transform transform-gpu hover:-translate-y-0.5">
+          <svg class="w-5 h-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h7v8l10-12h-7z"/></svg>
+          Interattività & UX
+        </h3>
+        <p class="mt-2 text-gray-700 dark:text-gray-300">Esperienze fluide, animazioni, gestione stato lato client, integrazione editor WP.</p>
+      </div>
+      <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0.12s">
+        <h3 class="text-xl font-semibold flex items-center gap-2 text-brand transition-transform transform-gpu hover:rotate-1">
+          <svg class="w-5 h-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12h6l2-3 2 6 2-3h6"/></svg>
+          Fetch & Async
+        </h3>
+        <p class="mt-2 text-gray-700 dark:text-gray-300">Richieste asincrone, error handling, progressive enhancement.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="css" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-pink-50 to-rose-50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900 dark:text-gray-100" data-reveal>
+    <h2 class="text-2xl font-bold mb-4 motion-safe:animate-reveal-up transition-colors transition-transform transform-gpu hover:text-brand hover:underline decoration-2 underline-offset-4 hover:-translate-y-0.5">🎨 CSS Avanzato</h2>
+    <div class="grid sm:grid-cols-2 gap-6">
+      <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0s">
+        <h3 class="text-xl font-semibold flex items-center gap-2 text-brand transition-transform transform-gpu hover:skew-x-1">
+          <svg class="w-5 h-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 20l6-6 4 4 6-10"/></svg>
+          Layout & Animazioni
+        </h3>
+        <p class="mt-2 text-gray-700 dark:text-gray-300">Grid, flex, transizioni e animazioni complesse con performance ottimali.</p>
+      </div>
+      <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0.12s">
+        <h3 class="text-xl font-semibold flex items-center gap-2 text-brand transition-transform transform-gpu hover:-skew-y-1">
+          <svg class="w-5 h-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="7"/></svg>
+          Design System
+        </h3>
+        <p class="mt-2 text-gray-700 dark:text-gray-300">Componenti riutilizzabili, tipografia e palette coerenti.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="tailwind" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-teal-50 to-emerald-50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900 dark:text-gray-100" data-reveal>
+    <h2 class="text-2xl font-bold mb-4 motion-safe:animate-reveal-up transition-colors transition-transform transform-gpu hover:text-brand hover:underline decoration-2 underline-offset-4 hover:skew-x-1">🌬️ Tailwind CSS</h2>
+    <div class="grid sm:grid-cols-2 gap-6">
+      <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0s">
+        <h3 class="text-xl font-semibold flex items-center gap-2 text-brand transition-all transform-gpu hover:tracking-wide">
+          <svg class="w-5 h-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12c4-8 14-8 18 0-4 8-14 8-18 0z"/></svg>
+          Utility-first UI
+        </h3>
+        <p class="mt-2 text-gray-700 dark:text-gray-300">Componenti moderni, responsive mobile-first, stato hover/focus accessibile.</p>
+      </div>
+      <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0.12s">
+        <h3 class="text-xl font-semibold flex items-center gap-2 text-brand transition-transform transform-gpu hover:rotate-1">
+          <svg class="w-5 h-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 6h12v12H6z"/><path d="M9 9h6v6H9z"/></svg>
+          Build & Performance
+        </h3>
+        <p class="mt-2 text-gray-700 dark:text-gray-300">Purge CSS, ottimizzazione production, riduzione CSS critico.</p>
+      </div>
+    </div>
+
+    <!-- Demo Modal -->
+    <div class="mt-6">
+      <button id="open-modal" class="px-4 py-2 bg-brand text-white rounded-lg shadow hover:bg-brandDark transition" data-reveal data-delay="0.18s">Apri Modal Demo</button>
+    </div>
+    <div id="modal" class="fixed inset-0 hidden items-center justify-center">
+      <div id="modal-overlay" class="absolute inset-0 bg-black/40"></div>
+      <div role="dialog" aria-modal="true" aria-labelledby="modal-title" class="relative bg-white rounded-xl shadow-xl w-11/12 sm:w-96 p-6 dark:bg-gray-800 dark:text-gray-100">
+        <h3 id="modal-title" class="text-xl font-semibold flex items-center gap-2 transition-transform hover:scale-105 transform-gpu">
+          <svg class="w-5 h-5 text-emerald-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l9 4-9 4-9-4 9-4z"/><path d="M3 12l9 4 9-4"/></svg>
+          Modal Tailwind Demo
+        </h3>
+        <p class="mt-2 text-gray-700 dark:text-gray-300">Esempio di componente UI con Tailwind e JavaScript minimale.</p>
+        <div class="mt-4 flex justify-end gap-2">
+          <button id="close-modal" class="px-3 py-2 bg-gray-100 rounded hover:bg-gray-200 transition">Chiudi</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="html" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-cyan-50 to-sky-50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900 dark:text-gray-100" data-reveal>
+    <h2 class="text-2xl font-bold mb-4 motion-safe:animate-reveal-up transition-colors transition-transform transform-gpu hover:text-brand hover:underline decoration-2 underline-offset-4 hover:translate-x-0.5">🔤 HTML Semantico</h2>
+    <p class="text-gray-700">Struttura semantica, accessibilità, SEO tecnico e dati strutturati JSON-LD.</p>
+  </section>
+
+  <section id="database" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-lime-50 to-green-50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900 dark:text-gray-100" data-reveal>
+    <h2 class="text-2xl font-bold mb-4 motion-safe:animate-reveal-up transition-colors transition-transform transform-gpu hover:text-brand hover:underline decoration-2 underline-offset-4 hover:rotate-1">🗄️ Database (MySQL)</h2>
+    <div class="grid sm:grid-cols-2 gap-6">
+      <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0s">
+        <h3 class="text-xl font-semibold flex items-center gap-2 text-brand transition-transform transform-gpu hover:rotate-1">
+          <svg class="w-5 h-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="6" rx="9" ry="4"/><path d="M3 6v6c0 2.2 4 4 9 4s9-1.8 9-4V6"/></svg>
+          Modellazione & Query
+        </h3>
+        <p class="mt-2 text-gray-700 dark:text-gray-300">Schema ottimizzato, normalizzazione, query complesse e indici.</p>
+      </div>
+      <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0.12s">
+        <h3 class="text-xl font-semibold flex items-center gap-2 text-brand transition-transform transform-gpu hover:-skew-y-1">
+          <svg class="w-5 h-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l7 4v6c0 4-5 6-7 8-2-2-7-4-7-8V6l7-4z"/></svg>
+          Migrazioni & Sicurezza
+        </h3>
+        <p class="mt-2 text-gray-700 dark:text-gray-300">Backup, migrazioni, gestione permessi e protezione dati.</p>
+      </div>
+    </div>
   </section>
 
 
 
-  <!-- Esperienze -->
-  <section class="max-w-4xl mx-auto py-12 px-6">
-    <h2 class="text-2xl font-bold mb-6">Esperienze & Progetti</h2>
+  <section id="progetti" class="max-w-5xl mx-auto py-12 px-6 data-[reveal] opacity-0 translate-y-6 transition-all duration-700 dark:text-gray-100" data-reveal>
+    <h2 class="text-2xl font-bold mb-6 motion-safe:animate-reveal-up transition-colors transition-transform transform-gpu hover:text-brand hover:underline decoration-2 underline-offset-4 hover:scale-105">Esperienze & Progetti</h2>
     
      <!-- Card sito con preview live -->
-    <a href="https://innovazioneweb.com/" target="_blank" 
-       class="group relative bg-white rounded-2xl shadow-xl overflow-hidden transform transition duration-500 hover:rotate-1 hover:-translate-y-3 hover:shadow-2xl">
+    <a href="https://innovazioneweb.com/" target="_blank" rel="noopener noreferrer" data-reveal data-delay="0.12s"
+        class="group relative bg-white rounded-2xl shadow-xl overflow-hidden transform transition duration-500 hover:rotate-1 hover:-translate-y-3 hover:shadow-2xl dark:bg-gray-800">
       
       <div class="overflow-hidden">
-         <img src="res\Immagine 2025-08-20 115437.png" 
-         alt="InnovazioneWeb"
-         class="w-full h-56 object-cover group-hover:scale-105 transition duration-500">
       </div>
       
-      <div class="p-6">
-        <h3 class="text-xl font-semibold mb-2">InnovazioneWeb</h3>
-        <p class="text-gray-600 text-sm">Sito web innovativo per servizi digitali e soluzioni personalizzate.</p>
-      </div>
     </a>
     
     <div class="space-y-6">
       
-      <div class="p-6 bg-white rounded-2xl shadow hover:shadow-lg transition">
-        <h3 class="text-xl font-semibold">Progetti GitHub Open Source</h3>
-        <p class="mt-2">Plugin e tool sviluppati per semplificare l’uso di WordPress e automazioni digitali.</p>
+      <div class="p-6 bg-white rounded-2xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100">
+        <h3 class="text-xl font-semibold transition-transform transform-gpu hover:rotate-1">Progetti GitHub Open Source</h3>
+        <p class="mt-2 dark:text-gray-300">Plugin e tool sviluppati per semplificare l’uso di WordPress e automazioni digitali.</p>
         <a href="https://github.com/Immens95" class="text-blue-600 font-semibold hover:underline">Vai ai repo</a>
       </div>
 
-      <div class="p-6 bg-white rounded-2xl shadow hover:shadow-lg transition">
-        <h3 class="text-xl font-semibold">Studio Immens CSS Classes</h3>
-        <p class="mt-2">Plugin pubblicato su wordpress.org per creare rapidamente classi CSS e aggiungerle ai blocchi dell'editor di WordPress con un clic e con anteprima in tempo reale..</p>
+      <div class="p-6 bg-white rounded-2xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100">
+        <h3 class="text-xl font-semibold transition-transform transform-gpu hover:-skew-y-1">Studio Immens CSS Classes</h3>
+        <p class="mt-2 dark:text-gray-300">Plugin pubblicato su wordpress.org per creare rapidamente classi CSS e aggiungerle ai blocchi dell'editor di WordPress con un clic e con anteprima in tempo reale..</p>
         <a href="https://github.com/Studio-Immens/studio-immens-css-classes" class="text-blue-600 font-semibold hover:underline">Vai al repo</a>
       </div>
       
     </div>
   </section>
+
+  </main>
+
+  <!-- Toast ricompense -->
+  <div id="toast-container" class="fixed bottom-4 right-4 space-y-2 z-50"></div>
+
+  <!-- Animazione click globale -->
+  <style>
+    @keyframes clickPop {
+      0% { transform: translateY(0) scale(1) skewY(0deg); }
+      50% { transform: translateY(0) scale(0.98) skewY(-2deg); }
+      100% { transform: translateY(0) scale(1) skewY(0deg); }
+    }
+    .click-anim { animation: clickPop 180ms ease-out; }
+  </style>
+
+  <!-- Overlay Badge -->
+  <div id="badge-overlay" class="fixed inset-0 hidden items-center justify-center z-50">
+    <div id="badge-backdrop" class="absolute inset-0 bg-black/40"></div>
+    <div role="dialog" aria-modal="true" aria-labelledby="badge-title" class="relative bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 rounded-xl shadow-xl w-11/12 sm:w-[28rem] p-6">
+      <div class="flex items-center justify-between">
+        <h3 id="badge-title" class="text-lg font-semibold" data-i18n="overlay_title">Badge</h3>
+        <button id="badge-close" class="px-3 py-1 text-sm rounded bg-gray-100 hover:bg-gray-200 transition dark:bg-gray-700 dark:hover:bg-gray-600" data-i18n="overlay_close">Chiudi</button>
+      </div>
+      <p class="mt-2 text-sm dark:text-gray-300" data-i18n="overlay_desc">Clicca i titoli del CV per guadagnare XP e sbloccare badge.</p>
+      <ul id="badge-list" class="mt-4 space-y-2">
+        <li class="text-sm text-gray-600 dark:text-gray-300" data-i18n="overlay_no_badge">Nessun badge ancora. Prova a cliccare un titolo!</li>
+      </ul>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer class="bg-gray-800 text-gray-300 py-6 mt-12">
@@ -95,5 +395,698 @@
     </div>
   </footer>
 
+  <!-- Interazioni: menu mobile, modal e reveal on scroll -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Theme toggle
+      const root = document.documentElement;
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const savedTheme = localStorage.getItem('theme');
+      const isDark = savedTheme ? savedTheme === 'dark' : prefersDark;
+      const applyTheme = (dark) => {
+        root.classList.toggle('dark', dark);
+        document.querySelectorAll('.theme-toggle').forEach(btn => {
+          btn.setAttribute('aria-pressed', String(dark));
+          const moon = btn.querySelector('.moon-icon');
+          const sun = btn.querySelector('.sun-icon');
+          if (moon && sun) {
+            if (dark) { moon.classList.add('hidden'); sun.classList.remove('hidden'); }
+            else { sun.classList.add('hidden'); moon.classList.remove('hidden'); }
+          }
+        });
+        localStorage.setItem('theme', dark ? 'dark' : 'light');
+      };
+      applyTheme(isDark);
+      document.querySelectorAll('.theme-toggle').forEach(btn => {
+        btn.addEventListener('click', () => applyTheme(!root.classList.contains('dark')));
+      });
+
+      const menuBtn = document.getElementById('menu-btn');
+      const menuDesktop = document.getElementById('menu');
+      const menuMobile = document.getElementById('menu-mobile');
+      if (menuBtn && menuMobile) {
+        menuBtn.addEventListener('click', function () {
+          menuMobile.classList.toggle('hidden');
+        });
+      }
+
+      const options = { threshold: 0.15 };
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const delay = entry.target.getAttribute('data-delay');
+            if (delay) entry.target.style.animationDelay = delay;
+            entry.target.classList.add('opacity-100', 'translate-y-0');
+            entry.target.classList.remove('opacity-0', 'translate-y-6');
+            entry.target.classList.add('motion-safe:animate-reveal-up');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, options);
+      document.querySelectorAll('[data-reveal]').forEach((el) => observer.observe(el));
+
+      // Modal demo
+      const openModal = document.getElementById('open-modal');
+      const closeModal = document.getElementById('close-modal');
+      const modal = document.getElementById('modal');
+      const overlay = document.getElementById('modal-overlay');
+      const toggleModal = (show) => {
+        if (!modal) return;
+        modal.classList.toggle('hidden', !show);
+        modal.classList.toggle('flex', show);
+      };
+      if (openModal) openModal.addEventListener('click', () => toggleModal(true));
+      if (closeModal) closeModal.addEventListener('click', () => toggleModal(false));
+      if (overlay) overlay.addEventListener('click', () => toggleModal(false));
+
+      // Gamification: XP/Badge e titoli cliccabili
+      const hudEl = document.getElementById('gamify-hud');
+      const xpEl = document.getElementById('xp-count');
+      const badgeEl = document.getElementById('badge-count');
+      const toastContainer = document.getElementById('toast-container');
+      const badgeOverlay = document.getElementById('badge-overlay');
+      const badgeBackdrop = document.getElementById('badge-backdrop');
+      const badgeCloseBtn = document.getElementById('badge-close');
+      const badgeListEl = document.getElementById('badge-list');
+      const ACHIEVEMENTS = [
+        { threshold: 3, name: 'Esploratore', desc: 'Hai iniziato ad esplorare il CV.' },
+        { threshold: 7, name: 'Esperto', desc: 'Hai approfondito molte sezioni.' },
+        { threshold: 12, name: 'Maestro', desc: 'Hai provato quasi tutto.' },
+        { threshold: 25, name: 'Curioso', desc: 'Hai cliccato su molte sezioni.' },
+        { threshold: 50, name: 'Instancabile', desc: 'Non ti fermi mai: grande costanza.' },
+        { threshold: 100, name: 'Veterano', desc: 'Hai esplorato a fondo ogni parte.' },
+        { threshold: 250, name: 'Leggenda', desc: 'Impegno epico nel tour del CV.' },
+        { threshold: 500, name: 'Mitico', desc: 'Hai raggiunto un traguardo altissimo.' },
+        { threshold: 1000, name: 'Immortale', desc: 'Hai portato l’XP al massimo livello.' },
+      ];
+      let xp = parseInt(localStorage.getItem('xp') || '0', 10);
+      let badges = [];
+      try { badges = JSON.parse(localStorage.getItem('badges') || '[]'); } catch (e) { badges = []; }
+      let secretClicks = parseInt(localStorage.getItem('secretClicks') || '0', 10);
+      const lang = ((localStorage.getItem('langOverride') || navigator.language || 'it').slice(0,2) || 'it').toLowerCase();
+      let L = ['it','en','es'].includes(lang) ? lang : 'it';
+      document.documentElement.setAttribute('lang', L);
+      const LABELS = { it: 'Segreto', en: 'Secret', es: 'Secreto' };
+      const SECRET_HINTS = {
+        it: [
+          'Apri DevTools (F12) e digita cvGame.help() 🤓',
+          'Usa cvGame.progress() per vedere XP e badge',
+          'Il codice è una parola…',
+          '… legata al nome del CV',
+          'Tutto minuscolo',
+          'Nessuno spazio',
+          'Inizia con “m”',
+          'Finisce con “o”',
+          'Sono 5 lettere',
+          'mauro'
+        ],
+        en: [
+          'Open DevTools (F12) and type cvGame.help() 🤓',
+          'Use cvGame.progress() to see XP and badges',
+          'The code is a word…',
+          '… tied to the name of the CV',
+          'All lowercase',
+          'No spaces',
+          'Starts with “m”',
+          'Ends with “o”',
+          'Has 5 letters',
+          'mauro'
+        ],
+        es: [
+          'Abre DevTools (F12) y escribe cvGame.help() 🤓',
+          'Usa cvGame.progress() para ver XP y medallas',
+          'El código es una palabra…',
+          '… ligada al nombre del CV',
+          'Todo en minúsculas',
+          'Sin espacios',
+          'Empieza con “m”',
+          'Termina con “o”',
+          'Tiene 5 letras',
+          'mauro'
+        ]
+      };
+
+      const xpProgressEl = document.getElementById('xp-progress');
+      const xpBarFillEl = document.getElementById('xp-bar-fill');
+      const thresholds = ACHIEVEMENTS.map(a => a.threshold).sort((a,b)=>a-b);
+      const getProgressStr = () => {
+        const next = thresholds.find(t => xp < t);
+        const prev = thresholds.reduce((acc, t) => t <= xp ? t : acc, 0);
+        if (!next) return 'Max';
+        const current = xp - prev;
+        const need = next - prev;
+        return `${current}/${need}`;
+      };
+      const updateHUD = () => {
+        if (xpEl) xpEl.textContent = String(xp);
+        if (badgeEl) badgeEl.textContent = String(badges.length);
+        if (xpProgressEl) xpProgressEl.textContent = `(${getProgressStr()})`;
+        if (hudEl) hudEl.classList.remove('hidden');
+
+        // Barra di progresso e tooltip XP al prossimo badge
+        const nextBadge = thresholds.find(t => xp < t);
+        const prevBadge = thresholds.reduce((acc, t) => t <= xp ? t : acc, 0);
+        let pct = 100;
+        if (nextBadge) {
+          const current = Math.max(0, xp - prevBadge);
+          const need = Math.max(1, nextBadge - prevBadge);
+          pct = Math.min(100, Math.round((current / need) * 100));
+        }
+        if (xpBarFillEl) xpBarFillEl.style.width = `${pct}%`;
+        if (hudEl) hudEl.setAttribute('title', nextBadge ? t('hud_tooltip_next', {remaining: Math.max(0, nextBadge - xp)}) : t('hud_tooltip_all'));
+      };
+
+      const showToast = (message) => {
+        if (!toastContainer) return;
+        const t = document.createElement('div');
+        t.className = 'transition opacity-0 translate-y-2 px-3 py-2 rounded shadow bg-white text-gray-800 border border-gray-200 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700';
+        t.textContent = message;
+        toastContainer.appendChild(t);
+        requestAnimationFrame(() => {
+          t.classList.add('opacity-100');
+          t.classList.remove('opacity-0');
+          t.classList.add('translate-y-0');
+          t.classList.remove('translate-y-2');
+        });
+        setTimeout(() => {
+          t.classList.add('opacity-0');
+          t.classList.remove('opacity-100');
+          setTimeout(() => t.remove(), 300);
+        }, 1800);
+      };
+
+      const BADGE_ICONS = {
+        'Esploratore': '🧭',
+        'Esperto': '💡',
+        'Maestro': '🏆',
+        'Curioso': '🔍',
+        'Instancabile': '🔥',
+        'Veterano': '⭐',
+        'Leggenda': '🌟',
+        'Mitico': '💎',
+        'Immortale': '👑',
+        'Segreto': '🫣'
+      };
+
+      const BADGE_DESC_EXTRA = {
+        'Segreto': 'Hai scoperto un easter egg cliccando il logo!'
+      };
+
+      const renderBadges = () => {
+        if (!badgeListEl) return;
+        badgeListEl.innerHTML = '';
+        if (!badges.length) {
+          const li = document.createElement('li');
+          li.className = 'text-sm text-gray-600 dark:text-gray-300';
+          li.textContent = t('overlay_no_badge');
+          badgeListEl.appendChild(li);
+          return;
+        }
+        const BADGE_RARITY = {
+          'Esploratore': 'comune',
+          'Curioso': 'comune',
+          'Esperto': 'raro',
+          'Instancabile': 'raro',
+          'Maestro': 'epico',
+          'Veterano': 'epico',
+          'Leggenda': 'leggendario',
+          'Mitico': 'mitico',
+          'Immortale': 'mitico',
+          'Segreto': 'segreto',
+          'Debugger': 'raro'
+        };
+        const RARITY_CLASS = {
+          'comune': 'border-gray-300 dark:border-gray-700',
+          'raro': 'border-blue-300 dark:border-blue-400',
+          'epico': 'border-purple-300 dark:border-purple-400',
+          'leggendario': 'border-amber-300 dark:border-amber-400',
+          'mitico': 'border-emerald-300 dark:border-emerald-400',
+          'segreto': 'border-pink-300 dark:border-pink-400 ring-1 ring-pink-300/50'
+        };
+        badges.forEach((b) => {
+          const li = document.createElement('li');
+          const rarity = BADGE_RARITY[b] || 'comune';
+          const rarityClass = RARITY_CLASS[rarity] || RARITY_CLASS['comune'];
+          li.className = `flex items-start gap-2 px-3 py-2 rounded border bg-white/70 dark:bg-gray-800 ${rarityClass}`;
+          const icon = document.createElement('span');
+          icon.textContent = BADGE_ICONS[b] || '🎖️';
+          const nameRow = document.createElement('div');
+          nameRow.className = 'flex items-center gap-2';
+          const name = document.createElement('span');
+          name.textContent = (T[L]?.badge_labels?.[b] || b);
+          name.className = 'font-medium';
+          const rarityTag = document.createElement('span');
+          const rarityLabel = (T[L]?.rarity_map?.[rarity] || rarity);
+          rarityTag.textContent = rarityLabel;
+          rarityTag.className = 'text-[10px] uppercase tracking-wide px-1.5 py-0.5 rounded bg-gray-100 dark:bg-gray-700';
+          const meta = ACHIEVEMENTS.find(a => a.name === b);
+          const desc = document.createElement('span');
+          desc.className = 'text-xs text-gray-600 dark:text-gray-300';
+          const localizedDesc = (T[L]?.achievement_desc?.[b]) || (T[L]?.badge_desc_extra?.[b]) || (meta ? meta.desc : '');
+          desc.textContent = localizedDesc;
+          const col = document.createElement('div');
+          col.className = 'flex flex-col';
+          nameRow.append(name, rarityTag);
+          col.append(nameRow, desc);
+          li.append(icon, col);
+          badgeListEl.appendChild(li);
+        });
+      };
+
+      const toggleBadgeOverlay = (show) => {
+        if (!badgeOverlay) return;
+        badgeOverlay.classList.toggle('hidden', !show);
+        badgeOverlay.classList.toggle('flex', show);
+        if (show) renderBadges();
+      };
+
+      const launchConfetti = () => {
+        const colors = ['#1065ff', '#34d399', '#f59e0b', '#ef4444', '#a855f7'];
+        const count = 24;
+        for (let i = 0; i < count; i++) {
+          const c = document.createElement('span');
+          const size = Math.floor(Math.random() * 8) + 6;
+          c.style.position = 'fixed';
+          c.style.zIndex = '60';
+          c.style.top = `${Math.floor(Math.random() * 20) + 10}px`;
+          c.style.left = `${Math.floor(Math.random() * 100)}vw`;
+          c.style.width = `${size}px`;
+          c.style.height = `${size}px`;
+          c.style.background = colors[Math.floor(Math.random() * colors.length)];
+          c.style.transform = 'translateY(0) rotate(0deg)';
+          c.style.opacity = '1';
+          c.style.borderRadius = '2px';
+          c.style.transition = 'transform 900ms ease-out, opacity 900ms ease-out';
+          document.body.appendChild(c);
+          requestAnimationFrame(() => {
+            const fall = Math.floor(Math.random() * 60) + 40; // vh
+            const rot = Math.floor(Math.random() * 180) - 90;
+            c.style.transform = `translateY(${fall}vh) rotate(${rot}deg)`;
+            c.style.opacity = '0';
+          });
+          setTimeout(() => c.remove(), 1000);
+        }
+      };
+
+      const checkAchievements = () => {
+        ACHIEVEMENTS.forEach((a) => {
+          if (xp >= a.threshold && !badges.includes(a.name)) {
+            badges.push(a.name);
+            localStorage.setItem('badges', JSON.stringify(badges));
+            showToast(`🏅 ${t('toast_badge_unlocked', {name: (T[L]?.badge_labels?.[a.name] || a.name)})}`);
+            launchConfetti();
+          }
+        });
+      };
+
+      const applyClickableHeadings = () => {
+        document.querySelectorAll('h2, h3').forEach((el) => {
+          el.setAttribute('role', 'button');
+          el.setAttribute('tabindex', '0');
+          el.classList.add('cursor-pointer', 'select-none', 'active:scale-95', 'focus:outline-none', 'focus-visible:ring-2', 'focus-visible:ring-brand');
+          const points = el.tagName === 'H2' ? 2 : 1;
+          const title = (el.textContent || '').trim();
+          const handleAction = () => {
+            xp += points;
+            localStorage.setItem('xp', String(xp));
+            showToast(`🎉 ${t('toast_xp_plus', {points, title})}`);
+            el.classList.add('click-anim');
+            setTimeout(() => el.classList.remove('click-anim'), 220);
+            checkAchievements();
+            updateHUD();
+          };
+          el.addEventListener('click', handleAction);
+          el.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              handleAction();
+            }
+          });
+        });
+      };
+
+      updateHUD();
+      applyClickableHeadings();
+
+      // Animazione di click globale simile all’effetto degli h3
+      // Applica una micro-animazione a elementi interattivi
+      document.addEventListener('click', (e) => {
+        const el = e.target.closest('h1, h2, h3, h4, h5, h6, a, button, [role="button"], .theme-toggle, #gamify-hud');
+        if (!el) return;
+        el.classList.add('click-anim');
+        setTimeout(() => el.classList.remove('click-anim'), 220);
+      });
+
+      // Badge segreto: 10 clic sul logo (navbar o avatar hero)
+      const logoLink = document.querySelector('nav a[href="#home"]');
+      const heroImg = document.querySelector('#home img');
+      const incSecret = () => {
+        secretClicks += 1;
+        localStorage.setItem('secretClicks', String(secretClicks));
+        const hintArr = SECRET_HINTS[L] || SECRET_HINTS['it'];
+        const hint = hintArr[Math.min(secretClicks - 1, hintArr.length - 1)];
+        if (hint) console.log(`%c[${LABELS[L]} ${secretClicks}/10]%c ${hint}`, 'color:#1065ff; font-weight:bold', '');
+        if (secretClicks >= 10 && !badges.includes('Segreto')) {
+          badges.push('Segreto');
+          localStorage.setItem('badges', JSON.stringify(badges));
+          const bonus = 10;
+          xp += bonus;
+          localStorage.setItem('xp', String(xp));
+          showToast(`🫣 ${t('toast_secret_unlocked', {bonus})}`);
+          launchConfetti();
+          checkAchievements();
+          updateHUD();
+        }
+      };
+      if (logoLink) logoLink.addEventListener('click', incSecret);
+      if (heroImg) heroImg.addEventListener('click', incSecret);
+
+      // Mini-gioco per sviluppatori via console
+      const T = {
+        it: {
+          helpTitle: 'Comandi disponibili:',
+          helpProgress: '- cvGame.progress()  → mostra XP, badge e segreto',
+          helpSolve: '- cvGame.solve("mauro") → risolvi l’enigma e sblocca un badge',
+          progressLabel: 'Segreto',
+          nope: 'Nope! Suggerimento: prova a cliccare il logo e leggere i log.',
+          welcome: 'Benvenuto Dev!',
+          welcomeHelp: 'Digita cvGame.help() per iniziare.'
+        },
+        en: {
+          helpTitle: 'Available commands:',
+          helpProgress: '- cvGame.progress()  → show XP, badges and secret',
+          helpSolve: '- cvGame.solve("mauro") → solve the riddle and unlock a badge',
+          progressLabel: 'Secret',
+          nope: 'Nope! Hint: click the logo and read the logs.',
+          welcome: 'Welcome Dev!',
+          welcomeHelp: 'Type cvGame.help() to get started.'
+        },
+        es: {
+          helpTitle: 'Comandos disponibles:',
+          helpProgress: '- cvGame.progress()  → muestra XP, medallas y secreto',
+          helpSolve: '- cvGame.solve("mauro") → resuelve el acertijo y desbloquea una medalla',
+          progressLabel: 'Secreto',
+          nope: '¡Nope! Pista: haz clic en el logo y lee los logs.',
+          welcome: '¡Bienvenido Dev!',
+          welcomeHelp: 'Escribe cvGame.help() para empezar.'
+        }
+      };
+      // Estensione dizionario per UI
+      Object.assign(T.it, {
+        doc_title: 'Mauro Arnone | CV Interattivo',
+        nav_about: 'Chi sono',
+        nav_wordpress: 'WordPress',
+        nav_php: 'PHP',
+        nav_javascript: 'JavaScript',
+        nav_css: 'CSS',
+        nav_tailwind: 'Tailwind',
+        nav_html: 'HTML',
+        nav_database: 'Database',
+        nav_projects: 'Progetti',
+        skills_title: 'Competenze',
+        skip_to_content: 'Salta al contenuto',
+        menu_button_text: 'Menu',
+        alt_logo: 'Logo',
+        alt_profile_photo: 'Foto profilo di Mauro Arnone',
+        hero_tagline: 'Web Developer • WordPress • PHP • JavaScript',
+        cta_contact: 'Contattami',
+        cta_linkedin: 'LinkedIn',
+        cta_github: 'GitHub',
+        about_title: 'Chi sono',
+        skills_wordpress: 'WordPress',
+        skills_php: 'PHP',
+        skills_js: 'JavaScript',
+        skills_jquery: 'jQuery',
+        skills_html: 'HTML',
+        skills_css_advanced: 'CSS avanzato',
+        skills_tailwind: 'Tailwind CSS',
+        skills_db_mysql: 'Database (MySQL)',
+        skills_crm_automation: 'CRM & Automazioni',
+        skills_seo_marketing: 'SEO & Marketing',
+        hud_xp_label: 'XP',
+        hud_badge_label: 'Badge',
+        hud_tooltip_next: 'XP al prossimo badge: {{remaining}}',
+        hud_tooltip_all: 'Hai sbloccato tutti i badge',
+        overlay_title: 'Badge',
+        overlay_close: 'Chiudi',
+        overlay_desc: 'Clicca i titoli del CV per guadagnare XP e sbloccare badge.',
+        overlay_no_badge: 'Nessun badge ancora. Prova a cliccare un titolo!',
+        aria_theme_toggle: 'Cambia tema',
+        theme_button_text: 'Tema',
+        toast_xp_plus: '+{{points}} XP: {{title}}',
+        toast_badge_unlocked: 'Badge sbloccato: {{name}}',
+        toast_secret_unlocked: 'Badge sbloccato: Segreto (+{{bonus}} XP)',
+        toast_dev_bonus: 'Bonus Dev: +{{bonus}} XP',
+        toast_debugger_unlocked: 'Badge sbloccato: Debugger',
+        rarity_map: { comune: 'Comune', raro: 'Raro', epico: 'Epico', leggendario: 'Leggendario', mitico: 'Mitico', segreto: 'Segreto' },
+        badge_labels: { 'Segreto': 'Segreto', 'Debugger': 'Debugger', 'Esploratore': 'Esploratore', 'Curioso':'Curioso', 'Esperto':'Esperto', 'Instancabile':'Instancabile', 'Maestro':'Maestro', 'Veterano':'Veterano', 'Leggenda':'Leggenda', 'Mitico':'Mitico', 'Immortale':'Immortale' },
+        badge_desc_extra: { 'Segreto': 'Hai scoperto un easter egg cliccando il logo!' },
+        achievement_desc: {
+          'Esploratore': 'Hai iniziato ad esplorare il CV.',
+          'Esperto': 'Hai approfondito molte sezioni.',
+          'Maestro': 'Hai provato quasi tutto.',
+          'Curioso': 'Hai cliccato su molte sezioni.',
+          'Instancabile': 'Non ti fermi mai: grande costanza.',
+          'Veterano': 'Hai esplorato a fondo ogni parte.',
+          'Leggenda': 'Impegno epico nel tour del CV.',
+          'Mitico': 'Hai raggiunto un traguardo altissimo.',
+          'Immortale': 'Hai portato l’XP al massimo livello.'
+        }
+      });
+      Object.assign(T.en, {
+        doc_title: 'Mauro Arnone | Interactive CV',
+        nav_about: 'About',
+        nav_wordpress: 'WordPress',
+        nav_php: 'PHP',
+        nav_javascript: 'JavaScript',
+        nav_css: 'CSS',
+        nav_tailwind: 'Tailwind',
+        nav_html: 'HTML',
+        nav_database: 'Database',
+        nav_projects: 'Projects',
+        skills_title: 'Skills',
+        skip_to_content: 'Skip to content',
+        menu_button_text: 'Menu',
+        alt_logo: 'Logo',
+        alt_profile_photo: 'Profile photo of Mauro Arnone',
+        hero_tagline: 'Web Developer • WordPress • PHP • JavaScript',
+        cta_contact: 'Contact me',
+        cta_linkedin: 'LinkedIn',
+        cta_github: 'GitHub',
+        about_title: 'About',
+        skills_wordpress: 'WordPress',
+        skills_php: 'PHP',
+        skills_js: 'JavaScript',
+        skills_jquery: 'jQuery',
+        skills_html: 'HTML',
+        skills_css_advanced: 'Advanced CSS',
+        skills_tailwind: 'Tailwind CSS',
+        skills_db_mysql: 'Database (MySQL)',
+        skills_crm_automation: 'CRM & Automations',
+        skills_seo_marketing: 'SEO & Marketing',
+        hud_xp_label: 'XP',
+        hud_badge_label: 'Badges',
+        hud_tooltip_next: 'XP to next badge: {{remaining}}',
+        hud_tooltip_all: 'You unlocked all badges',
+        overlay_title: 'Badges',
+        overlay_close: 'Close',
+        overlay_desc: 'Click CV headings to earn XP and unlock badges.',
+        overlay_no_badge: 'No badges yet. Try clicking a title!',
+        aria_theme_toggle: 'Toggle theme',
+        theme_button_text: 'Theme',
+        toast_xp_plus: '+{{points}} XP: {{title}}',
+        toast_badge_unlocked: 'Badge unlocked: {{name}}',
+        toast_secret_unlocked: 'Badge unlocked: Secret (+{{bonus}} XP)',
+        toast_dev_bonus: 'Dev Bonus: +{{bonus}} XP',
+        toast_debugger_unlocked: 'Badge unlocked: Debugger',
+        rarity_map: { comune: 'Common', raro: 'Rare', epico: 'Epic', leggendario: 'Legendary', mitico: 'Mythic', segreto: 'Secret' },
+        badge_labels: { 'Segreto': 'Secret', 'Debugger': 'Debugger', 'Esploratore': 'Explorer', 'Curioso':'Curious', 'Esperto':'Expert', 'Instancabile':'Indefatigable', 'Maestro':'Master', 'Veterano':'Veteran', 'Leggenda':'Legend', 'Mitico':'Mythic', 'Immortale':'Immortal' },
+        badge_desc_extra: { 'Segreto': 'You found an easter egg by clicking the logo!' },
+        achievement_desc: {
+          'Esploratore': 'You started exploring the CV.',
+          'Esperto': 'You delved into many sections.',
+          'Maestro': 'You tried almost everything.',
+          'Curioso': 'You clicked on many sections.',
+          'Instancabile': 'You never stop — great consistency.',
+          'Veterano': 'You explored every part in depth.',
+          'Leggenda': 'Epic commitment in the CV tour.',
+          'Mitico': 'You reached a very high milestone.',
+          'Immortale': 'You brought XP to the highest level.'
+        }
+      });
+      Object.assign(T.es, {
+        doc_title: 'Mauro Arnone | CV Interactivo',
+        nav_about: 'Quién soy',
+        nav_wordpress: 'WordPress',
+        nav_php: 'PHP',
+        nav_javascript: 'JavaScript',
+        nav_css: 'CSS',
+        nav_tailwind: 'Tailwind',
+        nav_html: 'HTML',
+        nav_database: 'Base de datos',
+        nav_projects: 'Proyectos',
+        skills_title: 'Competencias',
+        skip_to_content: 'Saltar al contenido',
+        menu_button_text: 'Menú',
+        alt_logo: 'Logo',
+        alt_profile_photo: 'Foto de perfil de Mauro Arnone',
+        hero_tagline: 'Desarrollador web • WordPress • PHP • JavaScript',
+        cta_contact: 'Contáctame',
+        cta_linkedin: 'LinkedIn',
+        cta_github: 'GitHub',
+        about_title: 'Quién soy',
+        skills_wordpress: 'WordPress',
+        skills_php: 'PHP',
+        skills_js: 'JavaScript',
+        skills_jquery: 'jQuery',
+        skills_html: 'HTML',
+        skills_css_advanced: 'CSS avanzado',
+        skills_tailwind: 'Tailwind CSS',
+        skills_db_mysql: 'Base de datos (MySQL)',
+        skills_crm_automation: 'CRM y Automatizaciones',
+        skills_seo_marketing: 'SEO y Marketing',
+        hud_xp_label: 'XP',
+        hud_badge_label: 'Medallas',
+        hud_tooltip_next: 'XP para la próxima medalla: {{remaining}}',
+        hud_tooltip_all: 'Has desbloqueado todas las medallas',
+        overlay_title: 'Medallas',
+        overlay_close: 'Cerrar',
+        overlay_desc: 'Haz clic en los títulos del CV para ganar XP y desbloquear medallas.',
+        overlay_no_badge: 'Aún no hay medallas. ¡Prueba a hacer clic en un título!',
+        aria_theme_toggle: 'Cambiar tema',
+        theme_button_text: 'Tema',
+        toast_xp_plus: '+{{points}} XP: {{title}}',
+        toast_badge_unlocked: 'Medalla desbloqueada: {{name}}',
+        toast_secret_unlocked: 'Medalla desbloqueada: Secreto (+{{bonus}} XP)',
+        toast_dev_bonus: 'Bonus Dev: +{{bonus}} XP',
+        toast_debugger_unlocked: 'Medalla desbloqueada: Debugger',
+        rarity_map: { comune: 'Común', raro: 'Rara', epico: 'Épica', leggendario: 'Legendaria', mitico: 'Mítica', segreto: 'Secreta' },
+        badge_labels: { 'Segreto': 'Secreto', 'Debugger': 'Debugger', 'Esploratore': 'Explorador', 'Curioso':'Curioso', 'Esperto':'Experto', 'Instancabile':'Incansable', 'Maestro':'Maestro', 'Veterano':'Veterano', 'Leggenda':'Leyenda', 'Mitico':'Mítico', 'Immortale':'Inmortal' },
+        badge_desc_extra: { 'Segreto': '¡Descubriste un easter egg haciendo clic en el logo!' },
+        achievement_desc: {
+          'Esploratore': 'Empezaste a explorar el CV.',
+          'Esperto': 'Profundizaste en muchas secciones.',
+          'Maestro': 'Probaste casi todo.',
+          'Curioso': 'Hiciste clic en muchas secciones.',
+          'Instancabile': 'No te detienes — gran constancia.',
+          'Veterano': 'Exploraste cada parte a fondo.',
+          'Leggenda': 'Compromiso épico en el recorrido del CV.',
+          'Mitico': 'Alcanzaste un hito muy alto.',
+          'Immortale': 'Llevaste el XP al nivel más alto.'
+        }
+      });
+      // Utilità i18n
+      const t = (key, params={}) => {
+        const dict = T[L] || T['it'];
+        let str = dict[key] || (T['it'][key] || key);
+        Object.entries(params).forEach(([k,v]) => { str = String(str).replaceAll(`{{${k}}}`, String(v)); });
+        return str;
+      };
+      const applyI18nStatic = () => {
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          const key = el.getAttribute('data-i18n');
+          if (key) el.textContent = t(key);
+        });
+        document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+          const attr = el.getAttribute('data-i18n-aria');
+          if (attr) el.setAttribute('aria-label', t(attr));
+        });
+        document.querySelectorAll('[data-i18n-alt]').forEach(el => {
+          const key = el.getAttribute('data-i18n-alt');
+          if (key) el.setAttribute('alt', t(key));
+        });
+      };
+      const setLanguage = (newLang) => {
+        if (!['it','en'].includes(newLang)) return;
+        localStorage.setItem('langOverride', newLang);
+        L = newLang;
+        document.documentElement.setAttribute('lang', L);
+        applyI18nStatic();
+        document.title = t('doc_title');
+        updateHUD();
+        if (badgeOverlay && !badgeOverlay.classList.contains('hidden')) renderBadges();
+      };
+      window.cvGame = {
+        help() {
+          console.log('%c'+T[L].helpTitle, 'color:#1065ff; font-weight:bold');
+          console.log(T[L].helpProgress);
+          console.log(T[L].helpSolve);
+        },
+        progress() {
+          console.log(`XP: ${xp} | Badge: ${badges.length} | ${T[L].progressLabel}: ${secretClicks}/10`);
+        },
+        solve(answer) {
+          const ok = String(answer || '').trim().toLowerCase() === 'mauro';
+          if (!ok) {
+            console.log(T[L].nope);
+            return false;
+          }
+          if (!badges.includes('Debugger')) {
+            badges.push('Debugger');
+            localStorage.setItem('badges', JSON.stringify(badges));
+            showToast(`🛠️ ${t('toast_debugger_unlocked')}`);
+            launchConfetti();
+          }
+          if (localStorage.getItem('devXpUsed') !== '1') {
+            const bonus = 5;
+            xp += bonus;
+            localStorage.setItem('xp', String(xp));
+            localStorage.setItem('devXpUsed', '1');
+            showToast(`🧪 ${t('toast_dev_bonus', {bonus})}`);
+            checkAchievements();
+          }
+          updateHUD();
+          return true;
+        }
+      };
+      console.log('%c'+T[L].welcome, 'color:#1065ff; font-weight:bold', T[L].welcomeHelp);
+      applyI18nStatic();
+      document.title = t('doc_title');
+      // Wire language buttons
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const newLang = btn.getAttribute('data-lang');
+          setLanguage(newLang);
+        });
+      });
+
+      // HUD cliccabile per aprire overlay badge
+      if (hudEl) {
+        hudEl.setAttribute('role', 'button');
+        hudEl.setAttribute('tabindex', '0');
+        hudEl.classList.add('cursor-pointer');
+        hudEl.addEventListener('click', () => toggleBadgeOverlay(true));
+        hudEl.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggleBadgeOverlay(true);
+          }
+        });
+      }
+      if (badgeBackdrop) badgeBackdrop.addEventListener('click', () => toggleBadgeOverlay(false));
+      if (badgeCloseBtn) badgeCloseBtn.addEventListener('click', () => toggleBadgeOverlay(false));
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') toggleBadgeOverlay(false);
+      });
+    });
+  </script>
+
 </body>
 </html>
+        <li class="col-span-2">
+          <div class="lang-switch flex items-center justify-center gap-2 px-2 py-2 rounded border text-sm bg-white text-gray-800 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700">
+            <span class="sr-only" data-i18n="lang_label">Lingua</span>
+            <button class="lang-btn px-2 py-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700" data-lang="it" data-i18n-aria="aria_lang_it" aria-label="Italiano">IT</button>
+            <span class="mx-1">|</span>
+            <button class="lang-btn px-2 py-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700" data-lang="en" data-i18n-aria="aria_lang_en" aria-label="English">EN</button>
+          </div>
+        </li>
+        lang_label: 'Lingua',
+        aria_lang_it: 'Italiano',
+        aria_lang_en: 'Inglese',
+        lang_label: 'Language',
+        aria_lang_it: 'Italian',
+        aria_lang_en: 'English',
+        lang_label: 'Idioma',
+        aria_lang_it: 'Italiano',
+        aria_lang_en: 'Inglés',
