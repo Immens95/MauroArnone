@@ -79,15 +79,6 @@
       </a>
       <button id="menu-btn" class="md:hidden px-3 py-2 rounded bg-brand text-white hover:bg-brandDark transition" data-i18n="menu_button_text">Menu</button>
       <ul id="menu" class="hidden md:flex items-center gap-4 text-sm">
-        <li><a class="hover:text-brand" href="#chi-sono" data-i18n="nav_about">Chi sono</a></li>
-        <li><a class="hover:text-brand" href="#wordpress" data-i18n="nav_wordpress">WordPress</a></li>
-        <li><a class="hover:text-brand" href="#php" data-i18n="nav_php">PHP</a></li>
-        <li><a class="hover:text-brand" href="#javascript" data-i18n="nav_javascript">JavaScript</a></li>
-        <li><a class="hover:text-brand" href="#css" data-i18n="nav_css">CSS</a></li>
-        <li><a class="hover:text-brand" href="#tailwind" data-i18n="nav_tailwind">Tailwind</a></li>
-        <li><a class="hover:text-brand" href="#html" data-i18n="nav_html">HTML</a></li>
-        <li><a class="hover:text-brand" href="#database" data-i18n="nav_database">Database</a></li>
-        <li><a class="hover:text-brand" href="#progetti" data-i18n="nav_projects">Progetti</a></li>
         <li>
           <div id="gamify-hud" class="hidden md:flex items-center gap-1 px-2 py-1 rounded border text-xs bg-white/70 text-gray-800 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700">
             <span class="font-semibold" data-i18n="hud_xp_label">XP</span>
@@ -116,25 +107,36 @@
             <span class="hidden sm:inline theme-text" data-i18n="theme_button_text">Tema</span>
           </button>
         </li>
+        <li>
+          <button class="fx-toggle px-3 py-2 rounded border text-sm bg-white hover:bg-gray-100 transition dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700 dark:hover:bg-gray-700 flex items-center gap-2 opacity-50 cursor-not-allowed" aria-label="FX" aria-pressed="false" aria-disabled="true" data-locked="true">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12l3-3-3-3M19 12l-3 3 3 3M12 5l3 3-3 3-3-3 3-3M12 19l-3-3 3-3 3 3-3 3"/></svg>
+            <span class="hidden sm:inline" data-i18n="fx_control_text">FX</span>
+          </button>
+        </li>
       </ul>
     </div>
     <!-- Mobile dropdown -->
     <div id="menu-mobile" class="md:hidden hidden border-t bg-white dark:bg-gray-900">
-      <ul class="max-w-5xl mx-auto px-4 py-3 grid grid-cols-2 gap-2 text-sm">
-        <li><a class="block px-3 py-2 rounded hover:bg-blue-50" href="#chi-sono" data-i18n="nav_about">Chi sono</a></li>
-        <li><a class="block px-3 py-2 rounded hover:bg-blue-50" href="#wordpress" data-i18n="nav_wordpress">WordPress</a></li>
-        <li><a class="block px-3 py-2 rounded hover:bg-blue-50" href="#php" data-i18n="nav_php">PHP</a></li>
-        <li><a class="block px-3 py-2 rounded hover:bg-blue-50" href="#javascript" data-i18n="nav_javascript">JavaScript</a></li>
-        <li><a class="block px-3 py-2 rounded hover:bg-blue-50" href="#css" data-i18n="nav_css">CSS</a></li>
-        <li><a class="block px-3 py-2 rounded hover:bg-blue-50" href="#tailwind" data-i18n="nav_tailwind">Tailwind</a></li>
-        <li><a class="block px-3 py-2 rounded hover:bg-blue-50" href="#html" data-i18n="nav_html">HTML</a></li>
-        <li><a class="block px-3 py-2 rounded hover:bg-blue-50" href="#database" data-i18n="nav_database">Database</a></li>
-        <li><a class="block px-3 py-2 rounded hover:bg-blue-50" href="#progetti" data-i18n="nav_projects">Progetti</a></li>
+      <ul class="max-w-5xl mx-auto px-4 py-3 grid grid-cols-1 gap-2 text-sm">
         <li class="col-span-2">
           <button class="theme-toggle w-full px-3 py-2 rounded border text-sm bg-white hover:bg-gray-100 transition dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700 dark:hover:bg-gray-700 flex items-center justify-center gap-2" aria-label="Cambia tema" aria-pressed="false" data-i18n-aria="aria_theme_toggle">
             <svg class="moon-icon w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
             <svg class="sun-icon w-4 h-4 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><path d="M12 1v3M12 20v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M1 12h3M20 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
             <span class="theme-text" data-i18n="theme_button_text">Tema</span>
+          </button>
+        </li>
+        <li class="col-span-2">
+          <div class="lang-switch-mobile flex items-center justify-center gap-1 px-2 py-1 rounded border text-xs bg-white/70 text-gray-800 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700">
+            <span class="sr-only" data-i18n="lang_label">Lingua</span>
+            <button class="lang-btn px-2 py-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700" data-lang="it" data-i18n-aria="aria_lang_it" aria-label="Italiano">IT</button>
+            <span class="mx-1">|</span>
+            <button class="lang-btn px-2 py-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700" data-lang="en" data-i18n-aria="aria_lang_en" aria-label="English">EN</button>
+          </div>
+        </li>
+        <li class="col-span-2">
+          <button class="fx-toggle w-full px-3 py-2 rounded border text-sm bg-white hover:bg-gray-100 transition dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700 dark:hover:bg-gray-700 flex items-center justify-center gap-2 opacity-50 cursor-not-allowed" aria-label="FX" aria-pressed="false" aria-disabled="true" data-locked="true">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12l3-3-3-3M19 12l-3 3 3 3M12 5l3 3-3 3-3-3 3-3M12 19l-3-3 3-3 3 3-3 3"/></svg>
+            <span data-i18n="fx_control_text">FX</span>
           </button>
         </li>
       </ul>
@@ -143,22 +145,50 @@
 
   <!-- Hero -->
   <header id="home" class="relative bg-gradient-to-br from-blue-600 via-teal-500 to-purple-600 text-white pt-28 pb-16 shadow-lg overflow-hidden">
-    <div class="absolute -top-20 -left-20 w-72 h-72 bg-white/10 rounded-full blur-2xl"></div>
-    <div class="absolute bottom-0 right-0 w-80 h-80 bg-black/10 rounded-full blur-3xl"></div>
-    <div class="max-w-5xl mx-auto px-6 text-center">
-      <img src="https://avatars.githubusercontent.com/u/129175879?v=4" alt="Foto profilo di Mauro Arnone" class="mx-auto rounded-full w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 border-4 border-white shadow-md animate-float" decoding="async" data-i18n-alt="alt_profile_photo">
-      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mt-4">Mauro Arnone</h1>
-      <p class="text-base sm:text-lg mt-2 opacity-90" data-i18n="hero_tagline">Web Developer • WordPress • PHP • JavaScript</p>
-      <div class="mt-6 flex flex-wrap items-center justify-center gap-3">
-        <a href="mailto:mauro.arnone.ma@gmail.com" class="px-4 py-2 bg-white text-brand rounded-lg shadow hover:bg-gray-200 transition" data-i18n="cta_contact">Contattami</a>
-        <a href="https://www.linkedin.com/in/mauro-arnone/" rel="noopener noreferrer" class="px-4 py-2 bg-white text-brand rounded-lg shadow hover:bg-gray-200 transition" data-i18n="cta_linkedin">LinkedIn</a>
-        <a href="https://github.com/Immens95" rel="noopener noreferrer" class="px-4 py-2 bg-white text-brand rounded-lg shadow hover:bg-gray-200 transition" data-i18n="cta_github">GitHub</a>
+    <!-- Geometric shapes replacing blobs -->
+    <svg id="hero-shapes" class="absolute inset-0 pointer-events-none" viewBox="0 0 800 400" preserveAspectRatio="none">
+      <!-- Square -->
+      <rect class="hero-shape will-change-transform" x="60" y="40" width="120" height="120" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="3" data-depth="1.2" />
+      <!-- Triangle -->
+      <polygon class="hero-shape will-change-transform" points="680,60 740,160 620,160" fill="none" stroke="rgba(255,255,255,0.20)" stroke-width="3" data-depth="1.4" />
+      <!-- Circle -->
+      <circle class="hero-shape will-change-transform" cx="300" cy="110" r="48" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="3" data-depth="1.6" />
+      <!-- Hexagon -->
+      <polygon class="hero-shape will-change-transform" points="200,300 240,280 240,240 200,220 160,240 160,280" fill="none" stroke="rgba(0,0,0,0.20)" stroke-width="3" data-depth="1.3" />
+    </svg>
+    <div id="hero-interactive-layer" class="absolute inset-0 pointer-events-none">
+      <!-- Sparkles at different depths -->
+      <span class="absolute left-12 top-10 w-2 h-2 rounded-full bg-white/80 shadow will-change-transform" data-depth="4"></span>
+      <span class="absolute right-20 top-24 w-2 h-2 rounded-full bg-white/70 shadow will-change-transform" data-depth="5"></span>
+      <span class="absolute left-1/2 bottom-12 w-2 h-2 rounded-full bg-white/60 shadow will-change-transform" data-depth="6"></span>
+    </div>
+    <div id="hero-card" class="max-w-5xl mx-auto px-6 text-center will-change-transform" style="transform-style: preserve-3d;">
+<img id="hero-photo" src="https://avatars.githubusercontent.com/u/129175879?v=4" alt="Foto profilo di Mauro Arnone" class="mx-auto rounded-full w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 border-4 border-white shadow-md animate-float will-change-transform select-none" decoding="async" data-i18n-alt="alt_profile_photo" data-depth="3">
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mt-4" data-depth="2">Mauro Arnone</h1>
+      <p class="text-base sm:text-lg mt-2 opacity-90" data-i18n="hero_tagline" data-depth="1.5">Web Developer • WordPress • PHP • JavaScript</p>
+<div class="mt-6 flex flex-wrap items-center justify-center gap-2" data-depth="1.2">
+<a href="mailto:mauro.arnone.ma@gmail.com" class="px-4 py-2 bg-white text-brand rounded-lg shadow hover:bg-gray-200 transition select-none" data-i18n="cta_contact">Contattami</a>
+<a href="https://www.linkedin.com/in/mauro-arnone/" rel="noopener noreferrer" class="px-4 py-2 bg-white text-brand rounded-lg shadow hover:bg-gray-200 transition select-none" data-i18n="cta_linkedin">LinkedIn</a>
+<a href="https://github.com/Immens95" rel="noopener noreferrer" class="px-4 py-2 bg-white text-brand rounded-lg shadow hover:bg-gray-200 transition select-none" data-i18n="cta_github">GitHub</a>
       </div>
-      <p class="text-sm sm:text-base mt-3">mauro.arnone.ma@gmail.com</p>
+      <p class="text-sm sm:text-base mt-3" data-depth="1.1">mauro.arnone.ma@gmail.com</p>
     </div>
   </header>
 
-  <main id="contenuto" class="pt-6">
+<main id="contenuto" class="pt-6">
+  <!-- Navigazione contestuale della pagina -->
+  <nav id="page-nav" class="max-w-5xl mx-auto px-6 mb-4 flex flex-col items-center gap-3">
+    <div class="cat-switch flex items-center justify-center gap-2 px-2 py-1 rounded border text-xs bg-white/70 text-gray-800 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700">
+      <button class="cat-btn px-2 py-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700" data-cat="linguaggi" aria-pressed="false"><span data-i18n="cat_languages">Linguaggi</span></button>
+      <span class="mx-1">|</span>
+      <button class="cat-btn px-2 py-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700" data-cat="frontend" aria-pressed="false"><span data-i18n="cat_frontend">Frontend</span></button>
+      <span class="mx-1">|</span>
+      <button class="cat-btn px-2 py-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700" data-cat="cms" aria-pressed="false"><span data-i18n="cat_cms">CMS</span></button>
+      <span class="mx-1">|</span>
+      <button class="cat-btn px-2 py-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700" data-cat="database" aria-pressed="false"><span data-i18n="cat_database">Database</span></button>
+    </div>
+    <div id="page-subnav" class="flex flex-wrap items-center justify-center gap-2 text-sm"></div>
+  </nav>
   <section id="chi-sono" class="max-w-5xl mx-auto py-10 px-6 bg-white/70 backdrop-blur rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-gray-800/70 dark:text-gray-100" data-reveal>
     <h2 class="text-2xl font-bold mb-4 transition-colors hover:text-brand hover:underline decoration-2 underline-offset-4" data-i18n="about_title">Chi sono</h2>
     <p class="text-lg leading-relaxed" data-i18n="about_intro">
@@ -172,22 +202,54 @@
   <!-- Competenze elenco -->
   <section class="bg-white shadow-md rounded-2xl max-w-5xl mx-auto my-8 p-8 opacity-0 translate-y-6 transition-all duration-700 dark:bg-gray-900 dark:text-gray-100" data-reveal>
     <h2 class="text-2xl font-bold mb-6 transition-colors hover:text-brand hover:underline decoration-2 underline-offset-4" data-i18n="skills_title">Competenze</h2>
-    <ul class="grid grid-cols-2 md:grid-cols-3 gap-4 text-lg">
-      <li data-i18n="skills_wordpress">WordPress</li>
-      <li data-i18n="skills_php">PHP</li>
-      <li data-i18n="skills_js">JavaScript</li>
-      <li data-i18n="skills_jquery">jQuery</li>
-      <li data-i18n="skills_html">HTML</li>
-      <li data-i18n="skills_css_advanced">CSS avanzato</li>
-      <li data-i18n="skills_tailwind">Tailwind CSS</li>
-      <li data-i18n="skills_db_mysql">Database (MySQL)</li>
-      <li data-i18n="skills_crm_automation">CRM & Automazioni</li>
-      <li data-i18n="skills_seo_marketing">SEO & Marketing</li>
+    <ul class="grid grid-cols-2 md:grid-cols-3 gap-3 text-sm sm:text-base">
+      <!-- Base & CMS -->
+      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_wordpress">WordPress</span></li>
+      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_php">PHP</span></li>
+      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_js">JavaScript</span></li>
+      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_html">HTML</span></li>
+      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_css_advanced">CSS avanzato</span></li>
+
+      <!-- Frontend -->
+      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_tailwind">Tailwind CSS</span></li>
+      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_jquery">jQuery</span></li>
+
+      <!-- Backend & API -->
+      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_rest_api">API REST</span></li>
+
+      <!-- Tooling & DevOps -->
+      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_git_github">Git & GitHub</span></li>
+      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_docker">Docker</span></li>
+      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_ci_cd">CI/CD</span></li>
+
+      <!-- Qualità & Marketing -->
+      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_performance">Performance Web</span></li>
+      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_crm_automation">CRM & Automazioni</span></li>
+      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_seo_marketing">SEO & Marketing</span></li>
+
+      <!-- Framework & e‑commerce -->
+      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_woocommerce">WooCommerce</span></li>
+
+      <!-- Database -->
+      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_db_mysql">Database (MySQL)</span></li>
+      <!-- Server & VPS -->
+      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_server_linux_install">Installazione server Linux (Ubuntu/Debian)</span></li>
+      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_nginx_apache_config">Configurazione Nginx/Apache</span></li>
+      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_ssl_letsencrypt">SSL/TLS & Let's Encrypt</span></li>
+      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_vps_provisioning">Provisioning VPS</span></li>
+      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_backup_restore">Backup & Restore</span></li>
+      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_monitoring_logging">Monitoraggio & Log</span></li>
+      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_security_firewall">Sicurezza & Firewall (ufw/fail2ban)</span></li>
+
+      <!-- Database & Admin -->
+      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_db_admin_mysql_postgres">Admin DB (MySQL/PostgreSQL)</span></li>
+      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_db_tuning_indexing">Tuning & Indexing</span></li>
+      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_db_replication_migration">Replica & Migrazioni</span></li>
     </ul>
   </section>
 
   <!-- Sezioni dedicate -->
-  <section id="wordpress" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-blue-50 to-teal-50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900 dark:text-gray-100" data-reveal>
+<section id="wordpress" data-category="cms" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-blue-50 to-teal-50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900 dark:text-gray-100" data-reveal>
     <h2 class="text-2xl font-bold mb-4 flex items-center gap-2 motion-safe:animate-reveal-up transition-colors transition-transform transform-gpu hover:text-brand hover:underline decoration-2 underline-offset-4 hover:scale-105">🧩 WordPress</h2>
     <div class="grid sm:grid-cols-2 gap-6">
       <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0s">
@@ -208,7 +270,7 @@
     </div>
   </section>
 
-  <section id="php" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900 dark:text-gray-100" data-reveal>
+<section id="php" data-category="linguaggi" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900 dark:text-gray-100" data-reveal>
     <h2 class="text-2xl font-bold mb-4 motion-safe:animate-reveal-up transition-colors hover:text-brand hover:underline decoration-2 underline-offset-4">🐘 PHP</h2>
     <div class="grid sm:grid-cols-2 gap-6">
       <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0s">
@@ -228,7 +290,7 @@
     </div>
   </section>
 
-  <section id="javascript" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900 dark:text-gray-100" data-reveal>
+<section id="javascript" data-category="linguaggi" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900 dark:text-gray-100" data-reveal>
     <h2 class="text-2xl font-bold mb-4 motion-safe:animate-reveal-up transition-colors transition-transform transform-gpu hover:text-brand hover:underline decoration-2 underline-offset-4 hover:scale-105" data-i18n="js_title">⚡ JavaScript</h2>
     <div class="grid sm:grid-cols-2 gap-6">
       <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0s">
@@ -248,7 +310,7 @@
     </div>
   </section>
 
-  <section id="css" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-pink-50 to-rose-50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900 dark:text-gray-100" data-reveal>
+<section id="css" data-category="linguaggi" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-pink-50 to-rose-50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900 dark:text-gray-100" data-reveal>
     <h2 class="text-2xl font-bold mb-4 motion-safe:animate-reveal-up transition-colors transition-transform transform-gpu hover:text-brand hover:underline decoration-2 underline-offset-4 hover:-translate-y-0.5" data-i18n="css_title">🎨 CSS Avanzato</h2>
     <div class="grid sm:grid-cols-2 gap-6">
       <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0s">
@@ -268,7 +330,7 @@
     </div>
   </section>
 
-  <section id="tailwind" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-teal-50 to-emerald-50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900 dark:text-gray-100" data-reveal>
+<section id="tailwind" data-category="frontend" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-teal-50 to-emerald-50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900 dark:text-gray-100" data-reveal>
     <h2 class="text-2xl font-bold mb-4 motion-safe:animate-reveal-up transition-colors transition-transform transform-gpu hover:text-brand hover:underline decoration-2 underline-offset-4 hover:skew-x-1" data-i18n="tailwind_title">🌬️ Tailwind CSS</h2>
     <div class="grid sm:grid-cols-2 gap-6">
       <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0s">
@@ -300,18 +362,20 @@
         </h3>
         <p class="mt-2 text-gray-700 dark:text-gray-300" data-i18n="modal_desc">Esempio di componente UI con Tailwind e JavaScript minimale.</p>
         <div class="mt-4 flex justify-end gap-2">
-          <button id="close-modal" class="px-3 py-2 bg-gray-100 rounded hover:bg-gray-200 transition" data-i18n="modal_close">Chiudi</button>
+          <button id="close-modal" class="px-3 py-2 bg-gray-100 rounded border border-gray-200 text-gray-800 hover:bg-gray-200 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-brand dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-gray-100 dark:border-gray-600" data-i18n="modal_close">Chiudi</button>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="html" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-cyan-50 to-sky-50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900 dark:text-gray-100" data-reveal>
+<section id="html" data-category="linguaggi" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-cyan-50 to-sky-50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900 dark:text-gray-100" data-reveal>
     <h2 class="text-2xl font-bold mb-4 motion-safe:animate-reveal-up transition-colors transition-transform transform-gpu hover:text-brand hover:underline decoration-2 underline-offset-4 hover:translate-x-0.5" data-i18n="html_title">🔤 HTML Semantico</h2>
-    <p class="text-gray-700" data-i18n="html_desc">Struttura semantica, accessibilità, SEO tecnico e dati strutturati JSON-LD.</p>
+    <div class="p-6 bg-white rounded-2xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100 opacity-100 translate-y-0 motion-safe:animate-reveal-up" data-reveal="" data-delay="0s" style="animation-delay: 0s;">
+      <p class="mt-2 text-gray-700 dark:text-gray-300" data-i18n="html_desc">Struttura semantica, accessibilità, SEO tecnico e dati strutturati JSON-LD.</p>
+    </div>
   </section>
 
-  <section id="database" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-lime-50 to-green-50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900 dark:text-gray-100" data-reveal>
+<section id="database" data-category="database" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-lime-50 to-green-50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900 dark:text-gray-100" data-reveal>
     <h2 class="text-2xl font-bold mb-4 motion-safe:animate-reveal-up transition-colors transition-transform transform-gpu hover:text-brand hover:underline decoration-2 underline-offset-4 hover:rotate-1" data-i18n="db_title">🗄️ Database (MySQL)</h2>
     <div class="grid sm:grid-cols-2 gap-6">
       <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0s">
@@ -375,6 +439,23 @@
       100% { transform: translateY(0) scale(1) skewY(0deg); }
     }
     .click-anim { animation: clickPop 180ms ease-out; }
+
+    /* Sezioni visitate: solo stato, nessun overlay di background */
+    .section-visited { }
+
+    /* Stellina SVG per sezioni visitate (senza background) */
+    .visited-badge {
+      position: static;
+      display: inline-block;
+      margin-left: 0.5rem;
+      width: 16px;
+      height: 16px;
+      vertical-align: middle;
+      color: #f59e0b; /* amber-600 */
+      pointer-events: none;
+      user-select: none;
+    }
+    .visited-badge .visited-star { display: block; width: 16px; height: 16px; }
   </style>
 
   <!-- Overlay Badge -->
@@ -487,10 +568,78 @@
       let badges = [];
       try { badges = JSON.parse(localStorage.getItem('badges') || '[]'); } catch (e) { badges = []; }
       let secretClicks = parseInt(localStorage.getItem('secretClicks') || '0', 10);
+      // Sezioni visitate: memorizzazione e applicazione stile
+      let visitedSections = [];
+      try { visitedSections = JSON.parse(localStorage.getItem('visitedSections') || '[]'); } catch (e) { visitedSections = []; }
+      // Titoli visitati (H2/H3, spesso con <span data-i18n>): persistenza e badge
+      let visitedTitles = [];
+      try { visitedTitles = JSON.parse(localStorage.getItem('visitedTitles') || '[]'); } catch (e) { visitedTitles = []; }
+
+      const getTitleKey = (el) => {
+        if (!el) return null;
+        const selfKey = el.getAttribute && el.getAttribute('data-i18n');
+        if (selfKey) return `i18n:${selfKey}`;
+        const span = el.querySelector && el.querySelector('[data-i18n]');
+        if (span) return `i18n:${span.getAttribute('data-i18n')}`;
+        const id = el.getAttribute && el.getAttribute('id');
+        if (id) return `id:${id}`;
+        const txt = (el.textContent || '').trim().toLowerCase();
+        return txt ? `txt:${txt}` : null;
+      };
+
+      const ensureTitleBadge = (el) => {
+        if (!el) return;
+        // Se esiste un child con data-i18n (span), aggancio lì; altrimenti sull'heading
+        const target = el.querySelector('[data-i18n]') || el;
+        if (!target.querySelector('.visited-badge')) {
+          const badge = document.createElement('span');
+          badge.className = 'visited-badge';
+          badge.setAttribute('aria-hidden', 'true');
+          badge.innerHTML = '<svg class="visited-star" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>';
+          target.appendChild(badge);
+        }
+      };
+      const ensureVisitedBadge = (sec) => {
+        if (!sec) return;
+        const titleEl = sec.querySelector('h2');
+        const existing = sec.querySelector('.visited-badge');
+        const target = titleEl || sec;
+        if (existing && existing.parentElement !== target) {
+          existing.remove();
+        }
+        if (!target.querySelector('.visited-badge')) {
+          const badge = document.createElement('span');
+          badge.className = 'visited-badge';
+          badge.setAttribute('aria-hidden', 'true');
+          badge.innerHTML = '<svg class="visited-star" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>';
+          target.appendChild(badge);
+        }
+      };
+      const applyVisitedStyles = () => {
+        visitedSections.forEach(id => {
+          const sec = document.getElementById(id);
+          if (sec) {
+            sec.classList.add('section-visited');
+            ensureVisitedBadge(sec);
+          }
+        });
+        // Applica badge anche ai titoli visitati
+        const headings = Array.from(document.querySelectorAll('h2, h3'));
+        headings.forEach(h => {
+          const key = getTitleKey(h);
+          if (key && visitedTitles.includes(key)) ensureTitleBadge(h);
+        });
+      };
+      applyVisitedStyles();
+      // FX control (unlocks with XP)
+      const fxButtons = Array.from(document.querySelectorAll('.fx-toggle'));
+      const FX_UNLOCK_XP = 50;
+      let fxUnlocked = localStorage.getItem('fxUnlocked') === '1';
+      let fxEnabled = localStorage.getItem('fxEnabled') === '1';
       const lang = ((localStorage.getItem('langOverride') || navigator.language || 'it').slice(0,2) || 'it').toLowerCase();
-      let L = ['it','en','es'].includes(lang) ? lang : 'it';
+      let L = ['it','en'].includes(lang) ? lang : 'it';
       document.documentElement.setAttribute('lang', L);
-      const LABELS = { it: 'Segreto', en: 'Secret', es: 'Secreto' };
+      const LABELS = { it: 'Segreto', en: 'Secret' };
       const SECRET_HINTS = {
         it: [
           'Apri DevTools (F12) e digita cvGame.help() 🤓',
@@ -514,18 +663,6 @@
           'Starts with “m”',
           'Ends with “o”',
           'Has 5 letters',
-          'mauro'
-        ],
-        es: [
-          'Abre DevTools (F12) y escribe cvGame.help() 🤓',
-          'Usa cvGame.progress() para ver XP y medallas',
-          'El código es una palabra…',
-          '… ligada al nombre del CV',
-          'Todo en minúsculas',
-          'Sin espacios',
-          'Empieza con “m”',
-          'Termina con “o”',
-          'Tiene 5 letras',
           'mauro'
         ]
       };
@@ -558,7 +695,49 @@
         }
         if (xpBarFillEl) xpBarFillEl.style.width = `${pct}%`;
         if (hudEl) hudEl.setAttribute('title', nextBadge ? t('hud_tooltip_next', {remaining: Math.max(0, nextBadge - xp)}) : t('hud_tooltip_all'));
+
+        // Update FX control UI state based on XP
+        const nowUnlocked = xp >= FX_UNLOCK_XP;
+        if (nowUnlocked && !fxUnlocked) {
+          fxUnlocked = true;
+          localStorage.setItem('fxUnlocked', '1');
+          showToast(`✨ ${t('toast_control_unlocked')}`);
+        }
+        fxButtons.forEach(btn => {
+          if (nowUnlocked) {
+            btn.classList.remove('opacity-50', 'cursor-not-allowed');
+            btn.setAttribute('aria-disabled', 'false');
+            btn.setAttribute('data-locked', 'false');
+            btn.title = '';
+          } else {
+            btn.classList.add('opacity-50', 'cursor-not-allowed');
+            btn.setAttribute('aria-disabled', 'true');
+            btn.setAttribute('data-locked', 'true');
+            btn.title = t('fx_locked_hint', {xp: FX_UNLOCK_XP});
+          }
+          btn.setAttribute('aria-pressed', String(!!fxEnabled));
+          if (fxEnabled) {
+            btn.classList.add('ring-2', 'ring-brand');
+          } else {
+            btn.classList.remove('ring-2', 'ring-brand');
+          }
+        });
       };
+
+      // Wire FX buttons
+      fxButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const locked = btn.getAttribute('data-locked') === 'true';
+          if (locked) {
+            showToast(`🔒 ${t('fx_locked_hint', {xp: FX_UNLOCK_XP})}`);
+            return;
+          }
+          fxEnabled = !fxEnabled;
+          localStorage.setItem('fxEnabled', fxEnabled ? '1' : '0');
+          updateHUD();
+          showToast(fxEnabled ? `✨ ${t('toast_fx_on')}` : `✨ ${t('toast_fx_off')}`);
+        });
+      });
 
       const showToast = (message) => {
         if (!toastContainer) return;
@@ -716,6 +895,24 @@
             showToast(`🎉 ${t('toast_xp_plus', {points, title})}`);
             el.classList.add('click-anim');
             setTimeout(() => el.classList.remove('click-anim'), 220);
+            // Marca la sezione come visitata quando si ottiene XP
+            const sec = el.closest('section');
+            if (sec) {
+              sec.classList.add('section-visited');
+              ensureVisitedBadge(sec);
+              const id = sec.getAttribute('id');
+              if (id && !visitedSections.includes(id)) {
+                visitedSections.push(id);
+                try { localStorage.setItem('visitedSections', JSON.stringify(visitedSections)); } catch (e) {}
+              }
+            }
+            // Aggiungi stellina anche al titolo cliccato (H2/H3 con span)
+            ensureTitleBadge(el);
+            const k = getTitleKey(el);
+            if (k && !visitedTitles.includes(k)) {
+              visitedTitles.push(k);
+              try { localStorage.setItem('visitedTitles', JSON.stringify(visitedTitles)); } catch (e) {}
+            }
             checkAchievements();
             updateHUD();
           };
@@ -783,15 +980,6 @@
           nope: 'Nope! Hint: click the logo and read the logs.',
           welcome: 'Welcome Dev!',
           welcomeHelp: 'Type cvGame.help() to get started.'
-        },
-        es: {
-          helpTitle: 'Comandos disponibles:',
-          helpProgress: '- cvGame.progress()  → muestra XP, medallas y secreto',
-          helpSolve: '- cvGame.solve("mauro") → resuelve el acertijo y desbloquea una medalla',
-          progressLabel: 'Secreto',
-          nope: '¡Nope! Pista: haz clic en el logo y lee los logs.',
-          welcome: '¡Bienvenido Dev!',
-          welcomeHelp: 'Escribe cvGame.help() para empezar.'
         }
       };
       // Estensione dizionario per UI
@@ -806,6 +994,10 @@
         nav_html: 'HTML',
         nav_database: 'Database',
         nav_projects: 'Progetti',
+        cat_languages: 'Linguaggi',
+        cat_frontend: 'Frontend',
+        cat_cms: 'CMS',
+        cat_database: 'Database',
         skills_title: 'Competenze',
         skip_to_content: 'Salta al contenuto',
         menu_button_text: 'Menu',
@@ -827,6 +1019,35 @@
         skills_db_mysql: 'Database (MySQL)',
         skills_crm_automation: 'CRM & Automazioni',
         skills_seo_marketing: 'SEO & Marketing',
+        skills_typescript: 'TypeScript',
+        skills_react: 'React',
+        skills_vue: 'Vue.js',
+        skills_node: 'Node.js',
+        skills_express: 'Express',
+        skills_rest_api: 'API REST',
+        
+        skills_vite_webpack: 'Build (Vite/Webpack)',
+        skills_git_github: 'Git & GitHub',
+        skills_docker: 'Docker',
+        skills_ci_cd: 'CI/CD',
+        skills_testing_jest: 'Test (Jest)',
+        skills_accessibility: 'Accessibilità (a11y)',
+        skills_performance: 'Performance Web',
+        skills_sass: 'SASS/SCSS',
+        skills_laravel: 'Laravel',
+        skills_woocommerce: 'WooCommerce',
+        skills_elementor: 'Elementor',
+        skills_server_linux_install: 'Installazione server Linux (Ubuntu/Debian)',
+        skills_nginx_apache_config: 'Configurazione Nginx/Apache',
+        skills_ssl_letsencrypt: "SSL/TLS & Let's Encrypt",
+        skills_vps_provisioning: 'Provisioning VPS',
+        
+        skills_backup_restore: 'Backup & Restore',
+        skills_monitoring_logging: 'Monitoraggio & Log',
+        skills_security_firewall: 'Sicurezza & Firewall (ufw/fail2ban)',
+        skills_db_admin_mysql_postgres: 'Admin DB (MySQL/PostgreSQL)',
+        skills_db_tuning_indexing: 'Tuning & Indexing',
+        skills_db_replication_migration: 'Replica & Migrazioni',
         hud_xp_label: 'XP',
         hud_badge_label: 'Badge',
         hud_tooltip_next: 'XP al prossimo badge: {{remaining}}',
@@ -837,6 +1058,11 @@
         overlay_no_badge: 'Nessun badge ancora. Prova a cliccare un titolo!',
         aria_theme_toggle: 'Cambia tema',
         theme_button_text: 'Tema',
+        fx_control_text: 'FX',
+        toast_control_unlocked: 'Controllo sbloccato: FX',
+        toast_fx_on: 'FX attivato',
+        toast_fx_off: 'FX disattivato',
+        fx_locked_hint: 'Richiede {{xp}} XP',
         toast_xp_plus: '+{{points}} XP: {{title}}',
         toast_badge_unlocked: 'Badge sbloccato: {{name}}',
         toast_secret_unlocked: 'Badge sbloccato: Segreto (+{{bonus}} XP)',
@@ -911,6 +1137,10 @@
         nav_html: 'HTML',
         nav_database: 'Database',
         nav_projects: 'Projects',
+        cat_languages: 'Languages',
+        cat_frontend: 'Frontend',
+        cat_cms: 'CMS',
+        cat_database: 'Database',
         skills_title: 'Skills',
         skip_to_content: 'Skip to content',
         menu_button_text: 'Menu',
@@ -932,6 +1162,35 @@
         skills_db_mysql: 'Database (MySQL)',
         skills_crm_automation: 'CRM & Automations',
         skills_seo_marketing: 'SEO & Marketing',
+        skills_typescript: 'TypeScript',
+        skills_react: 'React',
+        skills_vue: 'Vue.js',
+        skills_node: 'Node.js',
+        skills_express: 'Express',
+        skills_rest_api: 'REST APIs',
+        
+        skills_vite_webpack: 'Build (Vite/Webpack)',
+        skills_git_github: 'Git & GitHub',
+        skills_docker: 'Docker',
+        skills_ci_cd: 'CI/CD',
+        skills_testing_jest: 'Testing (Jest)',
+        skills_accessibility: 'Accessibility (a11y)',
+        skills_performance: 'Web Performance',
+        skills_sass: 'SASS/SCSS',
+        skills_laravel: 'Laravel',
+        skills_woocommerce: 'WooCommerce',
+        skills_elementor: 'Elementor',
+        skills_server_linux_install: 'Linux server setup (Ubuntu/Debian)',
+        skills_nginx_apache_config: 'Nginx/Apache configuration',
+        skills_ssl_letsencrypt: "SSL/TLS & Let's Encrypt",
+        skills_vps_provisioning: 'VPS provisioning',
+        
+        skills_backup_restore: 'Backup & Restore',
+        skills_monitoring_logging: 'Monitoring & Logging',
+        skills_security_firewall: 'Security & Firewall (ufw/fail2ban)',
+        skills_db_admin_mysql_postgres: 'DB Admin (MySQL/PostgreSQL)',
+        skills_db_tuning_indexing: 'Tuning & Indexing',
+        skills_db_replication_migration: 'Replication & Migrations',
         hud_xp_label: 'XP',
         hud_badge_label: 'Badges',
         hud_tooltip_next: 'XP to next badge: {{remaining}}',
@@ -942,6 +1201,11 @@
         overlay_no_badge: 'No badges yet. Try clicking a title!',
         aria_theme_toggle: 'Toggle theme',
         theme_button_text: 'Theme',
+        fx_control_text: 'FX',
+        toast_control_unlocked: 'Control unlocked: FX',
+        toast_fx_on: 'FX enabled',
+        toast_fx_off: 'FX disabled',
+        fx_locked_hint: 'Requires {{xp}} XP',
         toast_xp_plus: '+{{points}} XP: {{title}}',
         toast_badge_unlocked: 'Badge unlocked: {{name}}',
         toast_secret_unlocked: 'Badge unlocked: Secret (+{{bonus}} XP)',
@@ -1005,68 +1269,7 @@
         projects_repo_link: 'Go to repo',
         footer_rights: '© 2025 Mauro Arnone - All rights reserved'
       });
-      Object.assign(T.es, {
-        doc_title: 'Mauro Arnone | CV Interactivo',
-        nav_about: 'Quién soy',
-        nav_wordpress: 'WordPress',
-        nav_php: 'PHP',
-        nav_javascript: 'JavaScript',
-        nav_css: 'CSS',
-        nav_tailwind: 'Tailwind',
-        nav_html: 'HTML',
-        nav_database: 'Base de datos',
-        nav_projects: 'Proyectos',
-        skills_title: 'Competencias',
-        skip_to_content: 'Saltar al contenido',
-        menu_button_text: 'Menú',
-        alt_logo: 'Logo',
-        alt_profile_photo: 'Foto de perfil de Mauro Arnone',
-        hero_tagline: 'Desarrollador web • WordPress • PHP • JavaScript',
-        cta_contact: 'Contáctame',
-        cta_linkedin: 'LinkedIn',
-        cta_github: 'GitHub',
-        about_title: 'Quién soy',
-        skills_wordpress: 'WordPress',
-        skills_php: 'PHP',
-        skills_js: 'JavaScript',
-        skills_jquery: 'jQuery',
-        skills_html: 'HTML',
-        skills_css_advanced: 'CSS avanzado',
-        skills_tailwind: 'Tailwind CSS',
-        skills_db_mysql: 'Base de datos (MySQL)',
-        skills_crm_automation: 'CRM y Automatizaciones',
-        skills_seo_marketing: 'SEO y Marketing',
-        hud_xp_label: 'XP',
-        hud_badge_label: 'Medallas',
-        hud_tooltip_next: 'XP para la próxima medalla: {{remaining}}',
-        hud_tooltip_all: 'Has desbloqueado todas las medallas',
-        overlay_title: 'Medallas',
-        overlay_close: 'Cerrar',
-        overlay_desc: 'Haz clic en los títulos del CV para ganar XP y desbloquear medallas.',
-        overlay_no_badge: 'Aún no hay medallas. ¡Prueba a hacer clic en un título!',
-        aria_theme_toggle: 'Cambiar tema',
-        theme_button_text: 'Tema',
-        toast_xp_plus: '+{{points}} XP: {{title}}',
-        toast_badge_unlocked: 'Medalla desbloqueada: {{name}}',
-        toast_secret_unlocked: 'Medalla desbloqueada: Secreto (+{{bonus}} XP)',
-        toast_dev_bonus: 'Bonus Dev: +{{bonus}} XP',
-        toast_debugger_unlocked: 'Medalla desbloqueada: Debugger',
-        rarity_map: { comune: 'Común', raro: 'Rara', epico: 'Épica', leggendario: 'Legendaria', mitico: 'Mítica', segreto: 'Secreta' },
-        badge_labels: { 'Segreto': 'Secreto', 'Debugger': 'Debugger', 'Esploratore': 'Explorador', 'Curioso':'Curioso', 'Esperto':'Experto', 'Instancabile':'Incansable', 'Maestro':'Maestro', 'Veterano':'Veterano', 'Leggenda':'Leyenda', 'Mitico':'Mítico', 'Immortale':'Inmortal' },
-        badge_desc_extra: { 'Segreto': '¡Descubriste un easter egg haciendo clic en el logo!' },
-        achievement_desc: {
-          'Esploratore': 'Empezaste a explorar el CV.',
-          'Esperto': 'Profundizaste en muchas secciones.',
-          'Maestro': 'Probaste casi todo.',
-          'Curioso': 'Hiciste clic en muchas secciones.',
-          'Instancabile': 'No te detienes — gran constancia.',
-          'Veterano': 'Exploraste cada parte a fondo.',
-          'Leggenda': 'Compromiso épico en el recorrido del CV.',
-          'Mitico': 'Alcanzaste un hito muy alto.',
-          'Immortale': 'Llevaste el XP al nivel más alto.',
-          'Debugger': 'Resolviste el acertijo de la consola.'
-        }
-      });
+      
       // Utilità i18n
       const t = (key, params={}) => {
         const dict = T[L] || T['it'];
@@ -1163,6 +1366,211 @@
         if (e.key === 'Escape') toggleBadgeOverlay(false);
       });
 
+      // Categoria iniziale applicata dopo la definizione del router
+
+      // Category router (hash-based)
+      const categoryButtons = Array.from(document.querySelectorAll('.cat-btn'));
+      const allSections = Array.from(document.querySelectorAll('section[id]'));
+      const pageSubnavEl = document.getElementById('page-subnav');
+      const setActiveCategory = (cat) => {
+        // Update buttons
+        categoryButtons.forEach(btn => {
+          const isActive = btn.getAttribute('data-cat') === cat;
+          btn.setAttribute('aria-pressed', String(isActive));
+          btn.classList.toggle('bg-blue-50', isActive);
+          btn.classList.toggle('dark:bg-gray-700', isActive);
+          btn.classList.toggle('border-brand', isActive);
+          btn.classList.toggle('ring-1', isActive);
+          btn.classList.toggle('ring-brand', isActive);
+        });
+        // Show only sections matching category; show all if no category
+        const showAll = !cat;
+        allSections.forEach(sec => {
+          const sCat = sec.getAttribute('data-category');
+          const show = showAll || (sCat === cat);
+          sec.classList.toggle('hidden', !show);
+        });
+        // Build contextual sub-navigation at the top of main
+        if (pageSubnavEl) {
+          pageSubnavEl.innerHTML = '';
+          const visibleSections = allSections.filter(sec => {
+            const sCat = sec.getAttribute('data-category');
+            return showAll || (sCat === cat);
+          });
+          visibleSections.forEach(sec => {
+            const id = sec.id;
+            const titleEl = sec.querySelector('h2');
+            const label = titleEl ? titleEl.textContent.trim() : id;
+            const a = document.createElement('a');
+            a.href = cat ? `#cat=${cat}&section=${id}` : `#section=${id}`;
+            a.className = 'px-2 py-1 rounded border text-xs bg-white hover:bg-gray-100 transition dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700';
+            a.textContent = label;
+            pageSubnavEl.appendChild(a);
+          });
+        }
+        // lo scroll sarà gestito da applyCategoryFromHash
+      };
+      const parseRouteFromHash = () => {
+        const h = location.hash || '';
+        const catMatch = h.match(/cat=(\w+)/);
+        const secMatch = h.match(/section=([A-Za-z0-9_-]+)/);
+        return { cat: catMatch ? catMatch[1] : null, section: secMatch ? secMatch[1] : null };
+      };
+      const applyCategoryFromHash = () => {
+        const { cat, section } = parseRouteFromHash();
+        setActiveCategory(cat);
+        if (section) {
+          const target = document.getElementById(section);
+          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      };
+      window.addEventListener('hashchange', applyCategoryFromHash);
+      categoryButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const cat = btn.getAttribute('data-cat');
+          const url = new URL(location.href);
+          url.hash = `#cat=${cat}`;
+          history.pushState(null, '', url);
+          applyCategoryFromHash();
+        });
+      });
+
+      // Interactive Header: tilt, parallax, ripple
+      (function () {
+        const headerEl = document.getElementById('home');
+        const heroCard = document.getElementById('hero-card');
+        const layer = document.getElementById('hero-interactive-layer');
+        const shapeEls = Array.from(document.querySelectorAll('#hero-shapes .hero-shape'));
+        const supportsMotion = window.matchMedia('(prefers-reduced-motion: no-preference)').matches;
+        if (!headerEl || !heroCard || !supportsMotion) return;
+        headerEl.style.perspective = '800px';
+        headerEl.style.touchAction = 'pan-y';
+        let dragging = false;
+        let lastX = 0, lastY = 0;
+        let rafId = null;
+        const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
+        const cardDepthEls = Array.from(heroCard.querySelectorAll('[data-depth]'));
+        const layerDepthEls = Array.from(layer?.querySelectorAll('[data-depth]') || []);
+        const applyTransforms = (nx, ny, intensity = 1) => {
+          const rotX = clamp(-ny * 8 * intensity, -12, 12);
+          const rotY = clamp(nx * 8 * intensity, -12, 12);
+          heroCard.style.transition = 'transform 120ms ease-out';
+          heroCard.style.transformStyle = 'preserve-3d';
+          heroCard.style.transform = `translateZ(0px) rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+          // Parallax for layered elements inside heroCard
+          cardDepthEls.forEach(el => {
+            const d = parseFloat(el.dataset.depth || '1');
+            const z = d * 8;
+            const tx = nx * d * 12;
+            const amp = 1 + (Math.abs(nx) + Math.abs(ny)) * 2;
+            const floatY = Math.sin(window.__heroFloatTime__ * 1.6 + d) * amp;
+            const ty = ny * d * 8 + floatY;
+            el.style.transition = 'transform 120ms ease-out';
+            el.style.transform = `translateZ(${z}px) translate(${tx}px, ${ty}px)`;
+          });
+          // Geometric shapes parallax
+          shapeEls.forEach((shape, i) => {
+            const d = parseFloat(shape.dataset.depth || '1');
+            const tx = nx * d * 20;
+            const amp = 1 + (Math.abs(nx) + Math.abs(ny)) * 2;
+            const floatY = Math.sin(window.__heroFloatTime__ * (1.4 + i * 0.1)) * amp;
+            const ty = ny * d * -14 + floatY;
+            const rot = nx * 10 + i * 2;
+            shape.style.transition = 'transform 220ms ease-out';
+            shape.style.transform = `translate(${tx}px, ${ty}px) rotate(${rot}deg)`;
+          });
+          // Foreground sparkles
+          layerDepthEls.forEach(el => {
+            const d = parseFloat(el.dataset.depth || '1');
+            const tx = nx * d * 16;
+            const amp = 1 + (Math.abs(nx) + Math.abs(ny)) * 2.5;
+            const floatY = Math.sin(window.__heroFloatTime__ * 1.8 + d * 0.7) * amp;
+            const ty = ny * d * 10 + floatY;
+            el.style.transition = 'transform 160ms ease-out';
+            el.style.transform = `translate(${tx}px, ${ty}px)`;
+          });
+        };
+        let lastNX = 0, lastNY = 0;
+        window.__heroFloatTime__ = 0;
+        let animId = null;
+        const tick = () => {
+          window.__heroFloatTime__ += 0.016; // ~60fps
+          applyTransforms(lastNX, lastNY, dragging ? 1.2 : 1);
+          animId = requestAnimationFrame(tick);
+        };
+        const onPointerMove = (e) => {
+          const rect = headerEl.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          lastX = x; lastY = y;
+          const nx = clamp((x / rect.width) * 2 - 1, -1, 1);
+          const ny = clamp((y / rect.height) * 2 - 1, -1, 1);
+          lastNX = nx; lastNY = ny;
+          if (rafId) cancelAnimationFrame(rafId);
+          rafId = requestAnimationFrame(() => applyTransforms(nx, ny, dragging ? 1.2 : 1));
+        };
+        const onPointerDown = (e) => {
+          // Non intercettare click su elementi interattivi (link, bottoni)
+          const interactive = e.target.closest('a,button');
+          if (interactive) return;
+          dragging = true;
+          headerEl.setPointerCapture?.(e.pointerId);
+        };
+        const onPointerUp = () => {
+          dragging = false;
+          heroCard.style.transition = 'transform 300ms ease-out';
+          heroCard.style.transform = 'translateZ(0) rotateX(0deg) rotateY(0deg)';
+          shapeEls.forEach(shape => {
+            shape.style.transition = 'transform 300ms ease-out';
+            shape.style.transform = 'translate(0,0) rotate(0deg)';
+          });
+          cardDepthEls.forEach(el => {
+            el.style.transition = 'transform 300ms ease-out';
+            el.style.transform = 'translateZ(0) translate(0,0)';
+          });
+          layerDepthEls.forEach(el => {
+            el.style.transition = 'transform 300ms ease-out';
+            el.style.transform = 'translate(0,0)';
+          });
+          lastNX = 0; lastNY = 0;
+        };
+        const spawnRipple = (x, y) => {
+          if (!layer) return;
+          const rip = document.createElement('span');
+          rip.style.position = 'absolute';
+          rip.style.left = `${x - 12}px`;
+          rip.style.top = `${y - 12}px`;
+          rip.style.width = '24px';
+          rip.style.height = '24px';
+          rip.style.borderRadius = '9999px';
+          rip.style.pointerEvents = 'none';
+          rip.style.background = 'radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.0) 60%)';
+          rip.style.filter = 'blur(1px)';
+          layer.appendChild(rip);
+          const anim = rip.animate([
+            { transform: 'scale(0.2)', opacity: 0.9 },
+            { transform: 'scale(6)', opacity: 0 }
+          ], { duration: 600, easing: 'cubic-bezier(0.2, 0.65, 0.3, 1)' });
+          anim.onfinish = () => rip.remove();
+        };
+        const onClick = (e) => {
+          // Non interferire con i click su link e bottoni
+          const interactive = e.target.closest('a,button');
+          if (interactive) return;
+          const rect = headerEl.getBoundingClientRect();
+          spawnRipple(e.clientX - rect.left, e.clientY - rect.top);
+        };
+        headerEl.addEventListener('pointermove', onPointerMove, { passive: true });
+        headerEl.addEventListener('pointerdown', onPointerDown);
+        headerEl.addEventListener('pointerup', onPointerUp);
+        headerEl.addEventListener('pointerleave', onPointerUp);
+        headerEl.addEventListener('click', onClick);
+        // avvia loop di galleggiamento continuo
+        tick();
+      })();
+
       // Scroll progress bar (navbar bottom)
       const scrollProgressEl = document.getElementById('scroll-progress');
       let scrollTicking = false;
@@ -1230,7 +1638,7 @@
         if (!particleCanvas) return;
         const area = window.innerWidth * window.innerHeight;
         const density = computeDensityFactor();
-        const target = Math.round(Math.min(200, Math.max(60, (area / 15000) * density)));
+        const target = Math.round(Math.min(260, Math.max(70, (area / 12000) * density)));
         particleTargetCount = target;
         // adjust link radius for higher counts
         const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
@@ -1293,7 +1701,8 @@
           pctx.fill();
         });
         // Draw mesh connections
-        const linkR2 = linkRadius * linkRadius;
+        const effectiveLinkRadius = linkRadius * (fxEnabled ? 1.15 : 1);
+        const linkR2 = effectiveLinkRadius * effectiveLinkRadius;
         particlesBg.forEach((p, i) => {
           const gx = Math.floor(p.x / cellSize);
           const gy = Math.floor(p.y / cellSize);
@@ -1312,13 +1721,26 @@
                 const d2 = ddx*ddx + ddy*ddy;
                 if (d2 < linkR2) {
                   const d = Math.sqrt(d2);
-                  const alpha = Math.max(0.05, 0.35 - (d / linkRadius) * 0.35);
+                  const alpha = Math.max(0.05, 0.35 - (d / effectiveLinkRadius) * 0.35);
+                  // Glow stroke (blurred, wider, lower alpha)
+                  pctx.save();
+                  pctx.shadowBlur = fxEnabled ? 9 : 6;
+                  pctx.shadowColor = `rgba(16,101,255, ${alpha * 0.8})`;
                   pctx.beginPath();
                   pctx.moveTo(p.x, p.y);
                   pctx.lineTo(q.x, q.y);
-                  pctx.strokeStyle = `rgba(16,101,255, ${alpha})`;
-                  pctx.lineWidth = 0.8;
+                  pctx.lineWidth = fxEnabled ? 2.2 : 1.6;
+                  pctx.strokeStyle = `rgba(16,101,255, ${alpha * (fxEnabled ? 0.35 : 0.25)})`;
                   pctx.stroke();
+                  // Crisp stroke on top
+                  pctx.shadowBlur = 0;
+                  pctx.beginPath();
+                  pctx.moveTo(p.x, p.y);
+                  pctx.lineTo(q.x, q.y);
+                  pctx.lineWidth = fxEnabled ? 1.0 : 0.8;
+                  pctx.strokeStyle = `rgba(16,101,255, ${alpha})`;
+                  pctx.stroke();
+                  pctx.restore();
                   links++;
                   if (links >= maxLinksPerParticle) break;
                 }
