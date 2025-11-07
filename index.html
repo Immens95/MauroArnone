@@ -69,7 +69,7 @@
 
   <!-- Header -->
   <!-- Navbar -->
-  <nav class="fixed top-0 inset-x-0 z-50 bg-white/70 backdrop-blur shadow-sm dark:bg-gray-900/70">
+  <nav class="fixed top-0 inset-x-0 z-50 bg-white/70 backdrop-blur shadow-sm dark:bg-gray-900/70" aria-label="Navigazione principale" data-i18n-aria="aria_main_nav">
     <!-- Scroll progress bar -->
     <div id="scroll-progress" class="absolute left-0 bottom-0 h-0.5 bg-brand dark:bg-brand w-0 pointer-events-none"></div>
     <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
@@ -77,7 +77,7 @@
         <img src="https://avatars.githubusercontent.com/u/129175879?v=4" alt="Logo" class="w-8 h-8 rounded-full" data-i18n-alt="alt_logo">
         <span class="font-semibold">Mauro Arnone</span>
       </a>
-      <button id="menu-btn" class="md:hidden px-3 py-2 rounded bg-brand text-white hover:bg-brandDark transition" data-i18n="menu_button_text">Menu</button>
+      <button id="menu-btn" type="button" class="md:hidden px-3 py-2 rounded bg-brand text-white hover:bg-brandDark transition" data-i18n="menu_button_text">Menu</button>
       <ul id="menu" class="hidden md:flex items-center gap-4 text-sm">
         <li>
           <div id="gamify-hud" class="hidden md:flex items-center gap-1 px-2 py-1 rounded border text-xs bg-white/70 text-gray-800 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700">
@@ -95,13 +95,13 @@
         <li>
           <div class="lang-switch hidden md:flex items-center gap-1 px-2 py-1 rounded border text-xs bg-white/70 text-gray-800 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700">
             <span class="sr-only" data-i18n="lang_label">Lingua</span>
-            <button class="lang-btn px-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700" data-lang="it" data-i18n-aria="aria_lang_it" aria-label="Italiano">IT</button>
+            <button class="lang-btn px-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700" type="button" data-lang="it" data-i18n-aria="aria_lang_it" aria-label="Italiano">IT</button>
             <span class="mx-1">|</span>
-            <button class="lang-btn px-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700" data-lang="en" data-i18n-aria="aria_lang_en" aria-label="English">EN</button>
+            <button class="lang-btn px-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700" type="button" data-lang="en" data-i18n-aria="aria_lang_en" aria-label="English">EN</button>
           </div>
         </li>
         <li>
-          <button class="theme-toggle px-3 py-2 rounded border text-sm bg-white hover:bg-gray-100 transition dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700 dark:hover:bg-gray-700 flex items-center gap-2" aria-label="Cambia tema" aria-pressed="false" data-i18n-aria="aria_theme_toggle">
+          <button class="theme-toggle px-3 py-2 rounded border text-sm bg-white hover:bg-gray-100 transition dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700 dark:hover:bg-gray-700 flex items-center gap-2" type="button" aria-label="Cambia tema" aria-pressed="false" data-i18n-aria="aria_theme_toggle">
             <svg class="moon-icon w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
             <svg class="sun-icon w-4 h-4 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><path d="M12 1v3M12 20v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M1 12h3M20 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
             <span class="hidden sm:inline theme-text" data-i18n="theme_button_text">Tema</span>
@@ -144,7 +144,7 @@
   </nav>
 
   <!-- Hero -->
-  <header id="home" class="relative bg-gradient-to-br from-blue-600 via-teal-500 to-purple-600 text-white pt-28 pb-16 shadow-lg overflow-hidden">
+  <header id="home" class="relative bg-gradient-to-br from-blue-600 via-teal-500 to-purple-600 text-white pt-28 pb-16 shadow-lg overflow-hidden" aria-label="Intestazione" data-i18n-aria="aria_header_landmark">
     <!-- Geometric shapes replacing blobs -->
     <svg id="hero-shapes" class="absolute inset-0 pointer-events-none" viewBox="0 0 800 400" preserveAspectRatio="none">
       <!-- Square -->
@@ -162,7 +162,7 @@
       <span class="absolute right-20 top-24 w-2 h-2 rounded-full bg-white/70 shadow will-change-transform" data-depth="5"></span>
       <span class="absolute left-1/2 bottom-12 w-2 h-2 rounded-full bg-white/60 shadow will-change-transform" data-depth="6"></span>
     </div>
-    <div id="hero-card" class="max-w-5xl mx-auto px-6 text-center will-change-transform" style="transform-style: preserve-3d;">
+    <div id="hero-card" class="max-w-5xl mx-auto px-6 text-center will-change-transform">
 <img id="hero-photo" src="https://avatars.githubusercontent.com/u/129175879?v=4" alt="Foto profilo di Mauro Arnone" class="mx-auto rounded-full w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 border-4 border-white shadow-md animate-float will-change-transform select-none" decoding="async" data-i18n-alt="alt_profile_photo" data-depth="3">
       <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mt-4" data-depth="2">Mauro Arnone</h1>
       <p class="text-base sm:text-lg mt-2 opacity-90" data-i18n="hero_tagline" data-depth="1.5">Web Developer • WordPress • PHP • JavaScript</p>
@@ -175,17 +175,23 @@
     </div>
   </header>
 
-<main id="contenuto" class="pt-6">
+<main id="contenuto" class="pt-6" aria-label="Contenuto principale" data-i18n-aria="aria_main_landmark">
   <!-- Navigazione contestuale della pagina -->
-  <nav id="page-nav" class="max-w-5xl mx-auto px-6 mb-4 flex flex-col items-center gap-3">
+  <nav id="page-nav" class="max-w-5xl mx-auto px-6 mb-4 flex flex-col items-center gap-3" aria-label="Navigazione di pagina" data-i18n-aria="aria_page_nav">
     <div class="cat-switch flex items-center justify-center gap-2 px-2 py-1 rounded border text-xs bg-white/70 text-gray-800 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700">
-      <button class="cat-btn px-2 py-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700" data-cat="linguaggi" aria-pressed="false"><span data-i18n="cat_languages">Linguaggi</span></button>
+      <button class="cat-btn px-2 py-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700" type="button" data-cat="all" aria-pressed="false"><span data-i18n="cat_all">Tutto</span></button>
       <span class="mx-1">|</span>
-      <button class="cat-btn px-2 py-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700" data-cat="frontend" aria-pressed="false"><span data-i18n="cat_frontend">Frontend</span></button>
+      <button class="cat-btn px-2 py-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700" type="button" data-cat="lf" aria-pressed="false"><span data-i18n="cat_lang_frameworks">Linguaggi + Frameworks</span></button>
       <span class="mx-1">|</span>
-      <button class="cat-btn px-2 py-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700" data-cat="cms" aria-pressed="false"><span data-i18n="cat_cms">CMS</span></button>
+      <button class="cat-btn px-2 py-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700" type="button" data-cat="backend" aria-pressed="false"><span data-i18n="cat_backend">Backend</span></button>
       <span class="mx-1">|</span>
-      <button class="cat-btn px-2 py-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700" data-cat="database" aria-pressed="false"><span data-i18n="cat_database">Database</span></button>
+      <button class="cat-btn px-2 py-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700" type="button" data-cat="frontend" aria-pressed="false"><span data-i18n="cat_frontend">Frontend</span></button>
+      <span class="mx-1">|</span>
+      <button class="cat-btn px-2 py-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700" type="button" data-cat="cms" aria-pressed="false"><span data-i18n="cat_cms">CMS</span></button>
+      <span class="mx-1">|</span>
+      <button class="cat-btn px-2 py-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700" type="button" data-cat="database" aria-pressed="false"><span data-i18n="cat_database">Database</span></button>
+      <span class="mx-1">|</span>
+      <button class="cat-btn px-2 py-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700" type="button" data-cat="3d" aria-pressed="false"><span data-i18n="cat_3d">3D</span></button>
     </div>
     <div id="page-subnav" class="flex flex-wrap items-center justify-center gap-2 text-sm"></div>
   </nav>
@@ -199,57 +205,89 @@
     </p>
   </section>
 
+  
+
   <!-- Competenze elenco -->
   <section class="bg-white shadow-md rounded-2xl max-w-5xl mx-auto my-8 p-8 opacity-0 translate-y-6 transition-all duration-700 dark:bg-gray-900 dark:text-gray-100" data-reveal>
     <h2 class="text-2xl font-bold mb-6 transition-colors hover:text-brand hover:underline decoration-2 underline-offset-4" data-i18n="skills_title">Competenze</h2>
-    <ul class="grid grid-cols-2 md:grid-cols-3 gap-3 text-sm sm:text-base">
-      <!-- Base & CMS -->
-      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_wordpress">WordPress</span></li>
-      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_php">PHP</span></li>
-      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_js">JavaScript</span></li>
-      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_html">HTML</span></li>
-      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_css_advanced">CSS avanzato</span></li>
+    <ul id="skills-list" class="grid grid-cols-2 md:grid-cols-3 gap-3 text-sm sm:text-base">
+      <!-- Gruppo: Linguaggi (invertito) -->
+      <li class="col-span-2 md:col-span-3 text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400"><span data-i18n="skills_group_languages_title">Linguaggi</span></li>
+      <li data-cat="linguaggi backend" class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_php">PHP</span></li>
+      <li data-cat="linguaggi frontend" class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_js">JavaScript</span></li>
+      <li data-cat="linguaggi" class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_html">HTML</span></li>
+      <li data-cat="linguaggi" class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_css_advanced">CSS avanzato</span></li>
 
-      <!-- Frontend -->
-      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_tailwind">Tailwind CSS</span></li>
-      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_jquery">jQuery</span></li>
+      <!-- Database spostato sotto Software -->
+      <li data-cat="database" class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_db_mysql">Database (MySQL)</span></li>
+
+      <!-- Gruppo: Altro (invertito) -->
+      <li class="col-span-2 md:col-span-3 text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400"><span data-i18n="skills_group_other_title">Altro</span></li>
+      <li data-cat="frameworks frontend" class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_tailwind">Tailwind CSS</span></li>
+      <li data-cat="frameworks frontend" class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_jquery">jQuery</span></li>
+      <li data-cat="frameworks frontend" class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_gsap">GSAP</span></li>
+      <li data-cat="frameworks frontend" class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_threejs">Three.js</span></li>
+      <li data-cat="frameworks backend" class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_woocommerce">WooCommerce</span></li>
+      <li data-cat="frameworks frontend" class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_bootstrap">Bootstrap</span></li>
+      <li data-cat="frameworks frontend" class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_materialize">Materialize</span></li>
+
+      <!-- Base & CMS -->
+      <li data-cat="cms" class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_wordpress">WordPress</span></li>
 
       <!-- Backend & API -->
-      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_rest_api">API REST</span></li>
+      <li data-cat="frontend backend" class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_rest_api">API REST</span></li>
 
       <!-- Tooling & DevOps -->
-      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_git_github">Git & GitHub</span></li>
+      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_git_github">Git &amp; GitHub</span></li>
       <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_docker">Docker</span></li>
       <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_ci_cd">CI/CD</span></li>
 
       <!-- Qualità & Marketing -->
       <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_performance">Performance Web</span></li>
-      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_crm_automation">CRM & Automazioni</span></li>
-      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_seo_marketing">SEO & Marketing</span></li>
+      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_crm_automation">CRM &amp; Automazioni</span></li>
+      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_seo_marketing">SEO &amp; Marketing</span></li>
 
       <!-- Framework & e‑commerce -->
-      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_woocommerce">WooCommerce</span></li>
+      
 
-      <!-- Database -->
-      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_db_mysql">Database (MySQL)</span></li>
+      <!-- 3D & Grafica -->
+      <li data-cat="3d" class="col-span-2 md:col-span-3 mt-4 text-sm font-semibold text-gray-700 dark:text-gray-300"><span data-i18n="skills_3d_group_title">3D & Grafica</span></li>
+      <li data-cat="3d" class="col-span-2 md:col-span-3 text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400"><span data-i18n="skills_group_types_title">Tipologie</span></li>
+      <li data-cat="3d" class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_3d_modeling">Modellazione 3D</span></li>
+      <li data-cat="3d" class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_3d_rendering">Rendering 3D</span></li>
+      <li data-cat="3d" class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_texture_painting">Texture Painting</span></li>
+      <li data-cat="3d" class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_3d_models_printing">Modelli per stampa 3D</span></li>
+      <li data-cat="3d" class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_3d_models_rendering">Modelli per rendering 3D</span></li>
+      <li data-cat="3d" class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_3d_models_games">Modelli 3D per videogiochi</span></li>
+
+      <li data-cat="3d" class="col-span-2 md:col-span-3 text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400"><span data-i18n="skills_group_software_title">Software</span></li>
+      <li data-cat="3d" class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_webgl_webgpu">WebGL/WebGPU</span></li>
+      <li data-cat="3d" class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_blender">Blender</span></li>
+      <li data-cat="3d" class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_substance_painter">Substance Painter</span></li>
+      <li data-cat="3d" class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_unreal_engine">Unreal Engine</span></li>
+
+      <li data-cat="3d" class="col-span-2 md:col-span-3 text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400"><span data-i18n="skills_group_software_title">Software</span></li>
+
+      <!-- Database (spostato sopra) -->
       <!-- Server & VPS -->
-      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_server_linux_install">Installazione server Linux (Ubuntu/Debian)</span></li>
-      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_nginx_apache_config">Configurazione Nginx/Apache</span></li>
-      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_ssl_letsencrypt">SSL/TLS & Let's Encrypt</span></li>
-      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_vps_provisioning">Provisioning VPS</span></li>
-      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_backup_restore">Backup & Restore</span></li>
-      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_monitoring_logging">Monitoraggio & Log</span></li>
-      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_security_firewall">Sicurezza & Firewall (ufw/fail2ban)</span></li>
+      <li data-cat="backend" class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_server_linux_install">Installazione server Linux (Ubuntu/Debian)</span></li>
+      <li data-cat="backend" class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_nginx_apache_config">Configurazione Nginx/Apache</span></li>
+      <li data-cat="backend" class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_ssl_letsencrypt">SSL/TLS &amp; Let's Encrypt</span></li>
+      <li data-cat="backend" class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_vps_provisioning">Provisioning VPS</span></li>
+      <li data-cat="backend" class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_backup_restore">Backup &amp; Restore</span></li>
+      <li data-cat="backend" class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_monitoring_logging">Monitoraggio &amp; Log</span></li>
+      <li data-cat="backend" class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_security_firewall">Sicurezza &amp; Firewall (ufw/fail2ban)</span></li>
 
       <!-- Database & Admin -->
-      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_db_admin_mysql_postgres">Admin DB (MySQL/PostgreSQL)</span></li>
-      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_db_tuning_indexing">Tuning & Indexing</span></li>
-      <li class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_db_replication_migration">Replica & Migrazioni</span></li>
+      <li data-cat="database" class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_db_admin_mysql_postgres">Admin DB (MySQL/PostgreSQL)</span></li>
+      <li data-cat="database" class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_db_tuning_indexing">Tuning &amp; Indexing</span></li>
+      <li data-cat="database" class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_db_replication_migration">Replica &amp; Migrazioni</span></li>
     </ul>
   </section>
 
+
   <!-- Sezioni dedicate -->
-<section id="wordpress" data-category="cms" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-blue-50 to-teal-50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900 dark:text-gray-100" data-reveal>
+  <section id="wordpress" data-category="cms" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-blue-50/50 to-teal-50/50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900/50 dark:text-gray-100" data-reveal>
     <h2 class="text-2xl font-bold mb-4 flex items-center gap-2 motion-safe:animate-reveal-up transition-colors transition-transform transform-gpu hover:text-brand hover:underline decoration-2 underline-offset-4 hover:scale-105">🧩 WordPress</h2>
     <div class="grid sm:grid-cols-2 gap-6">
       <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0s">
@@ -263,60 +301,88 @@
       <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0.12s">
         <h3 class="text-xl font-semibold flex items-center gap-2 text-brand transition-transform transform-gpu hover:rotate-1">
           <svg class="w-5 h-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12h18"/><path d="M12 3v18"/></svg>
-          <span data-i18n="wp_perf_title">Performance & SEO</span>
+          <span data-i18n="wp_perf_title">Performance &amp; SEO</span>
         </h3>
         <p class="mt-2 text-gray-700 dark:text-gray-300" data-i18n="wp_perf_desc">Ottimizzazioni LCP, caching, immagini e struttura HTML semantica con schema.org.</p>
+      </div>
+      <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0.18s">
+        <h3 class="text-xl font-semibold flex items-center gap-2 text-brand transition-transform transform-gpu hover:translate-y-0.5">
+          <svg class="w-5 h-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16M4 12h10M4 18h7"/></svg>
+          <span data-i18n="js_ajax_title">AJAX &amp; API</span>
+        </h3>
+        <p class="mt-2 text-gray-700 dark:text-gray-300" data-i18n="js_ajax_desc">Richieste AJAX con fetch/XHR, caching lato client, gestione CORS.</p>
+      </div>
+      <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0.24s">
+        <h3 class="text-xl font-semibold flex items-center gap-2 text-brand transition-transform transform-gpu hover:-translate-y-0.5">
+          <svg class="w-5 h-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 4h18M6 8h12M9 12h6M6 16h12M3 20h18"/></svg>
+          <span data-i18n="js_debug_title">Log &amp; Debug avanzato</span>
+        </h3>
+        <p class="mt-2 text-gray-700 dark:text-gray-300" data-i18n="js_debug_desc">Console strutturata, livelli di log, tracciamento errori, profiling performance.</p>
+      </div>
+      <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0.30s">
+        <h3 class="text-xl font-semibold flex items-center gap-2 text-brand transition-transform transform-gpu hover:rotate-1">
+          <svg class="w-5 h-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l4 8h8l-6.5 5 2.5 7-6.5-4.5L7.5 22 10 15 2 10h8z"/></svg>
+          <span data-i18n="js_libs_title">Librerie &amp; Frameworks</span>
+        </h3>
+        <p class="mt-2 text-gray-700 dark:text-gray-300" data-i18n="js_libs_desc">three.js per 3D/WebGL, jQuery per DOM, GSAP per animazioni.</p>
       </div>
     </div>
   </section>
 
-<section id="php" data-category="linguaggi" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900 dark:text-gray-100" data-reveal>
+  <section id="php" data-category="linguaggi" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-amber-50/50 to-orange-50/50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900/50 dark:text-gray-100" data-reveal>
     <h2 class="text-2xl font-bold mb-4 motion-safe:animate-reveal-up transition-colors hover:text-brand hover:underline decoration-2 underline-offset-4">🐘 PHP</h2>
     <div class="grid sm:grid-cols-2 gap-6">
       <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0s">
         <h3 class="text-xl font-semibold flex items-center gap-2 text-brand transition-transform hover:scale-105 transform-gpu">
           <svg class="w-5 h-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-          <span data-i18n="php_arch_title">Architettura & OOP</span>
+          <span data-i18n="php_arch_title">Architettura &amp; OOP</span>
         </h3>
         <p class="mt-2 text-gray-700 dark:text-gray-300" data-i18n="php_arch_desc">Pattern, organizzazione codice, sicurezza input/output, integrazione con WordPress.</p>
       </div>
       <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0.12s">
         <h3 class="text-xl font-semibold flex items-center gap-2 text-brand transition-transform hover:scale-105 transform-gpu">
           <svg class="w-5 h-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 7l10 10M17 7L7 17"/></svg>
-          <span data-i18n="php_api_title">API & integrazioni</span>
+          <span data-i18n="php_api_title">API &amp; integrazioni</span>
         </h3>
         <p class="mt-2 text-gray-700 dark:text-gray-300" data-i18n="php_api_desc">REST, webhook, automazioni CRM e servizi terzi.</p>
+      </div>
+      <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0.18s">
+        <h3 class="text-xl font-semibold flex items-center gap-2 text-brand transition-transform transform-gpu hover:translate-x-0.5">
+          <svg class="w-5 h-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 6h12v12H6z"/><path d="M8 8h8v8H8z"/></svg>
+          <span data-i18n="css_frameworks_title">Frameworks CSS</span>
+        </h3>
+        <p class="mt-2 text-gray-700 dark:text-gray-300" data-i18n="css_frameworks_desc">Bootstrap e Materialize: grid, componenti UI, responsive e accessibilità.</p>
       </div>
     </div>
   </section>
 
-<section id="javascript" data-category="linguaggi" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900 dark:text-gray-100" data-reveal>
+  <section id="javascript" data-category="linguaggi" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-indigo-50/50 to-purple-50/50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900/50 dark:text-gray-100" data-reveal>
     <h2 class="text-2xl font-bold mb-4 motion-safe:animate-reveal-up transition-colors transition-transform transform-gpu hover:text-brand hover:underline decoration-2 underline-offset-4 hover:scale-105" data-i18n="js_title">⚡ JavaScript</h2>
     <div class="grid sm:grid-cols-2 gap-6">
       <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0s">
         <h3 class="text-xl font-semibold flex items-center gap-2 text-brand transition-transform transform-gpu hover:-translate-y-0.5">
           <svg class="w-5 h-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h7v8l10-12h-7z"/></svg>
-          <span data-i18n="js_interactivity_title">Interattività & UX</span>
+          <span data-i18n="js_interactivity_title">Interattività &amp; UX</span>
         </h3>
         <p class="mt-2 text-gray-700 dark:text-gray-300" data-i18n="js_interactivity_desc">Esperienze fluide, animazioni, gestione stato lato client, integrazione editor WP.</p>
       </div>
       <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0.12s">
         <h3 class="text-xl font-semibold flex items-center gap-2 text-brand transition-transform transform-gpu hover:rotate-1">
           <svg class="w-5 h-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12h6l2-3 2 6 2-3h6"/></svg>
-          <span data-i18n="js_fetch_title">Fetch & Async</span>
+          <span data-i18n="js_fetch_title">Fetch &amp; Async</span>
         </h3>
         <p class="mt-2 text-gray-700 dark:text-gray-300" data-i18n="js_fetch_desc">Richieste asincrone, error handling, progressive enhancement.</p>
       </div>
     </div>
   </section>
 
-<section id="css" data-category="linguaggi" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-pink-50 to-rose-50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900 dark:text-gray-100" data-reveal>
+  <section id="css" data-category="linguaggi" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-pink-50/50 to-rose-50/50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900/50 dark:text-gray-100" data-reveal>
     <h2 class="text-2xl font-bold mb-4 motion-safe:animate-reveal-up transition-colors transition-transform transform-gpu hover:text-brand hover:underline decoration-2 underline-offset-4 hover:-translate-y-0.5" data-i18n="css_title">🎨 CSS Avanzato</h2>
     <div class="grid sm:grid-cols-2 gap-6">
       <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0s">
         <h3 class="text-xl font-semibold flex items-center gap-2 text-brand transition-transform transform-gpu hover:skew-x-1">
           <svg class="w-5 h-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 20l6-6 4 4 6-10"/></svg>
-          <span data-i18n="css_layout_title">Layout & Animazioni</span>
+          <span data-i18n="css_layout_title">Layout &amp; Animazioni</span>
         </h3>
         <p class="mt-2 text-gray-700 dark:text-gray-300" data-i18n="css_layout_desc">Grid, flex, transizioni e animazioni complesse con performance ottimali.</p>
       </div>
@@ -330,7 +396,7 @@
     </div>
   </section>
 
-<section id="tailwind" data-category="frontend" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-teal-50 to-emerald-50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900 dark:text-gray-100" data-reveal>
+  <section id="tailwind" data-category="frontend" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-teal-50/50 to-emerald-50/50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900/50 dark:text-gray-100" data-reveal>
     <h2 class="text-2xl font-bold mb-4 motion-safe:animate-reveal-up transition-colors transition-transform transform-gpu hover:text-brand hover:underline decoration-2 underline-offset-4 hover:skew-x-1" data-i18n="tailwind_title">🌬️ Tailwind CSS</h2>
     <div class="grid sm:grid-cols-2 gap-6">
       <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0s">
@@ -343,7 +409,7 @@
       <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0.12s">
         <h3 class="text-xl font-semibold flex items-center gap-2 text-brand transition-transform transform-gpu hover:rotate-1">
           <svg class="w-5 h-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 6h12v12H6z"/><path d="M9 9h6v6H9z"/></svg>
-          <span data-i18n="tailwind_build_title">Build & Performance</span>
+          <span data-i18n="tailwind_build_title">Build &amp; Performance</span>
         </h3>
         <p class="mt-2 text-gray-700 dark:text-gray-300" data-i18n="tailwind_build_desc">Purge CSS, ottimizzazione production, riduzione CSS critico.</p>
       </div>
@@ -351,7 +417,7 @@
 
     <!-- Demo Modal -->
     <div class="mt-6">
-      <button id="open-modal" class="px-4 py-2 bg-brand text-white rounded-lg shadow hover:bg-brandDark transition" data-reveal data-delay="0.18s" data-i18n="modal_open">Apri Modal Demo</button>
+      <button id="open-modal" type="button" class="px-4 py-2 bg-brand text-white rounded-lg shadow hover:bg-brandDark transition" data-reveal data-delay="0.18s" data-i18n="modal_open">Apri Modal Demo</button>
     </div>
     <div id="modal" class="fixed inset-0 hidden items-center justify-center">
       <div id="modal-overlay" class="absolute inset-0 bg-black/40"></div>
@@ -362,20 +428,42 @@
         </h3>
         <p class="mt-2 text-gray-700 dark:text-gray-300" data-i18n="modal_desc">Esempio di componente UI con Tailwind e JavaScript minimale.</p>
         <div class="mt-4 flex justify-end gap-2">
-          <button id="close-modal" class="px-3 py-2 bg-gray-100 rounded border border-gray-200 text-gray-800 hover:bg-gray-200 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-brand dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-gray-100 dark:border-gray-600" data-i18n="modal_close">Chiudi</button>
+          <button id="close-modal" type="button" class="px-3 py-2 bg-gray-100 rounded border border-gray-200 text-gray-800 hover:bg-gray-200 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-brand dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-gray-100 dark:border-gray-600" data-i18n="modal_close">Chiudi</button>
         </div>
+      </div>
+    </div>
+
+    <!-- Funzionalità rapide -->
+    <div class="mt-6">
+      <h3 class="text-xl font-semibold mb-2" data-i18n="quick_actions_title">⚡ Funzionalità rapide</h3>
+      <div class="flex flex-wrap items-center gap-2">
+        <!-- Tema -->
+        <button class="theme-toggle px-3 py-2 rounded border text-sm bg-white hover:bg-gray-100 transition dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700 dark:hover:bg-gray-700 flex items-center gap-2" type="button" aria-label="Cambia tema" aria-pressed="false" data-i18n-aria="aria_theme_toggle"><span class="hidden sm:inline theme-text" data-i18n="theme_button_text">Tema</span></button>
+        <!-- Lingua -->
+        <div class="flex items-center gap-1">
+          <button class="lang-btn px-2 py-1 rounded border text-xs bg-white/70 text-gray-800 hover:bg-gray-100 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700 dark:hover:bg-gray-700" type="button" data-lang="it" data-i18n-aria="aria_lang_it" aria-label="Italiano">IT</button>
+          <button class="lang-btn px-2 py-1 rounded border text-xs bg-white/70 text-gray-800 hover:bg-gray-100 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700 dark:hover:bg-gray-700" type="button" data-lang="en" data-i18n-aria="aria_lang_en" aria-label="English">EN</button>
+        </div>
+        <!-- FX -->
+        <button class="fx-toggle px-3 py-2 rounded border text-sm bg-white hover:bg-gray-100 transition dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700 dark:hover:bg-gray-700 flex items-center gap-2 opacity-50 cursor-not-allowed" type="button" aria-label="FX" aria-pressed="false" aria-disabled="true" data-locked="true"><span class="hidden sm:inline" data-i18n="fx_control_text">FX</span></button>
+        <!-- Scorri su -->
+        <button id="qa-scroll-top" type="button" class="px-3 py-2 rounded border text-sm bg-white hover:bg-gray-100 transition dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700 dark:hover:bg-gray-700"><span data-i18n="qa_scroll_top">Torna su</span></button>
+        <!-- Copia email -->
+        <button id="qa-copy-email" type="button" class="px-3 py-2 rounded border text-sm bg-white hover:bg-gray-100 transition dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700 dark:hover:bg-gray-700"><span data-i18n="qa_copy_email">Copia email</span></button>
+        <!-- Apri badge -->
+        <button id="qa-open-badges" type="button" class="px-3 py-2 rounded border text-sm bg-white hover:bg-gray-100 transition dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700 dark:hover:bg-gray-700"><span data-i18n="qa_open_badges">Apri badge</span></button>
       </div>
     </div>
   </section>
 
-<section id="html" data-category="linguaggi" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-cyan-50 to-sky-50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900 dark:text-gray-100" data-reveal>
+  <section id="html" data-category="linguaggi" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-cyan-50/50 to-sky-50/50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900/50 dark:text-gray-100" data-reveal>
     <h2 class="text-2xl font-bold mb-4 motion-safe:animate-reveal-up transition-colors transition-transform transform-gpu hover:text-brand hover:underline decoration-2 underline-offset-4 hover:translate-x-0.5" data-i18n="html_title">🔤 HTML Semantico</h2>
-    <div class="p-6 bg-white rounded-2xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100 opacity-100 translate-y-0 motion-safe:animate-reveal-up" data-reveal="" data-delay="0s" style="animation-delay: 0s;">
+    <div class="p-6 bg-white rounded-2xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100 opacity-100 translate-y-0 motion-safe:animate-reveal-up" data-reveal="" data-delay="0s">
       <p class="mt-2 text-gray-700 dark:text-gray-300" data-i18n="html_desc">Struttura semantica, accessibilità, SEO tecnico e dati strutturati JSON-LD.</p>
     </div>
   </section>
 
-<section id="database" data-category="database" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-lime-50 to-green-50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900 dark:text-gray-100" data-reveal>
+  <section id="database" data-category="database" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-lime-50/50 to-green-50/50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900/50 dark:text-gray-100" data-reveal>
     <h2 class="text-2xl font-bold mb-4 motion-safe:animate-reveal-up transition-colors transition-transform transform-gpu hover:text-brand hover:underline decoration-2 underline-offset-4 hover:rotate-1" data-i18n="db_title">🗄️ Database (MySQL)</h2>
     <div class="grid sm:grid-cols-2 gap-6">
       <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0s">
@@ -388,17 +476,513 @@
       <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0.12s">
         <h3 class="text-xl font-semibold flex items-center gap-2 text-brand transition-transform transform-gpu hover:-skew-y-1">
           <svg class="w-5 h-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l7 4v6c0 4-5 6-7 8-2-2-7-4-7-8V6l7-4z"/></svg>
-          <span data-i18n="db_migrate_title">Migrazioni & Sicurezza</span>
+          <span data-i18n="db_migrate_title">Migrazioni &amp; Sicurezza</span>
         </h3>
         <p class="mt-2 text-gray-700 dark:text-gray-300" data-i18n="db_migrate_desc">Backup, migrazioni, gestione permessi e protezione dati.</p>
       </div>
     </div>
   </section>
 
+  <!-- Frameworks: jQuery -->
+  <section id="jquery" data-category="frameworks frontend" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-violet-50/50 to-fuchsia-50/50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900/50 dark:text-gray-100" data-reveal>
+    <h2 class="text-2xl font-bold mb-4 flex items-center gap-2 motion-safe:animate-reveal-up transition-colors transition-transform transform-gpu hover:text-brand hover:underline decoration-2 underline-offset-4 hover:scale-105">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="text-neutral-500 dark:text-neutral-400"><path d="M12 2a10 10 0 1 0 10 10" stroke="currentColor" stroke-width="1.5"/></svg>
+      <span data-i18n="jquery_title">jQuery</span>
+    </h2>
+    <p class="text-gray-700 dark:text-gray-300" data-i18n="jquery_desc">Selettori DOM, eventi, animazioni leggere e integrazioni AJAX.</p>
+    <!-- Demo animazioni jQuery -->
+    <div class="mt-4 p-4 bg-white rounded-xl shadow transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0.06s">
+      <h3 class="text-lg font-semibold mb-3" data-i18n="jquery_demo_title">Demo animazioni jQuery</h3>
+      <div class="flex flex-wrap gap-2 mb-4">
+        <button id="jq-show" class="px-3 py-1 rounded bg-brand text-white hover:bg-brandDark transition" data-i18n="jquery_demo_show">Mostra</button>
+        <button id="jq-hide" class="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 transition dark:bg-gray-700 dark:hover:bg-gray-600" data-i18n="jquery_demo_hide">Nascondi</button>
+        <button id="jq-toggle" class="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 transition dark:bg-gray-700 dark:hover:bg-gray-600" data-i18n="jquery_demo_toggle">Toggle</button>
+        <button id="jq-fade" class="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 transition dark:bg-gray-700 dark:hover:bg-gray-600" data-i18n="jquery_demo_fade">Fade</button>
+        <button id="jq-slide" class="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 transition dark:bg-gray-700 dark:hover:bg-gray-600" data-i18n="jquery_demo_slide">Slide</button>
+        <button id="jq-animate" class="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 transition dark:bg-gray-700 dark:hover:bg-gray-600" data-i18n="jquery_demo_animate">Anima</button>
+        <button id="jq-fadeto" class="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 transition dark:bg-gray-700 dark:hover:bg-gray-600" data-i18n="jquery_demo_fadeto">FadeTo 50%</button>
+        <button id="jq-bounce" class="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 transition dark:bg-gray-700 dark:hover:bg-gray-600" data-i18n="jquery_demo_bounce">Bounce</button>
+        <button id="jq-highlight" class="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 transition dark:bg-gray-700 dark:hover:bg-gray-600" data-i18n="jquery_demo_highlight">Highlight</button>
+        <button id="jq-pulse" class="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 transition dark:bg-gray-700 dark:hover:bg-gray-600" data-i18n="jquery_demo_pulse">Pulse</button>
+        <button id="jq-stop" class="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 transition dark:bg-gray-700 dark:hover_bg-gray-600" data-i18n="jquery_demo_stop">Stop</button>
+        <button id="jq-reset" class="px-3 py-1 rounded bg-orange-500 text-white hover:bg-orange-600 transition" data-i18n="jquery_demo_reset">Reset</button>
+      </div>
+      <div id="jq-box" class="relative w-40 h-24 rounded-lg bg-brand/20 border border-brand/40 shadow-inner flex items-center justify-center text-brand font-medium select-none" style="left:0px; opacity:1;">
+        <span data-i18n="jquery_demo_box_label">Box jQuery</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Frameworks: GSAP -->
+  <section id="gsap" data-category="frameworks frontend" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-emerald-50/50 to-teal-50/50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900/50 dark:text-gray-100" data-reveal>
+    <h2 class="text-2xl font-bold mb-4 flex items-center gap-2 motion-safe:animate-reveal-up transition-colors transition-transform transform-gpu hover:text-brand hover:underline decoration-2 underline-offset-4 hover:scale-105">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="text-neutral-500 dark:text-neutral-400"><path d="M4 12h16M12 4v16" stroke="currentColor" stroke-width="1.5"/></svg>
+      <span data-i18n="gsap_title">GSAP</span>
+    </h2>
+    <p class="text-gray-700 dark:text-gray-300" data-i18n="gsap_desc">Timeline, easing e animazioni performanti su canvas/DOM.</p>
+    <!-- Demo animazioni GSAP -->
+    <div class="mt-4 p-4 bg-white rounded-xl shadow transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0.06s">
+      <h3 class="text-lg font-semibold mb-3" data-i18n="gsap_demo_title">Demo animazioni GSAP</h3>
+      <div class="flex flex-wrap gap-2 mb-4">
+        <button id="gsap-play" class="px-3 py-1 rounded bg-brand text-white hover:bg-brandDark transition" data-i18n="gsap_demo_play">Play</button>
+        <button id="gsap-reverse" class="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 transition dark:bg-gray-700 dark:hover:bg-gray-600" data-i18n="gsap_demo_reverse">Reverse</button>
+        <button id="gsap-pause" class="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 transition dark:bg-gray-700 dark:hover:bg-gray-600" data-i18n="gsap_demo_pause">Pausa</button>
+        <button id="gsap-resume" class="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 transition dark:bg-gray-700 dark:hover:bg-gray-600" data-i18n="gsap_demo_resume">Riprendi</button>
+        <button id="gsap-restart" class="px-3 py-1 rounded bg-orange-500 text-white hover:bg-orange-600 transition" data-i18n="gsap_demo_restart">Restart</button>
+        <button id="gsap-yoyo" class="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 transition dark:bg-gray-700 dark:hover:bg-gray-600" data-i18n="gsap_demo_yoyo">Yoyo</button>
+        <button id="gsap-stagger" class="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 transition dark:bg-gray-700 dark:hover:bg-gray-600" data-i18n="gsap_demo_stagger">Stagger</button>
+      </div>
+      <div id="gsap-box" class="relative w-40 h-24 rounded-lg bg-brand/20 border border-brand/40 shadow-inner flex items-center justify-center text-brand font-medium select-none" style="left:0px; opacity:1; transform: scale(1) rotate(0deg);">
+        <span data-i18n="gsap_demo_box_label">Box GSAP</span>
+      </div>
+      <div class="mt-4">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="text-sm text-gray-600 dark:text-gray-300" data-i18n="gsap_demo_dots_label">Gruppo box GSAP</span>
+        </div>
+        <div id="gsap-dots" class="flex gap-2">
+          <div class="gsap-dot w-5 h-5 rounded-md bg-brand/30 border border-brand/40"></div>
+          <div class="gsap-dot w-5 h-5 rounded-md bg-brand/30 border border-brand/40"></div>
+          <div class="gsap-dot w-5 h-5 rounded-md bg-brand/30 border border-brand/40"></div>
+          <div class="gsap-dot w-5 h-5 rounded-md bg-brand/30 border border-brand/40"></div>
+          <div class="gsap-dot w-5 h-5 rounded-md bg-brand/30 border border-brand/40"></div>
+          <div class="gsap-dot w-5 h-5 rounded-md bg-brand/30 border border-brand/40"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Frameworks: Three.js -->
+  <section id="threejs" data-category="frameworks frontend 3d" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-sky-50/50 to-indigo-50/50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900/50 dark:text-gray-100" data-reveal>
+    <h2 class="text-2xl font-bold mb-4 flex items-center gap-2 motion-safe:animate-reveal-up transition-colors transition-transform transform-gpu hover:text-brand hover:underline decoration-2 underline-offset-4 hover:scale-105">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="text-neutral-500 dark:text-neutral-400"><path d="M12 2l8 4v8l-8 4-8-4V6z" stroke="currentColor" stroke-width="1.5"/></svg>
+      <span data-i18n="threejs_title">Three.js</span>
+    </h2>
+    <p class="text-gray-700 dark:text-gray-300" data-i18n="threejs_desc">Scene, camera, materiali e rendering WebGL/WebGPU.</p>
+    <!-- Demo Three.js: cubo 3D -->
+    <div class="mt-4 p-4 bg-white rounded-xl shadow transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0.06s">
+      <h3 class="text-lg font-semibold mb-3" data-i18n="threejs_demo_title">Demo Three.js (cubo)</h3>
+      <div class="flex flex-wrap gap-2 mb-4">
+        <button id="threejs-start" class="px-3 py-1 rounded bg-brand text-white hover:bg-brandDark transition" data-i18n="threejs_demo_start">Avvia</button>
+        <button id="threejs-stop" class="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 transition dark:bg-gray-700 dark:hover:bg-gray-600" data-i18n="threejs_demo_stop">Stop</button>
+        <button id="threejs-spin" class="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 transition dark:bg-gray-700 dark:hover:bg-gray-600" data-i18n="threejs_demo_spin">Accelera</button>
+        <button id="threejs-reset" class="px-3 py-1 rounded bg-orange-500 text-white hover:bg-orange-600 transition" data-i18n="threejs_demo_reset">Reset</button>
+        <button id="threejs-autorotate" class="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 transition dark:bg-gray-700 dark:hover:bg-gray-600" data-i18n="threejs_demo_autorotate">Auto‑ruota</button>
+        <button id="threejs-wireframe" class="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 transition dark:bg-gray-700 dark:hover:bg-gray-600" data-i18n="threejs_demo_wireframe">Wireframe</button>
+        <button id="threejs-solid" class="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 transition dark:bg-gray-700 dark:hover:bg-gray-600" data-i18n="threejs_demo_solid">Solido</button>
+        <button id="threejs-lights" class="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 transition dark:bg-gray-700 dark:hover:bg-gray-600" data-i18n="threejs_demo_lights">Luci dinamiche</button>
+      </div>
+      <div id="threejs-canvas-wrap" class="relative w-full sm:w-[420px] h-[260px] bg-gray-100 dark:bg-gray-700 rounded-lg border border-gray-300 dark:border-gray-600 overflow-hidden">
+        <span class="absolute top-2 left-2 text-xs font-medium text-gray-600 dark:text-gray-300" data-i18n="threejs_demo_canvas_label">Canvas Three.js</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Frameworks: Bootstrap -->
+  <section id="bootstrap" data-category="frameworks frontend" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-purple-50/50 to-pink-50/50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900/50 dark:text-gray-100" data-reveal>
+    <h2 class="text-2xl font-bold mb-4 flex items-center gap-2 motion-safe:animate-reveal-up transition-colors transition-transform transform-gpu hover:text-brand hover:underline decoration-2 underline-offset-4 hover:scale-105">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="text-neutral-500 dark:text-neutral-400"><path d="M6 4h12v16H6z" stroke="currentColor" stroke-width="1.5"/></svg>
+      <span data-i18n="bootstrap_title">Bootstrap</span>
+    </h2>
+    <p class="text-gray-700 dark:text-gray-300" data-i18n="bootstrap_desc">Grid, componenti, responsive e utilità pronte all’uso.</p>
+    <!-- Demo animazioni Bootstrap (isolata in iframe per evitare conflitti CSS) -->
+    <div class="mt-4 p-4 bg-white rounded-xl shadow transition dark:bg-gray-800 dark:text-gray-100">
+      <h3 class="text-lg font-semibold mb-3" data-i18n="bootstrap_demo_title">Demo animazioni Bootstrap</h3>
+      <iframe id="bootstrap-demo" title="Bootstrap Demo" class="w-full h-96 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800"
+        srcdoc="<!doctype html><html lang='it' data-bs-theme='light'><head><meta charset='utf-8'/><meta name='viewport' content='width=device-width, initial-scale=1'/>
+        <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css' rel='stylesheet'/>
+        <style>body{padding:1rem} .demo-card{box-shadow:0 1px 6px rgba(0,0,0,0.08);} .btn{margin-right:.25rem}</style></head><body>
+          <h4 class='mb-3' data-i18n='title'>Bootstrap Mini Demo</h4>
+          <div class='d-flex flex-wrap gap-2 mb-3'>
+            <button class='btn btn-primary' data-bs-toggle='collapse' data-bs-target='#demoCollapse' data-i18n='collapse_btn'>Toggle Collapse</button>
+            <button class='btn btn-warning' id='alertBtn' data-i18n='alert_btn'>Show Alert</button>
+            <button class='btn btn-success' id='toastBtn' data-i18n='toast_btn'>Show Toast</button>
+            <button class='btn btn-info' id='modalBtn' data-i18n='modal_btn'>Show Modal</button>
+            <button class='btn btn-secondary' id='offcanvasBtn' data-i18n='offcanvas_btn'>Open Offcanvas</button>
+          </div>
+          <div class='collapse show' id='demoCollapse'>
+            <div class='card demo-card card-body' data-i18n='collapse_body'>Area con transizione di altezza (collapse).</div>
+          </div>
+
+          <div id='alertContainer'></div>
+
+          <div class='accordion mt-3' id='demoAccordion'>
+            <div class='accordion-item'>
+              <h2 class='accordion-header' id='h1'><button class='accordion-button' type='button' data-bs-toggle='collapse' data-bs-target='#c1' aria-expanded='true' aria-controls='c1' data-i18n='accordion_item1'>Elemento #1</button></h2>
+              <div id='c1' class='accordion-collapse collapse show' data-bs-parent='#demoAccordion'><div class='accordion-body' data-i18n='accordion_body1'>Contenuto 1.</div></div>
+            </div>
+            <div class='accordion-item'>
+              <h2 class='accordion-header' id='h2'><button class='accordion-button collapsed' type='button' data-bs-toggle='collapse' data-bs-target='#c2' aria-controls='c2' data-i18n='accordion_item2'>Elemento #2</button></h2>
+              <div id='c2' class='accordion-collapse collapse' data-bs-parent='#demoAccordion'><div class='accordion-body' data-i18n='accordion_body2'>Contenuto 2.</div></div>
+            </div>
+          </div>
+
+          <div class='toast-container position-fixed bottom-0 end-0 p-3'>
+            <div id='demoToast' class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-bs-delay='1400'>
+              <div class='toast-header'>
+                <strong class='me-auto'>Bootstrap</strong>
+                <small data-i18n='toast_time'>ora</small>
+                <button type='button' class='btn-close' data-bs-dismiss='toast' aria-label='Close'></button>
+              </div>
+              <div class='toast-body' data-i18n='toast_text'>Semplice toast con fade.</div>
+            </div>
+          </div>
+
+          <div class='mt-3'>
+            <div class='spinner-border text-primary me-2' role='status'><span class='visually-hidden' data-i18n='spinner_label'>Loading...</span></div>
+            <div class='spinner-grow text-info' role='status'><span class='visually-hidden' data-i18n='spinner_label'>Loading...</span></div>
+          </div>
+
+          <div class='modal fade' id='demoModal' tabindex='-1' aria-hidden='true'>
+            <div class='modal-dialog'>
+              <div class='modal-content'>
+                <div class='modal-header'><h5 class='modal-title' data-i18n='modal_title'>Esempio Modal</h5><button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button></div>
+                <div class='modal-body' data-i18n='modal_body'>Contenuto della modal con transizioni.</div>
+                <div class='modal-footer'><button class='btn btn-secondary' data-i18n='modal_close' data-bs-dismiss='modal'>Chiudi</button><button class='btn btn-primary' data-i18n='modal_save'>Salva</button></div>
+              </div>
+            </div>
+          </div>
+
+          <div class='offcanvas offcanvas-start' tabindex='-1' id='demoOffcanvas'>
+            <div class='offcanvas-header'><h5 class='offcanvas-title' data-i18n='offcanvas_title'>Offcanvas</h5><button type='button' class='btn-close' data-bs-dismiss='offcanvas' aria-label='Close'></button></div>
+            <div class='offcanvas-body'><p data-i18n='offcanvas_body'>Menu laterale con slide.</p></div>
+          </div>
+
+          <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js'></script>
+          <script>
+            // i18n + tema dentro iframe
+            const T = {
+              it: {
+                title: 'Demo Bootstrap Mini',
+                collapse_btn: 'Apri/Chiudi collapse',
+                alert_btn: 'Aggiungi Alert',
+                toast_btn: 'Mostra Toast',
+                modal_btn: 'Apri Modal',
+                offcanvas_btn: 'Apri Offcanvas',
+                collapse_body: 'Area con transizione di altezza (collapse).',
+                accordion_item1: 'Elemento #1',
+                accordion_item2: 'Elemento #2',
+                accordion_body1: 'Contenuto 1.',
+                accordion_body2: 'Contenuto 2.',
+                toast_time: 'ora',
+                toast_text: 'Semplice toast con fade.',
+                spinner_label: 'Caricamento...',
+                modal_title: 'Esempio Modal',
+                modal_body: 'Contenuto della modal con transizioni.',
+                modal_close: 'Chiudi',
+                modal_save: 'Salva',
+                offcanvas_title: 'Offcanvas',
+                offcanvas_body: 'Menu laterale con slide.'
+              },
+              en: {
+                title: 'Bootstrap Mini Demo',
+                collapse_btn: 'Toggle Collapse',
+                alert_btn: 'Show Alert',
+                toast_btn: 'Show Toast',
+                modal_btn: 'Show Modal',
+                offcanvas_btn: 'Open Offcanvas',
+                collapse_body: 'Area with height transition (collapse).',
+                accordion_item1: 'Item #1',
+                accordion_item2: 'Item #2',
+                accordion_body1: 'Content 1.',
+                accordion_body2: 'Content 2.',
+                toast_time: 'now',
+                toast_text: 'Simple toast with fade.',
+                spinner_label: 'Loading...',
+                modal_title: 'Modal Example',
+                modal_body: 'Modal content with transitions.',
+                modal_close: 'Close',
+                modal_save: 'Save',
+                offcanvas_title: 'Offcanvas',
+                offcanvas_body: 'Side menu with slide.'
+              }
+            };
+            let L = 'it';
+            const t = (k) => (T[L] && T[L][k]) || k;
+            const applyI18n = () => {
+              document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (key) el.textContent = t(key);
+              });
+              document.documentElement.lang = L;
+            };
+            const setLang = (lang) => { if (['it','en'].includes(lang)) { L = lang; applyI18n(); } };
+            const setTheme = (theme) => { document.documentElement.setAttribute('data-bs-theme', theme === 'dark' ? 'dark' : 'light'); };
+            window.addEventListener('message', (e) => {
+              const msg = e.data || {};
+              if (msg.type === 'lang') setLang(msg.value);
+              if (msg.type === 'theme') setTheme(msg.value);
+            });
+            applyI18n();
+            const toast = new bootstrap.Toast(document.getElementById('demoToast'));
+            document.getElementById('toastBtn').addEventListener('click', ()=> toast.show());
+            document.getElementById('alertBtn').addEventListener('click', ()=> {
+              const el = document.createElement('div');
+              el.className = 'alert alert-warning alert-dismissible fade show mt-2';
+              el.role = 'alert';
+              el.innerHTML = (L === 'it' ? 'Attenzione! Questo è un alert con fade.' : 'Attention! This is a Bootstrap alert with fade.') + ' <button type=\'button\' class=\'btn-close\' data-bs-dismiss=\'alert\' aria-label=\'Close\'></button>';
+              document.getElementById('alertContainer').appendChild(el);
+            });
+            const modal = new bootstrap.Modal(document.getElementById('demoModal'));
+            document.getElementById('modalBtn').addEventListener('click', ()=> modal.show());
+            const offcanvas = new bootstrap.Offcanvas(document.getElementById('demoOffcanvas'));
+            document.getElementById('offcanvasBtn').addEventListener('click', ()=> offcanvas.toggle());
+          </script>
+        </body></html>"></iframe>
+    </div>
+  </section>
+
+  <!-- Frameworks: Materialize -->
+  <section id="materialize" data-category="frameworks frontend" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-red-50/50 to-rose-50/50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900/50 dark:text-gray-100" data-reveal>
+    <h2 class="text-2xl font-bold mb-4 flex items-center gap-2 motion-safe:animate-reveal-up transition-colors transition-transform transform-gpu hover:text-brand hover:underline decoration-2 underline-offset-4 hover:scale-105">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="text-neutral-500 dark:text-neutral-400"><path d="M12 3l7 7-7 11-7-11 7-7z" stroke="currentColor" stroke-width="1.5"/></svg>
+      <span data-i18n="materialize_title">Materialize</span>
+    </h2>
+    <p class="text-gray-700 dark:text-gray-300" data-i18n="materialize_desc">UI Material Design, griglie, componenti e modali.</p>
+    <!-- Demo animazioni Materialize (isolata in iframe per evitare conflitti CSS) -->
+    <div class="mt-4 p-4 bg-white rounded-xl shadow transition dark:bg-gray-800 dark:text-gray-100">
+      <h3 class="text-lg font-semibold mb-3" data-i18n="materialize_demo_title">Demo animazioni Materialize</h3>
+      <iframe id="materialize-demo" title="Materialize Demo" class="w-full h-96 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800" sandbox="allow-scripts" loading="lazy"
+        srcdoc="<!doctype html><html lang='it' data-theme='light'><head><meta charset='utf-8'/><meta name='viewport' content='width=device-width, initial-scale=1'/>
+        <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css'); body{padding:1rem} .btn{margin-right:.25rem} html[data-theme=dark]{color-scheme:dark} html[data-theme=dark] body{background:#1f2937;color:#e5e7eb} html[data-theme=dark] .card, html[data-theme=dark] .modal{background:#374151;color:#e5e7eb} html[data-theme=dark] .sidenav{background:#111827;color:#e5e7eb} html[data-theme=dark] .dropdown-content{background:#1f2937;color:#e5e7eb} html[data-theme=dark] .dropdown-content li>a{color:#e5e7eb} html[data-theme=dark] .tabs .tab a{color:#e5e7eb} html[data-theme=dark] .tabs .indicator{background:#60a5fa} html[data-theme=dark] .chip{background:#374151;color:#e5e7eb} html[data-theme=dark] .tooltipped{color:#e5e7eb} .tabs .tab button{background:transparent;border:0;color:inherit;padding:0;cursor:pointer} .tabs .tab button.active{color:#1976d2} html[data-theme=dark] .tabs .tab button.active{color:#93c5fd} .dropdown-content li>button{display:block;width:100%;text-align:left;background:transparent;border:0;padding:10px 16px;color:inherit} .dropdown-content li>button:hover{background:#f3f4f6} html[data-theme=dark] .dropdown-content li>button:hover{background:#374151} .sidenav button{background:transparent;border:0;color:inherit;padding:10px 16px;width:100%;text-align:left}</style></head><body>
+          <h4 class='mb-3' data-i18n='title'>Materialize Mini Demo</h4>
+          <div class='mb-3'>
+            <button class='btn waves-effect waves-light' id='toastBtn' data-i18n='toast_btn'>Mostra Toast</button>
+            <button class='btn teal lighten-1 waves-effect waves-light' id='modalBtn' data-i18n='modal_btn'>Apri Modal</button>
+            <button class='btn purple lighten-1 waves-effect waves-light sidenav-trigger' data-target='demoSidenav' id='sidenavBtn' data-i18n='sidenav_btn'>Apri Sidenav</button>
+          </div>
+
+          <ul class='collapsible'>
+            <li>
+              <div class='collapsible-header' data-i18n='collapsible_header1'>Elemento 1</div>
+              <div class='collapsible-body'><span data-i18n='collapsible_body1'>Contenuto 1.</span></div>
+            </li>
+            <li>
+              <div class='collapsible-header' data-i18n='collapsible_header2'>Elemento 2</div>
+              <div class='collapsible-body'><span data-i18n='collapsible_body2'>Contenuto 2.</span></div>
+            </li>
+          </ul>
+
+          <div class='card' style='margin-top:1rem'>
+            <div class='card-content'>
+              <span class='card-title' data-i18n='card_title'>Card di esempio</span>
+              <p data-i18n='card_body'>Testo dimostrativo con ombre e transizioni.</p>
+            </div>
+          </div>
+
+          <!-- Dropdown + Tooltip -->
+          <div class='mb-3'>
+            <button class='dropdown-trigger btn' data-target='dropdown1' id='dropdownBtn' data-i18n='dropdown_btn' type='button'>Dropdown</button>
+            <button class='btn tooltipped' type='button' tabindex='0' aria-label='Tooltip' data-i18n='tooltip_btn' data-i18n-tooltip='tooltip_text' data-tooltip='Suggerimento'>Tooltip</button>
+          </div>
+          <ul id='dropdown1' class='dropdown-content'>
+            <li><button type='button' class='dropdown-item' data-i18n='dropdown_item1'>Azione 1</button></li>
+            <li><button type='button' class='dropdown-item' data-i18n='dropdown_item2'>Azione 2</button></li>
+          </ul>
+
+          <!-- Tabs -->
+          <div class='row' style='margin-top:1rem'>
+            <div class='col s12'>
+              <ul class='tabs'>
+                <li class='tab col s4'><button type='button' class='tab-btn' data-tab='tab1' data-i18n='tabs_tab1'>Tab 1</button></li>
+                <li class='tab col s4'><button type='button' class='tab-btn' data-tab='tab2' data-i18n='tabs_tab2'>Tab 2</button></li>
+                <li class='tab col s4'><button type='button' class='tab-btn' data-tab='tab3' data-i18n='tabs_tab3'>Tab 3</button></li>
+              </ul>
+            </div>
+            <div id='tab1' class='col s12'><p data-i18n='tabs_content1'>Contenuto tab 1.</p></div>
+            <div id='tab2' class='col s12'><p data-i18n='tabs_content2'>Contenuto tab 2.</p></div>
+            <div id='tab3' class='col s12'><p data-i18n='tabs_content3'>Contenuto tab 3.</p></div>
+          </div>
+
+          <!-- Chips -->
+          <div class='chips chips-initial' style='margin-top:1rem'></div>
+
+          <div id='demoModal' class='modal'>
+            <div class='modal-content'>
+              <h5 data-i18n='modal_title'>Esempio Modal</h5>
+              <p data-i18n='modal_body'>Contenuto della modal con transizione.</p>
+            </div>
+            <div class='modal-footer'>
+              <button type='button' class='modal-close waves-effect waves-green btn' data-i18n='modal_close'>Chiudi</button>
+            </div>
+          </div>
+
+          <ul id='demoSidenav' class='sidenav'>
+            <li><div class='user-view'><div class='background'></div><span class='white-text name' data-i18n='sidenav_title'>Menu</span></div></li>
+            <li><button type='button'><span data-i18n='sidenav_body'>Voce laterale di esempio</span></button></li>
+          </ul>
+
+          <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js'></script>
+          <script>
+            // i18n + tema dentro iframe Materialize
+            const T = {
+              it: {
+                title: 'Materialize Mini Demo',
+                toast_btn: 'Mostra Toast',
+                modal_btn: 'Apri Modal',
+                sidenav_btn: 'Apri Sidenav',
+                collapsible_header1: 'Elemento 1',
+                collapsible_header2: 'Elemento 2',
+                collapsible_body1: 'Contenuto 1.',
+                collapsible_body2: 'Contenuto 2.',
+                card_title: 'Card di esempio',
+                card_body: 'Testo dimostrativo con ombre e transizioni.',
+                modal_title: 'Esempio Modal',
+                modal_body: 'Contenuto della modal con transizione.',
+                modal_close: 'Chiudi',
+                sidenav_title: 'Menu',
+                sidenav_body: 'Voce laterale di esempio',
+                dropdown_btn: 'Dropdown',
+                dropdown_item1: 'Azione 1',
+                dropdown_item2: 'Azione 2',
+                tooltip_btn: 'Tooltip',
+                tooltip_text: 'Suggerimento',
+                tabs_tab1: 'Tab 1',
+                tabs_tab2: 'Tab 2',
+                tabs_tab3: 'Tab 3',
+                tabs_content1: 'Contenuto tab 1.',
+                tabs_content2: 'Contenuto tab 2.',
+                tabs_content3: 'Contenuto tab 3.',
+                chips_placeholder: 'Aggiungi tag'
+              },
+              en: {
+                title: 'Materialize Mini Demo',
+                toast_btn: 'Show Toast',
+                modal_btn: 'Show Modal',
+                sidenav_btn: 'Open Sidenav',
+                collapsible_header1: 'Item 1',
+                collapsible_header2: 'Item 2',
+                collapsible_body1: 'Content 1.',
+                collapsible_body2: 'Content 2.',
+                card_title: 'Sample Card',
+                card_body: 'Demo text with shadow and transitions.',
+                modal_title: 'Modal Example',
+                modal_body: 'Modal content with transition.',
+                modal_close: 'Close',
+                sidenav_title: 'Menu',
+                sidenav_body: 'Example side item',
+                dropdown_btn: 'Dropdown',
+                dropdown_item1: 'Action 1',
+                dropdown_item2: 'Action 2',
+                tooltip_btn: 'Tooltip',
+                tooltip_text: 'Hint',
+                tabs_tab1: 'Tab 1',
+                tabs_tab2: 'Tab 2',
+                tabs_tab3: 'Tab 3',
+                tabs_content1: 'Tab 1 content.',
+                tabs_content2: 'Tab 2 content.',
+                tabs_content3: 'Tab 3 content.',
+                chips_placeholder: 'Add tag'
+              }
+            };
+            let L = 'it';
+            const t = (k) => (T[L] &amp;&amp; T[L][k]) || k;
+            const applyI18n = () => {
+              document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (key) el.textContent = t(key);
+              });
+              // Aggiorna tooltip
+              document.querySelectorAll('[data-i18n-tooltip]').forEach(el => {
+                const key = el.getAttribute('data-i18n-tooltip');
+                if (key) el.setAttribute('data-tooltip', t(key));
+                // Re-init per riflettere il nuovo testo
+                const inst = M.Tooltip.getInstance(el);
+                if (inst) inst.destroy();
+                M.Tooltip.init(el);
+              });
+              // Aggiorna placeholder chips
+              document.querySelectorAll('.chips input').forEach(inp => {
+                inp.setAttribute('placeholder', t('chips_placeholder'));
+              });
+              document.documentElement.lang = L;
+            };
+            const setLang = (lang) => { if (['it','en'].includes(lang)) { L = lang; applyI18n(); } };
+            const setTheme = (theme) => { document.documentElement.setAttribute('data-theme', theme === 'dark' ? 'dark' : 'light'); };
+            window.addEventListener('message', (e) => {
+              const msg = e.data || {};
+              if (msg.type === 'lang') setLang(msg.value);
+              if (msg.type === 'theme') setTheme(msg.value);
+            });
+            // Init Materialize components
+            const initDemo = () => {
+              const elemsC = document.querySelectorAll('.collapsible'); M.Collapsible.init(elemsC);
+              const modalEl = document.getElementById('demoModal'); const modalInst = M.Modal.init(modalEl, {});
+              const sidenavEl = document.getElementById('demoSidenav'); M.Sidenav.init(sidenavEl, {});
+              M.Dropdown.init(document.querySelectorAll('.dropdown-trigger'), { constrainWidth: false, coverTrigger: false, closeOnClick: true });
+              M.Tooltip.init(document.querySelectorAll('.tooltipped'), {});
+              // Tabs: gestione manuale via button
+              const tabButtons = document.querySelectorAll('.tabs .tab button');
+              const showTab = (id) => {
+                ['tab1','tab2','tab3'].forEach(tid => {
+                  const el = document.getElementById(tid);
+                  if (el) el.style.display = (tid === id) ? 'block' : 'none';
+                });
+                tabButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.tab === id));
+              };
+              tabButtons.forEach(btn => btn.addEventListener('click', (e) => { e.preventDefault(); showTab(btn.dataset.tab); }));
+              showTab('tab1');
+              // Apertura esplicita del dropdown via click sul trigger
+              const dropdownTrigger = document.getElementById('dropdownBtn');
+              if (dropdownTrigger) {
+                let ddInst = M.Dropdown.getInstance(dropdownTrigger) || M.Dropdown.init(dropdownTrigger, { constrainWidth: false, coverTrigger: false, closeOnClick: true });
+                dropdownTrigger.addEventListener('click', (e) => { e.preventDefault(); ddInst && ddInst.open(); });
+              }
+              M.Chips.init(document.querySelectorAll('.chips'), { placeholder: t('chips_placeholder'), secondaryPlaceholder: t('chips_placeholder') });
+              document.getElementById('toastBtn').addEventListener('click', () => M.toast({html: L === 'it' ? 'Toast dimostrativo' : 'Demo toast'}));
+              document.getElementById('modalBtn').addEventListener('click', () => modalInst.open());
+              document.getElementById('sidenavBtn').addEventListener('click', () => { const inst = M.Sidenav.getInstance(sidenavEl); inst.open(); });
+              // Evita navigazioni involontarie dentro l'iframe
+              document.querySelectorAll('a[href="#!"]').forEach(a => a.addEventListener('click', e => e.preventDefault()));
+              document.querySelectorAll('#dropdown1 a').forEach(a => a.addEventListener('click', e => e.preventDefault()));
+              document.querySelectorAll('#dropdown1 button').forEach(b => b.addEventListener('click', (e) => { e.preventDefault(); M.toast({html: b.textContent.trim()}); }));
+              // Blocco globale link: impedisce navigazioni; per hash delle tab seleziona via JS
+              document.addEventListener('click', (e) => {
+                const a = e.target && e.target.closest('a');
+                if (!a) return;
+                const href = a.getAttribute('href') || '';
+                if (href.startsWith('#')) {
+                  const id = href.slice(1);
+                  const tabsEl = document.querySelector('.tabs');
+                  const inst = tabsEl ? M.Tabs.getInstance(tabsEl) : null;
+                  if (inst) { e.preventDefault(); inst.select(id); return; }
+                  e.preventDefault(); return;
+                }
+                e.preventDefault();
+              });
+              applyI18n();
+            };
+            if (document.readyState === 'loading') {
+              document.addEventListener('DOMContentLoaded', initDemo);
+            } else {
+              initDemo();
+            }
+          </script>
+        </body></html>"></iframe>
+    </div>
+  </section>
+
+  <!-- Frameworks/CMS: WooCommerce -->
+  <section id="woocommerce" data-category="frameworks backend cms" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-amber-50/50 to-rose-50/50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900/50 dark:text-gray-100" data-reveal>
+    <h2 class="text-2xl font-bold mb-4 flex items-center gap-2 motion-safe:animate-reveal-up transition-colors transition-transform transform-gpu hover:text-brand hover:underline decoration-2 underline-offset-4 hover:scale-105">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="text-neutral-500 dark:text-neutral-400"><path d="M3 7h18v10H3z" stroke="currentColor" stroke-width="1.5"/></svg>
+      <span data-i18n="woocommerce_title">WooCommerce</span>
+    </h2>
+    <p class="text-gray-700 dark:text-gray-300" data-i18n="woocommerce_desc">E‑commerce su WordPress: hook, checkout, integrazioni.</p>
+  </section>
+
+  <!-- API REST -->
+  <section id="api-rest" data-category="backend frontend" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-yellow-50/50 to-orange-50/50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900/50 dark:text-gray-100" data-reveal>
+    <h2 class="text-2xl font-bold mb-4 flex items-center gap-2 motion-safe:animate-reveal-up transition-colors transition-transform transform-gpu hover:text-brand hover:underline decoration-2 underline-offset-4 hover:scale-105">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="text-neutral-500 dark:text-neutral-400"><path d="M4 12h6M14 12h6" stroke="currentColor" stroke-width="1.5"/></svg>
+      <span data-i18n="rest_title">API REST</span>
+    </h2>
+    <p class="text-gray-700 dark:text-gray-300" data-i18n="rest_desc">Endpoint CRUD, autenticazione, fetch asincrono e integrazioni.</p>
+  </section>
+
 
 
   <section id="progetti" class="max-w-5xl mx-auto py-12 px-6 data-[reveal] opacity-0 translate-y-6 transition-all duration-700 dark:text-gray-100" data-reveal>
-    <h2 class="text-2xl font-bold mb-6 motion-safe:animate-reveal-up transition-colors transition-transform transform-gpu hover:text-brand hover:underline decoration-2 underline-offset-4 hover:scale-105" data-i18n="projects_title">Esperienze & Progetti</h2>
+    <h2 class="text-2xl font-bold mb-6 motion-safe:animate-reveal-up transition-colors transition-transform transform-gpu hover:text-brand hover:underline decoration-2 underline-offset-4 hover:scale-105" data-i18n="projects_title">Esperienze &amp; Progetti</h2>
     
      <!-- Card sito con preview live -->
     <a href="https://innovazioneweb.com/" target="_blank" rel="noopener noreferrer" data-reveal data-delay="0.12s"
@@ -456,6 +1040,11 @@
       user-select: none;
     }
     .visited-badge .visited-star { display: block; width: 16px; height: 16px; }
+    /* Opacità 0.5 per tutti i background dentro main (light e dark) */
+    main .bg-white { --tw-bg-opacity: 0.5 !important; }
+    main .bg-gray-100 { --tw-bg-opacity: 0.5 !important; }
+    .dark main .bg-gray-800 { --tw-bg-opacity: 0.5 !important; }
+    .dark main .bg-gray-900 { --tw-bg-opacity: 0.5 !important; }
   </style>
 
   <!-- Overlay Badge -->
@@ -474,7 +1063,7 @@
   </div>
 
   <!-- Footer -->
-  <footer class="bg-gray-800 text-gray-300 py-6 mt-12">
+  <footer class="bg-gray-800 text-gray-300 py-6 mt-12" aria-label="Piè di pagina" data-i18n-aria="aria_footer_landmark">
     <div class="max-w-4xl mx-auto text-center">
       <p data-i18n="footer_rights">© 2025 Mauro Arnone - Tutti i diritti riservati</p>
     </div>
@@ -485,6 +1074,24 @@
     document.addEventListener('DOMContentLoaded', function () {
       // Theme toggle
       const root = document.documentElement;
+      // Riferimento iframe Bootstrap e helper per inviare messaggi
+      const bootstrapIframe = document.getElementById('bootstrap-demo');
+      // Riferimento iframe Materialize e helper
+      const materializeIframe = document.getElementById('materialize-demo');
+      const sendToBootstrapIframe = (msg) => {
+        try {
+          if (bootstrapIframe && bootstrapIframe.contentWindow) {
+            bootstrapIframe.contentWindow.postMessage(msg, '*');
+          }
+        } catch (e) { /* no-op */ }
+      };
+      const sendToMaterializeIframe = (msg) => {
+        try {
+          if (materializeIframe && materializeIframe.contentWindow) {
+            materializeIframe.contentWindow.postMessage(msg, '*');
+          }
+        } catch (e) { /* no-op */ }
+      };
       const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
       const savedTheme = localStorage.getItem('theme');
       const isDark = savedTheme ? savedTheme === 'dark' : prefersDark;
@@ -500,11 +1107,33 @@
           }
         });
         localStorage.setItem('theme', dark ? 'dark' : 'light');
+        // Propaga cambio tema agli iframe
+        const themeVal = dark ? 'dark' : 'light';
+        sendToBootstrapIframe({ type: 'theme', value: themeVal });
+        sendToMaterializeIframe({ type: 'theme', value: themeVal });
       };
       applyTheme(isDark);
       document.querySelectorAll('.theme-toggle').forEach(btn => {
         btn.addEventListener('click', () => applyTheme(!root.classList.contains('dark')));
       });
+
+      // Invio iniziale di tema/lingua quando gli iframe sono pronti
+      if (bootstrapIframe) {
+        bootstrapIframe.addEventListener('load', () => {
+          const currentTheme = root.classList.contains('dark') ? 'dark' : 'light';
+          const currentLang = document.documentElement.getAttribute('lang') || 'it';
+          sendToBootstrapIframe({ type: 'theme', value: currentTheme });
+          sendToBootstrapIframe({ type: 'lang', value: currentLang });
+        });
+      }
+      if (materializeIframe) {
+        materializeIframe.addEventListener('load', () => {
+          const currentTheme = root.classList.contains('dark') ? 'dark' : 'light';
+          const currentLang = document.documentElement.getAttribute('lang') || 'it';
+          sendToMaterializeIframe({ type: 'theme', value: currentTheme });
+          sendToMaterializeIframe({ type: 'lang', value: currentLang });
+        });
+      }
 
       const menuBtn = document.getElementById('menu-btn');
       const menuDesktop = document.getElementById('menu');
@@ -589,31 +1218,28 @@
 
       const ensureTitleBadge = (el) => {
         if (!el) return;
-        // Se esiste un child con data-i18n (span), aggancio lì; altrimenti sull'heading
+        // Preferisci inserire la stella dentro lo span data-i18n, altrimenti nell'heading
         const target = el.querySelector('[data-i18n]') || el;
-        if (!target.querySelector('.visited-badge')) {
-          const badge = document.createElement('span');
-          badge.className = 'visited-badge';
-          badge.setAttribute('aria-hidden', 'true');
-          badge.innerHTML = '<svg class="visited-star" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>';
-          target.appendChild(badge);
-        }
+        // Evita duplicati: se l'heading ha già una stella, non aggiungere
+        if (el.querySelector('.visited-badge')) return;
+        const badge = document.createElement('span');
+        badge.className = 'visited-badge';
+        badge.setAttribute('aria-hidden', 'true');
+        badge.innerHTML = '<svg class="visited-star" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>';
+        target.appendChild(badge);
       };
       const ensureVisitedBadge = (sec) => {
         if (!sec) return;
-        const titleEl = sec.querySelector('h2');
-        const existing = sec.querySelector('.visited-badge');
-        const target = titleEl || sec;
-        if (existing && existing.parentElement !== target) {
-          existing.remove();
-        }
-        if (!target.querySelector('.visited-badge')) {
-          const badge = document.createElement('span');
-          badge.className = 'visited-badge';
-          badge.setAttribute('aria-hidden', 'true');
-          badge.innerHTML = '<svg class="visited-star" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>';
-          target.appendChild(badge);
-        }
+        // Punta sempre al titolo della sezione (H2/H3) e al suo span data-i18n se presente
+        const titleEl = sec.querySelector('h2, h3');
+        const preferred = (titleEl && (titleEl.querySelector('[data-i18n]') || titleEl)) || sec;
+        // Se esiste già una stella nella sezione (ovunque), non aggiungere
+        if (sec.querySelector('.visited-badge')) return;
+        const badge = document.createElement('span');
+        badge.className = 'visited-badge';
+        badge.setAttribute('aria-hidden', 'true');
+        badge.innerHTML = '<svg class="visited-star" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.46 4.73L5.82 21z"/></svg>';
+        preferred.appendChild(badge);
       };
       const applyVisitedStyles = () => {
         visitedSections.forEach(id => {
@@ -718,8 +1344,13 @@
           btn.setAttribute('aria-pressed', String(!!fxEnabled));
           if (fxEnabled) {
             btn.classList.add('ring-2', 'ring-brand');
+            // Stato attivo: evidenzia con accenti verdi e pulsazione leggera
+            btn.classList.add('bg-emerald-50', 'text-emerald-700', 'border-emerald-300', 'shadow', 'motion-safe:animate-pulse-subtle');
+            btn.classList.add('dark:bg-emerald-700/25', 'dark:text-emerald-200', 'dark:border-emerald-600');
           } else {
             btn.classList.remove('ring-2', 'ring-brand');
+            btn.classList.remove('bg-emerald-50', 'text-emerald-700', 'border-emerald-300', 'shadow', 'motion-safe:animate-pulse-subtle');
+            btn.classList.remove('dark:bg-emerald-700/25', 'dark:text-emerald-200', 'dark:border-emerald-600');
           }
         });
       };
@@ -994,10 +1625,15 @@
         nav_html: 'HTML',
         nav_database: 'Database',
         nav_projects: 'Progetti',
+        cat_all: 'Tutto',
         cat_languages: 'Linguaggi',
         cat_frontend: 'Frontend',
         cat_cms: 'CMS',
         cat_database: 'Database',
+        cat_frameworks: 'Frameworks & Librerie',
+        cat_lang_frameworks: 'Linguaggi + Frameworks',
+        cat_backend: 'Backend',
+        cat_3d: '3D',
         skills_title: 'Competenze',
         skip_to_content: 'Salta al contenuto',
         menu_button_text: 'Menu',
@@ -1037,6 +1673,29 @@
         skills_laravel: 'Laravel',
         skills_woocommerce: 'WooCommerce',
         skills_elementor: 'Elementor',
+        skills_bootstrap: 'Bootstrap',
+        skills_materialize: 'Materialize',
+        skills_gsap: 'GSAP',
+        skills_threejs: 'Three.js',
+        skills_3d_group_title: '3D & Grafica',
+        skills_group_types_title: 'Tipologie',
+        skills_group_frameworks_title: 'Frameworks',
+        skills_group_languages_title: 'Linguaggi',
+        skills_group_software_title: 'Software',
+        skills_group_other_title: 'Altro',
+        skills_3d_modeling: 'Modellazione 3D',
+        skills_3d_rendering: 'Rendering 3D',
+        skills_texture_painting: 'Texture Painting',
+        skills_3d_models_printing: 'Modelli per stampa 3D',
+        skills_3d_models_rendering: 'Modelli per rendering 3D',
+        skills_3d_models_games: 'Modelli 3D per videogiochi',
+        skills_webgl_webgpu: 'WebGL/WebGPU',
+        skills_blender: 'Blender',
+        skills_substance_painter: 'Substance Painter',
+        skills_zbrush: 'ZBrush',
+        skills_unity: 'Unity',
+        skills_unreal_engine: 'Unreal Engine',
+        skills_glsl: 'GLSL (Shader)',
         skills_server_linux_install: 'Installazione server Linux (Ubuntu/Debian)',
         skills_nginx_apache_config: 'Configurazione Nginx/Apache',
         skills_ssl_letsencrypt: "SSL/TLS & Let's Encrypt",
@@ -1057,6 +1716,16 @@
         overlay_desc: 'Clicca i titoli del CV per guadagnare XP e sbloccare badge.',
         overlay_no_badge: 'Nessun badge ancora. Prova a cliccare un titolo!',
         aria_theme_toggle: 'Cambia tema',
+        aria_main_nav: 'Navigazione principale',
+        aria_page_nav: 'Navigazione di pagina',
+        aria_header_landmark: 'Intestazione',
+        aria_main_landmark: 'Contenuto principale',
+        aria_footer_landmark: 'Piè di pagina',
+        quick_actions_title: 'Funzionalità rapide',
+        qa_scroll_top: 'Torna su',
+        qa_copy_email: 'Copia email',
+        qa_open_badges: 'Apri badge',
+        toast_copied: 'Copiato negli appunti',
         theme_button_text: 'Tema',
         fx_control_text: 'FX',
         toast_control_unlocked: 'Controllo sbloccato: FX',
@@ -1098,10 +1767,18 @@
         js_interactivity_desc: 'Esperienze fluide, animazioni, gestione stato lato client, integrazione editor WP.',
         js_fetch_title: 'Fetch & Async',
         js_fetch_desc: 'Richieste asincrone, error handling, progressive enhancement.',
+        js_ajax_title: 'AJAX & API',
+        js_ajax_desc: 'Richieste AJAX con fetch/XHR, caching lato client, gestione CORS.',
+        js_debug_title: 'Log & Debug avanzato',
+        js_debug_desc: 'Console strutturata, livelli di log, tracciamento errori, profiling performance.',
+        js_libs_title: 'Librerie & Frameworks',
+        js_libs_desc: 'three.js per 3D/WebGL, jQuery per DOM, GSAP per animazioni.',
         css_title: '🎨 CSS Avanzato',
         css_layout_title: 'Layout & Animazioni',
         css_layout_desc: 'Grid, flex, transizioni e animazioni complesse con performance ottimali.',
         css_design_system_desc: 'Componenti riutilizzabili, tipografia e palette coerenti.',
+        css_frameworks_title: 'Frameworks CSS',
+        css_frameworks_desc: 'Bootstrap e Materialize: grid, componenti UI, responsive e accessibilità.',
         tailwind_title: '🌬️ Tailwind CSS',
         tailwind_utility_title: 'UI utility-first',
         tailwind_utility_desc: 'Componenti moderni, responsive mobile-first, stato hover/focus accessibile.',
@@ -1118,6 +1795,56 @@
         db_model_desc: 'Schema ottimizzato, normalizzazione, query complesse e indici.',
         db_migrate_title: 'Migrazioni & Sicurezza',
         db_migrate_desc: 'Backup, migrazioni, gestione permessi e protezione dati.',
+        // Frameworks & API sections
+        jquery_title: 'jQuery',
+        jquery_desc: 'Selettori DOM, eventi, animazioni leggere e integrazioni AJAX.',
+        jquery_demo_title: 'Demo animazioni jQuery',
+        jquery_demo_show: 'Mostra',
+        jquery_demo_hide: 'Nascondi',
+        jquery_demo_toggle: 'Toggle',
+        jquery_demo_fade: 'Fade',
+        jquery_demo_slide: 'Slide',
+        jquery_demo_animate: 'Anima',
+        jquery_demo_fadeto: 'FadeTo 50%',
+        jquery_demo_bounce: 'Bounce',
+        jquery_demo_highlight: 'Highlight',
+        jquery_demo_pulse: 'Pulse',
+        jquery_demo_stop: 'Stop',
+        jquery_demo_reset: 'Reset',
+        jquery_demo_box_label: 'Box jQuery',
+        gsap_title: 'GSAP',
+        gsap_desc: 'Timeline, easing e animazioni performanti su canvas/DOM.',
+        gsap_demo_title: 'Demo animazioni GSAP',
+        gsap_demo_play: 'Play',
+        gsap_demo_reverse: 'Reverse',
+        gsap_demo_pause: 'Pausa',
+        gsap_demo_resume: 'Riprendi',
+        gsap_demo_restart: 'Restart',
+        gsap_demo_box_label: 'Box GSAP',
+        gsap_demo_yoyo: 'Yoyo',
+        gsap_demo_stagger: 'Stagger',
+        gsap_demo_dots_label: 'Gruppo box GSAP',
+        threejs_title: 'Three.js',
+        threejs_desc: 'Scene, camera, materiali e rendering WebGL/WebGPU.',
+        threejs_demo_title: 'Demo Three.js (cubo)',
+        threejs_demo_start: 'Avvia',
+        threejs_demo_stop: 'Stop',
+        threejs_demo_spin: 'Accelera',
+        threejs_demo_reset: 'Reset',
+        threejs_demo_canvas_label: 'Canvas Three.js',
+        threejs_demo_autorotate: 'Auto‑ruota',
+        threejs_demo_wireframe: 'Wireframe',
+        threejs_demo_solid: 'Solido',
+        threejs_demo_lights: 'Luci dinamiche',
+        bootstrap_title: 'Bootstrap',
+        bootstrap_desc: 'Grid, componenti, responsive e utilità pronte all’uso.',
+        bootstrap_demo_title: 'Demo animazioni Bootstrap',
+        materialize_title: 'Materialize',
+        materialize_desc: 'UI Material Design, griglie, componenti e modali.',
+        woocommerce_title: 'WooCommerce',
+        woocommerce_desc: 'E‑commerce su WordPress: hook, checkout, integrazioni.',
+        rest_title: 'API REST',
+        rest_desc: 'Endpoint CRUD, autenticazione, fetch asincrono e integrazioni.',
         projects_title: 'Esperienze & Progetti',
         projects_github_title: 'Progetti GitHub Open Source',
         projects_github_desc: 'Plugin e tool sviluppati per semplificare l’uso di WordPress e automazioni digitali.',
@@ -1137,10 +1864,15 @@
         nav_html: 'HTML',
         nav_database: 'Database',
         nav_projects: 'Projects',
+        cat_all: 'All',
         cat_languages: 'Languages',
         cat_frontend: 'Frontend',
         cat_cms: 'CMS',
         cat_database: 'Database',
+        cat_frameworks: 'Frameworks & Libraries',
+        cat_lang_frameworks: 'Languages + Frameworks',
+        cat_backend: 'Backend',
+        cat_3d: '3D',
         skills_title: 'Skills',
         skip_to_content: 'Skip to content',
         menu_button_text: 'Menu',
@@ -1156,6 +1888,8 @@
         skills_php: 'PHP',
         skills_js: 'JavaScript',
         skills_jquery: 'jQuery',
+        skills_gsap: 'GSAP',
+        skills_threejs: 'Three.js',
         skills_html: 'HTML',
         skills_css_advanced: 'Advanced CSS',
         skills_tailwind: 'Tailwind CSS',
@@ -1179,7 +1913,28 @@
         skills_sass: 'SASS/SCSS',
         skills_laravel: 'Laravel',
         skills_woocommerce: 'WooCommerce',
+        skills_bootstrap: 'Bootstrap',
+        skills_materialize: 'Materialize',
         skills_elementor: 'Elementor',
+        skills_3d_group_title: '3D & Graphics',
+        skills_group_types_title: 'Types',
+        skills_group_frameworks_title: 'Frameworks',
+        skills_group_languages_title: 'Languages',
+        skills_group_software_title: 'Software',
+        skills_group_other_title: 'Other',
+        skills_3d_modeling: '3D Modeling',
+        skills_3d_rendering: '3D Rendering',
+        skills_texture_painting: 'Texture Painting',
+        skills_3d_models_printing: 'Models for 3D printing',
+        skills_3d_models_rendering: 'Models for 3D rendering',
+        skills_3d_models_games: '3D game models',
+        skills_webgl_webgpu: 'WebGL/WebGPU',
+        skills_blender: 'Blender',
+        skills_substance_painter: 'Substance Painter',
+        skills_zbrush: 'ZBrush',
+        skills_unity: 'Unity',
+        skills_unreal_engine: 'Unreal Engine',
+        skills_glsl: 'GLSL (Shaders)',
         skills_server_linux_install: 'Linux server setup (Ubuntu/Debian)',
         skills_nginx_apache_config: 'Nginx/Apache configuration',
         skills_ssl_letsencrypt: "SSL/TLS & Let's Encrypt",
@@ -1200,6 +1955,16 @@
         overlay_desc: 'Click CV headings to earn XP and unlock badges.',
         overlay_no_badge: 'No badges yet. Try clicking a title!',
         aria_theme_toggle: 'Toggle theme',
+        aria_main_nav: 'Main navigation',
+        aria_page_nav: 'Page navigation',
+        aria_header_landmark: 'Header',
+        aria_main_landmark: 'Main content',
+        aria_footer_landmark: 'Footer',
+        quick_actions_title: 'Quick Actions',
+        qa_scroll_top: 'Scroll to top',
+        qa_copy_email: 'Copy email',
+        qa_open_badges: 'Open badges',
+        toast_copied: 'Copied to clipboard',
         theme_button_text: 'Theme',
         fx_control_text: 'FX',
         toast_control_unlocked: 'Control unlocked: FX',
@@ -1241,10 +2006,18 @@
         js_interactivity_desc: 'Fluid experiences, animations, client-side state management, WP editor integration.',
         js_fetch_title: 'Fetch & Async',
         js_fetch_desc: 'Async requests, error handling, progressive enhancement.',
+        js_ajax_title: 'AJAX & APIs',
+        js_ajax_desc: 'AJAX with fetch/XHR, client-side caching, CORS handling.',
+        js_debug_title: 'Advanced Logs & Debug',
+        js_debug_desc: 'Structured console, log levels, error tracking, performance profiling.',
+        js_libs_title: 'Libraries & Frameworks',
+        js_libs_desc: 'three.js for 3D/WebGL, jQuery for DOM, GSAP for animations.',
         css_title: '🎨 Advanced CSS',
         css_layout_title: 'Layout & Animations',
         css_layout_desc: 'Grid, flex, transitions and complex animations with optimal performance.',
         css_design_system_desc: 'Reusable components, consistent typography and palette.',
+        css_frameworks_title: 'CSS Frameworks',
+        css_frameworks_desc: 'Bootstrap and Materialize: grid, UI components, responsive and accessibility.',
         tailwind_title: '🌬️ Tailwind CSS',
         tailwind_utility_title: 'Utility-first UI',
         tailwind_utility_desc: 'Modern components, mobile-first responsive, accessible hover/focus states.',
@@ -1261,6 +2034,56 @@
         db_model_desc: 'Optimized schema, normalization, complex queries and indexes.',
         db_migrate_title: 'Migrations & Security',
         db_migrate_desc: 'Backups, migrations, permission management and data protection.',
+        // Frameworks & API sections
+        jquery_title: 'jQuery',
+        jquery_desc: 'DOM selectors, events, lightweight animations and AJAX.',
+        jquery_demo_title: 'jQuery Animation Demo',
+        jquery_demo_show: 'Show',
+        jquery_demo_hide: 'Hide',
+        jquery_demo_toggle: 'Toggle',
+        jquery_demo_fade: 'Fade',
+        jquery_demo_slide: 'Slide',
+        jquery_demo_animate: 'Animate',
+        jquery_demo_fadeto: 'FadeTo 50%',
+        jquery_demo_bounce: 'Bounce',
+        jquery_demo_highlight: 'Highlight',
+        jquery_demo_pulse: 'Pulse',
+        jquery_demo_stop: 'Stop',
+        jquery_demo_reset: 'Reset',
+        jquery_demo_box_label: 'jQuery Box',
+        gsap_title: 'GSAP',
+        gsap_desc: 'Timelines, easing and high‑performance animations on canvas/DOM.',
+        gsap_demo_title: 'GSAP Animation Demo',
+        gsap_demo_play: 'Play',
+        gsap_demo_reverse: 'Reverse',
+        gsap_demo_pause: 'Pause',
+        gsap_demo_resume: 'Resume',
+        gsap_demo_restart: 'Restart',
+        gsap_demo_box_label: 'GSAP Box',
+        gsap_demo_yoyo: 'Yoyo',
+        gsap_demo_stagger: 'Stagger',
+        gsap_demo_dots_label: 'GSAP Boxes',
+        threejs_title: 'Three.js',
+        threejs_desc: 'Scene, camera, materials and WebGL/WebGPU rendering.',
+        threejs_demo_title: 'Three.js Demo (cube)',
+        threejs_demo_start: 'Start',
+        threejs_demo_stop: 'Stop',
+        threejs_demo_spin: 'Accelerate',
+        threejs_demo_reset: 'Reset',
+        threejs_demo_canvas_label: 'Three.js Canvas',
+        threejs_demo_autorotate: 'Auto‑rotate',
+        threejs_demo_wireframe: 'Wireframe',
+        threejs_demo_solid: 'Solid',
+        threejs_demo_lights: 'Dynamic Lights',
+        bootstrap_title: 'Bootstrap',
+        bootstrap_desc: 'Grid, components, responsive UI and utilities.',
+        bootstrap_demo_title: 'Bootstrap Animation Demo',
+        materialize_title: 'Materialize',
+        materialize_desc: 'Material Design UI, grids, components and modals.',
+        woocommerce_title: 'WooCommerce',
+        woocommerce_desc: 'WordPress e‑commerce: hooks, checkout and integrations.',
+        rest_title: 'REST APIs',
+        rest_desc: 'CRUD endpoints, authentication, async fetch and integrations.',
         projects_title: 'Experience & Projects',
         projects_github_title: 'Open Source GitHub Projects',
         projects_github_desc: 'Plugins and tools built to simplify WordPress and digital automations.',
@@ -1300,6 +2123,9 @@
         document.title = t('doc_title');
         updateHUD();
         if (badgeOverlay && !badgeOverlay.classList.contains('hidden')) renderBadges();
+        // Propaga cambio lingua agli iframe
+        sendToBootstrapIframe({ type: 'lang', value: L });
+        sendToMaterializeIframe({ type: 'lang', value: L });
       };
       window.cvGame = {
         help() {
@@ -1366,16 +2192,40 @@
         if (e.key === 'Escape') toggleBadgeOverlay(false);
       });
 
+      // Quick Actions
+      const scrollTopBtn = document.getElementById('qa-scroll-top');
+      if (scrollTopBtn) scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+      const copyEmailBtn = document.getElementById('qa-copy-email');
+      if (copyEmailBtn) copyEmailBtn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText('mauro.arnone.ma@gmail.com');
+          showToast(`📋 ${t('toast_copied')}`);
+        } catch (e) {
+          showToast('📋 Copy failed');
+        }
+      });
+
+      const openBadgesBtn = document.getElementById('qa-open-badges');
+      if (openBadgesBtn) openBadgesBtn.addEventListener('click', () => toggleBadgeOverlay(true));
+
       // Categoria iniziale applicata dopo la definizione del router
 
       // Category router (hash-based)
       const categoryButtons = Array.from(document.querySelectorAll('.cat-btn'));
       const allSections = Array.from(document.querySelectorAll('section[id]'));
+      const allCategoryContainers = Array.from(document.querySelectorAll('[data-category]'));
       const pageSubnavEl = document.getElementById('page-subnav');
       const setActiveCategory = (cat) => {
-        // Update buttons
+        // Support combined filter for 'linguaggi' + 'frameworks' via 'lf' or either
+        const combined = (cat === 'linguaggi' || cat === 'frameworks' || cat === 'lf');
+        const activeCats = combined ? ['linguaggi', 'frameworks'] : (cat ? [cat] : []);
+        const showAll = !cat || cat === 'all';
+
+        // Update buttons: mark both active if combined
         categoryButtons.forEach(btn => {
-          const isActive = btn.getAttribute('data-cat') === cat;
+          const btnCat = btn.getAttribute('data-cat');
+          const isActive = showAll ? btnCat === 'all' : (activeCats.includes(btnCat) || (combined && btnCat === 'lf') || btnCat === cat);
           btn.setAttribute('aria-pressed', String(isActive));
           btn.classList.toggle('bg-blue-50', isActive);
           btn.classList.toggle('dark:bg-gray-700', isActive);
@@ -1383,19 +2233,42 @@
           btn.classList.toggle('ring-1', isActive);
           btn.classList.toggle('ring-brand', isActive);
         });
-        // Show only sections matching category; show all if no category
-        const showAll = !cat;
-        allSections.forEach(sec => {
-          const sCat = sec.getAttribute('data-category');
-          const show = showAll || (sCat === cat);
-          sec.classList.toggle('hidden', !show);
+
+        // Show only containers (sections/div) matching category; support multi-category values
+        allCategoryContainers.forEach(el => {
+          const sCats = (el.getAttribute('data-category') || '').split(/\s+/).filter(Boolean);
+          const show = showAll || sCats.some(c => activeCats.includes(c));
+          el.classList.toggle('hidden', !show);
         });
+
+        // Filter skills list items by category (if present)
+        const skillsList = document.getElementById('skills-list');
+        if (skillsList) {
+          const skillItems = Array.from(skillsList.querySelectorAll('li'));
+          skillItems.forEach(li => {
+            const liCatAttr = li.getAttribute('data-cat') || '';
+            const liCats = liCatAttr.split(/\s+/).filter(Boolean);
+            const show = showAll || liCats.some(c => activeCats.includes(c));
+            li.classList.toggle('hidden', !show);
+          });
+        }
+
+        // Filter any other elements carrying data-cat (excluding filter buttons and skills list items)
+        const genericCatItems = Array.from(document.querySelectorAll('[data-cat]')).filter(el => {
+          return !el.classList.contains('cat-btn') && !(skillsList && skillsList.contains(el));
+        });
+        genericCatItems.forEach(el => {
+          const elCats = (el.getAttribute('data-cat') || '').split(/\s+/).filter(Boolean);
+          const show = showAll || elCats.some(c => activeCats.includes(c));
+          el.classList.toggle('hidden', !show);
+        });
+
         // Build contextual sub-navigation at the top of main
         if (pageSubnavEl) {
           pageSubnavEl.innerHTML = '';
           const visibleSections = allSections.filter(sec => {
             const sCat = sec.getAttribute('data-category');
-            return showAll || (sCat === cat);
+            return showAll || activeCats.includes(sCat);
           });
           visibleSections.forEach(sec => {
             const id = sec.id;
@@ -1451,7 +2324,24 @@
         let lastX = 0, lastY = 0;
         let rafId = null;
         const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
-        const cardDepthEls = Array.from(heroCard.querySelectorAll('[data-depth]'));
+        // Auto-assegna una profondità di default a TUTTI i discendenti del hero-card
+        // in modo da applicare l'effetto 3D anche agli elementi senza data-depth
+        const allHeroDescendants = Array.from(heroCard.querySelectorAll('*'));
+        const defaultDepthFor = (el) => {
+          const tag = el.tagName;
+          if (tag === 'IMG') return 3;
+          if (tag === 'H1') return 2;
+          if (tag === 'H2' || tag === 'H3') return 1.8;
+          if (tag === 'A') return 1.3;
+          if (tag === 'P' || tag === 'SPAN') return 1.1;
+          return 1.0;
+        };
+        allHeroDescendants.forEach(el => {
+          if (!el.dataset.depth) {
+            try { el.dataset.depth = String(defaultDepthFor(el)); } catch (e) {}
+          }
+        });
+        let cardDepthEls = Array.from(heroCard.querySelectorAll('[data-depth]'));
         const layerDepthEls = Array.from(layer?.querySelectorAll('[data-depth]') || []);
         const applyTransforms = (nx, ny, intensity = 1) => {
           const rotX = clamp(-ny * 8 * intensity, -12, 12);
@@ -1459,7 +2349,7 @@
           heroCard.style.transition = 'transform 120ms ease-out';
           heroCard.style.transformStyle = 'preserve-3d';
           heroCard.style.transform = `translateZ(0px) rotateX(${rotX}deg) rotateY(${rotY}deg)`;
-          // Parallax for layered elements inside heroCard
+          // Parallax per tutti gli elementi con data-depth dentro heroCard
           cardDepthEls.forEach(el => {
             const d = parseFloat(el.dataset.depth || '1');
             const z = d * 8;
@@ -1603,7 +2493,16 @@
       let scrollYPrev = window.scrollY;
       let scrollImpulse = 0; // decays over time
       const isDarkTheme = document.documentElement.classList.contains('dark');
-      const brandColor = isDarkTheme ? '#1065ff' : '#1065ff';
+      // Colore accento (verde) per le connessioni del reticolo
+      const ACCENT = '#10b981';
+      const hexToRgb = (hex) => {
+        try {
+          const h = hex.replace('#', '');
+          const bigint = parseInt(h, 16);
+          return { r: (bigint >> 16) & 255, g: (bigint >> 8) & 255, b: bigint & 255 };
+        } catch (e) { return { r: 16, g: 101, b: 255 }; }
+      };
+      const brandRgb = hexToRgb(ACCENT);
       // Mesh and performance parameters
       let cellSize = 120;
       let linkRadius = 120;
@@ -1649,7 +2548,8 @@
           vx: rand(-0.25, 0.25),
           vy: rand(-0.25, 0.25),
           size: rand(1.2, 2.4),
-          hue: rand(200, 220),
+          // tonalità verdi (accent)
+          hue: rand(145, 160),
           alpha: rand(0.35, 0.75)
         }));
         // reset grid
@@ -1677,6 +2577,9 @@
           if (Math.abs(scrollImpulse) > 0.001) {
             p.vy += scrollImpulse * 0.08;
           }
+          // Slight continuous motion (Brownian jitter)
+          p.vx += rand(-0.015, 0.015);
+          p.vy += rand(-0.015, 0.015);
           // Natural motion
           p.x += p.vx;
           p.y += p.vy;
@@ -1725,12 +2628,12 @@
                   // Glow stroke (blurred, wider, lower alpha)
                   pctx.save();
                   pctx.shadowBlur = fxEnabled ? 9 : 6;
-                  pctx.shadowColor = `rgba(16,101,255, ${alpha * 0.8})`;
+                  pctx.shadowColor = `rgba(${brandRgb.r},${brandRgb.g},${brandRgb.b}, ${alpha * 0.8})`;
                   pctx.beginPath();
                   pctx.moveTo(p.x, p.y);
                   pctx.lineTo(q.x, q.y);
                   pctx.lineWidth = fxEnabled ? 2.2 : 1.6;
-                  pctx.strokeStyle = `rgba(16,101,255, ${alpha * (fxEnabled ? 0.35 : 0.25)})`;
+                  pctx.strokeStyle = `rgba(${brandRgb.r},${brandRgb.g},${brandRgb.b}, ${alpha * (fxEnabled ? 0.35 : 0.25)})`;
                   pctx.stroke();
                   // Crisp stroke on top
                   pctx.shadowBlur = 0;
@@ -1738,7 +2641,7 @@
                   pctx.moveTo(p.x, p.y);
                   pctx.lineTo(q.x, q.y);
                   pctx.lineWidth = fxEnabled ? 1.0 : 0.8;
-                  pctx.strokeStyle = `rgba(16,101,255, ${alpha})`;
+                  pctx.strokeStyle = `rgba(${brandRgb.r},${brandRgb.g},${brandRgb.b}, ${alpha})`;
                   pctx.stroke();
                   pctx.restore();
                   links++;
@@ -1764,7 +2667,12 @@
         mouseY = e.clientY;
       };
       const onMouseLeave = () => { hasMouse = false; };
+      let lastBurstTime = 0;
+      const burstCooldownMs = 700;
       const onClickBurst = (e) => {
+        const now = performance.now();
+        if (now - lastBurstTime < burstCooldownMs) return;
+        lastBurstTime = now;
         if (!particlesBg.length) return;
         const x = e.clientX;
         const y = e.clientY;
@@ -1774,7 +2682,8 @@
             vx: rand(-2.2, 2.2),
             vy: rand(-2.2, 2.2),
             size: rand(1.2, 2.6),
-            hue: rand(200, 220),
+            // burst verdi
+            hue: rand(145, 160),
             alpha: rand(0.45, 0.85)
           });
         }
@@ -1801,6 +2710,385 @@
         window.addEventListener('scroll', onScrollParticles, { passive: true });
         document.addEventListener('click', onClickBurst);
       }
+    });
+  </script>
+
+  <!-- jQuery CDN e inizializzazione demo -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script>
+    $(function() {
+      var $box = $('#jq-box');
+      $('#jq-show').on('click', function () { $box.stop(true, true).show(); });
+      $('#jq-hide').on('click', function () { $box.stop(true, true).hide(); });
+      $('#jq-toggle').on('click', function () { $box.stop(true, true).toggle(); });
+      $('#jq-fade').on('click', function () { $box.stop(true, true).fadeToggle(300); });
+      $('#jq-slide').on('click', function () { $box.stop(true, true).slideToggle(300); });
+      $('#jq-animate').on('click', function () {
+        $box.stop(true, false)
+            .animate({ left: '+=30', opacity: 0.85, borderRadius: '1rem' }, 350)
+            .animate({ left: '-=30', opacity: 1, borderRadius: '0.5rem' }, 350);
+      });
+      $('#jq-fadeto').on('click', function () { $box.stop(true, false).fadeTo(200, 0.5); });
+      $('#jq-bounce').on('click', function () {
+        $box.stop(true, false)
+            .animate({ top: '-=20' }, 150)
+            .animate({ top: '+=20' }, 150)
+            .animate({ width: '+=10', height: '+=6' }, 120)
+            .animate({ width: '-=10', height: '-=6' }, 120)
+            .animate({ top: '-=10' }, 100)
+            .animate({ top: '+=10' }, 100);
+      });
+      $('#jq-highlight').on('click', function () {
+        $box.stop(true, false);
+        var originalShadow = $box.css('box-shadow');
+        var originalBorderWidth = $box.css('border-width');
+        $box.css('box-shadow', '0 0 0 0 rgba(0,0,0,0)');
+        $box.animate({ borderWidth: '4px' }, 140)
+            .queue(function(next){
+              $box.css('box-shadow', '0 0 0 10px rgba(16,101,255,0.35)');
+              next();
+            })
+            .delay(200)
+            .animate({ borderWidth: originalBorderWidth || '1px' }, 140)
+            .queue(function(next){
+              $box.css('box-shadow', originalShadow || 'none');
+              next();
+            });
+      });
+      function doPulse(times) {
+        if (times <= 0) return;
+        $box
+          .animate({ opacity: 0.75, borderRadius: '1rem' }, 180)
+          .animate({ opacity: 1, borderRadius: '0.5rem' }, 180)
+          .animate({ left: '+=10' }, 120)
+          .animate({ left: '-=10' }, 120)
+          .queue(function(next){ doPulse(times - 1); next(); });
+      }
+      $('#jq-pulse').on('click', function () { $box.stop(true, false); doPulse(2); });
+      $('#jq-stop').on('click', function () { $box.stop(true, true); });
+      $('#jq-reset').on('click', function () { $box.stop(true, true).show().css({ left: 0, top: 0, width: '', height: '', opacity: 1, borderRadius: '0.5rem', boxShadow: '', borderWidth: '' }); });
+    });
+  </script>
+
+  <!-- GSAP CDN e inizializzazione demo -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var box = document.getElementById('gsap-box');
+      if (!box || !window.gsap) return;
+      var tl = gsap.timeline({ paused: true, defaults: { duration: 0.4, ease: 'power2.out' } });
+      tl
+        .to(box, { x: 30, opacity: 0.9, borderRadius: '1rem' })
+        .to(box, { rotate: 8, scale: 1.06 })
+        .to(box, { x: 0, opacity: 1, rotate: 0, scale: 1 })
+        .to(box, { borderRadius: '0.5rem' });
+
+      var playBtn = document.getElementById('gsap-play');
+      var reverseBtn = document.getElementById('gsap-reverse');
+      var pauseBtn = document.getElementById('gsap-pause');
+      var resumeBtn = document.getElementById('gsap-resume');
+      var restartBtn = document.getElementById('gsap-restart');
+      var yoyoBtn = document.getElementById('gsap-yoyo');
+      var staggerBtn = document.getElementById('gsap-stagger');
+      var dots = document.querySelectorAll('#gsap-dots .gsap-dot');
+      var yoyoOn = false;
+
+      if (playBtn) playBtn.addEventListener('click', function () { tl.play(); });
+      if (reverseBtn) reverseBtn.addEventListener('click', function () { tl.reverse(); });
+      if (pauseBtn) pauseBtn.addEventListener('click', function () { tl.pause(); });
+      if (resumeBtn) resumeBtn.addEventListener('click', function () { tl.resume(); });
+      if (restartBtn) restartBtn.addEventListener('click', function () { tl.restart(true); });
+
+      if (yoyoBtn) yoyoBtn.addEventListener('click', function () {
+        yoyoOn = !yoyoOn;
+        if (typeof tl.repeat === 'function' && typeof tl.yoyo === 'function') {
+          tl.repeat(yoyoOn ? 1 : 0);
+          tl.yoyo(yoyoOn);
+        } else {
+          tl.vars.repeat = yoyoOn ? 1 : 0;
+          tl.vars.yoyo = yoyoOn;
+        }
+        yoyoBtn.classList.toggle('bg-brand', yoyoOn);
+        yoyoBtn.classList.toggle('text-white', yoyoOn);
+        yoyoBtn.classList.toggle('bg-gray-200', !yoyoOn);
+      });
+
+      if (staggerBtn) staggerBtn.addEventListener('click', function () {
+        if (!dots || !dots.length) return;
+        gsap.to(dots, {
+          x: 14,
+          scale: 1.08,
+          repeat: 1,
+          yoyo: true,
+          duration: 0.25,
+          ease: 'power2.out',
+          stagger: { each: 0.06, from: 'center' }
+        });
+      });
+    });
+  </script>
+
+  <!-- Three.js CDN e inizializzazione demo -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var wrap = document.getElementById('threejs-canvas-wrap');
+      if (!wrap || !window.THREE) return;
+      var renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      renderer.setPixelRatio(Math.max(1, window.devicePixelRatio || 1));
+      renderer.shadowMap.enabled = true;
+      renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+      wrap.appendChild(renderer.domElement);
+
+      var scene = new THREE.Scene();
+      var camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
+      // Controlli camera personalizzati (mouse/touch)
+      var controls = (function() {
+        var target = new THREE.Vector3();
+        var radius = 5, theta = 0, phi = Math.PI / 2;
+        var isDown = false, lastX = 0, lastY = 0;
+        var pinchPrev = 0;
+        var minRadius = 1.5, maxRadius = 30;
+        var minPhi = 0.05, maxPhi = Math.PI - 0.05;
+        function apply() {
+          var sinPhi = Math.sin(phi);
+          var x = radius * sinPhi * Math.sin(theta);
+          var y = radius * Math.cos(phi);
+          var z = radius * sinPhi * Math.cos(theta);
+          camera.position.set(target.x + x, target.y + y, target.z + z);
+          camera.lookAt(target);
+        }
+        function step(dt) { theta += dt; apply(); }
+        function setTarget(v3) { target.copy(v3); apply(); }
+        function setFromCamera() {
+          var off = camera.position.clone().sub(target);
+          radius = Math.max(0.001, off.length());
+          theta = Math.atan2(off.x, off.z);
+          phi = Math.acos(Math.min(1, Math.max(-1, off.y / radius)));
+        }
+        function onPointerDown(e) { isDown = true; lastX = e.clientX; lastY = e.clientY; renderer.domElement.setPointerCapture(e.pointerId); }
+        function onPointerMove(e) {
+          if (!isDown) return;
+          var dx = e.clientX - lastX; var dy = e.clientY - lastY;
+          lastX = e.clientX; lastY = e.clientY;
+          theta -= dx * 0.005; phi -= dy * 0.003; phi = Math.min(maxPhi, Math.max(minPhi, phi));
+          apply();
+        }
+        function onPointerUp(e) { isDown = false; renderer.domElement.releasePointerCapture(e.pointerId); }
+        function onWheel(e) { e.preventDefault(); var f = 1 + (e.deltaY * 0.0015); radius = Math.min(maxRadius, Math.max(minRadius, radius * f)); apply(); }
+        function touchDistance(touches) {
+          var dx = touches[0].clientX - touches[1].clientX; var dy = touches[0].clientY - touches[1].clientY; return Math.sqrt(dx*dx + dy*dy);
+        }
+        function onTouchStart(e) {
+          if (e.touches.length === 1) { isDown = true; lastX = e.touches[0].clientX; lastY = e.touches[0].clientY; }
+          else if (e.touches.length === 2) { isDown = false; pinchPrev = touchDistance(e.touches); }
+        }
+        function onTouchMove(e) {
+          if (e.touches.length === 1 && isDown) {
+            var dx = e.touches[0].clientX - lastX; var dy = e.touches[0].clientY - lastY;
+            lastX = e.touches[0].clientX; lastY = e.touches[0].clientY;
+            theta -= dx * 0.005; phi -= dy * 0.003; phi = Math.min(maxPhi, Math.max(minPhi, phi));
+            apply();
+          } else if (e.touches.length === 2) {
+            var pd = touchDistance(e.touches);
+            var diff = pd - pinchPrev; pinchPrev = pd;
+            radius = Math.min(maxRadius, Math.max(minRadius, radius - diff * 0.01));
+            apply();
+          }
+        }
+        function onTouchEnd(e) { if (e.touches.length === 0) { isDown = false; } }
+        renderer.domElement.addEventListener('pointerdown', onPointerDown);
+        renderer.domElement.addEventListener('pointermove', onPointerMove);
+        renderer.domElement.addEventListener('pointerup', onPointerUp);
+        renderer.domElement.addEventListener('wheel', onWheel, { passive: false });
+        renderer.domElement.addEventListener('touchstart', onTouchStart, { passive: true });
+        renderer.domElement.addEventListener('touchmove', onTouchMove, { passive: true });
+        renderer.domElement.addEventListener('touchend', onTouchEnd, { passive: true });
+        return { setTarget, setFromCamera, update: apply, step, get target() { return target; } };
+      })();
+
+      var ambient = new THREE.AmbientLight(0xffffff, 0.6);
+      var dir = new THREE.DirectionalLight(0xffffff, 0.8);
+      dir.position.set(3, 5, 2);
+      dir.castShadow = false;
+      scene.add(ambient);
+      scene.add(dir);
+
+      // Spotlight per evidenziare i soggetti
+      var spot = new THREE.SpotLight(0xffffff, 1.1, 20, Math.PI / 6, 0.3, 1);
+      spot.position.set(3, 4.5, 3);
+      spot.castShadow = true;
+      spot.shadow.mapSize.set(1024, 1024);
+      spot.shadow.bias = -0.0001;
+      scene.add(spot);
+      scene.add(spot.target);
+
+      // Gruppo soggetti (cubo + altri elementi)
+      var contentGroup = new THREE.Group();
+      scene.add(contentGroup);
+      var geometry = new THREE.BoxGeometry(1, 1, 1);
+      var material = new THREE.MeshStandardMaterial({ color: 0x1065ff, roughness: 0.45, metalness: 0.1 });
+      var cube = new THREE.Mesh(geometry, material);
+      cube.castShadow = true;
+      contentGroup.add(cube);
+
+      var sphere1 = new THREE.Mesh(
+        new THREE.SphereGeometry(0.4, 24, 16),
+        new THREE.MeshStandardMaterial({ color: 0x10b981, roughness: 0.5, metalness: 0.05 })
+      );
+      sphere1.position.set(-1.2, 0.3, 0.2);
+      sphere1.castShadow = true;
+      contentGroup.add(sphere1);
+
+      var sphere2 = new THREE.Mesh(
+        new THREE.SphereGeometry(0.3, 24, 16),
+        new THREE.MeshStandardMaterial({ color: 0xff8a00, roughness: 0.6, metalness: 0.1 })
+      );
+      sphere2.position.set(1.1, -0.2, -0.4);
+      sphere2.castShadow = true;
+      contentGroup.add(sphere2);
+
+      var torus = new THREE.Mesh(
+        new THREE.TorusGeometry(0.5, 0.15, 16, 64),
+        new THREE.MeshStandardMaterial({ color: 0x7c3aed, roughness: 0.55, metalness: 0.2 })
+      );
+      torus.position.set(0, 0.6, -0.8);
+      torus.rotation.x = Math.PI / 4;
+      torus.castShadow = true;
+      contentGroup.add(torus);
+
+      // Piano di appoggio che riceve ombre (non incluso nel bounding dei soggetti)
+      var ground = new THREE.Mesh(
+        new THREE.PlaneGeometry(8, 8),
+        new THREE.MeshStandardMaterial({ color: 0xe5e7eb, roughness: 0.9, metalness: 0.0 })
+      );
+      ground.rotation.x = -Math.PI / 2;
+      ground.position.y = -0.65;
+      ground.receiveShadow = true;
+      scene.add(ground);
+
+      // Centra camera e controls sul gruppo soggetti
+      var box3 = new THREE.Box3().setFromObject(contentGroup);
+      var center = new THREE.Vector3();
+      box3.getCenter(center);
+      var size = new THREE.Vector3();
+      box3.getSize(size);
+      var maxSize = Math.max(size.x, size.y, size.z);
+      var fitOffset = 1.35;
+      var fov = camera.fov * (Math.PI / 180);
+      var distance = (maxSize * fitOffset) / (2 * Math.tan(fov / 2));
+      camera.position.copy(center.clone().add(new THREE.Vector3(distance, distance * 0.6, distance)));
+      camera.lookAt(center);
+      controls.setTarget(center);
+      controls.setFromCamera();
+      controls.update();
+      spot.target.position.copy(center);
+
+      var running = false;
+      var speed = 0.8;
+      var clock = new THREE.Clock();
+      var autoRotate = false;
+      var lightsDynamic = false;
+      var lightPhase = 0;
+
+      function resize() {
+        var w = wrap.clientWidth;
+        var h = wrap.clientHeight;
+        renderer.setSize(w, h, false);
+        camera.aspect = Math.max(0.1, w / Math.max(1, h));
+        camera.updateProjectionMatrix();
+      }
+      window.addEventListener('resize', resize);
+      resize();
+
+      function loop() {
+        var dt = clock.getDelta();
+        if (running) {
+          cube.rotation.y += speed * dt;
+          cube.rotation.x += 0.15 * dt;
+        }
+        if (autoRotate) { controls.step(0.6 * dt); }
+        if (lightsDynamic) {
+          lightPhase += dt * 0.8;
+          var lx = center.x + Math.cos(lightPhase) * 3.0;
+          var lz = center.z + Math.sin(lightPhase) * 2.0;
+          dir.position.set(lx, 5, lz);
+          spot.position.set(center.x + Math.cos(lightPhase + Math.PI/3) * 3.2, 4.5, center.z + Math.sin(lightPhase + Math.PI/3) * 3.2);
+          ambient.intensity = 0.5 + 0.2 * Math.sin(lightPhase * 0.7);
+          dir.intensity = 0.7 + 0.3 * Math.max(0, Math.cos(lightPhase));
+          spot.intensity = 1.0 + 0.2 * Math.sin(lightPhase * 1.2);
+        }
+        controls.update();
+        renderer.render(scene, camera);
+        requestAnimationFrame(loop);
+      }
+      loop();
+
+      var startBtn = document.getElementById('threejs-start');
+      var stopBtn = document.getElementById('threejs-stop');
+      var spinBtn = document.getElementById('threejs-spin');
+      var resetBtn = document.getElementById('threejs-reset');
+      var autorotateBtn = document.getElementById('threejs-autorotate');
+      var wireframeBtn = document.getElementById('threejs-wireframe');
+      var solidBtn = document.getElementById('threejs-solid');
+      var lightsBtn = document.getElementById('threejs-lights');
+      if (startBtn) startBtn.addEventListener('click', function () { running = true; });
+      if (stopBtn) stopBtn.addEventListener('click', function () { running = false; });
+      if (spinBtn) spinBtn.addEventListener('click', function () { speed = Math.min(3.0, speed + 0.3); });
+      if (resetBtn) resetBtn.addEventListener('click', function () {
+        speed = 0.8;
+        cube.rotation.set(0, 0, 0);
+        // Riposiziona camera e target nuovamente centrati sui soggetti
+        var boxR = new THREE.Box3().setFromObject(contentGroup);
+        var centerR = new THREE.Vector3();
+        var sizeR = new THREE.Vector3();
+        boxR.getCenter(centerR);
+        boxR.getSize(sizeR);
+        var maxR = Math.max(sizeR.x, sizeR.y, sizeR.z);
+        var distR = (maxR * fitOffset) / (2 * Math.tan(fov / 2));
+        camera.position.copy(centerR.clone().add(new THREE.Vector3(distR, distR * 0.6, distR)));
+        controls.setTarget(centerR);
+        controls.setFromCamera();
+        controls.update();
+        autoRotate = false;
+        autorotateBtn && autorotateBtn.classList.remove('bg-brand','text-white');
+        setWireframe(false);
+        wireframeBtn && wireframeBtn.classList.remove('bg-brand','text-white');
+        lightsDynamic = false;
+        lightsBtn && lightsBtn.classList.remove('bg-brand','text-white');
+        ambient.intensity = 0.6;
+        dir.intensity = 0.8;
+        spot.intensity = 1.1;
+      });
+
+      function setWireframe(on) {
+        var meshes = [cube, sphere1, sphere2, torus];
+        meshes.forEach(function(m){ if (m && m.material) m.material.wireframe = !!on; });
+      }
+      if (autorotateBtn) autorotateBtn.addEventListener('click', function(){
+        autoRotate = !autoRotate;
+        autorotateBtn.classList.toggle('bg-brand', autoRotate);
+        autorotateBtn.classList.toggle('text-white', autoRotate);
+        autorotateBtn.classList.toggle('bg-gray-200', !autoRotate);
+      });
+      if (wireframeBtn) wireframeBtn.addEventListener('click', function(){
+        var wf = !(cube.material && cube.material.wireframe);
+        setWireframe(wf);
+        wireframeBtn.classList.toggle('bg-brand', wf);
+        wireframeBtn.classList.toggle('text-white', wf);
+        wireframeBtn.classList.toggle('bg-gray-200', !wf);
+      });
+      if (solidBtn) solidBtn.addEventListener('click', function(){
+        setWireframe(false);
+        wireframeBtn && wireframeBtn.classList.remove('bg-brand','text-white');
+        wireframeBtn && wireframeBtn.classList.add('bg-gray-200');
+      });
+      if (lightsBtn) lightsBtn.addEventListener('click', function(){
+        lightsDynamic = !lightsDynamic;
+        lightsBtn.classList.toggle('bg-brand', lightsDynamic);
+        lightsBtn.classList.toggle('text-white', lightsDynamic);
+        lightsBtn.classList.toggle('bg-gray-200', !lightsDynamic);
+      });
     });
   </script>
 
