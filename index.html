@@ -139,7 +139,7 @@
         <img src="https://avatars.githubusercontent.com/u/129175879?v=4" alt="Logo" class="w-8 h-8 rounded-full" data-i18n-alt="alt_logo">
         <span class="font-semibold">Mauro Arnone</span>
       </a>
-      <button id="menu-btn" type="button" class="md:hidden px-3 py-2 rounded bg-brand text-white hover:bg-brandDark transition" data-i18n="menu_button_text">Menu</button>
+      <button id="menu-btn" type="button" class="md:hidden px-3 py-2 rounded bg-brand text-white hover:bg-brandDark transition" data-i18n="menu_button_text" aria-controls="menu-mobile" aria-expanded="false">Menu</button>
       <ul id="menu" class="hidden md:flex items-center gap-4 text-sm">
         <li>
           <div id="gamify-hud" class="hidden md:flex items-center gap-1 px-2 py-1 rounded border text-xs bg-white/70 text-gray-800 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700">
@@ -178,7 +178,7 @@
       </ul>
     </div>
     <!-- Mobile dropdown -->
-    <div id="menu-mobile" class="md:hidden hidden border-t bg-white dark:bg-gray-900">
+    <div id="menu-mobile" class="md:hidden hidden border-t bg-white dark:bg-gray-900" role="menu" aria-labelledby="menu-btn" aria-hidden="true">
       <ul class="max-w-5xl mx-auto px-4 py-3 grid grid-cols-1 gap-2 text-sm">
         <li class="col-span-2">
           <button class="theme-toggle w-full px-3 py-2 rounded border text-sm bg-white hover:bg-gray-100 transition dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700 dark:hover:bg-gray-700 flex items-center justify-center gap-2" aria-label="Cambia tema" aria-pressed="false" data-i18n-aria="aria_theme_toggle">
@@ -1260,9 +1260,63 @@
       const menuBtn = document.getElementById('menu-btn');
       const menuDesktop = document.getElementById('menu');
       const menuMobile = document.getElementById('menu-mobile');
+      const closeMobileMenu = () => {
+        if (!menuMobile) return;
+        // animazione di chiusura leggera prima di nascondere
+        menuMobile.classList.remove('open');
+        menuMobile.classList.add('closing');
+        menuBtn?.setAttribute('aria-expanded', 'false');
+        menuMobile.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        try { window.resumeParticles?.(); } catch(e){}
+        setTimeout(() => {
+          menuMobile.classList.add('hidden');
+          menuMobile.classList.remove('closing');
+        }, 220);
+      };
+      const openMobileMenu = () => {
+        if (!menuMobile) return;
+        menuMobile.classList.remove('hidden');
+        // assicura stato iniziale per transizione
+        requestAnimationFrame(() => {
+          menuMobile.classList.add('open');
+        });
+        menuBtn?.setAttribute('aria-expanded', 'true');
+        menuMobile.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        try { window.pauseParticles?.(); } catch(e){}
+        // focus primo elemento interattivo
+        const focusable = menuMobile.querySelector('button, a, input, select, textarea, [tabindex]:not([tabindex="-1"])');
+        if (focusable && focusable.focus) { focusable.focus(); }
+      };
       if (menuBtn && menuMobile) {
         menuBtn.addEventListener('click', function () {
-          menuMobile.classList.toggle('hidden');
+          const isHidden = menuMobile.classList.contains('hidden');
+          if (isHidden) openMobileMenu(); else closeMobileMenu();
+        });
+        // chiudi su click fuori
+        document.addEventListener('click', function (ev) {
+          const nav = document.getElementById('site-nav');
+          if (!nav) return;
+          const isOpen = !menuMobile.classList.contains('hidden');
+          if (!isOpen) return;
+          if (!nav.contains(ev.target)) {
+            closeMobileMenu();
+          }
+        });
+        // chiudi su ESC
+        document.addEventListener('keydown', function (ev) {
+          if (ev.key === 'Escape') {
+            const isOpen = !menuMobile.classList.contains('hidden');
+            if (isOpen) closeMobileMenu();
+          }
+        });
+        // chiudi quando si clicca qualcosa dentro
+        menuMobile.addEventListener('click', function (ev) {
+          const target = ev.target;
+          if (target && (target.tagName === 'A' || target.tagName === 'BUTTON')) {
+            closeMobileMenu();
+          }
         });
       }
 
@@ -3116,11 +3170,20 @@
         } catch (e) { return { r: 16, g: 101, b: 255 }; }
       };
       const brandRgb = hexToRgb(ACCENT);
+      // Rilevamento mobile/touch per modalità performance
+      const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+      const isMobileViewport = window.matchMedia('(max-width: 640px)').matches;
+      const isMobilePerfMode = isTouchDevice && isMobileViewport;
       // Mesh and performance parameters
       let cellSize = 120;
       let linkRadius = 120;
       let maxLinksPerParticle = 6;
       let grid = new Map(); // spatial hash grid
+      if (isMobilePerfMode) {
+        cellSize = 160; // celle più grandi => meno vicini
+        linkRadius = 100; // raggio collegamenti ridotto
+        maxLinksPerParticle = 3; // meno linee per particella
+      }
       
       // IT: Overlay Three.js nel header — mesh wireframe animate per categoria.
       // EN: Three.js overlay in header — animated wireframe meshes per category.
@@ -3447,11 +3510,12 @@
         if (override === 'medium') return 1.0;
         if (override === 'high') return 1.4;
         const cores = (navigator.hardwareConcurrency || 4);
-        const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+        const isTouch = isTouchDevice;
         let f = 1.0;
         if (DPR > 1.5) f *= 0.8;
         if (cores <= 4) f *= 0.85;
         if (isTouch) f *= 0.8;
+        if (isMobilePerfMode) f *= 0.7;
         return f;
       };
       const setCanvasSize = () => {
@@ -3469,16 +3533,18 @@
         if (!particleCanvas) return;
         const area = window.innerWidth * window.innerHeight;
         const density = computeDensityFactor();
-        const target = Math.round(Math.min(260, Math.max(70, (area / 12000) * density)));
+        const target = isMobilePerfMode
+          ? Math.round(Math.min(160, Math.max(50, (area / 16000) * density)))
+          : Math.round(Math.min(260, Math.max(70, (area / 12000) * density)));
         particleTargetCount = target;
         // adjust link radius for higher counts
-        const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
-        linkRadius = isTouch ? 100 : 120;
+        const isTouch = isTouchDevice;
+        linkRadius = isMobilePerfMode ? 100 : (isTouch ? 110 : 120);
         particlesBg = new Array(target).fill(0).map(() => ({
           x: rand(0, window.innerWidth),
           y: rand(0, window.innerHeight),
-          vx: rand(-0.25, 0.25),
-          vy: rand(-0.25, 0.25),
+          vx: isMobilePerfMode ? rand(-0.2, 0.2) : rand(-0.25, 0.25),
+          vy: isMobilePerfMode ? rand(-0.2, 0.2) : rand(-0.25, 0.25),
           size: rand(1.2, 2.4),
           // tonalità verdi (accent)
           hue: rand(145, 160),
@@ -3507,7 +3573,7 @@
           }
           // Interaction: scroll impulse
           if (Math.abs(scrollImpulse) > 0.001) {
-            p.vy += scrollImpulse * 0.08;
+            p.vy += scrollImpulse * (isMobilePerfMode ? 0.05 : 0.08);
           }
           // Slight continuous motion (Brownian jitter)
           p.vx += rand(-0.015, 0.015);
@@ -3558,24 +3624,25 @@
                   const d = Math.sqrt(d2);
                   const alpha = Math.max(0.05, 0.35 - (d / effectiveLinkRadius) * 0.35);
                   // Glow stroke (blurred, wider, lower alpha)
-                  pctx.save();
-                  pctx.shadowBlur = 6;
-                  pctx.shadowColor = `rgba(${brandRgb.r},${brandRgb.g},${brandRgb.b}, ${alpha * 0.8})`;
-                  pctx.beginPath();
-                  pctx.moveTo(p.x, p.y);
-                  pctx.lineTo(q.x, q.y);
-                  pctx.lineWidth = 1.6;
-                  pctx.strokeStyle = `rgba(${brandRgb.r},${brandRgb.g},${brandRgb.b}, ${alpha * 0.25})`;
-                  pctx.stroke();
-                  // Crisp stroke on top
-                  pctx.shadowBlur = 0;
+                  if (!isMobilePerfMode) {
+                    pctx.save();
+                    pctx.shadowBlur = 6;
+                    pctx.shadowColor = `rgba(${brandRgb.r},${brandRgb.g},${brandRgb.b}, ${alpha * 0.8})`;
+                    pctx.beginPath();
+                    pctx.moveTo(p.x, p.y);
+                    pctx.lineTo(q.x, q.y);
+                    pctx.lineWidth = 1.6;
+                    pctx.strokeStyle = `rgba(${brandRgb.r},${brandRgb.g},${brandRgb.b}, ${alpha * 0.25})`;
+                    pctx.stroke();
+                    pctx.shadowBlur = 0;
+                    pctx.restore();
+                  }
                   pctx.beginPath();
                   pctx.moveTo(p.x, p.y);
                   pctx.lineTo(q.x, q.y);
                   pctx.lineWidth = 0.8;
                   pctx.strokeStyle = `rgba(${brandRgb.r},${brandRgb.g},${brandRgb.b}, ${alpha})`;
                   pctx.stroke();
-                  pctx.restore();
                   links++;
                   if (links >= maxLinksPerParticle) break;
                 }
@@ -3610,7 +3677,8 @@
         if (!particlesBg.length) return;
         const x = e.clientX;
         const y = e.clientY;
-        for (let i = 0; i < 12; i++) {
+        const burstCount = isMobilePerfMode ? 8 : 12;
+        for (let i = 0; i < burstCount; i++) {
           particlesBg.push({
             x, y,
             vx: rand(-2.2, 2.2),
@@ -3622,7 +3690,7 @@
           });
         }
         // Trim to target count to avoid unbounded growth
-        const maxCount = Math.round(Math.min(220, Math.max(80, particleTargetCount)));
+        const maxCount = Math.round(Math.min(isMobilePerfMode ? 160 : 220, Math.max(isMobilePerfMode ? 60 : 80, particleTargetCount)));
         if (particlesBg.length > maxCount) {
           particlesBg.splice(0, particlesBg.length - maxCount);
         }
@@ -3642,13 +3710,21 @@
         initParticles();
         animate();
         window.addEventListener('resize', () => { setCanvasSize(); initParticles(); });
-        window.addEventListener('mousemove', onMouseMove, { passive: true });
-        window.addEventListener('mouseleave', onMouseLeave, { passive: true });
+        if (!isTouchDevice) {
+          window.addEventListener('mousemove', onMouseMove, { passive: true });
+          window.addEventListener('mouseleave', onMouseLeave, { passive: true });
+        }
         window.addEventListener('scroll', onScrollParticles, { passive: true });
         document.addEventListener('click', onClickBurst);
       }
     });
   </script>
+  <!-- Stili leggeri per animazione apertura/chiusura del menu mobile -->
+  <style>
+    #menu-mobile { transition: transform 220ms ease, opacity 220ms ease; opacity: 0; transform: translateY(-8px); }
+    #menu-mobile.open { opacity: 1; transform: translateY(0); }
+    #menu-mobile.closing { opacity: 0; transform: translateY(-8px); }
+  </style>
 
   <!-- jQuery CDN e inizializzazione demo -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
