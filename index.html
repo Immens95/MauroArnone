@@ -67,6 +67,61 @@
     ]
   }
   </script>
+  <!-- Stili Modalità CV (schermo e stampa) -->
+  <style id="cv-style">
+    /* Dimensioni e layout A4 per la stampa */
+    @page { size: A4; margin: 12mm; }
+    /* Nasconde gli elementi non CV in modalità stampa */
+    @media print {
+      /* Mantiene visibile solo main e al suo interno il foglio CV */
+      html.cv-mode body > :not(main) { display: none !important; }
+      html.cv-mode main > :not(#cv-sheet) { display: none !important; }
+      #cv-sheet { box-shadow: none !important; background: #ffffff !important; }
+      /* Esclude controlli e istruzioni dal PDF di stampa */
+      #cv-controls { display: none !important; }
+    }
+    /* Modalità CV su schermo: mostra navbar e SOLO il foglio CV dentro main */
+    html.cv-mode body > :not(#site-nav):not(main) { display: none !important; }
+    html.cv-mode main > :not(#cv-sheet) { display: none !important; }
+    html.cv-mode #cv-sheet { display: block !important; }
+    /* Nasconde le istruzioni in modalità CV */
+    html.cv-mode #cv-controls details { display: none !important; }
+
+    /* Disabilita transizioni/animazioni per massime performance in modalità CV */
+    html.cv-mode *, html.cv-mode ::before, html.cv-mode ::after {
+      animation: none !important;
+      transition: none !important;
+      scroll-behavior: auto !important;
+    }
+
+    /* Modalità PDF (usata da html2pdf) per ottenere full‑bleed e nascondere controlli */
+    html.pdf-mode #cv-controls { display: none !important; }
+    /* In PDF mode, mostra solo la navbar e il clone del CV fuori da main */
+    html.pdf-mode body > :not(#site-nav):not(#cv-sheet-pdf) { display: none !important; }
+    html.pdf-mode #cv-sheet-pdf {
+      width: 100vw !important;
+      min-height: 100vh !important;
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      background: #ffffff !important;
+      color: #111111 !important;
+      display: block !important;
+    }
+    html.pdf-mode #cv-sheet {
+      width: 100vw !important;
+      min-height: 100vh !important;
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      background: #ffffff !important;
+      color: #111111 !important;
+    }
+    /* Nascondi HUD gamification in modalità CV */
+    html.cv-mode #gamify-hud { display: none !important; }
+  </style>
+  <!-- Fallback di cattura DOM in caso di problemi con html2canvas -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image-more/2.14.1/dom-to-image-more.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body class="bg-gray-100 text-gray-900 font-sans dark:bg-gray-900 dark:text-gray-100">
 
@@ -76,7 +131,7 @@
 
   <!-- Header -->
   <!-- Navbar -->
-  <nav class="fixed top-0 inset-x-0 z-50 bg-white/70 backdrop-blur shadow-sm dark:bg-gray-900/70" aria-label="Navigazione principale" data-i18n-aria="aria_main_nav">
+<nav id="site-nav" class="fixed top-0 inset-x-0 z-50 bg-white/70 backdrop-blur shadow-sm dark:bg-gray-900/70" aria-label="Navigazione principale" data-i18n-aria="aria_main_nav">
     <!-- Scroll progress bar -->
     <div id="scroll-progress" class="absolute left-0 bottom-0 h-0.5 bg-brand dark:bg-brand w-0 pointer-events-none"></div>
     <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
@@ -115,6 +170,11 @@
           </button>
         </li>
         
+        <li>
+          <button id="cv-mode-btn" type="button" class="px-3 py-2 rounded border text-sm bg-white hover:bg-gray-100 transition dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700 dark:hover:bg-gray-700" data-i18n-aria="aria_cv_toggle" aria-label="Attiva modalità CV">
+            <span data-i18n="cv_button_text">Modalità CV (PDF)</span>
+          </button>
+        </li>
       </ul>
     </div>
     <!-- Mobile dropdown -->
@@ -168,9 +228,9 @@
       <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mt-4" data-depth="2">Mauro Arnone</h1>
       <p class="text-base sm:text-lg mt-2 opacity-90" data-i18n="hero_tagline" data-depth="1.5">Web Developer • WordPress • PHP • JavaScript</p>
 <div class="mt-6 flex flex-wrap items-center justify-center gap-2" data-depth="1.2">
-<a href="mailto:mauro.arnone.ma@gmail.com" class="px-4 py-2 bg-white text-brand rounded-lg shadow hover:bg-gray-200 transition select-none" data-i18n="cta_contact">Contattami</a>
-<a href="https://www.linkedin.com/in/mauro-arnone/" rel="noopener noreferrer" class="px-4 py-2 bg-white text-brand rounded-lg shadow hover:bg-gray-200 transition select-none" data-i18n="cta_linkedin">LinkedIn</a>
-<a href="https://github.com/Immens95" rel="noopener noreferrer" class="px-4 py-2 bg-white text-brand rounded-lg shadow hover:bg-gray-200 transition select-none" data-i18n="cta_github">GitHub</a>
+<a href="mailto:mauro.arnone.ma@gmail.com" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-white text-brand rounded-lg shadow hover:bg-gray-200 transition select-none" data-i18n="cta_contact">Contattami</a>
+<a href="https://www.linkedin.com/in/mauro-arnone/" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-white text-brand rounded-lg shadow hover:bg-gray-200 transition select-none" data-i18n="cta_linkedin">LinkedIn</a>
+<a href="https://github.com/Immens95" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-white text-brand rounded-lg shadow hover:bg-gray-200 transition select-none" data-i18n="cta_github">GitHub</a>
       </div>
       <p class="text-sm sm:text-base mt-3" data-depth="1.1">mauro.arnone.ma@gmail.com</p>
     </div>
@@ -194,6 +254,7 @@
       <span class="mx-1">|</span>
       <button class="cat-btn px-2 py-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700" type="button" data-cat="3d" aria-pressed="false"><span data-i18n="cat_3d">3D</span></button>
     </div>
+    <!-- Pulsante Modalità CV spostato nel menu header -->
     <div id="page-subnav" class="flex flex-wrap items-center justify-center gap-2 text-sm"></div>
   </nav>
   <section id="chi-sono" class="max-w-5xl mx-auto py-10 px-6 bg-white/70 backdrop-blur rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-gray-800/70 dark:text-gray-100" data-reveal>
@@ -204,6 +265,138 @@
       Questo progetto, realizzato con HTML, Tailwind e GitHub Pages, presenta competenze, esperienze e progetti in modo semplice, moderno e d’impatto, 
       offrendo una panoramica chiara, elegante e immediata del mio percorso professionale e delle mie capacità.
     </p>
+  </section>
+
+  <!-- Foglio CV (nascosto finché non attivo) -->
+  <section id="cv-sheet" class="hidden max-w-[900px] mx-auto my-8 bg-white shadow-2xl rounded-xl p-8 dark:bg-gray-900 dark:text-gray-100 print:shadow-none">
+    <!-- Header CV -->
+    <div class="flex items-start justify-between gap-4 border-b pb-4">
+      <div class="flex items-center gap-4">
+        <img src="https://avatars.githubusercontent.com/u/129175879?v=4" class="w-20 h-20 rounded-full object-cover border-2 border-gray-200 dark:border-gray-700" decoding="async" data-i18n-alt="cv_profile_photo_alt" alt="Foto profilo">
+        <div>
+          <h1 class="text-3xl font-bold">Mauro Arnone</h1>
+          <p class="text-base text-gray-600 dark:text-gray-300" data-i18n="cv_role">Web Developer — WordPress, PHP, JavaScript</p>
+        </div>
+      </div>
+      <div id="cv-controls" class="flex flex-col items-end gap-2 print:hidden pdf-exclude">
+        <div class="flex gap-2">
+<button id="cv-print-btn" type="button" class="px-3 py-2 rounded border text-sm bg-white hover:bg-gray-100 transition dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700 dark:hover:bg-gray-700"><span data-i18n="cv_print_btn">Stampa</span></button>
+<button id="cv-download-btn" type="button" class="px-3 py-2 rounded border text-sm bg-white hover:bg-gray-100 transition ml-2 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700 dark:hover:bg-gray-700"><span data-i18n="cv_download_btn">Scarica PDF</span></button>
+          <button id="cv-exit-btn" type="button" class="px-3 py-2 rounded border text-sm bg-white hover:bg-gray-100 transition dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700 dark:hover:bg-gray-700"><span data-i18n="cv_exit_btn">Esci</span></button>
+        </div>
+        <details class="text-xs text-gray-600 dark:text-gray-300 max-w-[480px]">
+          <summary class="cursor-pointer hover:underline" data-i18n="cv_print_help_title">Istruzioni per qualità e margini</summary>
+          <ul class="mt-2 list-disc list-inside space-y-1">
+            <li data-i18n="cv_print_help_step1">Seleziona "Salva come PDF"</li>
+            <li data-i18n="cv_print_help_step2">Formato: A4, orientamento verticale</li>
+            <li data-i18n="cv_print_help_step3">Margini: Nessuno o Personalizzati (10–15 mm)</li>
+            <li data-i18n="cv_print_help_step4">Scala: 100% (non adattare alla pagina)</li>
+            <li data-i18n="cv_print_help_step5">Abilita grafica di sfondo</li>
+            <li data-i18n="cv_print_help_step6">Disattiva intestazioni/piè di pagina</li>
+          </ul>
+        </details>
+      </div>
+    </div>
+
+    <!-- Layout a due colonne -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+      <!-- Colonna sinistra: Contatti + Lingue -->
+      <aside class="md:col-span-1 space-y-6">
+        <div>
+          <h2 class="text-lg font-semibold mb-2" data-i18n="cv_contacts_title">Contatti</h2>
+          <ul class="text-sm space-y-1">
+            <li><span data-i18n="cv_email_label">Email</span>: <a href="mailto:mauro.arnone.ma@gmail.com" class="text-brand">mauro.arnone.ma@gmail.com</a></li>
+            <li><span data-i18n="cv_github_label">GitHub</span>: <a href="https://github.com/Immens95" class="text-brand" target="_blank" rel="noopener noreferrer">github.com/Immens95</a></li>
+            <li><span data-i18n="cv_linkedin_label">LinkedIn</span>: <a href="https://www.linkedin.com/in/mauro-arnone/" class="text-brand" target="_blank" rel="noopener noreferrer">mauro-arnone</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="text-lg font-semibold mb-2" data-i18n="cv_languages_title">Lingue</h2>
+          <ul class="text-sm space-y-1">
+            <li data-i18n="cv_lang_it">Italiano — Madrelingua</li>
+            <li data-i18n="cv_lang_en">Inglese — B2</li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="text-lg font-semibold mb-2" data-i18n="cv_soft_title">Soft Skills</h2>
+          <ul class="text-sm space-y-1">
+            <li data-i18n="cv_soft_item1">Problem Solving Creativo</li>
+            <li data-i18n="cv_soft_item2">Collaborazione</li>
+            <li data-i18n="cv_soft_item3">Apprendimento Rapido</li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- Colonna destra: contenuto principale -->
+      <div class="md:col-span-2 space-y-6">
+        <section>
+          <h2 class="text-lg font-semibold mb-2" data-i18n="cv_intro_title">Chi sono</h2>
+          <p class="text-sm leading-relaxed" data-i18n="cv_intro_text">
+            Sviluppatore web con focus su WordPress, PHP e JavaScript.
+            Unisco competenze tecniche e cura dell’esperienza utente per realizzare soluzioni scalabili e orientate ai risultati.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg font-semibold mb-2" data-i18n="cv_skills_title">Competenze Tecniche</h2>
+          <ul class="text-sm grid grid-cols-2 gap-y-1 gap-x-4">
+            <li><span data-i18n="cv_skill_php">PHP</span></li>
+            <li><span data-i18n="cv_skill_js">JavaScript</span></li>
+            <li><span data-i18n="cv_skill_html5">HTML5</span></li>
+            <li><span data-i18n="cv_skill_css_tailwind">CSS3/Tailwind</span></li>
+            <li><span data-i18n="cv_skill_wp_woo">WordPress/WooCommerce</span></li>
+            <li><span data-i18n="cv_skill_jquery">jQuery</span></li>
+            <li><span data-i18n="cv_skill_rest_api">REST API</span></li>
+            <li><span data-i18n="cv_skill_mysql">MySQL</span></li>
+            <li><span data-i18n="cv_skill_git_github">Git/GitHub</span></li>
+            <li><span data-i18n="cv_skill_docker">Docker</span></li>
+            <li><span data-i18n="cv_skill_ci_cd">CI/CD</span></li>
+            <li><span data-i18n="cv_skill_web_perf">Performance Web</span></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-lg font-semibold mb-2" data-i18n="cv_projects_title">Progetti Rilevanti</h2>
+          <ul class="text-sm space-y-1">
+            <li><span data-i18n="cv_project_item1">Plugin CSS classes per WordPress — Studio immers</span></li>
+            <li><span data-i18n="cv_project_item2">Plugin "Flash Order" per WooCommerce</span></li>
+            <li><span data-i18n="cv_project_item3">Portfolio & Curriculum su GitHub Pages</span></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-lg font-semibold mb-2" data-i18n="cv_experiences_title">Esperienze</h2>
+          <ul class="text-sm space-y-1">
+            <li data-i18n="cv_exp_item1">Sviluppatore Web Freelance — 2023–2025</li>
+            <li data-i18n="cv_exp_item2">Supporto WordPress/WooCommerce — 2022–2024</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-lg font-semibold mb-2" data-i18n="cv_education_title">Formazione</h2>
+          <ul class="text-sm space-y-1">
+            <li><span data-i18n="cv_ed_item1">Diploma tecnico — Istituto Buccari Marconi</span></li>
+            <li><span data-i18n="cv_ed_item2">Corso Formazione Cisco CCNA — basi di Networking (Routing & Switching)</span></li>
+            <li><span data-i18n="cv_ed_item3">Corsi intensivi: C++, OOP, Python, PHP, JavaScript, jQuery, WordPress (Udemy/YouTube)</span></li>
+            <li><span data-i18n="cv_ed_item4">Auto‑formazione continua: best‑practice web, sicurezza, performance, UX</span></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-lg font-semibold mb-2" data-i18n="cv_other_skills_title">Altre Competenze</h2>
+          <ul class="text-sm grid grid-cols-2 gap-y-1 gap-x-4">
+            <li><span data-i18n="cv_other_grafica_2d_3d">Grafica 2D/3D</span></li>
+            <li><span data-i18n="cv_other_blender">Blender</span></li>
+            <li><span data-i18n="cv_other_substance_painter">Substance Painter</span></li>
+            <li><span data-i18n="cv_other_substance_designer">Substance Designer</span></li>
+            <li><span data-i18n="cv_other_quixel_mixer">Quixel Mixer</span></li>
+            <li><span data-i18n="cv_other_unreal_engine">Unreal Engine</span></li>
+            <li><span data-i18n="cv_other_photoshop">Photoshop</span></li>
+            <li><span data-i18n="cv_other_canva">Canva</span></li>
+          </ul>
+        </section>
+      </div>
+    </div>
   </section>
 
   
@@ -600,7 +793,7 @@
         <style>body{padding:1rem} .demo-card{box-shadow:0 1px 6px rgba(0,0,0,0.08);} .btn{margin-right:.25rem}</style></head><body>
           <h4 class='mb-3' data-i18n='title'>Bootstrap Mini Demo</h4>
           <div class='d-flex flex-wrap gap-2 mb-3'>
-            <button class='btn btn-primary' data-bs-toggle='collapse' data-bs-target='#demoCollapse' data-i18n='collapse_btn'>Toggle Collapse</button>
+            <button class='btn btn-primary' id='collapseBtn' data-bs-toggle='collapse' data-bs-target='#demoCollapse' data-i18n='collapse_btn'>Toggle Collapse</button>
             <button class='btn btn-warning' id='alertBtn' data-i18n='alert_btn'>Show Alert</button>
             <button class='btn btn-success' id='toastBtn' data-i18n='toast_btn'>Show Toast</button>
             <button class='btn btn-info' id='modalBtn' data-i18n='modal_btn'>Show Modal</button>
@@ -721,18 +914,21 @@
             });
             applyI18n();
             const toast = new bootstrap.Toast(document.getElementById('demoToast'));
-            document.getElementById('toastBtn').addEventListener('click', ()=> toast.show());
+            document.getElementById('toastBtn').addEventListener('click', ()=> { toast.show(); try { window.parent && window.parent.postMessage({type:'bootstrap_demo_click', id:'toastBtn'}, '*'); } catch(e){} });
             document.getElementById('alertBtn').addEventListener('click', ()=> {
               const el = document.createElement('div');
               el.className = 'alert alert-warning alert-dismissible fade show mt-2';
               el.role = 'alert';
               el.innerHTML = (L === 'it' ? 'Attenzione! Questo è un alert con fade.' : 'Attention! This is a Bootstrap alert with fade.') + ' <button type=\'button\' class=\'btn-close\' data-bs-dismiss=\'alert\' aria-label=\'Close\'></button>';
               document.getElementById('alertContainer').appendChild(el);
+              try { window.parent && window.parent.postMessage({type:'bootstrap_demo_click', id:'alertBtn'}, '*'); } catch(e){}
             });
             const modal = new bootstrap.Modal(document.getElementById('demoModal'));
-            document.getElementById('modalBtn').addEventListener('click', ()=> modal.show());
+            document.getElementById('modalBtn').addEventListener('click', ()=> { modal.show(); try { window.parent && window.parent.postMessage({type:'bootstrap_demo_click', id:'modalBtn'}, '*'); } catch(e){} });
             const offcanvas = new bootstrap.Offcanvas(document.getElementById('demoOffcanvas'));
-            document.getElementById('offcanvasBtn').addEventListener('click', ()=> offcanvas.toggle());
+            document.getElementById('offcanvasBtn').addEventListener('click', ()=> { offcanvas.toggle(); try { window.parent && window.parent.postMessage({type:'bootstrap_demo_click', id:'offcanvasBtn'}, '*'); } catch(e){} });
+            // Track collapse toggle clicks
+            document.getElementById('collapseBtn').addEventListener('click', ()=> { try { window.parent && window.parent.postMessage({type:'bootstrap_demo_click', id:'collapseBtn'}, '*'); } catch(e){} });
           </script>
         </body></html>"></iframe>
     </div>
@@ -1265,6 +1461,8 @@
 
 
       const showToast = (message) => {
+        // In modalità CV, evitiamo toast per massima staticità
+        if (document.documentElement.classList.contains('cv-mode')) return;
         if (!toastContainer) return;
         const t = document.createElement('div');
         t.className = 'transition opacity-0 translate-y-2 px-3 py-2 rounded shadow bg-white text-gray-800 border border-gray-200 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700';
@@ -1418,6 +1616,8 @@
       };
 
       const launchConfetti = () => {
+        // In modalità CV, disattiva confetti per performance
+        if (document.documentElement.classList.contains('cv-mode')) return;
         const colors = ['#1065ff', '#34d399', '#f59e0b', '#ef4444', '#a855f7'];
         const count = 24;
         for (let i = 0; i < count; i++) {
@@ -1461,9 +1661,18 @@
           el.setAttribute('role', 'button');
           el.setAttribute('tabindex', '0');
           el.classList.add('cursor-pointer', 'select-none', 'active:scale-95', 'focus:outline-none', 'focus-visible:ring-2', 'focus-visible:ring-brand');
-          const points = el.tagName === 'H2' ? 2 : 1;
           const title = (el.textContent || '').trim();
           const handleAction = () => {
+            // Evita gamification in modalità CV per un’esperienza statica
+            if (document.documentElement.classList.contains('cv-mode')) return;
+            // Calcolo XP basato sulla profondità del titolo nella pagina
+            const base = el.tagName === 'H2' ? 2 : 1;
+            const rect = el.getBoundingClientRect();
+            const elTop = rect.top + window.scrollY;
+            const docH = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+            const ratio = Math.min(1, Math.max(0, elTop / docH));
+            const depthBonus = Math.round(ratio * 8); // 0..8
+            const points = Math.max(base, Math.min(10, base + depthBonus));
             xp += points;
             localStorage.setItem('xp', String(xp));
             showToast(`🎉 ${t('toast_xp_plus', {points, title})}`);
@@ -1500,11 +1709,90 @@
         });
       };
 
+      // Tracking clic demo per EXP bonus e badge curiosità/grafica
+      const setupDemoXpTracking = () => {
+        const saveSet = (key, set) => {
+          try { localStorage.setItem(key, JSON.stringify(Array.from(set))); } catch (e) {}
+        };
+        const loadSet = (key) => {
+          try {
+            const v = localStorage.getItem(key);
+            return v ? new Set(JSON.parse(v)) : new Set();
+          } catch (e) { return new Set(); }
+        };
+        const awardOnce = (flagKey, awardFn) => {
+          if (localStorage.getItem(flagKey) === '1') return false;
+          awardFn();
+          localStorage.setItem(flagKey, '1');
+          return true;
+        };
+        const unlockBadge = (name) => {
+          if (!badges.includes(name)) {
+            badges.push(name);
+            localStorage.setItem('badges', JSON.stringify(badges));
+            showToast(`🏅 ${t('toast_badge_unlocked', {name: (T[L]?.badge_labels?.[name] || name)})}`);
+            launchConfetti();
+            updateHUD();
+          }
+        };
+        const registerClick = (groupKey, id, expectedIds, bonusXp, badgeName) => {
+          const s = loadSet(groupKey);
+          s.add(id);
+          saveSet(groupKey, s);
+          // Badge per prima curiosità nel gruppo
+          if (badgeName) {
+            awardOnce(`${groupKey}_badge_awarded`, () => unlockBadge(badgeName));
+          }
+          if (expectedIds.every(x => s.has(x))) {
+            awardOnce(`${groupKey}_bonus_awarded`, () => {
+              xp += bonusXp;
+              localStorage.setItem('xp', String(xp));
+              showToast(`🎉 ${t('toast_xp_plus', {points: bonusXp, title: `${groupKey} demo complete`})}`);
+              checkAchievements();
+              updateHUD();
+            });
+          }
+        };
+
+        // jQuery demo buttons
+        const jqIds = ['jq-show','jq-hide','jq-toggle','jq-fade','jq-slide','jq-animate','jq-fadeto','jq-bounce','jq-highlight','jq-pulse','jq-stop','jq-reset'];
+        jqIds.forEach((id) => {
+          const el = document.getElementById(id);
+          if (el) el.addEventListener('click', () => registerClick('demoClicks_jq', id, jqIds, 100, 'Curioso'));
+        });
+
+        // GSAP demo buttons
+        const gsapIds = ['gsap-play','gsap-pause','gsap-resume','gsap-restart','gsap-stagger','gsap-spin','gsap-bounce'];
+        gsapIds.forEach((id) => {
+          const el = document.getElementById(id);
+          if (el) el.addEventListener('click', () => registerClick('demoClicks_gsap', id, gsapIds, 100, 'Curioso'));
+        });
+
+        // Three.js demo buttons
+        const threeIds = ['threejs-start','threejs-stop','threejs-spin','threejs-reset','threejs-autorotate','threejs-wireframe','threejs-solid','threejs-lights'];
+        threeIds.forEach((id) => {
+          const el = document.getElementById(id);
+          if (el) el.addEventListener('click', () => registerClick('demoClicks_threejs', id, threeIds, 100, 'Esperto'));
+        });
+
+        // Bootstrap iframe demo — ricevi eventi dai pulsanti interni
+        window.addEventListener('message', (e) => {
+          const msg = e.data || {};
+          if (msg && msg.type === 'bootstrap_demo_click' && msg.id) {
+            const bsIds = ['collapseBtn','alertBtn','toastBtn','modalBtn','offcanvasBtn'];
+            registerClick('demoClicks_bootstrap', msg.id, bsIds, 100, 'Curioso');
+          }
+        });
+      };
+
       applyClickableHeadings();
+      setupDemoXpTracking();
 
       // Animazione di click globale simile all’effetto degli h3
       // Applica una micro-animazione a elementi interattivi
       document.addEventListener('click', (e) => {
+        // Disabilita micro-animazioni in modalità CV
+        if (document.documentElement.classList.contains('cv-mode')) return;
         const el = e.target.closest('h1, h2, h3, h4, h5, h6, a, button, [role="button"], .theme-toggle, #gamify-hud');
         if (!el) return;
         el.classList.add('click-anim');
@@ -1839,6 +2127,76 @@
         legendary_gate_title: 'Contenuto Leggendario',
         legendary_gate_desc: 'Hai sbloccato un contenuto speciale cliccando il badge Leggenda.'
       });
+      // Estensione: chiavi localizzazione per Modalità CV
+      Object.assign(T.it, {
+        cv_button_text: 'Modalità CV (PDF)',
+        aria_cv_toggle: 'Attiva modalità CV',
+        cv_title: 'Curriculum Vitae',
+        cv_role: 'Web Developer — WordPress, PHP, JavaScript',
+        cv_contacts_title: 'Contatti',
+        cv_email_label: 'Email',
+        cv_linkedin_label: 'LinkedIn',
+        cv_github_label: 'GitHub',
+        cv_languages_title: 'Lingue',
+        cv_lang_it: 'Italiano — Madrelingua',
+        cv_lang_en: 'Inglese — B2',
+        cv_soft_title: 'Soft Skills',
+        cv_soft_item1: 'Problem Solving Creativo',
+        cv_soft_item2: 'Collaborazione',
+        cv_soft_item3: 'Apprendimento Rapido',
+        cv_intro_title: 'Chi sono',
+        cv_intro_text: 'Sviluppatore web con focus su WordPress, PHP e JavaScript. Unisco competenze tecniche e cura dell’esperienza utente per realizzare soluzioni scalabili e orientate ai risultati.',
+        cv_skills_title: 'Competenze Tecniche',
+        cv_projects_title: 'Progetti Rilevanti',
+        cv_education_title: 'Formazione',
+        cv_other_skills_title: 'Altre Competenze',
+        cv_experiences_title: 'Esperienze',
+        cv_exp_item1: 'Sviluppatore Web Freelance — 2023–2025',
+        cv_exp_item2: 'Supporto WordPress/WooCommerce — 2022–2024',
+        cv_print_btn: 'Stampa',
+        cv_download_btn: 'Scarica PDF',
+        cv_exit_btn: 'Esci',
+        cv_print_help_title: 'Istruzioni per qualità e margini',
+        cv_print_help_step1: 'Seleziona "Salva come PDF"',
+        cv_print_help_step2: 'Formato: A4, orientamento verticale',
+        cv_print_help_step3: 'Margini: Nessuno o Personalizzati (10–15 mm)',
+        cv_print_help_step4: 'Scala: 100% (non adattare alla pagina)',
+        cv_print_help_step5: 'Abilita grafica di sfondo',
+        cv_print_help_step6: 'Disattiva intestazioni/piè di pagina',
+        cv_profile_photo_alt: 'Foto profilo per CV'
+        ,
+        // CV - formazione voci
+        cv_ed_item1: 'Diploma tecnico — Istituto Buccari Marconi',
+        cv_ed_item2: 'Corso Formazione Cisco CCNA — basi di Networking (Routing & Switching)',
+        cv_ed_item3: 'Corsi intensivi: C++, OOP, Python, PHP, JavaScript, jQuery, WordPress (Udemy/YouTube)',
+        cv_ed_item4: 'Auto‑formazione continua: best‑practice web, sicurezza, performance, UX',
+        // CV - progetti
+        cv_project_item1: 'Plugin CSS classes per WordPress — Studio immers',
+        cv_project_item2: 'Plugin "Flash Order" per WooCommerce',
+        cv_project_item3: 'Portfolio & Curriculum su GitHub Pages',
+        // CV - competenze tecniche
+        cv_skill_php: 'PHP',
+        cv_skill_js: 'JavaScript',
+        cv_skill_html5: 'HTML5',
+        cv_skill_css_tailwind: 'CSS3/Tailwind',
+        cv_skill_wp_woo: 'WordPress/WooCommerce',
+        cv_skill_jquery: 'jQuery',
+        cv_skill_rest_api: 'REST API',
+        cv_skill_mysql: 'MySQL',
+        cv_skill_git_github: 'Git/GitHub',
+        cv_skill_docker: 'Docker',
+        cv_skill_ci_cd: 'CI/CD',
+        cv_skill_web_perf: 'Performance Web',
+        // CV - altre competenze
+        cv_other_grafica_2d_3d: 'Grafica 2D/3D',
+        cv_other_blender: 'Blender',
+        cv_other_substance_painter: 'Substance Painter',
+        cv_other_substance_designer: 'Substance Designer',
+        cv_other_quixel_mixer: 'Quixel Mixer',
+        cv_other_unreal_engine: 'Unreal Engine',
+        cv_other_photoshop: 'Photoshop',
+        cv_other_canva: 'Canva'
+      });
       Object.assign(T.en, {
         doc_title: 'Mauro Arnone | Interactive CV',
         nav_about: 'About',
@@ -2122,6 +2480,76 @@
         badge_action_special_message: 'Special message shown',
         badge_action_hidden_feature: 'Hidden feature activated',
         badge_action_state_updated: 'Project state updated'
+      });
+      // Extension: CV mode localization keys (EN)
+      Object.assign(T.en, {
+        cv_button_text: 'CV Mode (PDF)',
+        aria_cv_toggle: 'Toggle CV mode',
+        cv_title: 'Curriculum Vitae',
+        cv_role: 'Web Developer — WordPress, PHP, JavaScript',
+        cv_contacts_title: 'Contacts',
+        cv_email_label: 'Email',
+        cv_linkedin_label: 'LinkedIn',
+        cv_github_label: 'GitHub',
+        cv_languages_title: 'Languages',
+        cv_lang_it: 'Italian — Native',
+        cv_lang_en: 'English — B2',
+        cv_soft_title: 'Soft Skills',
+        cv_soft_item1: 'Creative Problem Solving',
+        cv_soft_item2: 'Collaboration',
+        cv_soft_item3: 'Fast Learning',
+        cv_intro_title: 'About',
+        cv_intro_text: 'Web developer focused on WordPress, PHP and JavaScript. I combine technical skills and user‑experience care to deliver scalable, results‑oriented solutions.',
+        cv_skills_title: 'Technical Skills',
+        cv_projects_title: 'Relevant Projects',
+        cv_education_title: 'Education',
+        cv_other_skills_title: 'Other Skills',
+        cv_experiences_title: 'Experiences',
+        cv_exp_item1: 'Freelance Web Developer — 2023–2025',
+        cv_exp_item2: 'WordPress/WooCommerce Support — 2022–2024',
+        cv_print_btn: 'Print',
+        cv_download_btn: 'Download PDF',
+        cv_exit_btn: 'Exit',
+        cv_print_help_title: 'Instructions for quality and margins',
+        cv_print_help_step1: 'Choose "Save as PDF"',
+        cv_print_help_step2: 'Paper: A4, portrait orientation',
+        cv_print_help_step3: 'Margins: None or Custom (10–15 mm)',
+        cv_print_help_step4: 'Scale: 100% (do not fit to page)',
+        cv_print_help_step5: 'Enable background graphics',
+        cv_print_help_step6: 'Disable headers/footers',
+        cv_profile_photo_alt: 'CV profile photo'
+        ,
+        // CV - education items
+        cv_ed_item1: 'Technical diploma — Buccari Marconi Institute',
+        cv_ed_item2: 'Cisco CCNA Training Course — Networking fundamentals (Routing & Switching)',
+        cv_ed_item3: 'Intensive courses: C++, OOP, Python, PHP, JavaScript, jQuery, WordPress (Udemy/YouTube)',
+        cv_ed_item4: 'Self‑learning: web best‑practices, security, performance, UX',
+        // CV - projects
+        cv_project_item1: 'WordPress CSS classes plugin — Studio immers',
+        cv_project_item2: '“Flash Order” plugin for WooCommerce',
+        cv_project_item3: 'Portfolio & CV on GitHub Pages',
+        // CV - technical skills
+        cv_skill_php: 'PHP',
+        cv_skill_js: 'JavaScript',
+        cv_skill_html5: 'HTML5',
+        cv_skill_css_tailwind: 'CSS3/Tailwind',
+        cv_skill_wp_woo: 'WordPress/WooCommerce',
+        cv_skill_jquery: 'jQuery',
+        cv_skill_rest_api: 'REST APIs',
+        cv_skill_mysql: 'MySQL',
+        cv_skill_git_github: 'Git/GitHub',
+        cv_skill_docker: 'Docker',
+        cv_skill_ci_cd: 'CI/CD',
+        cv_skill_web_perf: 'Web Performance',
+        // CV - other skills
+        cv_other_grafica_2d_3d: '2D/3D Graphics',
+        cv_other_blender: 'Blender',
+        cv_other_substance_painter: 'Substance Painter',
+        cv_other_substance_designer: 'Substance Designer',
+        cv_other_quixel_mixer: 'Quixel Mixer',
+        cv_other_unreal_engine: 'Unreal Engine',
+        cv_other_photoshop: 'Photoshop',
+        cv_other_canva: 'Canva'
       });
       
       // Utilità i18n
@@ -2929,6 +3357,11 @@
 
         var clock = new THREE.Clock();
         function animate(){
+          // In modalità CV, renderizza un frame e ferma il loop
+          if (window.cvModeActive) {
+            renderer.render(scene, camera);
+            return;
+          }
           if (!prefersReduced){
             var t = clock.getElapsedTime();
             group.rotation.y = t * 0.25;
@@ -2959,6 +3392,8 @@
           requestAnimationFrame(animate);
         }
         animate();
+        // Espone una funzione per riprendere il loop dopo l’uscita dalla modalità CV
+        window.resumeThreeLoop = function(){ requestAnimationFrame(animate); };
 
         // API globale per cambiare mesh da router categorie
         window.hero3DOverlay = {
@@ -3155,6 +3590,8 @@
       };
       let rafId = 0;
       const animate = () => {
+        // In modalità CV non animiamo i particles
+        if (window.cvModeActive) { return; }
         drawParticles();
         rafId = requestAnimationFrame(animate);
       };
@@ -3196,6 +3633,9 @@
         scrollYPrev = cur;
         scrollImpulse += Math.max(-4, Math.min(4, delta / 200));
       };
+      // API globali per pausa/ripresa particles
+      window.pauseParticles = function(){ if (rafId) { try { cancelAnimationFrame(rafId); } catch(e){} rafId = 0; } };
+      window.resumeParticles = function(){ if (!rafId) { animate(); } };
       // Init if canvas available
       if (particleCanvas && pctx) {
         setCanvasSize();
@@ -3502,6 +3942,8 @@
       resize();
 
       function loop() {
+        // In modalità CV, renderizza un frame e ferma il loop
+        if (window.cvModeActive) { renderer.render(scene, camera); return; }
         var dt = clock.getDelta();
         if (running) {
           cube.rotation.y += speed * dt;
@@ -3523,6 +3965,8 @@
         requestAnimationFrame(loop);
       }
       loop();
+      // Espone una funzione per riprendere il loop dopo l’uscita dalla modalità CV
+      window.resumeThreeDemo = function(){ requestAnimationFrame(loop); };
 
       var startBtn = document.getElementById('threejs-start');
       var stopBtn = document.getElementById('threejs-stop');
@@ -3589,6 +4033,400 @@
         lightsBtn.classList.toggle('text-white', lightsDynamic);
         lightsBtn.classList.toggle('bg-gray-200', !lightsDynamic);
       });
+    });
+  </script>
+
+  <!-- Libreria per generazione PDF client-side -->
+  <script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js"></script>
+
+  <!-- Logica Modalità CV: toggle e stampa -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var btn = document.getElementById('cv-mode-btn');
+      var sheet = document.getElementById('cv-sheet');
+      var printBtn = document.getElementById('cv-print-btn');
+      var exitBtn = document.getElementById('cv-exit-btn');
+      function updateCvButtonUI() {
+        if (!btn) return;
+        var labelSpan = btn.querySelector('span[data-i18n="cv_button_text"]');
+        var active = document.documentElement.classList.contains('cv-mode');
+        if (active) {
+          if (labelSpan) labelSpan.textContent = 'Chiudi CV';
+          btn.setAttribute('aria-label', 'Disattiva modalità CV');
+          btn.setAttribute('aria-pressed', 'true');
+        } else {
+          if (labelSpan) labelSpan.textContent = 'Modalità CV (PDF)';
+          btn.setAttribute('aria-label', 'Attiva modalità CV');
+          btn.setAttribute('aria-pressed', 'false');
+        }
+      }
+      // Failsafe: se la pagina si apre già in cv-mode, assicura il foglio visibile
+      if (document.documentElement.classList.contains('cv-mode') && sheet) {
+        sheet.classList.remove('hidden');
+      }
+      updateCvButtonUI();
+      function enterCvMode() {
+        window.cvModeActive = true;
+        document.documentElement.classList.add('cv-mode');
+        if (sheet) {
+          sheet.classList.remove('hidden');
+          sheet.style.display = 'block';
+          sheet.style.visibility = 'visible';
+          sheet.setAttribute('aria-hidden', 'false');
+        }
+        // Disattiva transizioni/animazioni accessorie se necessario
+        document.body.classList.add('print:overflow-visible');
+        // Resetta lo scroll in alto e porta subito in vista il foglio
+        try { window.scrollTo({ top: 0, behavior: 'auto' }); } catch(e) { window.scrollTo(0,0); }
+        try { document.documentElement.scrollTop = 0; document.body.scrollTop = 0; } catch(e){}
+        // Scorri all’inizio del foglio (senza smooth per performance)
+        sheet && sheet.scrollIntoView({ behavior: 'auto', block: 'start' });
+        // Ferma loop animazioni background/demo
+        try { window.pauseParticles && window.pauseParticles(); } catch(e){}
+        updateCvButtonUI();
+      }
+      function exitCvMode() {
+        window.cvModeActive = false;
+        document.documentElement.classList.remove('cv-mode');
+        if (sheet) {
+          sheet.classList.add('hidden');
+          sheet.style.display = '';
+          sheet.style.visibility = '';
+          sheet.setAttribute('aria-hidden', 'true');
+        }
+        // Riprendi loop animazioni background/demo
+        try { window.resumeParticles && window.resumeParticles(); } catch(e){}
+        try { window.resumeThreeLoop && window.resumeThreeLoop(); } catch(e){}
+        try { window.resumeThreeDemo && window.resumeThreeDemo(); } catch(e){}
+        updateCvButtonUI();
+      }
+      // Semplice anteprima di stampa in nuova finestra, senza cloni complessi
+      function openSimplePrintPreview(sheetEl) {
+        var win = window.open('', 'cv_print', 'width=900,height=1200');
+        if (!win || !sheetEl) return;
+        var headClone = document.head.cloneNode(true);
+        // Rimuovi script per evitare effetti collaterali nella nuova finestra
+        headClone.querySelectorAll('script').forEach(function(s){ try { s.parentNode && s.parentNode.removeChild(s); } catch(e){} });
+        var baseHref = (document.baseURI || window.location.href);
+        var printStyle = [
+          '@page { size: A4; margin: 12mm; }',
+          'html, body { background:#fff !important; color:#111 !important; }',
+          '#cv-controls, #site-nav { display:none !important; }',
+          '#cv-sheet { box-shadow:none !important; border-radius:0 !important; }'
+        ].join('\n');
+        var html = [
+          '<!doctype html>',
+          '<html lang="it">',
+          '<head>',
+          '<meta charset="utf-8"/>',
+          '<base href="'+ baseHref +'"/>',
+          '<title>Anteprima CV</title>',
+          headClone.innerHTML,
+          '<style>'+ printStyle +'</style>',
+          '</head>',
+          '<body>',
+          sheetEl.outerHTML,
+          '<script>window.addEventListener("load", function(){ setTimeout(function(){ window.print(); }, 300); });</scr'+'ipt>',
+          '</body></html>'
+        ].join('');
+        win.document.open();
+        win.document.write(html);
+        win.document.close();
+      }
+      // Download diretto PDF usando l'anteprima sanificata
+      function downloadPdfDirect(sheetEl) {
+        var win = window.open('', 'cv_pdf', 'width=900,height=1200');
+        if (!win || !sheetEl) return;
+        var headClone = document.head.cloneNode(true);
+        headClone.querySelectorAll('script').forEach(function(s){ try { s.parentNode && s.parentNode.removeChild(s); } catch(e){} });
+        var baseHref = (document.baseURI || window.location.href);
+        var printStyle = [
+          '@page { size: A4; margin: 12mm; }',
+          'html, body { background:#fff !important; color:#111 !important; }',
+          '#cv-controls, #site-nav { display:none !important; }',
+          '#cv-sheet { box-shadow:none !important; border-radius:0 !important; }'
+        ].join('\n');
+        // Forza crossorigin sulle immagini del contenuto clonando markup con attributo
+        var contentHtml = (function(){
+          var clone = sheetEl.cloneNode(true);
+          clone.querySelectorAll('img').forEach(function(img){ try { img.setAttribute('crossorigin','anonymous'); } catch(e){} });
+          return clone.outerHTML;
+        })();
+        var html = [
+          '<!doctype html>',
+          '<html lang="it">',
+          '<head>',
+          '<meta charset="utf-8"/>',
+          '<base href="'+ baseHref +'"/>',
+          '<title>Download CV PDF</title>',
+          headClone.innerHTML,
+          '<style>'+ printStyle +'</style>',
+          // Librerie necessarie
+          '<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></scr'+'ipt>',
+          '<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></scr'+'ipt>',
+          '</head>',
+          '<body>',
+          contentHtml,
+          '<script>(function(){\n' +
+          '  function generate(){\n' +
+          '    var sheet = document.getElementById("cv-sheet");\n' +
+          '    if(!sheet){ window.close(); return; }\n' +
+          '    try {\n' +
+          '      sheet.style.background = "#ffffff"; sheet.style.color = "#111"; sheet.style.transform = "none"; sheet.style.filter = "none";\n' +
+          '      var opt = { scale: 2, useCORS: true, allowTaint: false, scrollY: 0, backgroundColor: "#ffffff", logging: false };\n' +
+          '      Promise.resolve().then(function(){ return (document.fonts && document.fonts.ready) ? document.fonts.ready : undefined; }).then(function(){\n' +
+          '        var imgs = Array.from(sheet.querySelectorAll("img"));\n' +
+          '        return Promise.all(imgs.map(function(img){ return new Promise(function(res){ if(img.complete) return res(); var done=function(){ img.onload=null; img.onerror=null; res(); }; img.onload=done; img.onerror=done; }); }));\n' +
+          '      }).then(function(){\n' +
+          '        var rect = sheet.getBoundingClientRect();\n' +
+          '        var w = Math.max(sheet.scrollWidth, sheet.offsetWidth, Math.floor(rect.width));\n' +
+          '        var h = Math.max(sheet.scrollHeight, sheet.offsetHeight, Math.floor(rect.height));\n' +
+          '        var h2cOpts = Object.assign({}, opt, { width: w, height: h, windowWidth: w, windowHeight: h });\n' +
+          '        if (w===0 || h===0) throw new Error("Dimensioni nulle");\n' +
+          '        return html2canvas(sheet, h2cOpts);\n' +
+          '      }).then(function(canvas){\n' +
+          '        var jsPDFCtor = (window.jspdf && window.jspdf.jsPDF) ? window.jspdf.jsPDF : (window.jsPDF||null);\n' +
+          '        if(!jsPDFCtor) throw new Error("jsPDF non disponibile");\n' +
+          '        var pdf = new jsPDFCtor({ unit: "mm", format: "a4", orientation: "portrait" });\n' +
+          '        var pageWidth = 210, pageHeight = 297;\n' +
+          '        var pxPerMm = canvas.width / pageWidth;\n' +
+          '        var pageHeightPx = Math.floor(pxPerMm * pageHeight);\n' +
+          '        var y = 0, pageIndex = 0;\n' +
+          '        while (y < canvas.height) {\n' +
+          '          var sliceHeightPx = Math.min(pageHeightPx, canvas.height - y);\n' +
+          '          var sliceCanvas = document.createElement("canvas");\n' +
+          '          sliceCanvas.width = canvas.width; sliceCanvas.height = sliceHeightPx;\n' +
+          '          var ctx = sliceCanvas.getContext("2d");\n' +
+          '          ctx.drawImage(canvas, 0, y, canvas.width, sliceHeightPx, 0, 0, canvas.width, sliceHeightPx);\n' +
+          '          var imgData = sliceCanvas.toDataURL("image/jpeg", 0.95);\n' +
+          '          var sliceHeightMm = sliceHeightPx / pxPerMm;\n' +
+          '          if (pageIndex > 0) pdf.addPage("a4", "portrait");\n' +
+          '          pdf.addImage(imgData, "JPEG", 0, 0, pageWidth, sliceHeightMm);\n' +
+          '          y += sliceHeightPx; pageIndex += 1;\n' +
+          '        }\n' +
+          '        pdf.save("Mauro-Arnone-CV.pdf");\n' +
+          '        setTimeout(function(){ window.close(); }, 500);\n' +
+          '      }).catch(function(err){ console.error("Errore download PDF:", err); try { window.print(); } catch(e){} setTimeout(function(){ window.close(); }, 500); });\n' +
+          '    } catch(e){ console.error(e); try { window.print(); } catch(_){} setTimeout(function(){ window.close(); }, 500); }\n' +
+          '  }\n' +
+          '  window.addEventListener("load", function(){ setTimeout(generate, 200); });\n' +
+          '})();</scr'+'ipt>',
+          '</body></html>'
+        ].join('');
+        win.document.open();
+        win.document.write(html);
+        win.document.close();
+      }
+      if (btn) btn.addEventListener('click', function(){
+        if (document.documentElement.classList.contains('cv-mode')) {
+          exitCvMode();
+        } else {
+          enterCvMode();
+        }
+      });
+      if (printBtn) printBtn.addEventListener('click', function(){
+        if (!sheet) return;
+        // Percorso semplice: apri anteprima di stampa in nuova finestra e interrompi
+        try { openSimplePrintPreview(sheet); return; } catch(e) { console.error('Anteprima stampa semplice fallita:', e); }
+        var wasCvActive = document.documentElement.classList.contains('cv-mode');
+        // Crea un clone del foglio CV come figlio diretto del body per cattura più robusta
+        var clone = sheet.cloneNode(true);
+        clone.id = 'cv-sheet-pdf';
+        // Rendi visibile il clone anche se l'originale è nascosto
+        clone.classList.remove('hidden');
+        clone.style.display = 'block';
+        clone.style.visibility = 'visible';
+        // Posiziona fuori schermo ma mantenendo dimensioni reali
+        clone.style.position = 'fixed';
+        clone.style.left = '-10000px';
+        clone.style.top = '0';
+        clone.style.zIndex = '9999';
+        // Dimensioni stabilizzate (A4 a 96dpi ~ 794x1123px)
+        clone.style.width = '794px';
+        clone.style.minHeight = '1123px';
+        try {
+          clone.style.setProperty('width', '794px', 'important');
+          clone.style.setProperty('min-height', '1123px', 'important');
+        } catch(e){}
+        clone.style.margin = '32px auto';
+        clone.style.boxShadow = 'none';
+        clone.style.borderRadius = '0';
+        // Rimuovi classi che possono nascondere o trasformare elementi (Tailwind/effect)
+        (function(){
+          var shouldRemove = function(cls){
+            return (
+              cls === 'hidden' || cls === 'invisible' || cls === 'opacity-0' ||
+              /^opacity-/.test(cls) || /^translate-/.test(cls) || /^scale-/.test(cls) || /^blur-/.test(cls) ||
+              /^brightness-/.test(cls) || /^contrast-/.test(cls) || /^saturate-/.test(cls) || /^hue-rotate-/.test(cls) ||
+              /^dark:/.test(cls)
+            );
+          };
+          var cleanEl = function(el){
+            if (!el || !el.classList) return;
+            Array.from(el.classList).forEach(function(cls){ if (shouldRemove(cls)) { try { el.classList.remove(cls); } catch(e){} } });
+          };
+          cleanEl(clone);
+          clone.querySelectorAll('*').forEach(cleanEl);
+        })();
+        // Assicura che controlli e istruzioni non compaiano nel clone
+        var cloneControls = clone.querySelector('#cv-controls');
+        if (cloneControls) cloneControls.style.display = 'none';
+        // Forza crossOrigin anonimo sulle immagini del clone (aiuta CORS)
+        clone.querySelectorAll('img').forEach(function(img){
+          try { img.setAttribute('crossorigin', 'anonymous'); } catch(e){}
+        });
+        document.body.appendChild(clone);
+        // Inietta stile forte per garantire testo visibile e rimuovere effetti
+        var forceStyle = document.createElement('style');
+        forceStyle.id = 'pdf-force-style';
+        forceStyle.textContent = [
+          '#cv-sheet-pdf, #cv-sheet-pdf * {',
+          '  color: #111 !important;',
+          '  -webkit-text-fill-color: #111 !important;',
+          '  background: transparent !important;',
+          '  filter: none !important;',
+          '  transform: none !important;',
+          '  mix-blend-mode: normal !important;',
+          '  text-shadow: none !important;',
+          '  box-shadow: none !important;',
+          '}',
+          '#cv-sheet-pdf { background: #ffffff !important; }'
+        ].join('\n');
+        try { document.head.appendChild(forceStyle); } catch(e){}
+        // Imposta modalità PDF per layout/esclusioni sul clone;
+        // rimuove temporaneamente cv-mode per evitare conflitti di visibilità
+        document.documentElement.classList.remove('cv-mode');
+        document.documentElement.classList.add('pdf-mode');
+        // Opzioni PDF A4
+        var opt = {
+          margin:       [0, 0, 0, 0],
+          filename:     'Mauro-Arnone-CV.pdf',
+          image:        { type: 'jpeg', quality: 0.95 },
+          html2canvas:  { scale: 2, useCORS: true, allowTaint: false, scrollY: 0, backgroundColor: '#ffffff', logging: false },
+          jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        };
+        try {
+          // Cattura manuale con html2canvas + jsPDF per massima affidabilità
+          setTimeout(function(){
+            try {
+              // Forza bg e testo scuro direttamente sul clone e stabilizza layout
+              clone.style.background = '#ffffff';
+              clone.style.color = '#111111';
+              clone.style.transform = 'none';
+              clone.style.filter = 'none';
+              // Debug dimensioni clone
+              console.log('PDF clone initial dims:', { offsetW: clone.offsetWidth, offsetH: clone.offsetHeight });
+              (async function(){
+                try {
+                  if (document.fonts && document.fonts.ready) {
+                    try { await document.fonts.ready; } catch(e){}
+                  }
+                  // Attendi il caricamento delle immagini nel clone
+                  try {
+                    var imgs = Array.from(clone.querySelectorAll('img'));
+                    await Promise.all(imgs.map(function(img){
+                      return new Promise(function(res){
+                        if (img.complete) return res();
+                        var done = function(){ try { img.onload = null; img.onerror = null; } catch(e){}; res(); };
+                        img.onload = done; img.onerror = done;
+                      });
+                    }));
+                  } catch(e){}
+                  var rect = clone.getBoundingClientRect();
+                  console.log('PDF clone settled dims:', { offsetW: clone.offsetWidth, offsetH: clone.offsetHeight, rectW: rect.width, rectH: rect.height });
+                  await new Promise(function(res){ requestAnimationFrame(function(){ requestAnimationFrame(res); }); });
+                  var w = Math.max(clone.scrollWidth, clone.offsetWidth, Math.floor(rect.width));
+                  var h = Math.max(clone.scrollHeight, clone.offsetHeight, Math.floor(rect.height));
+                  var h2cOpts = Object.assign({}, opt.html2canvas, { width: w, height: h, windowWidth: w, windowHeight: h });
+                  if (w === 0 || h === 0) {
+                    throw new Error('Clone ha dimensioni nulle: w=' + w + ' h=' + h);
+                  }
+                  var canvas = await html2canvas(clone, h2cOpts);
+                  console.log('Canvas dims:', { w: canvas.width, h: canvas.height });
+                  var jsPDFCtor = (window.jspdf && window.jspdf.jsPDF) ? window.jspdf.jsPDF : (window.jsPDF || null);
+                  if (!jsPDFCtor) { throw new Error('jsPDF non disponibile'); }
+                  var pdf = new jsPDFCtor({ unit: 'mm', format: 'a4', orientation: 'portrait' });
+                  var pageWidth = 210; // mm
+                  var pageHeight = 297; // mm
+                  var pxPerMm = canvas.width / pageWidth; // px per mm
+                  var pageHeightPx = Math.floor(pxPerMm * pageHeight);
+                  var y = 0;
+                  var pageIndex = 0;
+                  while (y < canvas.height) {
+                    var sliceHeightPx = Math.min(pageHeightPx, canvas.height - y);
+                    var sliceCanvas = document.createElement('canvas');
+                    sliceCanvas.width = canvas.width;
+                    sliceCanvas.height = sliceHeightPx;
+                    var sliceCtx = sliceCanvas.getContext('2d');
+                    sliceCtx.drawImage(canvas, 0, y, canvas.width, sliceHeightPx, 0, 0, canvas.width, sliceHeightPx);
+                    var imgData = sliceCanvas.toDataURL('image/jpeg', 0.95);
+                    var sliceHeightMm = sliceHeightPx / pxPerMm;
+                    if (pageIndex > 0) pdf.addPage('a4', 'portrait');
+                    pdf.addImage(imgData, 'JPEG', 0, 0, pageWidth, sliceHeightMm);
+                    y += sliceHeightPx;
+                    pageIndex += 1;
+                  }
+                  pdf.save(opt.filename);
+                } catch(err) {
+                  console.error('Errore cattura canvas per PDF (uso fallback dom-to-image):', err);
+                  if (window.domtoimage) {
+                    try {
+                      var dataUrl = await window.domtoimage.toPng(clone, { cacheBust: true, imagePlaceholder: '#fff', bgcolor: '#ffffff' });
+                      var jsPDFCtor2 = (window.jspdf && window.jspdf.jsPDF) ? window.jspdf.jsPDF : (window.jsPDF || null);
+                      if (!jsPDFCtor2) { throw new Error('jsPDF non disponibile'); }
+                      var img = new Image();
+                      img.src = dataUrl;
+                      await new Promise(function(res){ img.onload = res; });
+                      var pageWidth2 = 210;
+                      var pageHeight2 = 297;
+                      var pxPerMm2 = img.width / pageWidth2;
+                      var pageHeightPx2 = Math.floor(pxPerMm2 * pageHeight2);
+                      var pdf2 = new jsPDFCtor2({ unit: 'mm', format: 'a4', orientation: 'portrait' });
+                      var canvasTmp = document.createElement('canvas');
+                      var ctxTmp = canvasTmp.getContext('2d');
+                      var y2 = 0, pageIndex2 = 0;
+                      while (y2 < img.height) {
+                        var sliceHeightPx2 = Math.min(pageHeightPx2, img.height - y2);
+                        canvasTmp.width = img.width;
+                        canvasTmp.height = sliceHeightPx2;
+                        ctxTmp.clearRect(0,0,canvasTmp.width,canvasTmp.height);
+                        ctxTmp.drawImage(img, 0, y2, img.width, sliceHeightPx2, 0, 0, img.width, sliceHeightPx2);
+                        var imgData2 = canvasTmp.toDataURL('image/jpeg', 0.95);
+                        var sliceHeightMm2 = sliceHeightPx2 / pxPerMm2;
+                        if (pageIndex2 > 0) pdf2.addPage('a4', 'portrait');
+                        pdf2.addImage(imgData2, 'JPEG', 0, 0, pageWidth2, sliceHeightMm2);
+                        y2 += sliceHeightPx2;
+                        pageIndex2 += 1;
+                      }
+                      pdf2.save(opt.filename);
+                    } catch(e2) {
+                      console.error('Fallback dom-to-image fallito:', e2);
+                    }
+                  }
+                } finally {
+                  document.documentElement.classList.remove('pdf-mode');
+                  if (wasCvActive) { document.documentElement.classList.add('cv-mode'); }
+                  try { document.body.removeChild(clone); } catch(e){}
+                  try { var s = document.getElementById('pdf-force-style'); if (s) s.remove(); } catch(e){}
+                }
+              })();
+            } catch(err) {
+              console.error('Errore generazione PDF:', err);
+              document.documentElement.classList.remove('pdf-mode');
+              if (wasCvActive) { document.documentElement.classList.add('cv-mode'); }
+              try { document.body.removeChild(clone); } catch(e){}
+            }
+          }, 120);
+        } catch (e) {
+          window.print();
+        }
+      });
+      var downloadBtn = document.getElementById('cv-download-btn');
+      if (downloadBtn) downloadBtn.addEventListener('click', function(){
+        if (!sheet) return;
+        try { downloadPdfDirect(sheet); } catch(e) { console.error('Download PDF diretto fallito:', e); }
+      });
+      if (exitBtn) exitBtn.addEventListener('click', exitCvMode);
     });
   </script>
 
