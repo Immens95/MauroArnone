@@ -1,3 +1,10 @@
+<!--
+  IT: Demo tecnica di competenze — codice commentato bilingue (IT/EN), con un pizzico di umorismo.
+      Obiettivo: mostrare best‑practice su accessibilità, animazioni, filtri dinamici e UX.
+  EN: Technical skills demo — bilingual (IT/EN) commented code, with a sprinkle of fun.
+      Goal: showcase best‑practices on accessibility, animations, dynamic filters, and UX.
+  Note: i commenti restano leggeri e utili; niente romanzi, promesso 📚✨
+-->
 <!DOCTYPE html>
 <html lang="it" class="scroll-smooth">
 <head>
@@ -107,12 +114,7 @@
             <span class="hidden sm:inline theme-text" data-i18n="theme_button_text">Tema</span>
           </button>
         </li>
-        <li>
-          <button class="fx-toggle px-3 py-2 rounded border text-sm bg-white hover:bg-gray-100 transition dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700 dark:hover:bg-gray-700 flex items-center gap-2 opacity-50 cursor-not-allowed" aria-label="FX" aria-pressed="false" aria-disabled="true" data-locked="true">
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12l3-3-3-3M19 12l-3 3 3 3M12 5l3 3-3 3-3-3 3-3M12 19l-3-3 3-3 3 3-3 3"/></svg>
-            <span class="hidden sm:inline" data-i18n="fx_control_text">FX</span>
-          </button>
-        </li>
+        
       </ul>
     </div>
     <!-- Mobile dropdown -->
@@ -134,10 +136,7 @@
           </div>
         </li>
         <li class="col-span-2">
-          <button class="fx-toggle w-full px-3 py-2 rounded border text-sm bg-white hover:bg-gray-100 transition dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700 dark:hover:bg-gray-700 flex items-center justify-center gap-2 opacity-50 cursor-not-allowed" aria-label="FX" aria-pressed="false" aria-disabled="true" data-locked="true">
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12l3-3-3-3M19 12l-3 3 3 3M12 5l3 3-3 3-3-3 3-3M12 19l-3-3 3-3 3 3-3 3"/></svg>
-            <span data-i18n="fx_control_text">FX</span>
-          </button>
+          
         </li>
       </ul>
     </div>
@@ -162,6 +161,8 @@
       <span class="absolute right-20 top-24 w-2 h-2 rounded-full bg-white/70 shadow will-change-transform" data-depth="5"></span>
       <span class="absolute left-1/2 bottom-12 w-2 h-2 rounded-full bg-white/60 shadow will-change-transform" data-depth="6"></span>
     </div>
+    <!-- IT: Layer canvas per la mesh 3D nel header; EN: Canvas layer for the 3D mesh in header -->
+    <div id="hero-3d-layer" class="absolute inset-0 pointer-events-none" aria-hidden="true" style="opacity:0;"></div>
     <div id="hero-card" class="max-w-5xl mx-auto px-6 text-center will-change-transform">
 <img id="hero-photo" src="https://avatars.githubusercontent.com/u/129175879?v=4" alt="Foto profilo di Mauro Arnone" class="mx-auto rounded-full w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 border-4 border-white shadow-md animate-float will-change-transform select-none" decoding="async" data-i18n-alt="alt_profile_photo" data-depth="3">
       <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mt-4" data-depth="2">Mauro Arnone</h1>
@@ -251,7 +252,7 @@
       
 
       <!-- 3D & Grafica -->
-      <li data-cat="3d" class="col-span-2 md:col-span-3 mt-4 text-sm font-semibold text-gray-700 dark:text-gray-300"><span data-i18n="skills_3d_group_title">3D & Grafica</span></li>
+      
       <li data-cat="3d" class="col-span-2 md:col-span-3 text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400"><span data-i18n="skills_group_types_title">Tipologie</span></li>
       <li data-cat="3d" class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_3d_modeling">Modellazione 3D</span></li>
       <li data-cat="3d" class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_3d_rendering">Rendering 3D</span></li>
@@ -260,13 +261,17 @@
       <li data-cat="3d" class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_3d_models_rendering">Modelli per rendering 3D</span></li>
       <li data-cat="3d" class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_3d_models_games">Modelli 3D per videogiochi</span></li>
 
-      <li data-cat="3d" class="col-span-2 md:col-span-3 text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400"><span data-i18n="skills_group_other_title">Altro</span></li>
+      <li data-cat="3d" class="col-span-2 md:col-span-3 text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400"><span data-i18n="skills_group_other_title">Softwares</span></li>
+      <li data-cat="3d" class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_photoshop">Photoshop</span></li>
+      <li data-cat="3d" class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_canva">Canva</span></li>
       <li data-cat="3d" class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_webgl_webgpu">WebGL/WebGPU</span></li>
       <li data-cat="3d" class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_blender">Blender</span></li>
       <li data-cat="3d" class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_substance_painter">Substance Painter</span></li>
+      <li data-cat="3d" class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_substance_designer">Substance Designer</span></li>
+      <li data-cat="3d" class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_quixel_mixer">Quixel Mixer</span></li>
       <li data-cat="3d" class="flex items-center gap-2 px-3 py-2 rounded-full border bg-white/80 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"><svg class="w-4 h-4 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="skills_unreal_engine">Unreal Engine</span></li>
 
-      <li data-cat="3d" class="col-span-2 md:col-span-3 text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400"><span data-i18n="skills_group_other_title">Altro</span></li>
+      <li data-cat="3d" class="col-span-2 md:col-span-3 text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400"><span data-i18n="skills_group_alt_title">Altro</span></li>
 
       <!-- Database (spostato sopra) -->
       <!-- Server & VPS -->
@@ -287,8 +292,8 @@
 
 
   <!-- Sezioni dedicate -->
-  <section id="wordpress" data-category="cms" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-blue-50/50 to-teal-50/50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900/50 dark:text-gray-100" data-reveal>
-    <h2 class="text-2xl font-bold mb-4 flex items-center gap-2 motion-safe:animate-reveal-up transition-colors transition-transform transform-gpu hover:text-brand hover:underline decoration-2 underline-offset-4 hover:scale-105">🧩 WordPress</h2>
+<section id="wordpress" data-category="cms backend" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-blue-50/50 to-teal-50/50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900/50 dark:text-gray-100" data-reveal>
+    <h2 class="text-2xl font-bold mb-4 flex items-center gap-2 motion-safe:animate-reveal-up transition-colors transition-transform transform-gpu hover:text-brand hover:underline decoration-2 underline-offset-4 hover:scale-105" data-i18n="wp_title">🧩 WordPress</h2>
     <div class="grid sm:grid-cols-2 gap-6">
       <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0s">
         <h3 class="text-xl font-semibold flex items-center gap-2 text-brand transition-transform transform-gpu hover:skew-x-1">
@@ -329,8 +334,8 @@
     </div>
   </section>
 
-  <section id="php" data-category="linguaggi" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-amber-50/50 to-orange-50/50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900/50 dark:text-gray-100" data-reveal>
-    <h2 class="text-2xl font-bold mb-4 motion-safe:animate-reveal-up transition-colors hover:text-brand hover:underline decoration-2 underline-offset-4">🐘 PHP</h2>
+<section id="php" data-category="linguaggi backend" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-amber-50/50 to-orange-50/50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900/50 dark:text-gray-100" data-reveal>
+    <h2 class="text-2xl font-bold mb-4 motion-safe:animate-reveal-up transition-colors hover:text-brand hover:underline decoration-2 underline-offset-4" data-i18n="php_title">🐘 PHP</h2>
     <div class="grid sm:grid-cols-2 gap-6">
       <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0s">
         <h3 class="text-xl font-semibold flex items-center gap-2 text-brand transition-transform hover:scale-105 transform-gpu">
@@ -356,7 +361,7 @@
     </div>
   </section>
 
-  <section id="javascript" data-category="linguaggi" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-indigo-50/50 to-purple-50/50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900/50 dark:text-gray-100" data-reveal>
+<section id="javascript" data-category="linguaggi frontend" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-indigo-50/50 to-purple-50/50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900/50 dark:text-gray-100" data-reveal>
     <h2 class="text-2xl font-bold mb-4 motion-safe:animate-reveal-up transition-colors transition-transform transform-gpu hover:text-brand hover:underline decoration-2 underline-offset-4 hover:scale-105" data-i18n="js_title">⚡ JavaScript</h2>
     <div class="grid sm:grid-cols-2 gap-6">
       <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0s">
@@ -376,7 +381,7 @@
     </div>
   </section>
 
-  <section id="css" data-category="linguaggi" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-pink-50/50 to-rose-50/50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900/50 dark:text-gray-100" data-reveal>
+<section id="css" data-category="linguaggi frontend" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-pink-50/50 to-rose-50/50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900/50 dark:text-gray-100" data-reveal>
     <h2 class="text-2xl font-bold mb-4 motion-safe:animate-reveal-up transition-colors transition-transform transform-gpu hover:text-brand hover:underline decoration-2 underline-offset-4 hover:-translate-y-0.5" data-i18n="css_title">🎨 CSS Avanzato</h2>
     <div class="grid sm:grid-cols-2 gap-6">
       <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0s">
@@ -389,7 +394,7 @@
       <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100" data-reveal data-delay="0.12s">
         <h3 class="text-xl font-semibold flex items-center gap-2 text-brand transition-transform transform-gpu hover:-skew-y-1">
           <svg class="w-5 h-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="7"/></svg>
-          Design System
+          <span data-i18n="css_design_system_title">Design System</span>
         </h3>
         <p class="mt-2 text-gray-700 dark:text-gray-300" data-i18n="css_design_system_desc">Componenti riutilizzabili, tipografia e palette coerenti.</p>
       </div>
@@ -444,8 +449,7 @@
           <button class="lang-btn px-2 py-1 rounded border text-xs bg-white/70 text-gray-800 hover:bg-gray-100 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700 dark:hover:bg-gray-700" type="button" data-lang="it" data-i18n-aria="aria_lang_it" aria-label="Italiano">IT</button>
           <button class="lang-btn px-2 py-1 rounded border text-xs bg-white/70 text-gray-800 hover:bg-gray-100 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700 dark:hover:bg-gray-700" type="button" data-lang="en" data-i18n-aria="aria_lang_en" aria-label="English">EN</button>
         </div>
-        <!-- FX -->
-        <button class="fx-toggle px-3 py-2 rounded border text-sm bg-white hover:bg-gray-100 transition dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700 dark:hover:bg-gray-700 flex items-center gap-2 opacity-50 cursor-not-allowed" type="button" aria-label="FX" aria-pressed="false" aria-disabled="true" data-locked="true"><span class="hidden sm:inline" data-i18n="fx_control_text">FX</span></button>
+        
         <!-- Scorri su -->
         <button id="qa-scroll-top" type="button" class="px-3 py-2 rounded border text-sm bg-white hover:bg-gray-100 transition dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700 dark:hover:bg-gray-700"><span data-i18n="qa_scroll_top">Torna su</span></button>
         <!-- Copia email -->
@@ -456,7 +460,7 @@
     </div>
   </section>
 
-  <section id="html" data-category="linguaggi" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-cyan-50/50 to-sky-50/50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900/50 dark:text-gray-100" data-reveal>
+<section id="html" data-category="linguaggi frontend" class="max-w-5xl mx-auto my-8 p-8 bg-gradient-to-br from-cyan-50/50 to-sky-50/50 rounded-2xl shadow opacity-0 translate-y-6 transition-all duration-700 dark:bg-none dark:bg-gray-900/50 dark:text-gray-100" data-reveal>
     <h2 class="text-2xl font-bold mb-4 motion-safe:animate-reveal-up transition-colors transition-transform transform-gpu hover:text-brand hover:underline decoration-2 underline-offset-4 hover:translate-x-0.5" data-i18n="html_title">🔤 HTML Semantico</h2>
     <div class="p-6 bg-white rounded-2xl shadow hover:shadow-lg transition dark:bg-gray-800 dark:text-gray-100 opacity-100 translate-y-0 motion-safe:animate-reveal-up" data-reveal="" data-delay="0s">
       <p class="mt-2 text-gray-700 dark:text-gray-300" data-i18n="html_desc">Struttura semantica, accessibilità, SEO tecnico e dati strutturati JSON-LD.</p>
@@ -798,6 +802,8 @@
     </div>
 
     <script>
+      // IT: Interattività sezione WooCommerce — toggle dettaglio con localizzazione e animazione.
+      // EN: WooCommerce section interactivity — toggle details with i18n and animation.
       (function(){
         var toggleBtn = document.getElementById('woo-toggle');
         var panel = document.getElementById('woo-details');
@@ -806,13 +812,15 @@
           toggleBtn.addEventListener('click', function(){
             var hidden = panel.classList.contains('hidden');
             panel.classList.toggle('hidden');
-            // Localizzazione: usa le chiavi i18n
+            // IT: Localizzazione — usa le chiavi i18n se disponibili; fallback IT.
+            // EN: Localization — use i18n keys when available; Italian fallback.
             if (typeof window !== 'undefined' && typeof t === 'function') {
               toggleBtn.textContent = hidden ? t('woo_toggle_hide') : t('woo_toggle_show');
             } else {
               toggleBtn.textContent = hidden ? 'Nascondi dettagli' : 'Mostra dettagli';
             }
-            // piccola animazione se GSAP è disponibile
+            // IT: Piccola animazione d’ingresso se GSAP è disponibile (micro‑interazione, yay!).
+            // EN: Tiny entrance animation if GSAP is available (micro‑interaction, yay!).
             if(window.gsap && !hidden){
               gsap.from(panel, { opacity: 0, y: 12, duration: 0.25, ease: 'power2.out' });
             }
@@ -820,6 +828,22 @@
         }
       })();
     </script>
+    
+    <!-- Esempio hook WooCommerce -->
+    <div class="mt-4 p-4 rounded-xl bg-white/80 shadow dark:bg-gray-800/80">
+      <h4 class="font-semibold mb-2" data-i18n="woo_example_title">Esempio hook Checkout</h4>
+      <p class="text-sm text-gray-700 dark:text-gray-300 mb-2" data-i18n="woo_example_desc">Aggiunta di un campo personalizzato al checkout usando i filtri di WooCommerce.</p>
+      <pre class="text-xs p-3 rounded bg-gray-100 dark:bg-gray-900 overflow-auto"><code>add_filter('woocommerce_checkout_fields', function($fields) {
+  $fields['billing']['billing_codice_fiscale'] = [
+    'type' => 'text',
+    'label' => 'Codice Fiscale',
+    'required' => false,
+    'class' => ['form-row-wide'],
+    'priority' => 120,
+  ];
+  return $fields;
+});</code></pre>
+    </div>
   </section>
 
   <!-- API REST -->
@@ -846,6 +870,28 @@
           <li data-i18n="rest_point_performance">Caching, rate limiting, ETag, CDN e performance</li>
           <li data-i18n="rest_point_security">Sicurezza: CSRF, CORS, HTTPS, audit e logging</li>
         </ul>
+      </div>
+    </div>
+
+    <!-- Esempio richiesta/risposta REST -->
+    <div class="mt-6 p-4 rounded-xl bg-white/80 shadow dark:bg-gray-800/80">
+      <h3 class="font-semibold mb-2" data-i18n="rest_example_title">Esempio richiesta/risposta</h3>
+      <p class="text-sm text-gray-700 dark:text-gray-300 mb-3" data-i18n="rest_example_desc">Esempio di chiamata GET a un endpoint prodotti e relativa risposta JSON.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div>
+          <h4 class="font-semibold text-sm mb-1" data-i18n="rest_example_request_title">Richiesta</h4>
+          <pre class="text-xs p-3 rounded bg-gray-100 dark:bg-gray-900 overflow-auto"><code>curl -s 'https://api.example.com/products?limit=2' -H 'Accept: application/json'</code></pre>
+        </div>
+        <div>
+          <h4 class="font-semibold text-sm mb-1" data-i18n="rest_example_response_title">Risposta</h4>
+          <pre class="text-xs p-3 rounded bg-gray-100 dark:bg-gray-900 overflow-auto"><code>{
+  "data": [
+    { "id": 101, "name": "T-shirt", "price": 19.90 },
+    { "id": 102, "name": "Sneakers", "price": 69.00 }
+  ],
+  "meta": { "limit": 2, "total": 42 }
+}</code></pre>
+        </div>
       </div>
     </div>
   </section>
@@ -932,6 +978,15 @@
       </ul>
     </div>
   </div>
+
+  <!-- Contenuto sbloccabile: Gate Leggenda -->
+  <section id="legendary-gate" data-badge-gate="Leggenda" class="hidden max-w-5xl mx-auto my-6 p-6 bg-gradient-to-br from-amber-50/60 to-yellow-50/60 rounded-2xl shadow dark:bg-none dark:bg-gray-900/50 dark:text-gray-100">
+    <h3 class="text-xl font-semibold mb-2 flex items-center gap-2">
+      <span>🌟</span>
+      <span data-i18n="legendary_gate_title">Contenuto Leggendario</span>
+    </h3>
+    <p class="text-sm text-gray-700 dark:text-gray-300" data-i18n="legendary_gate_desc">Hai sbloccato un contenuto speciale cliccando il badge Leggenda.</p>
+  </section>
 
   <!-- Footer -->
   <footer class="bg-gray-800 text-gray-300 py-6 mt-12" aria-label="Piè di pagina" data-i18n-aria="aria_footer_landmark">
@@ -1075,6 +1130,22 @@
       let visitedTitles = [];
       try { visitedTitles = JSON.parse(localStorage.getItem('visitedTitles') || '[]'); } catch (e) { visitedTitles = []; }
 
+      const applyPersistentBadgeEffects = () => {
+        let effects = {};
+        try { effects = JSON.parse(localStorage.getItem('badgeEffectsDone') || '{}'); } catch(e) { effects = {}; }
+        if (effects['Leggenda']) {
+          const gate = document.querySelector('[data-badge-gate="Leggenda"]');
+          if (gate) gate.classList.remove('hidden');
+        }
+        if (effects['Segreto']) {
+          document.body.classList.add('egg-active');
+        }
+        if (effects['Debugger']) {
+          try { localStorage.setItem('devMode','1'); } catch(e){}
+        }
+      };
+      applyPersistentBadgeEffects();
+
       const getTitleKey = (el) => {
         if (!el) return null;
         const selfKey = el.getAttribute && el.getAttribute('data-i18n');
@@ -1128,11 +1199,7 @@
         });
       };
       applyVisitedStyles();
-      // FX control (unlocks with XP)
-      const fxButtons = Array.from(document.querySelectorAll('.fx-toggle'));
-      const FX_UNLOCK_XP = 50;
-      let fxUnlocked = localStorage.getItem('fxUnlocked') === '1';
-      let fxEnabled = localStorage.getItem('fxEnabled') === '1';
+      // FX control removed
       const lang = ((localStorage.getItem('langOverride') || navigator.language || 'it').slice(0,2) || 'it').toLowerCase();
       let L = ['it','en'].includes(lang) ? lang : 'it';
       document.documentElement.setAttribute('lang', L);
@@ -1193,53 +1260,9 @@
         if (xpBarFillEl) xpBarFillEl.style.width = `${pct}%`;
         if (hudEl) hudEl.setAttribute('title', nextBadge ? t('hud_tooltip_next', {remaining: Math.max(0, nextBadge - xp)}) : t('hud_tooltip_all'));
 
-        // Update FX control UI state based on XP
-        const nowUnlocked = xp >= FX_UNLOCK_XP;
-        if (nowUnlocked && !fxUnlocked) {
-          fxUnlocked = true;
-          localStorage.setItem('fxUnlocked', '1');
-          showToast(`✨ ${t('toast_control_unlocked')}`);
-        }
-        fxButtons.forEach(btn => {
-          if (nowUnlocked) {
-            btn.classList.remove('opacity-50', 'cursor-not-allowed');
-            btn.setAttribute('aria-disabled', 'false');
-            btn.setAttribute('data-locked', 'false');
-            btn.title = '';
-          } else {
-            btn.classList.add('opacity-50', 'cursor-not-allowed');
-            btn.setAttribute('aria-disabled', 'true');
-            btn.setAttribute('data-locked', 'true');
-            btn.title = t('fx_locked_hint', {xp: FX_UNLOCK_XP});
-          }
-          btn.setAttribute('aria-pressed', String(!!fxEnabled));
-          if (fxEnabled) {
-            btn.classList.add('ring-2', 'ring-brand');
-            // Stato attivo: evidenzia con accenti verdi e pulsazione leggera
-            btn.classList.add('bg-emerald-50', 'text-emerald-700', 'border-emerald-300', 'shadow', 'motion-safe:animate-pulse-subtle');
-            btn.classList.add('dark:bg-emerald-700/25', 'dark:text-emerald-200', 'dark:border-emerald-600');
-          } else {
-            btn.classList.remove('ring-2', 'ring-brand');
-            btn.classList.remove('bg-emerald-50', 'text-emerald-700', 'border-emerald-300', 'shadow', 'motion-safe:animate-pulse-subtle');
-            btn.classList.remove('dark:bg-emerald-700/25', 'dark:text-emerald-200', 'dark:border-emerald-600');
-          }
-        });
+        // FX UI state removed
       };
 
-      // Wire FX buttons
-      fxButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-          const locked = btn.getAttribute('data-locked') === 'true';
-          if (locked) {
-            showToast(`🔒 ${t('fx_locked_hint', {xp: FX_UNLOCK_XP})}`);
-            return;
-          }
-          fxEnabled = !fxEnabled;
-          localStorage.setItem('fxEnabled', fxEnabled ? '1' : '0');
-          updateHUD();
-          showToast(fxEnabled ? `✨ ${t('toast_fx_on')}` : `✨ ${t('toast_fx_off')}`);
-        });
-      });
 
       const showToast = (message) => {
         if (!toastContainer) return;
@@ -1270,7 +1293,7 @@
         'Leggenda': '🌟',
         'Mitico': '💎',
         'Immortale': '👑',
-        'Segreto': '🫣'
+        'Segreto': '🔓'
       };
 
       const BADGE_DESC_EXTRA = {
@@ -1308,6 +1331,45 @@
           'mitico': 'border-emerald-300 dark:border-emerald-400',
           'segreto': 'border-pink-300 dark:border-pink-400 ring-1 ring-pink-300/50'
         };
+        const playBadgeAnimation = (name, el) => {
+          const durMap = {
+            'Esploratore': 1.2, 'Curioso': 1.2, 'Esperto': 1.4, 'Instancabile': 1.0,
+            'Maestro': 1.8, 'Veterano': 1.5, 'Leggenda': 2.0, 'Mitico': 2.5,
+            'Immortale': 2.2, 'Segreto': 1.3, 'Debugger': 1.6
+          };
+          const DURATION = durMap[name] || 1.2;
+          if (window.gsap) {
+            const tl = gsap.timeline({ defaults: { ease: 'power2.out' } });
+            switch(name){
+              case 'Esploratore': tl.fromTo(el, { scale: 1 }, { scale: 1.06, duration: 0.6 }).to(el, { scale: 1, duration: 0.6 }); break;
+              case 'Curioso': tl.fromTo(el, { filter: 'brightness(1)' }, { filter: 'brightness(1.25)', duration: 0.6 }).to(el, { filter: 'brightness(1)', duration: 0.6 }); break;
+              case 'Esperto': tl.fromTo(el, { y: 0 }, { y: -6, duration: 0.7 }).to(el, { y: 0, duration: 0.7 }); break;
+              case 'Instancabile': tl.to(el, { x: 6, duration: 0.1 }).to(el, { x: -6, duration: 0.1 }).to(el, { x: 0, duration: 0.2 }); break;
+              case 'Maestro': tl.fromTo(el, { boxShadow: '0 0 0 rgba(0,0,0,0)' }, { boxShadow: '0 0 30px rgba(99,102,241,0.45)', duration: 0.9 }).to(el, { boxShadow: '0 0 0 rgba(0,0,0,0)', duration: 0.9 }); break;
+              case 'Veterano': tl.fromTo(el, { borderColor: '#ddd' }, { borderColor: '#eab308', duration: 0.8 }).to(el, { borderColor: '#ddd', duration: 0.7 }); break;
+              case 'Leggenda': tl.fromTo(el, { rotate: 0 }, { rotate: 1.5, duration: 0.9 }).to(el, { rotate: 0, duration: 1.1 }); break;
+              case 'Mitico': tl.fromTo(el, { scale: 1, filter: 'saturate(1)' }, { scale: 1.08, filter: 'saturate(1.25)', duration: 1.2 }).to(el, { scale: 1, filter: 'saturate(1)', duration: 1.3 }); break;
+              case 'Immortale': tl.fromTo(el, { opacity: 1 }, { opacity: 0.75, duration: 1.1 }).to(el, { opacity: 1, duration: 1.1 }); break;
+              case 'Segreto': tl.fromTo(el, { skewX: 0 }, { skewX: 8, duration: 0.6 }).to(el, { skewX: 0, duration: 0.7 }); break;
+              case 'Debugger': tl.fromTo(el, { y: 0 }, { y: -2, duration: 0.3 }).to(el, { y: 0, duration: 0.3 }).to(el, { y: -2, duration: 0.3 }).to(el, { y: 0, duration: 0.3 }); break;
+              default: tl.to(el, { scale: 1.03, duration: 0.6 }).to(el, { scale: 1, duration: 0.6 });
+            }
+            return new Promise(res => tl.eventCallback('onComplete', res));
+          }
+          el.classList.add('animate-pulse');
+          return new Promise(res => setTimeout(() => { el.classList.remove('animate-pulse'); res(); }, Math.min(Math.max(DURATION,1),3)*1000));
+        };
+        const revealGateForBadge = (name) => {
+          const gate = document.querySelector(`[data-badge-gate="${name}"]`);
+          if (gate) gate.classList.remove('hidden');
+        };
+        const BADGE_ACTIONS = {
+          'Leggenda': () => { revealGateForBadge('Leggenda'); showToast(`🌟 ${t('badge_action_unlocked_content')}`); },
+          'Maestro': () => { showToast(`🏆 ${t('badge_action_special_message')}`); },
+          'Segreto': () => { document.body.classList.add('egg-active'); showToast(`🫣 ${t('badge_action_hidden_feature')}`); },
+          'Debugger': () => { try { localStorage.setItem('devMode','1'); } catch(e){} showToast(`🛠️ ${t('badge_action_state_updated')}`); },
+        };
+        const badgeEffectsDone = JSON.parse(localStorage.getItem('badgeEffectsDone') || '{}');
         badges.forEach((b) => {
           const li = document.createElement('li');
           const rarity = BADGE_RARITY[b] || 'comune';
@@ -1334,6 +1396,16 @@
           nameRow.append(name, rarityTag);
           col.append(nameRow, desc);
           li.append(icon, col);
+          li.dataset.badgeName = b;
+          li.setAttribute('role','button');
+          li.setAttribute('tabindex','0');
+          li.addEventListener('click', async () => {
+            await playBadgeAnimation(b, li);
+            try { (BADGE_ACTIONS[b]||(()=>{}))(); } catch(e){}
+            badgeEffectsDone[b] = true;
+            try { localStorage.setItem('badgeEffectsDone', JSON.stringify(badgeEffectsDone)); } catch(e){}
+          });
+          li.addEventListener('keydown', async (ev) => { if (ev.key==='Enter' || ev.key===' ') { ev.preventDefault(); li.click(); } });
           badgeListEl.appendChild(li);
         });
       };
@@ -1517,6 +1589,10 @@
         about_title: 'Chi sono',
         about_intro: 'Sono uno sviluppatore web con esperienza in WordPress, PHP e JavaScript. Unisco competenza tecnica e visione strategica per trasformare idee in strumenti concreti, scalabili e orientati ai risultati. Questo progetto, realizzato con HTML, Tailwind e GitHub Pages, presenta competenze, esperienze e progetti in modo semplice, moderno e d’impatto, offrendo una panoramica chiara, elegante e immediata del mio percorso professionale e delle mie capacità.',
         skills_wordpress: 'WordPress',
+        skills_photoshop: 'Photoshop',
+        skills_canva: 'Canva',
+        skills_substance_designer: 'Substance Designer',
+        skills_quixel_mixer: 'Quixel Mixer',
         skills_php: 'PHP',
         skills_js: 'JavaScript',
         skills_jquery: 'jQuery',
@@ -1549,11 +1625,12 @@
         skills_gsap: 'GSAP',
         skills_threejs: 'Three.js',
         skills_3d_group_title: '3D & Grafica',
-        skills_group_types_title: 'Tipologie',
+        skills_group_types_title: '3D & Grafica',
         skills_group_frameworks_title: 'Frameworks',
         skills_group_languages_title: 'Linguaggi',
         skills_group_software_title: 'Software',
-        skills_group_other_title: 'Altro',
+        skills_group_other_title: 'Softwares',
+        skills_group_alt_title: 'Altro',
         skills_3d_modeling: 'Modellazione 3D',
         skills_3d_rendering: 'Rendering 3D',
         skills_texture_painting: 'Texture Painting',
@@ -1598,16 +1675,15 @@
         qa_open_badges: 'Apri badge',
         toast_copied: 'Copiato negli appunti',
         theme_button_text: 'Tema',
-        fx_control_text: 'FX',
-        toast_control_unlocked: 'Controllo sbloccato: FX',
-        toast_fx_on: 'FX attivato',
-        toast_fx_off: 'FX disattivato',
-        fx_locked_hint: 'Richiede {{xp}} XP',
         toast_xp_plus: '+{{points}} XP: {{title}}',
         toast_badge_unlocked: 'Badge sbloccato: {{name}}',
         toast_secret_unlocked: 'Badge sbloccato: Segreto (+{{bonus}} XP)',
         toast_dev_bonus: 'Bonus Dev: +{{bonus}} XP',
         toast_debugger_unlocked: 'Badge sbloccato: Debugger',
+        badge_action_unlocked_content: 'Contenuto sbloccato',
+        badge_action_special_message: 'Messaggio speciale mostrato',
+        badge_action_hidden_feature: 'Funzionalità nascosta attivata',
+        badge_action_state_updated: 'Stato progetto aggiornato',
         rarity_map: { comune: 'Comune', raro: 'Raro', epico: 'Epico', leggendario: 'Leggendario', mitico: 'Mitico', segreto: 'Segreto' },
         badge_labels: { 'Segreto': 'Segreto', 'Debugger': 'Debugger', 'Esploratore': 'Esploratore', 'Curioso':'Curioso', 'Esperto':'Esperto', 'Instancabile':'Instancabile', 'Maestro':'Maestro', 'Veterano':'Veterano', 'Leggenda':'Leggenda', 'Mitico':'Mitico', 'Immortale':'Immortale' },
         badge_desc_extra: { 'Segreto': 'Hai scoperto un easter egg cliccando il logo!' },
@@ -1712,6 +1788,9 @@
         bootstrap_demo_title: 'Demo animazioni Bootstrap',
         materialize_title: 'Materialize',
         materialize_desc: 'UI Material Design, griglie, componenti e modali.',
+        wp_title: 'WordPress',
+        php_title: 'PHP',
+        css_design_system_title: 'Design System',
         woocommerce_title: 'WooCommerce',
         woocommerce_desc: 'E‑commerce su WordPress: hook, checkout, integrazioni, performance e scalabilità.',
         // WooCommerce - blocchi e dettagli
@@ -1736,6 +1815,9 @@
         woo_details_item4: 'Sincronizzazione prodotti via API (ERP/CRM)',
         woo_details_item5: 'Tracking eventi per analytics/ads',
         woo_details_item6: 'Hardening e conformità (GDPR)',
+        // WooCommerce - esempio
+        woo_example_title: 'Esempio hook Checkout',
+        woo_example_desc: 'Aggiunta di un campo personalizzato al checkout usando i filtri di WooCommerce.',
         rest_title: 'API REST',
         rest_desc: 'Endpoint CRUD, autenticazione, fetch asincrono e integrazioni.',
         // REST - dettagli
@@ -1753,7 +1835,9 @@
         projects_github_link: 'Vai ai repo',
         projects_cssclasses_desc: "Plugin pubblicato su wordpress.org per creare rapidamente classi CSS e aggiungerle ai blocchi dell'editor di WordPress con un clic e con anteprima in tempo reale.",
         projects_repo_link: 'Vai al repo',
-        footer_rights: '© 2025 Mauro Arnone - Tutti i diritti riservati'
+        footer_rights: '© 2025 Mauro Arnone - Tutti i diritti riservati',
+        legendary_gate_title: 'Contenuto Leggendario',
+        legendary_gate_desc: 'Hai sbloccato un contenuto speciale cliccando il badge Leggenda.'
       });
       Object.assign(T.en, {
         doc_title: 'Mauro Arnone | Interactive CV',
@@ -1787,6 +1871,10 @@
         about_title: 'About',
         about_intro: 'I am a web developer with experience in WordPress, PHP, and JavaScript. I combine technical expertise and strategic vision to turn ideas into concrete, scalable, results‑oriented tools. This project, built with HTML, Tailwind, and GitHub Pages, showcases skills, experiences, and projects in a simple, modern, and impactful way, offering a clear, elegant, and immediate overview of my professional journey and capabilities.',
         skills_wordpress: 'WordPress',
+        skills_photoshop: 'Photoshop',
+        skills_canva: 'Canva',
+        skills_substance_designer: 'Substance Designer',
+        skills_quixel_mixer: 'Quixel Mixer',
         skills_php: 'PHP',
         skills_js: 'JavaScript',
         skills_jquery: 'jQuery',
@@ -1819,11 +1907,12 @@
         skills_materialize: 'Materialize',
         skills_elementor: 'Elementor',
         skills_3d_group_title: '3D & Graphics',
-        skills_group_types_title: 'Types',
+        skills_group_types_title: '3D & Graphics',
         skills_group_frameworks_title: 'Frameworks',
         skills_group_languages_title: 'Languages',
         skills_group_software_title: 'Software',
-        skills_group_other_title: 'Other',
+        skills_group_other_title: 'Softwares',
+        skills_group_alt_title: 'Other',
         skills_3d_modeling: '3D Modeling',
         skills_3d_rendering: '3D Rendering',
         skills_texture_painting: 'Texture Painting',
@@ -1868,11 +1957,6 @@
         qa_open_badges: 'Open badges',
         toast_copied: 'Copied to clipboard',
         theme_button_text: 'Theme',
-        fx_control_text: 'FX',
-        toast_control_unlocked: 'Control unlocked: FX',
-        toast_fx_on: 'FX enabled',
-        toast_fx_off: 'FX disabled',
-        fx_locked_hint: 'Requires {{xp}} XP',
         toast_xp_plus: '+{{points}} XP: {{title}}',
         toast_badge_unlocked: 'Badge unlocked: {{name}}',
         toast_secret_unlocked: 'Badge unlocked: Secret (+{{bonus}} XP)',
@@ -1982,6 +2066,9 @@
         bootstrap_demo_title: 'Bootstrap Animation Demo',
         materialize_title: 'Materialize',
         materialize_desc: 'Material Design UI, grids, components and modals.',
+        wp_title: 'WordPress',
+        php_title: 'PHP',
+        css_design_system_title: 'Design System',
         woocommerce_title: 'WooCommerce',
         woocommerce_desc: 'WordPress e‑commerce: hooks, checkout, integrations, performance & scalability.',
         // WooCommerce - blocks and details
@@ -2017,13 +2104,24 @@
         rest_point_integrations: 'Integrations: Webhooks, ERP/CRM, third‑party services',
         rest_point_performance: 'Caching, rate limiting, ETag, CDN and performance',
         rest_point_security: 'Security: CSRF, CORS, HTTPS, audit and logging',
+        // REST - example
+        rest_example_title: 'Request/Response Example',
+        rest_example_desc: 'Example GET call to a products endpoint with JSON response.',
+        rest_example_request_title: 'Request',
+        rest_example_response_title: 'Response',
         projects_title: 'Experience & Projects',
         projects_github_title: 'Open Source GitHub Projects',
         projects_github_desc: 'Plugins and tools built to simplify WordPress and digital automations.',
         projects_github_link: 'Go to repos',
         projects_cssclasses_desc: "Plugin published on wordpress.org to quickly create CSS classes and add them to WordPress editor blocks with one click and live preview.",
         projects_repo_link: 'Go to repo',
-        footer_rights: '© 2025 Mauro Arnone - All rights reserved'
+        footer_rights: '© 2025 Mauro Arnone - All rights reserved',
+        legendary_gate_title: 'Legendary Content',
+        legendary_gate_desc: 'You unlocked a special content by clicking the Legend badge.',
+        badge_action_unlocked_content: 'Content unlocked',
+        badge_action_special_message: 'Special message shown',
+        badge_action_hidden_feature: 'Hidden feature activated',
+        badge_action_state_updated: 'Project state updated'
       });
       
       // Utilità i18n
@@ -2150,12 +2248,21 @@
       const allCategoryContainers = Array.from(document.querySelectorAll('[data-category]'));
       const pageSubnavEl = document.getElementById('page-subnav');
       const setActiveCategory = (cat) => {
-        // Support combined filter for 'linguaggi' + 'frameworks' via 'lf' or either
+        // IT: Router categorie — attiva filtri, mostra/nasconde sezioni e costruisce il subnav.
+        // EN: Category router — toggles filters, shows/hides sections, builds subnav.
+        //
+        // IT: Supporto filtro combinato "linguaggi + frameworks" tramite cat='lf' o singoli.
+        // EN: Combined filter support for "languages + frameworks" via cat='lf' or singles.
         const combined = (cat === 'linguaggi' || cat === 'frameworks' || cat === 'lf');
         const activeCats = combined ? ['linguaggi', 'frameworks'] : (cat ? [cat] : []);
         const showAll = !cat || cat === 'all';
+        // IT: Esclusioni visibilità per alcune categorie (es. nascondi WooCommerce in 'lf').
+        // EN: Visibility exclusions for certain categories (e.g., hide WooCommerce in 'lf').
+        const EXCLUDE_FOR_CATEGORY = { lf: new Set(['woocommerce']) };
+        const excludeSet = EXCLUDE_FOR_CATEGORY[cat] || null;
 
-        // Update buttons: mark both active if combined
+        // IT: Aggiorna stato dei pulsanti — se combinato, marca entrambi.
+        // EN: Update buttons — if combined, mark both as active.
         categoryButtons.forEach(btn => {
           const btnCat = btn.getAttribute('data-cat');
           const isActive = showAll ? btnCat === 'all' : (activeCats.includes(btnCat) || (combined && btnCat === 'lf') || btnCat === cat);
@@ -2167,14 +2274,17 @@
           btn.classList.toggle('ring-brand', isActive);
         });
 
-        // Show only containers (sections/div) matching category; support multi-category values
+        // IT: Mostra solo i contenitori (section/div) con categorie corrispondenti; supporta valori multipli.
+        // EN: Show only containers (section/div) matching categories; supports multi-value attributes.
         allCategoryContainers.forEach(el => {
           const sCats = (el.getAttribute('data-category') || '').split(/\s+/).filter(Boolean);
           const show = showAll || sCats.some(c => activeCats.includes(c));
-          el.classList.toggle('hidden', !show);
+          const hiddenByExclude = excludeSet && excludeSet.has(el.id);
+          el.classList.toggle('hidden', !show || hiddenByExclude);
         });
 
-        // Filter skills list items by category (if present)
+        // IT: Filtra gli elementi della lista competenze per categoria (se presenti).
+        // EN: Filter skills list items by category (if present).
         const skillsList = document.getElementById('skills-list');
         if (skillsList) {
           const skillItems = Array.from(skillsList.querySelectorAll('li'));
@@ -2186,7 +2296,8 @@
           });
         }
 
-        // Filter any other elements carrying data-cat (excluding filter buttons and skills list items)
+        // IT: Filtra gli altri elementi con data-cat (esclude i pulsanti e gli item della lista competenze).
+        // EN: Filter other elements with data-cat (excluding filter buttons and skills list items).
         const genericCatItems = Array.from(document.querySelectorAll('[data-cat]')).filter(el => {
           return !el.classList.contains('cat-btn') && !(skillsList && skillsList.contains(el));
         });
@@ -2196,15 +2307,30 @@
           el.classList.toggle('hidden', !show);
         });
 
-        // Build contextual sub-navigation at the top of main
+        // IT: Costruisce il sub‑nav contestuale in cima alla pagina, solo con sezioni visibili.
+        // EN: Builds contextual sub‑nav at the top, using only visible sections.
         if (pageSubnavEl) {
           pageSubnavEl.innerHTML = '';
+          // IT: Esclusioni dal subnav (es. WooCommerce quando attivo 'lf').
+          // EN: Subnav exclusions (e.g., WooCommerce when 'lf' is active).
+          const EXCLUDE_FOR_SUBNAV = { lf: new Set(['woocommerce']) };
           const visibleSections = allSections.filter(sec => {
-            const sCat = sec.getAttribute('data-category');
-            return showAll || activeCats.includes(sCat);
+            const sCatAttr = sec.getAttribute('data-category') || '';
+            const sCats = sCatAttr.split(/\s+/).filter(Boolean);
+            const show = showAll || sCats.some(c => activeCats.includes(c));
+            if (!show) return false;
+            if (excludeSet && excludeSet.has(sec.id)) return false; // esclusione dalla visibilità
+            return true;
           });
+          // IT: Mostra il subnav solo se ci sono sezioni visibili collegate.
+          // EN: Show the subnav only when there are visible, linked sections.
+          pageSubnavEl.classList.toggle('hidden', visibleSections.length === 0);
           visibleSections.forEach(sec => {
             const id = sec.id;
+            const excludeSet = EXCLUDE_FOR_SUBNAV[cat] || null;
+            // IT: Esclusione specifica dal subnav, la sezione può comunque restare visibile.
+            // EN: Specific subnav exclusion; the section can still remain visible.
+            if (excludeSet && excludeSet.has(id)) return;
             const titleEl = sec.querySelector('h2');
             const label = titleEl ? titleEl.textContent.trim() : id;
             const a = document.createElement('a');
@@ -2215,6 +2341,8 @@
           });
         }
         // lo scroll sarà gestito da applyCategoryFromHash
+        // IT/EN: Aggiorna la mesh 3D nel header in base alla categoria attiva
+        try { window.hero3DOverlay?.setCategoryMesh(cat || 'all'); } catch(e){}
       };
       const parseRouteFromHash = () => {
         const h = location.hash || '';
@@ -2225,6 +2353,8 @@
       const applyCategoryFromHash = () => {
         const { cat, section } = parseRouteFromHash();
         setActiveCategory(cat);
+        // IT/EN: Aggiorna accenti laterali nel 3D header in base a section
+        try { window.hero3DOverlay?.setSectionAccents(section || null); } catch(e){}
         if (section) {
           const target = document.getElementById(section);
           if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -2240,6 +2370,27 @@
           url.hash = `#cat=${cat}`;
           history.pushState(null, '', url);
           applyCategoryFromHash();
+          // Animazione header: cambio gradiente e impulso forme
+          try {
+            const CATEGORY_GRADIENTS = {
+              all: ['#2563eb', '#14b8a6', '#7c3aed'], // default: blue-600, teal-500, purple-600
+              lf: ['#0ea5e9', '#22d3ee', '#a78bfa'], // sky/cyan/indigo
+              backend: ['#ef4444', '#f97316', '#f59e0b'], // red/orange/amber
+              frontend: ['#ec4899', '#06b6d4', '#8b5cf6'], // pink/cyan/violet
+              cms: ['#10b981', '#34d399', '#fde68a'], // green/emerald/amber
+              database: ['#4f46e5', '#06b6d4', '#22d3ee'], // indigo/cyan
+              '3d': ['#9333ea', '#f59e0b', '#ef4444'] // purple/amber/red
+            };
+            const palette = CATEGORY_GRADIENTS[cat] || CATEGORY_GRADIENTS.all;
+            if (window.heroHeaderAPI && typeof window.heroHeaderAPI.setGradient === 'function') {
+              window.heroHeaderAPI.setGradient(palette, { easing: 'ease-in-out' });
+            }
+            if (window.heroHeaderAPI && typeof window.heroHeaderAPI.pulse === 'function') {
+              window.heroHeaderAPI.pulse(1);
+            }
+          } catch (_) {
+            // no-op fallback
+          }
         });
       });
 
@@ -2276,6 +2427,7 @@
         });
         let cardDepthEls = Array.from(heroCard.querySelectorAll('[data-depth]'));
         const layerDepthEls = Array.from(layer?.querySelectorAll('[data-depth]') || []);
+        let pulseStrength = 0; // impulso extra per click categoria
         const applyTransforms = (nx, ny, intensity = 1) => {
           const rotX = clamp(-ny * 8 * intensity, -12, 12);
           const rotY = clamp(nx * 8 * intensity, -12, 12);
@@ -2289,9 +2441,12 @@
             const tx = nx * d * 12;
             const amp = 1 + (Math.abs(nx) + Math.abs(ny)) * 2;
             const floatY = Math.sin(window.__heroFloatTime__ * 1.6 + d) * amp;
-            const ty = ny * d * 8 + floatY;
+            const pulseY = Math.sin(window.__heroFloatTime__ * 5 + d) * (pulseStrength * 14 * d);
+            const pulseX = Math.cos(window.__heroFloatTime__ * 4 + d) * (pulseStrength * 10 * d);
+            const ty = ny * d * 8 + floatY + pulseY;
+            const txx = tx + pulseX;
             el.style.transition = 'transform 120ms ease-out';
-            el.style.transform = `translateZ(${z}px) translate(${tx}px, ${ty}px)`;
+            el.style.transform = `translateZ(${z}px) translate(${txx}px, ${ty}px)`;
           });
           // Geometric shapes parallax
           shapeEls.forEach((shape, i) => {
@@ -2299,10 +2454,13 @@
             const tx = nx * d * 20;
             const amp = 1 + (Math.abs(nx) + Math.abs(ny)) * 2;
             const floatY = Math.sin(window.__heroFloatTime__ * (1.4 + i * 0.1)) * amp;
-            const ty = ny * d * -14 + floatY;
+            const pulseY = Math.sin(window.__heroFloatTime__ * (6 + i * 0.2)) * (pulseStrength * 18 * d);
+            const pulseX = Math.cos(window.__heroFloatTime__ * (5 + i * 0.15)) * (pulseStrength * 14 * d);
+            const ty = ny * d * -14 + floatY + pulseY;
+            const txx = tx + pulseX;
             const rot = nx * 10 + i * 2;
             shape.style.transition = 'transform 220ms ease-out';
-            shape.style.transform = `translate(${tx}px, ${ty}px) rotate(${rot}deg)`;
+            shape.style.transform = `translate(${txx}px, ${ty}px) rotate(${rot}deg)`;
           });
           // Foreground sparkles
           layerDepthEls.forEach(el => {
@@ -2310,9 +2468,12 @@
             const tx = nx * d * 16;
             const amp = 1 + (Math.abs(nx) + Math.abs(ny)) * 2.5;
             const floatY = Math.sin(window.__heroFloatTime__ * 1.8 + d * 0.7) * amp;
-            const ty = ny * d * 10 + floatY;
+            const pulseY = Math.sin(window.__heroFloatTime__ * 6.4 + d) * (pulseStrength * 12 * d);
+            const pulseX = Math.cos(window.__heroFloatTime__ * 5.2 + d) * (pulseStrength * 10 * d);
+            const ty = ny * d * 10 + floatY + pulseY;
+            const txx = tx + pulseX;
             el.style.transition = 'transform 160ms ease-out';
-            el.style.transform = `translate(${tx}px, ${ty}px)`;
+            el.style.transform = `translate(${txx}px, ${ty}px)`;
           });
         };
         let lastNX = 0, lastNY = 0;
@@ -2321,6 +2482,11 @@
         const tick = () => {
           window.__heroFloatTime__ += 0.016; // ~60fps
           applyTransforms(lastNX, lastNY, dragging ? 1.2 : 1);
+          // attenua l'impulso nel tempo
+          if (pulseStrength > 0) {
+            pulseStrength *= 0.92;
+            if (pulseStrength < 0.02) pulseStrength = 0;
+          }
           animId = requestAnimationFrame(tick);
         };
         const onPointerMove = (e) => {
@@ -2392,6 +2558,92 @@
         headerEl.addEventListener('click', onClick);
         // avvia loop di galleggiamento continuo
         tick();
+
+        // API globale per interazioni esterne (filtri categoria)
+        // IT: API per controllare l'header dall'esterno (es. filtri).
+        // EN: Global API to control the header from outside (e.g., filters).
+        // 
+        // IT: Overlay per il crossfade del gradiente, inserito come primo figlio dell'header.
+        // EN: Overlay used to crossfade gradients, inserted as header's first child.
+        let gradientOverlay = headerEl.querySelector('#hero-gradient-overlay');
+        const ensureGradientOverlay = () => {
+          if (gradientOverlay) return gradientOverlay;
+          const ov = document.createElement('div');
+          ov.id = 'hero-gradient-overlay';
+          ov.style.position = 'absolute';
+          ov.style.left = '0';
+          ov.style.top = '0';
+          ov.style.right = '0';
+          ov.style.bottom = '0';
+          ov.style.opacity = '0';
+          ov.style.pointerEvents = 'none';
+          ov.style.backgroundSize = '100% 100%';
+          ov.style.willChange = 'opacity';
+          // IT: Primo figlio per restare sotto i contenuti interattivi.
+          // EN: Inserted as first child to stay under interactive content.
+          headerEl.insertBefore(ov, headerEl.firstChild);
+          gradientOverlay = ov;
+          return gradientOverlay;
+        };
+        let gradientAnim = null;
+        let gradientFadeOutAnim = null;
+        window.heroHeaderAPI = {
+          pulse(strength = 1) {
+            // IT: Un piccolo “booster” di movimento. Sì, caffeina per l’header ☕️
+            // EN: A tiny motion booster. Yes, header’s caffeine ☕️
+            pulseStrength = Math.max(pulseStrength, strength);
+          },
+          setGradient(colors = [], opts = {}) {
+            // IT: Cambia gradiente con un crossfade morbido, rispettando "prefers-reduced-motion".
+            // EN: Switch gradient with a soft crossfade, honoring "prefers-reduced-motion".
+            const okMotion = window.matchMedia('(prefers-reduced-motion: no-preference)').matches;
+            if (!headerEl) return;
+            if (!Array.isArray(colors) || colors.length === 0) return;
+            const [c1, c2, c3] = [colors[0], colors[1] || colors[0], colors[2] || colors[1] || colors[0]];
+            const next = `linear-gradient(135deg, ${c1}, ${c2}, ${c3})`;
+            const duration = Math.max(300, Number(opts.duration || 1200));
+            const easing = String(opts.easing || 'cubic-bezier(0.2, 0.65, 0.3, 1)');
+            if (!okMotion || !headerEl.animate) {
+              // IT: Fallback senza animazione (statico). Minimalismo zen 🧘
+              // EN: No-animation fallback (static). Zen minimalism 🧘
+              headerEl.style.backgroundImage = next;
+              headerEl.style.backgroundSize = '100% 100%';
+              headerEl.style.backgroundPosition = '50% 50%';
+              return;
+            }
+            const ov = ensureGradientOverlay();
+            ov.style.backgroundImage = next;
+            ov.style.backgroundPosition = '50% 50%';
+            ov.style.opacity = '0';
+            // IT: Interrompe eventuali animazioni precedenti su overlay e header (niente code party crashers 🎉🚫).
+            // EN: Cancels previous animations on overlay and header (no party crashers 🎉🚫).
+            try { gradientAnim?.cancel(); } catch (e) {}
+            try { gradientFadeOutAnim?.cancel(); } catch (e) {}
+            try { ov.getAnimations?.().forEach(a => a.cancel()); } catch (e) {}
+            try { headerEl.getAnimations?.().forEach(a => a.cancel()); } catch (e) {}
+            gradientAnim = ov.animate([
+              { opacity: 0 },
+              { opacity: 1 }
+            ], { duration, easing });
+            gradientAnim.onfinish = () => {
+              // IT: Imposta definitivamente il gradiente sull'header.
+              // EN: Commit the new gradient onto the header.
+              headerEl.style.backgroundImage = next;
+              headerEl.style.backgroundSize = '100% 100%';
+              headerEl.style.backgroundPosition = '50% 50%';
+              // IT: Dissolvenza dolce dell’overlay per evitare stacchi bruschi.
+              // EN: Soft overlay fade-out to avoid harsh cuts.
+              gradientFadeOutAnim = ov.animate([
+                { opacity: 1 },
+                { opacity: 0 }
+              ], { duration: Math.min(400, Math.floor(duration / 3)), easing });
+              gradientFadeOutAnim.onfinish = () => {
+                ov.style.opacity = '0';
+                ov.style.backgroundImage = '';
+              };
+            };
+          }
+        };
       })();
 
       // Scroll progress bar (navbar bottom)
@@ -2441,6 +2693,318 @@
       let linkRadius = 120;
       let maxLinksPerParticle = 6;
       let grid = new Map(); // spatial hash grid
+      
+      // IT: Overlay Three.js nel header — mesh wireframe animate per categoria.
+      // EN: Three.js overlay in header — animated wireframe meshes per category.
+      (function(){
+        if (!window.THREE) return; // three.js CDN già caricato in fondo alla pagina
+        var headerEl = document.getElementById('home');
+        var layer = document.getElementById('hero-3d-layer');
+        if (!headerEl || !layer) return;
+
+        var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setPixelRatio(Math.max(1, window.devicePixelRatio || 1));
+        renderer.setClearColor(0x000000, 0); // trasparente
+        layer.appendChild(renderer.domElement);
+
+        var scene = new THREE.Scene();
+        var camera = new THREE.PerspectiveCamera(50, 1, 0.1, 100);
+        camera.position.set(0, 0, 6);
+
+        var group = new THREE.Group();
+        scene.add(group);
+        // IT: Gruppo accenti laterali; EN: Side accent meshes group
+        var accentsGroup = new THREE.Group();
+        scene.add(accentsGroup);
+        // IT: Grid di sfondo full‑screen (solo su 'all'); EN: Full‑screen background grid (only on 'all')
+        var bgGrid = null;
+        function updateGridGeometry(){
+          // IT: Crea una plane suddivisa che riempie il frustum; EN: Build subdivided plane filling the frustum
+          var zDist = Math.abs(camera.position.z - 0);
+          var vFov = (camera.fov * Math.PI) / 180;
+          var height = 2 * Math.tan(vFov / 2) * zDist;
+          var width = height * camera.aspect;
+          var wSeg = Math.max(8, Math.round(width * 6));
+          var hSeg = Math.max(6, Math.round(height * 6));
+          var plane = new THREE.PlaneGeometry(width, height, wSeg, hSeg);
+          var edges = new THREE.EdgesGeometry(plane);
+          var gridColor = (typeof isDarkTheme !== 'undefined' && isDarkTheme) ? 0xa0afb8 : 0x6f7b83;
+          var mat = new THREE.LineBasicMaterial({ color: gridColor, transparent: true, opacity: (typeof isDarkTheme !== 'undefined' && isDarkTheme) ? 0.28 : 0.22 });
+          mat.depthWrite = false;
+          var lines = new THREE.LineSegments(edges, mat);
+          lines.position.set(0, 0, 0);
+          lines.rotation.set(0, 0, 0);
+          lines.position.z = -0.2; // leggermente dietro
+          lines.renderOrder = -1; // render prima delle mesh
+          return lines;
+        }
+
+        function resize(){
+          var w = headerEl.clientWidth;
+          var h = headerEl.clientHeight;
+          var width = Math.max(1, w);
+          var height = Math.max(1, h);
+          renderer.setSize(width, height);
+          camera.aspect = width / height;
+          camera.updateProjectionMatrix();
+          // IT/EN: Aggiorna la griglia full‑screen alla nuova dimensione
+          if (bgGrid){
+            scene.remove(bgGrid);
+            if (bgGrid.geometry) bgGrid.geometry.dispose?.();
+            if (bgGrid.material) bgGrid.material.dispose?.();
+            bgGrid = updateGridGeometry();
+            scene.add(bgGrid);
+          }
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        // IT: Input del mouse per parallax; EN: Mouse input for parallax
+        var mouseX = 0, mouseY = 0, hasMouse = false;
+        headerEl.addEventListener('mousemove', function(ev){
+          var rect = headerEl.getBoundingClientRect();
+          var x = (ev.clientX - rect.left) / Math.max(1, rect.width);
+          var y = (ev.clientY - rect.top) / Math.max(1, rect.height);
+          mouseX = (x - 0.5) * 2; // [-1,1]
+          mouseY = (0.5 - y) * 2; // [-1,1]
+          hasMouse = true;
+        });
+        headerEl.addEventListener('mouseleave', function(){ hasMouse = false; });
+
+        function clearGroup(){
+          while(group.children.length){
+            var child = group.children.pop();
+            if (child.geometry) child.geometry.dispose?.();
+            if (child.material) child.material.dispose?.();
+          }
+        }
+
+        // IT: Mostra/Nasconde la griglia full‑screen; EN: Toggle full‑screen grid
+        function ensureGridShown(show){
+          if (show){
+            if (!bgGrid){
+              bgGrid = updateGridGeometry();
+              scene.add(bgGrid);
+            }
+            bgGrid.visible = true;
+          } else {
+            if (bgGrid) bgGrid.visible = false;
+          }
+        }
+
+        // IT: Palette colori per categoria; EN: Category color palette
+        var COLORS = {
+          lf: 0x1065ff,
+          backend: 0x10b981,
+          frontend: 0x1065ff,
+          cms: 0xff3e7f,
+          database: 0xf59e0b,
+          '3d': 0x7c3aed,
+          all: 0xffffff
+        };
+
+        // IT: Geometrie per categoria; EN: Category → geometry mapping
+        function buildForCategory(cat){
+          clearGroup();
+          ensureGridShown(cat === 'all');
+          var color = COLORS[cat] ?? 0xffffff;
+          var mat = new THREE.MeshBasicMaterial({ color: color, wireframe: true });
+          var mat2 = new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true, opacity: 0.35, transparent: true });
+
+          switch(cat){
+            case 'backend':
+              group.add(new THREE.Mesh(new THREE.TorusKnotGeometry(1, 0.25, 128, 32), mat));
+              break;
+            case 'frontend':
+              group.add(new THREE.Mesh(new THREE.IcosahedronGeometry(1.2, 1), mat));
+              break;
+            case 'cms':
+              group.add(new THREE.Mesh(new THREE.BoxGeometry(1.4, 1.1, 1.2), mat));
+              group.add(new THREE.Mesh(new THREE.BoxGeometry(1.8, 1.5, 1.6), mat2));
+              break;
+            case 'database':
+              group.add(new THREE.Mesh(new THREE.CylinderGeometry(1.2, 1.2, 1.6, 24, 1), mat));
+              break;
+            case '3d':
+              group.add(new THREE.Mesh(new THREE.SphereGeometry(1.2, 24, 16), mat));
+              group.add(new THREE.Mesh(new THREE.TorusGeometry(1.6, 0.2, 16, 64), mat2));
+              break;
+            case 'lf':
+              group.add(new THREE.Mesh(new THREE.IcosahedronGeometry(1.1, 0), mat));
+              group.add(new THREE.Mesh(new THREE.TorusGeometry(1.8, 0.18, 14, 48), mat2));
+              break;
+            case 'all':
+            default:
+              group.add(new THREE.Mesh(new THREE.BoxGeometry(1.2, 1.2, 1.2), mat));
+              break;
+          }
+          // Posizionamento centrale
+          group.position.set(0, 0, 0);
+          layer.style.opacity = '0';
+          try {
+            layer.getAnimations?.().forEach(a => a.cancel());
+          } catch(e){}
+          // IT: Fade‑in leggero del layer; EN: Soft layer fade‑in
+          layer.animate([ { opacity: 0 }, { opacity: 1 } ], { duration: 500, easing: 'ease-in-out', fill: 'forwards' });
+        }
+
+        // IT: Accenti laterali per sezione; EN: Side accents per section
+        function clearAccents(){
+          while(accentsGroup.children.length){
+            var child = accentsGroup.children.pop();
+            if (child.geometry) child.geometry.dispose?.();
+            if (child.material) child.material.dispose?.();
+          }
+        }
+
+        var SECTION_COLORS = {
+          javascript: 0xf7df1e,
+          php: 0x777bb4,
+          wordpress: 0x21759b,
+          css: 0x2965f1,
+          html: 0xe34f26,
+          gsap: 0x88ce02,
+          threejs: 0x00ffff,
+          database: 0xf59e0b,
+          woo: 0x96588a
+        };
+
+        function buildAccentsForSection(section){
+          clearAccents();
+          if (!section) return; // nessun accento per sezione nulla
+          var color = SECTION_COLORS[section] ?? 0xffffff;
+          var mat = new THREE.MeshBasicMaterial({ color: color, wireframe: true, transparent: true, opacity: 0.9 });
+          var left, right;
+          switch(section){
+            case 'javascript':
+              left = new THREE.Mesh(new THREE.IcosahedronGeometry(0.7, 0), mat);
+              right = new THREE.Mesh(new THREE.TorusGeometry(0.5, 0.12, 12, 36), mat);
+              break;
+            case 'php':
+              left = new THREE.Mesh(new THREE.TorusKnotGeometry(0.45, 0.12, 64, 16), mat);
+              right = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.55, 0.6), mat);
+              break;
+            case 'wordpress':
+              left = new THREE.Mesh(new THREE.BoxGeometry(0.65, 0.5, 0.65), mat);
+              right = new THREE.Mesh(new THREE.TorusGeometry(0.55, 0.14, 14, 40), mat);
+              break;
+            case 'css':
+              left = new THREE.Mesh(new THREE.CylinderGeometry(0.45, 0.45, 0.7, 16, 1), mat);
+              right = new THREE.Mesh(new THREE.TorusGeometry(0.5, 0.1, 10, 32), mat);
+              break;
+            case 'html':
+              left = new THREE.Mesh(new THREE.OctahedronGeometry(0.6, 0), mat);
+              right = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.7, 0.5), mat);
+              break;
+            case 'gsap':
+              left = new THREE.Mesh(new THREE.TorusGeometry(0.6, 0.1, 10, 36), mat);
+              right = new THREE.Mesh(new THREE.TorusGeometry(0.4, 0.08, 10, 36), mat);
+              break;
+            case 'threejs':
+              left = new THREE.Mesh(new THREE.SphereGeometry(0.55, 16, 12), mat);
+              right = new THREE.Mesh(new THREE.IcosahedronGeometry(0.5, 0), mat);
+              break;
+            case 'database':
+              left = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.5, 0.6, 18, 1), mat);
+              right = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.5, 0.6, 18, 1), mat);
+              break;
+            case 'woo':
+            case 'woocommerce':
+              left = new THREE.Mesh(new THREE.TorusGeometry(0.5, 0.12, 12, 36), mat);
+              right = new THREE.Mesh(new THREE.TorusKnotGeometry(0.4, 0.1, 64, 16), mat);
+              break;
+            default:
+              left = new THREE.Mesh(new THREE.BoxGeometry(0.55, 0.55, 0.55), mat);
+              right = new THREE.Mesh(new THREE.IcosahedronGeometry(0.5, 0), mat);
+              break;
+          }
+          left.position.set(-2.4, 0.8, 0);
+          right.position.set(2.4, -0.6, 0);
+          left.userData.base = { x: left.position.x, y: left.position.y, z: left.position.z, side: -1 };
+          right.userData.base = { x: right.position.x, y: right.position.y, z: right.position.z, side: 1 };
+          accentsGroup.add(left);
+          accentsGroup.add(right);
+        }
+
+        var clock = new THREE.Clock();
+        function animate(){
+          if (!prefersReduced){
+            var t = clock.getElapsedTime();
+            group.rotation.y = t * 0.25;
+            group.rotation.x = Math.sin(t * 0.5) * 0.08;
+            // IT: Piccola vita agli accenti; EN: Light motion for accents
+            accentsGroup.rotation.z = Math.sin(t * 0.2) * 0.02;
+            // IT: Bobbing/Parallax degli accenti + camera reattiva al mouse; EN: Accent bobbing/parallax + mouse-reactive camera
+            for (var i = 0; i < accentsGroup.children.length; i++){
+              var m = accentsGroup.children[i];
+              var base = m.userData && m.userData.base ? m.userData.base : { x: m.position.x, y: m.position.y, z: m.position.z, side: (m.position.x < 0 ? -1 : 1) };
+              var off = i * 0.7;
+              m.position.y = base.y + Math.sin(t + off) * 0.08;
+              var mx = hasMouse ? mouseX : 0;
+              m.position.x = base.x + mx * 0.25 * base.side;
+              m.rotation.y += 0.002;
+            }
+            if (hasMouse){
+              // parallax leggero della camera
+              camera.position.x += (mouseX * 0.35 - camera.position.x) * 0.08;
+              camera.position.y += (mouseY * 0.25 - camera.position.y) * 0.08;
+              camera.lookAt(0, 0, 0);
+            }
+            if (bgGrid && bgGrid.visible){
+              bgGrid.rotation.z = Math.sin(t * 0.15) * 0.01;
+            }
+          }
+          renderer.render(scene, camera);
+          requestAnimationFrame(animate);
+        }
+        animate();
+
+        // API globale per cambiare mesh da router categorie
+        window.hero3DOverlay = {
+          // IT: Dissolvenza in uscita e poi cambio categoria; EN: Fade-out then switch category
+          setCategoryMesh: function(cat){
+            cat = cat || 'all';
+            if (prefersReduced){
+              buildForCategory(cat);
+              return;
+            }
+            try { layer.getAnimations?.().forEach(a => a.cancel()); } catch(e){}
+            var anim = layer.animate([
+              { opacity: 1 },
+              { opacity: 0 }
+            ], { duration: 280, easing: 'ease-in-out', fill: 'forwards' });
+            (anim.finished || Promise.resolve()).then(function(){
+              buildForCategory(cat);
+            }).catch(function(){
+              buildForCategory(cat);
+            });
+          },
+          // IT: Accenti laterali con fade; EN: Side accents with fade
+          setSectionAccents: function(section){
+            section = section || null;
+            if (prefersReduced){
+              buildAccentsForSection(section);
+              return;
+            }
+            try { layer.getAnimations?.().forEach(a => a.cancel()); } catch(e){}
+            var anim = layer.animate([
+              { opacity: 1 },
+              { opacity: 0 }
+            ], { duration: 220, easing: 'ease-in-out', fill: 'forwards' });
+            (anim.finished || Promise.resolve()).then(function(){
+              buildAccentsForSection(section);
+              // fade‑in
+              layer.animate([ { opacity: 0 }, { opacity: 1 } ], { duration: 220, easing: 'ease-in-out', fill: 'forwards' });
+            }).catch(function(){
+              buildAccentsForSection(section);
+              layer.animate([ { opacity: 0 }, { opacity: 1 } ], { duration: 220, easing: 'ease-in-out', fill: 'forwards' });
+            });
+          }
+        };
+        // Imposta una mesh di default
+        buildForCategory('all');
+      })();
       let particleTargetCount = 120; // updated on init
       const computeDensityFactor = () => {
         const override = localStorage.getItem('particleDensity');
@@ -2537,7 +3101,7 @@
           pctx.fill();
         });
         // Draw mesh connections
-        const effectiveLinkRadius = linkRadius * (fxEnabled ? 1.15 : 1);
+        const effectiveLinkRadius = linkRadius;
         const linkR2 = effectiveLinkRadius * effectiveLinkRadius;
         particlesBg.forEach((p, i) => {
           const gx = Math.floor(p.x / cellSize);
@@ -2560,20 +3124,20 @@
                   const alpha = Math.max(0.05, 0.35 - (d / effectiveLinkRadius) * 0.35);
                   // Glow stroke (blurred, wider, lower alpha)
                   pctx.save();
-                  pctx.shadowBlur = fxEnabled ? 9 : 6;
+                  pctx.shadowBlur = 6;
                   pctx.shadowColor = `rgba(${brandRgb.r},${brandRgb.g},${brandRgb.b}, ${alpha * 0.8})`;
                   pctx.beginPath();
                   pctx.moveTo(p.x, p.y);
                   pctx.lineTo(q.x, q.y);
-                  pctx.lineWidth = fxEnabled ? 2.2 : 1.6;
-                  pctx.strokeStyle = `rgba(${brandRgb.r},${brandRgb.g},${brandRgb.b}, ${alpha * (fxEnabled ? 0.35 : 0.25)})`;
+                  pctx.lineWidth = 1.6;
+                  pctx.strokeStyle = `rgba(${brandRgb.r},${brandRgb.g},${brandRgb.b}, ${alpha * 0.25})`;
                   pctx.stroke();
                   // Crisp stroke on top
                   pctx.shadowBlur = 0;
                   pctx.beginPath();
                   pctx.moveTo(p.x, p.y);
                   pctx.lineTo(q.x, q.y);
-                  pctx.lineWidth = fxEnabled ? 1.0 : 0.8;
+                  pctx.lineWidth = 0.8;
                   pctx.strokeStyle = `rgba(${brandRgb.r},${brandRgb.g},${brandRgb.b}, ${alpha})`;
                   pctx.stroke();
                   pctx.restore();
