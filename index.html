@@ -794,6 +794,7 @@
         <button id="threejs-stop" class="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 transition dark:bg-gray-700 dark:hover:bg-gray-600" data-i18n="threejs_demo_stop">Stop</button>
         <button id="threejs-spin" class="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 transition dark:bg-gray-700 dark:hover:bg-gray-600" data-i18n="threejs_demo_spin">Accelera</button>
         <button id="threejs-reset" class="px-3 py-1 rounded bg-orange-500 text-white hover:bg-orange-600 transition" data-i18n="threejs_demo_reset">Reset</button>
+        <button id="threejs-center" class="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 transition dark:bg-gray-700 dark:hover:bg-gray-600" data-i18n="threejs_demo_center">Centra</button>
         <button id="threejs-autorotate" class="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 transition dark:bg-gray-700 dark:hover:bg-gray-600" data-i18n="threejs_demo_autorotate">Auto‑ruota</button>
         <button id="threejs-wireframe" class="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 transition dark:bg-gray-700 dark:hover:bg-gray-600" data-i18n="threejs_demo_wireframe">Wireframe</button>
         <button id="threejs-solid" class="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 transition dark:bg-gray-700 dark:hover:bg-gray-600" data-i18n="threejs_demo_solid">Solido</button>
@@ -1857,7 +1858,7 @@
         });
 
         // Three.js demo buttons
-        const threeIds = ['threejs-start','threejs-stop','threejs-spin','threejs-reset','threejs-autorotate','threejs-wireframe','threejs-solid','threejs-lights'];
+        const threeIds = ['threejs-start','threejs-stop','threejs-spin','threejs-reset','threejs-center','threejs-autorotate','threejs-wireframe','threejs-solid','threejs-lights'];
         threeIds.forEach((id) => {
           const el = document.getElementById(id);
           if (el) el.addEventListener('click', () => registerClick('demoClicks_threejs', id, threeIds, 100, 'Esperto'));
@@ -4053,6 +4054,19 @@
       var autoRotate = false;
       var lightsDynamic = false;
       var lightPhase = 0;
+      // Gestione loop con timeout inattività
+      var isLoopActive = false;
+      var rafId = null;
+      var lastInteraction = performance.now();
+      var INACTIVITY_MS = 30000; // 30 secondi
+
+      function markInteraction(){ lastInteraction = performance.now(); }
+      function startLoop(){
+        if (window.cvModeActive) return;
+        markInteraction();
+        if (!isLoopActive) { isLoopActive = true; rafId = requestAnimationFrame(loop); }
+      }
+      function stopLoop(){ isLoopActive = false; if (rafId) { cancelAnimationFrame(rafId); rafId = null; } }
 
       function resize() {
         var w = wrap.clientWidth;
@@ -4065,8 +4079,17 @@
       resize();
 
       function loop() {
+        if (!isLoopActive) return;
         // In modalità CV, renderizza un frame e ferma il loop
-        if (window.cvModeActive) { renderer.render(scene, camera); return; }
+        if (window.cvModeActive) { isLoopActive = false; rafId = null; renderer.render(scene, camera); return; }
+        // Stop dopo inattività
+        var now = performance.now();
+        if (now - lastInteraction > INACTIVITY_MS) {
+          running = false;
+          isLoopActive = false;
+          rafId = null;
+          return;
+        }
         var dt = clock.getDelta();
         if (running) {
           cube.rotation.y += speed * dt;
@@ -4085,23 +4108,25 @@
         }
         controls.update();
         renderer.render(scene, camera);
-        requestAnimationFrame(loop);
+        rafId = requestAnimationFrame(loop);
       }
-      loop();
+      // Render iniziale statico
+      renderer.render(scene, camera);
       // Espone una funzione per riprendere il loop dopo l’uscita dalla modalità CV
-      window.resumeThreeDemo = function(){ requestAnimationFrame(loop); };
+      window.resumeThreeDemo = function(){ startLoop(); };
 
       var startBtn = document.getElementById('threejs-start');
       var stopBtn = document.getElementById('threejs-stop');
       var spinBtn = document.getElementById('threejs-spin');
       var resetBtn = document.getElementById('threejs-reset');
+      var centerBtn = document.getElementById('threejs-center');
       var autorotateBtn = document.getElementById('threejs-autorotate');
       var wireframeBtn = document.getElementById('threejs-wireframe');
       var solidBtn = document.getElementById('threejs-solid');
       var lightsBtn = document.getElementById('threejs-lights');
-      if (startBtn) startBtn.addEventListener('click', function () { running = true; });
-      if (stopBtn) stopBtn.addEventListener('click', function () { running = false; });
-      if (spinBtn) spinBtn.addEventListener('click', function () { speed = Math.min(3.0, speed + 0.3); });
+      if (startBtn) startBtn.addEventListener('click', function () { running = true; startLoop(); });
+      if (stopBtn) stopBtn.addEventListener('click', function () { running = false; stopLoop(); });
+      if (spinBtn) spinBtn.addEventListener('click', function () { speed = Math.min(3.0, speed + 0.3); markInteraction(); startLoop(); });
       if (resetBtn) resetBtn.addEventListener('click', function () {
         speed = 0.8;
         cube.rotation.set(0, 0, 0);
@@ -4126,7 +4151,26 @@
         ambient.intensity = 0.6;
         dir.intensity = 0.8;
         spot.intensity = 1.1;
+        markInteraction(); startLoop();
       });
+
+      // Ricentra senza alterare altri stati
+      function recenterScene(){
+        var boxC = new THREE.Box3().setFromObject(contentGroup);
+        var centerC = new THREE.Vector3();
+        var sizeC = new THREE.Vector3();
+        boxC.getCenter(centerC);
+        boxC.getSize(sizeC);
+        var maxC = Math.max(sizeC.x, sizeC.y, sizeC.z);
+        var distC = (maxC * fitOffset) / (2 * Math.tan(fov / 2));
+        camera.position.copy(centerC.clone().add(new THREE.Vector3(distC, distC * 0.6, distC)));
+        controls.setTarget(centerC);
+        controls.setFromCamera();
+        controls.update();
+        markInteraction();
+        renderer.render(scene, camera);
+      }
+      if (centerBtn) centerBtn.addEventListener('click', function(){ recenterScene(); });
 
       function setWireframe(on) {
         var meshes = [cube, sphere1, sphere2, torus];
@@ -4137,6 +4181,8 @@
         autorotateBtn.classList.toggle('bg-brand', autoRotate);
         autorotateBtn.classList.toggle('text-white', autoRotate);
         autorotateBtn.classList.toggle('bg-gray-200', !autoRotate);
+        markInteraction();
+        if (autoRotate) startLoop(); else renderer.render(scene, camera);
       });
       if (wireframeBtn) wireframeBtn.addEventListener('click', function(){
         var wf = !(cube.material && cube.material.wireframe);
@@ -4144,17 +4190,28 @@
         wireframeBtn.classList.toggle('bg-brand', wf);
         wireframeBtn.classList.toggle('text-white', wf);
         wireframeBtn.classList.toggle('bg-gray-200', !wf);
+        markInteraction();
+        renderer.render(scene, camera);
       });
       if (solidBtn) solidBtn.addEventListener('click', function(){
         setWireframe(false);
         wireframeBtn && wireframeBtn.classList.remove('bg-brand','text-white');
         wireframeBtn && wireframeBtn.classList.add('bg-gray-200');
+        markInteraction();
+        renderer.render(scene, camera);
       });
       if (lightsBtn) lightsBtn.addEventListener('click', function(){
         lightsDynamic = !lightsDynamic;
         lightsBtn.classList.toggle('bg-brand', lightsDynamic);
         lightsBtn.classList.toggle('text-white', lightsDynamic);
         lightsBtn.classList.toggle('bg-gray-200', !lightsDynamic);
+        markInteraction();
+        if (lightsDynamic) startLoop(); else renderer.render(scene, camera);
+      });
+
+      // Interazioni utente sul canvas: avvia/rinnova loop
+      ['pointerdown','pointermove','wheel','touchstart','touchmove'].forEach(function(ev){
+        renderer.domElement.addEventListener(ev, function(){ markInteraction(); startLoop(); }, { passive: ev === 'wheel' ? false : true });
       });
     });
   </script>
