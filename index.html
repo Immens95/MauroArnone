@@ -194,7 +194,7 @@
       </ul>
     </div>
     <!-- Mobile dropdown -->
-    <div id="menu-mobile" class="md:hidden hidden border-t bg-white dark:bg-gray-900 w-full" role="menu" aria-labelledby="menu-btn" aria-hidden="true">
+    <div id="menu-mobile" class="md:hidden hidden border-t bg-white dark:bg-gray-900 w-full max-h-[70vh] overflow-y-auto" role="menu" aria-labelledby="menu-btn" aria-hidden="true">
       <ul class="w-full max-w-full px-4 py-3 grid grid-cols-1 gap-2 text-sm">
         <li class="col-span-1 w-full">
           <button class="theme-toggle w-full px-3 py-2 rounded border text-sm bg-white hover:bg-gray-100 transition dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700 dark:hover:bg-gray-700 flex items-center justify-center gap-2" aria-label="Cambia tema" aria-pressed="false" data-i18n-aria="aria_theme_toggle">
@@ -269,17 +269,17 @@
   <nav id="page-nav" class="max-w-5xl mx-auto px-6 mb-4 flex flex-col items-center gap-3" aria-label="Navigazione di pagina" data-i18n-aria="aria_page_nav">
     <div class="cat-switch flex flex-wrap items-center justify-center gap-1 sm:gap-2 px-2 py-1 rounded border text-xs bg-white/70 text-gray-800 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700 w-full max-w-full">
       <button class="cat-btn px-2 py-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700" type="button" data-cat="all" aria-pressed="false"><span data-i18n="cat_all">Tutto</span></button>
-      <span class="mx-1">|</span>
+      <span class="mx-1 hidden sm:inline">|</span>
       <button class="cat-btn px-2 py-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700" type="button" data-cat="lf" aria-pressed="false"><span data-i18n="cat_lang_frameworks">Linguaggi + Frameworks</span></button>
-      <span class="mx-1">|</span>
+      <span class="mx-1 hidden sm:inline">|</span>
       <button class="cat-btn px-2 py-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700" type="button" data-cat="backend" aria-pressed="false"><span data-i18n="cat_backend">Backend</span></button>
-      <span class="mx-1">|</span>
+      <span class="mx-1 hidden sm:inline">|</span>
       <button class="cat-btn px-2 py-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700" type="button" data-cat="frontend" aria-pressed="false"><span data-i18n="cat_frontend">Frontend</span></button>
-      <span class="mx-1">|</span>
+      <span class="mx-1 hidden sm:inline">|</span>
       <button class="cat-btn px-2 py-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700" type="button" data-cat="cms" aria-pressed="false"><span data-i18n="cat_cms">CMS</span></button>
-      <span class="mx-1">|</span>
+      <span class="mx-1 hidden sm:inline">|</span>
       <button class="cat-btn px-2 py-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700" type="button" data-cat="database" aria-pressed="false"><span data-i18n="cat_database">Database</span></button>
-      <span class="mx-1">|</span>
+      <span class="mx-1 hidden sm:inline">|</span>
       <button class="cat-btn px-2 py-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700" type="button" data-cat="3d" aria-pressed="false"><span data-i18n="cat_3d">3D</span></button>
     </div>
     <!-- Pulsante Modalità CV spostato nel menu header -->
@@ -1191,13 +1191,13 @@
   <!-- Overlay Badge -->
   <div id="badge-overlay" class="fixed inset-0 hidden items-center justify-center z-50">
     <div id="badge-backdrop" class="absolute inset-0 bg-black/40"></div>
-    <div role="dialog" aria-modal="true" aria-labelledby="badge-title" class="relative bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 rounded-xl shadow-xl w-11/12 sm:w-[28rem] p-6">
+    <div role="dialog" aria-modal="true" aria-labelledby="badge-title" class="relative bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 rounded-xl shadow-xl w-10/12 sm:w-[26rem] p-6 max-h-[75vh] overflow-y-auto">
       <div class="flex items-center justify-between">
         <h3 id="badge-title" class="text-lg font-semibold" data-i18n="overlay_title">Badge</h3>
         <button id="badge-close" class="px-3 py-1 text-sm rounded bg-gray-100 hover:bg-gray-200 transition dark:bg-gray-700 dark:hover:bg-gray-600" data-i18n="overlay_close">Chiudi</button>
       </div>
       <p class="mt-2 text-sm dark:text-gray-300" data-i18n="overlay_desc">Clicca i titoli del CV per guadagnare XP e sbloccare badge.</p>
-      <ul id="badge-list" class="mt-4 space-y-2">
+      <ul id="badge-list" class="mt-4 space-y-2 pr-1">
         <li class="text-sm text-gray-600 dark:text-gray-300" data-i18n="overlay_no_badge">Nessun badge ancora. Prova a cliccare un titolo!</li>
       </ul>
     </div>
