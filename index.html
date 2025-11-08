@@ -2161,6 +2161,11 @@
         threejs_demo_wireframe: 'Wireframe',
         threejs_demo_solid: 'Solido',
         threejs_demo_lights: 'Luci dinamiche',
+        // REST example (per una localizzazione completa anche in IT)
+        rest_example_title: 'Esempio richiesta/risposta',
+        rest_example_desc: 'Esempio di chiamata GET a un endpoint prodotti e relativa risposta JSON.',
+        rest_example_request_title: 'Richiesta',
+        rest_example_response_title: 'Risposta',
         bootstrap_title: 'Bootstrap',
         bootstrap_desc: 'Grid, componenti, responsive e utilità pronte all’uso.',
         bootstrap_demo_title: 'Demo animazioni Bootstrap',
@@ -4041,8 +4046,17 @@
       box3.getSize(size);
       var maxSize = Math.max(size.x, size.y, size.z);
       var fitOffset = 1.35;
-      var fov = camera.fov * (Math.PI / 180);
-      var distance = (maxSize * fitOffset) / (2 * Math.tan(fov / 2));
+      function computeFitDistance(sizeVec3){
+        var vFov = camera.fov * (Math.PI / 180);
+        var aspect = Math.max(0.1, camera.aspect || 1);
+        var hFov = 2 * Math.atan(Math.tan(vFov / 2) * aspect);
+        var halfH = sizeVec3.y / 2;
+        var halfW = sizeVec3.x / 2;
+        var distV = halfH / Math.tan(vFov / 2);
+        var distH = halfW / Math.tan(hFov / 2);
+        return fitOffset * Math.max(distV, distH);
+      }
+      var distance = computeFitDistance(size);
       camera.position.copy(center.clone().add(new THREE.Vector3(distance, distance * 0.6, distance)));
       camera.lookAt(center);
       controls.setTarget(center);
@@ -4138,8 +4152,7 @@
         var sizeR = new THREE.Vector3();
         boxR.getCenter(centerR);
         boxR.getSize(sizeR);
-        var maxR = Math.max(sizeR.x, sizeR.y, sizeR.z);
-        var distR = (maxR * fitOffset) / (2 * Math.tan(fov / 2));
+        var distR = computeFitDistance(sizeR);
         camera.position.copy(centerR.clone().add(new THREE.Vector3(distR, distR * 0.6, distR)));
         controls.setTarget(centerR);
         controls.setFromCamera();
@@ -4163,8 +4176,7 @@
         var sizeC = new THREE.Vector3();
         boxC.getCenter(centerC);
         boxC.getSize(sizeC);
-        var maxC = Math.max(sizeC.x, sizeC.y, sizeC.z);
-        var distC = (maxC * fitOffset) / (2 * Math.tan(fov / 2));
+        var distC = computeFitDistance(sizeC);
         camera.position.copy(centerC.clone().add(new THREE.Vector3(distC, distC * 0.6, distC)));
         controls.setTarget(centerC);
         controls.setFromCamera();
