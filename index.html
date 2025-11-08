@@ -134,7 +134,7 @@
 <nav id="site-nav" class="fixed top-0 inset-x-0 z-50 bg-white/70 backdrop-blur shadow-sm dark:bg-gray-900/70" aria-label="Navigazione principale" data-i18n-aria="aria_main_nav">
     <!-- Scroll progress bar -->
     <div id="scroll-progress" class="absolute left-0 bottom-0 h-0.5 bg-brand dark:bg-brand w-0 pointer-events-none"></div>
-    <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+    <div class="max-w-[92%] sm:max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
       <a href="#home" class="flex items-center gap-2">
         <img src="https://avatars.githubusercontent.com/u/129175879?v=4" alt="Logo" class="w-8 h-8 rounded-full" data-i18n-alt="alt_logo">
         <span class="font-semibold">Mauro Arnone</span>
@@ -178,25 +178,37 @@
       </ul>
     </div>
     <!-- Mobile dropdown -->
-    <div id="menu-mobile" class="md:hidden hidden border-t bg-white dark:bg-gray-900" role="menu" aria-labelledby="menu-btn" aria-hidden="true">
-      <ul class="max-w-5xl mx-auto px-4 py-3 grid grid-cols-1 gap-2 text-sm">
-        <li class="col-span-2">
+    <div id="menu-mobile" class="md:hidden hidden border-t bg-white dark:bg-gray-900 w-full" role="menu" aria-labelledby="menu-btn" aria-hidden="true">
+      <ul class="w-full max-w-full px-4 py-3 grid grid-cols-1 gap-2 text-sm">
+        <li class="col-span-1 w-full">
           <button class="theme-toggle w-full px-3 py-2 rounded border text-sm bg-white hover:bg-gray-100 transition dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700 dark:hover:bg-gray-700 flex items-center justify-center gap-2" aria-label="Cambia tema" aria-pressed="false" data-i18n-aria="aria_theme_toggle">
             <svg class="moon-icon w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
             <svg class="sun-icon w-4 h-4 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><path d="M12 1v3M12 20v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M1 12h3M20 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
             <span class="theme-text" data-i18n="theme_button_text">Tema</span>
           </button>
         </li>
-        <li class="col-span-2">
-          <div class="lang-switch-mobile flex items-center justify-center gap-1 px-2 py-1 rounded border text-xs bg-white/70 text-gray-800 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700">
+        <li class="col-span-1 w-full">
+          <div class="lang-switch-mobile w-full flex flex-wrap items-center justify-center gap-1 px-2 py-1 rounded border text-xs bg-white/70 text-gray-800 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700">
             <span class="sr-only" data-i18n="lang_label">Lingua</span>
             <button class="lang-btn px-2 py-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700" data-lang="it" data-i18n-aria="aria_lang_it" aria-label="Italiano">IT</button>
             <span class="mx-1">|</span>
             <button class="lang-btn px-2 py-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700" data-lang="en" data-i18n-aria="aria_lang_en" aria-label="English">EN</button>
           </div>
         </li>
-        <li class="col-span-2">
-          
+        <li class="col-span-1 w-full">
+          <div id="gamify-hud-mobile" class="w-full flex items-center justify-center gap-2 px-2 py-2 rounded border text-xs bg-white/70 text-gray-800 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700">
+            <span class="font-semibold" data-i18n="hud_xp_label">XP</span>
+            <span id="xp-count-mobile">0</span>
+            <div id="xp-bar-mobile" class="ml-2 w-32 h-2 rounded bg-gray-200 dark:bg-gray-700 overflow-hidden">
+              <div id="xp-bar-fill-mobile" class="h-2 bg-brand w-0 transition-all duration-300"></div>
+            </div>
+            <span class="mx-2">|</span>
+            <span class="font-semibold" data-i18n="hud_badge_label">Badge</span>
+            <span id="badge-count-mobile">0</span>
+          </div>
+          <button id="cv-mode-btn-mobile" type="button" class="w-full mt-2 px-3 py-2 rounded border text-sm bg-white hover:bg-gray-100 transition dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700 dark:hover:bg-gray-700" data-i18n-aria="aria_cv_toggle" aria-label="Attiva modalità CV">
+            <span data-i18n="cv_button_text">Modalità CV (PDF)</span>
+          </button>
         </li>
       </ul>
     </div>
@@ -239,7 +251,7 @@
 <main id="contenuto" class="pt-6" aria-label="Contenuto principale" data-i18n-aria="aria_main_landmark">
   <!-- Navigazione contestuale della pagina -->
   <nav id="page-nav" class="max-w-5xl mx-auto px-6 mb-4 flex flex-col items-center gap-3" aria-label="Navigazione di pagina" data-i18n-aria="aria_page_nav">
-    <div class="cat-switch flex items-center justify-center gap-2 px-2 py-1 rounded border text-xs bg-white/70 text-gray-800 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700">
+    <div class="cat-switch flex flex-wrap items-center justify-center gap-1 sm:gap-2 px-2 py-1 rounded border text-xs bg-white/70 text-gray-800 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700 w-full max-w-full">
       <button class="cat-btn px-2 py-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700" type="button" data-cat="all" aria-pressed="false"><span data-i18n="cat_all">Tutto</span></button>
       <span class="mx-1">|</span>
       <button class="cat-btn px-2 py-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700" type="button" data-cat="lf" aria-pressed="false"><span data-i18n="cat_lang_frameworks">Linguaggi + Frameworks</span></button>
@@ -1353,6 +1365,8 @@
       const hudEl = document.getElementById('gamify-hud');
       const xpEl = document.getElementById('xp-count');
       const badgeEl = document.getElementById('badge-count');
+      const xpElMobile = document.getElementById('xp-count-mobile');
+      const badgeElMobile = document.getElementById('badge-count-mobile');
       const toastContainer = document.getElementById('toast-container');
       const badgeOverlay = document.getElementById('badge-overlay');
       const badgeBackdrop = document.getElementById('badge-backdrop');
@@ -1483,6 +1497,7 @@
 
       const xpProgressEl = document.getElementById('xp-progress');
       const xpBarFillEl = document.getElementById('xp-bar-fill');
+      const xpBarFillElMobile = document.getElementById('xp-bar-fill-mobile');
       const thresholds = ACHIEVEMENTS.map(a => a.threshold).sort((a,b)=>a-b);
       const getProgressStr = () => {
         const next = thresholds.find(t => xp < t);
@@ -1494,7 +1509,9 @@
       };
       const updateHUD = () => {
         if (xpEl) xpEl.textContent = String(xp);
+        if (xpElMobile) xpElMobile.textContent = String(xp);
         if (badgeEl) badgeEl.textContent = String(badges.length);
+        if (badgeElMobile) badgeElMobile.textContent = String(badges.length);
         if (xpProgressEl) xpProgressEl.textContent = `(${getProgressStr()})`;
         if (hudEl) hudEl.classList.remove('hidden');
 
@@ -1508,6 +1525,7 @@
           pct = Math.min(100, Math.round((current / need) * 100));
         }
         if (xpBarFillEl) xpBarFillEl.style.width = `${pct}%`;
+        if (xpBarFillElMobile) xpBarFillElMobile.style.width = `${pct}%`;
         if (hudEl) hudEl.setAttribute('title', nextBadge ? t('hud_tooltip_next', {remaining: Math.max(0, nextBadge - xp)}) : t('hud_tooltip_all'));
 
         // FX UI state removed
@@ -2693,6 +2711,19 @@
         hudEl.classList.add('cursor-pointer');
         hudEl.addEventListener('click', () => toggleBadgeOverlay(true));
         hudEl.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggleBadgeOverlay(true);
+          }
+        });
+      }
+      const hudElMobile = document.getElementById('gamify-hud-mobile');
+      if (hudElMobile) {
+        hudElMobile.setAttribute('role', 'button');
+        hudElMobile.setAttribute('tabindex', '0');
+        hudElMobile.classList.add('cursor-pointer');
+        hudElMobile.addEventListener('click', () => toggleBadgeOverlay(true));
+        hudElMobile.addEventListener('keydown', (e) => {
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
             toggleBadgeOverlay(true);
@@ -4119,22 +4150,25 @@
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       var btn = document.getElementById('cv-mode-btn');
+      var btnMobile = document.getElementById('cv-mode-btn-mobile');
       var sheet = document.getElementById('cv-sheet');
       var printBtn = document.getElementById('cv-print-btn');
       var exitBtn = document.getElementById('cv-exit-btn');
       function updateCvButtonUI() {
-        if (!btn) return;
-        var labelSpan = btn.querySelector('span[data-i18n="cv_button_text"]');
         var active = document.documentElement.classList.contains('cv-mode');
-        if (active) {
-          if (labelSpan) labelSpan.textContent = 'Chiudi CV';
-          btn.setAttribute('aria-label', 'Disattiva modalità CV');
-          btn.setAttribute('aria-pressed', 'true');
-        } else {
-          if (labelSpan) labelSpan.textContent = 'Modalità CV (PDF)';
-          btn.setAttribute('aria-label', 'Attiva modalità CV');
-          btn.setAttribute('aria-pressed', 'false');
-        }
+        [btn, btnMobile].forEach(function(b){
+          if (!b) return;
+          var labelSpan = b.querySelector('span[data-i18n="cv_button_text"]');
+          if (active) {
+            if (labelSpan) labelSpan.textContent = 'Chiudi CV';
+            b.setAttribute('aria-label', 'Disattiva modalità CV');
+            b.setAttribute('aria-pressed', 'true');
+          } else {
+            if (labelSpan) labelSpan.textContent = 'Modalità CV (PDF)';
+            b.setAttribute('aria-label', 'Attiva modalità CV');
+            b.setAttribute('aria-pressed', 'false');
+          }
+        });
       }
       // Failsafe: se la pagina si apre già in cv-mode, assicura il foglio visibile
       if (document.documentElement.classList.contains('cv-mode') && sheet) {
@@ -4294,6 +4328,13 @@
         win.document.close();
       }
       if (btn) btn.addEventListener('click', function(){
+        if (document.documentElement.classList.contains('cv-mode')) {
+          exitCvMode();
+        } else {
+          enterCvMode();
+        }
+      });
+      if (btnMobile) btnMobile.addEventListener('click', function(){
         if (document.documentElement.classList.contains('cv-mode')) {
           exitCvMode();
         } else {
