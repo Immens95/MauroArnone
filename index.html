@@ -53,6 +53,22 @@
       },
     };
   </script>
+  <!-- Stile scrollbar nativa e progress bar in linea con la palette -->
+  <style id="custom-scrollbar-style">
+    /* Firefox */
+    html { scrollbar-color: #1065ff #e5e7eb; scrollbar-width: thin; }
+    /* WebKit */
+    ::-webkit-scrollbar { width: 10px; height: 10px; }
+    ::-webkit-scrollbar-track { background: #e5e7eb; }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #1065ff, #10b981, #7c3aed);
+      border-radius: 9999px;
+      border: 2px solid #e5e7eb;
+    }
+    ::-webkit-scrollbar-thumb:hover { filter: brightness(1.05); }
+    /* Progress bar rifinitura */
+    #scroll-progress { border-radius: 9999px; box-shadow: 0 0 8px rgba(16, 101, 255, 0.35); }
+  </style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -133,7 +149,7 @@
   <!-- Navbar -->
 <nav id="site-nav" class="fixed top-0 inset-x-0 z-50 bg-white/70 backdrop-blur shadow-sm dark:bg-gray-900/70" aria-label="Navigazione principale" data-i18n-aria="aria_main_nav">
     <!-- Scroll progress bar -->
-    <div id="scroll-progress" class="absolute left-0 bottom-0 h-0.5 bg-brand dark:bg-brand w-0 pointer-events-none"></div>
+    <div id="scroll-progress" class="absolute left-0 bottom-0 h-1 bg-gradient-to-r from-blue-600 via-teal-500 to-purple-600 w-0 pointer-events-none"></div>
     <div class="max-w-[92%] sm:max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
       <a href="#home" class="flex items-center gap-2">
         <img src="https://avatars.githubusercontent.com/u/129175879?v=4" alt="Logo" class="w-8 h-8 rounded-full" data-i18n-alt="alt_logo">
