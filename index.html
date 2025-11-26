@@ -336,6 +336,7 @@
             <li><span data-i18n="cv_email_label">Email</span>: <a href="mailto:mauro.arnone.ma@gmail.com" class="text-brand">mauro.arnone.ma@gmail.com</a></li>
             <li><span data-i18n="cv_github_label">GitHub</span>: <a href="https://github.com/Immens95" class="text-brand" target="_blank" rel="noopener noreferrer">github.com/Immens95</a></li>
             <li><span data-i18n="cv_linkedin_label">LinkedIn</span>: <a href="https://www.linkedin.com/in/mauro-arnone/" class="text-brand" target="_blank" rel="noopener noreferrer">mauro-arnone</a></li>
+            <li><span data-i18n="cv_site_label">CV interattivo</span>: <a href="https://immens95.github.io/MauroArnone/" class="text-brand" target="_blank" rel="noopener noreferrer">immens95.github.io/MauroArnone</a></li>
           </ul>
         </div>
         <div>
@@ -2227,6 +2228,7 @@
         cv_email_label: 'Email',
         cv_linkedin_label: 'LinkedIn',
         cv_github_label: 'GitHub',
+        cv_site_label: 'CV interattivo',
         cv_languages_title: 'Lingue',
         cv_lang_it: 'Italiano — Madrelingua',
         cv_lang_en: 'Inglese — B2',
@@ -2582,6 +2584,7 @@
         cv_email_label: 'Email',
         cv_linkedin_label: 'LinkedIn',
         cv_github_label: 'GitHub',
+        cv_site_label: 'Interactive CV',
         cv_languages_title: 'Languages',
         cv_lang_it: 'Italian — Native',
         cv_lang_en: 'English — B2',
@@ -4300,15 +4303,16 @@
         // Rimuovi script per evitare effetti collaterali nella nuova finestra
         headClone.querySelectorAll('script').forEach(function(s){ try { s.parentNode && s.parentNode.removeChild(s); } catch(e){} });
         var baseHref = (document.baseURI || window.location.href);
+        var langNow = (document.documentElement.getAttribute('lang') || 'it');
         var printStyle = [
           '@page { size: A4; margin: 12mm; }',
           'html, body { background:#fff !important; color:#111 !important; }',
           '#cv-controls, #site-nav { display:none !important; }',
-          '#cv-sheet { box-shadow:none !important; border-radius:0 !important; }'
+          '#cv-sheet { box-shadow:none !important; border-radius:0 !important; width:1024px !important; max-width:none !important; min-width:1024px !important; box-sizing:border-box !important; }'
         ].join('\n');
         var html = [
           '<!doctype html>',
-          '<html lang="it">',
+          '<html lang="' + langNow + '">',
           '<head>',
           '<meta charset="utf-8"/>',
           '<base href="'+ baseHref +'"/>',
@@ -4332,6 +4336,7 @@
         var headClone = document.head.cloneNode(true);
         headClone.querySelectorAll('script').forEach(function(s){ try { s.parentNode && s.parentNode.removeChild(s); } catch(e){} });
         var baseHref = (document.baseURI || window.location.href);
+        var langNow = (document.documentElement.getAttribute('lang') || 'it');
         var printStyle = [
           '@page { size: A4; margin: 12mm; }',
           'html, body { background:#fff !important; color:#111 !important; }',
@@ -4346,7 +4351,7 @@
         })();
         var html = [
           '<!doctype html>',
-          '<html lang="it">',
+          '<html lang="' + langNow + '">',
           '<head>',
           '<meta charset="utf-8"/>',
           '<base href="'+ baseHref +'"/>',
@@ -4365,7 +4370,7 @@
           '    if(!sheet){ window.close(); return; }\n' +
           '    try {\n' +
           '      sheet.style.background = "#ffffff"; sheet.style.color = "#111"; sheet.style.transform = "none"; sheet.style.filter = "none";\n' +
-          '      var opt = { scale: 2, useCORS: true, allowTaint: false, scrollY: 0, backgroundColor: "#ffffff", logging: false };\n' +
+          '      var opt = { scale: 2, useCORS: true, allowTaint: false, scrollY: 0, backgroundColor: "#ffffff", logging: false, windowWidth: 1024 };\n' +
           '      Promise.resolve().then(function(){ return (document.fonts && document.fonts.ready) ? document.fonts.ready : undefined; }).then(function(){\n' +
           '        var imgs = Array.from(sheet.querySelectorAll("img"));\n' +
           '        return Promise.all(imgs.map(function(img){ return new Promise(function(res){ if(img.complete) return res(); var done=function(){ img.onload=null; img.onerror=null; res(); }; img.onload=done; img.onerror=done; }); }));\n' +
@@ -4373,7 +4378,7 @@
           '        var rect = sheet.getBoundingClientRect();\n' +
           '        var w = Math.max(sheet.scrollWidth, sheet.offsetWidth, Math.floor(rect.width));\n' +
           '        var h = Math.max(sheet.scrollHeight, sheet.offsetHeight, Math.floor(rect.height));\n' +
-          '        var h2cOpts = Object.assign({}, opt, { width: w, height: h, windowWidth: w, windowHeight: h });\n' +
+          '        var h2cOpts = Object.assign({}, opt, { width: w, height: h, windowWidth: 1024, windowHeight: h });\n' +
           '        if (w===0 || h===0) throw new Error("Dimensioni nulle");\n' +
           '        return html2canvas(sheet, h2cOpts);\n' +
           '      }).then(function(canvas){\n' +
@@ -4383,6 +4388,20 @@
           '        var pageWidth = 210, pageHeight = 297;\n' +
           '        var pxPerMm = canvas.width / pageWidth;\n' +
           '        var pageHeightPx = Math.floor(pxPerMm * pageHeight);\n' +
+          '        var scaleFactor = (opt && opt.scale) ? opt.scale : 1;\n' +
+          '        // Rileva i link nel foglio per creare annotazioni cliccabili\n' +
+          '        var sheetRect = sheet.getBoundingClientRect();\n' +
+          '        var anchors = Array.from(sheet.querySelectorAll("a[href]"))\n' +
+          '          .map(function(a){\n' +
+          '            var href = a.getAttribute("href") || "";\n' +
+          '            var r = a.getBoundingClientRect();\n' +
+          '            var x = Math.max(0, r.left - sheetRect.left);\n' +
+          '            var yPos = Math.max(0, r.top - sheetRect.top);\n' +
+          '            var w = Math.max(1, r.width);\n' +
+          '            var h = Math.max(1, r.height);\n' +
+          '            return { href: href, xPx: x, yPx: yPos, wPx: w, hPx: h };\n' +
+          '          })\n' +
+          '          .filter(function(l){ return /^(https?:|mailto:|tel:)/.test(l.href); });\n' +
           '        var y = 0, pageIndex = 0;\n' +
           '        while (y < canvas.height) {\n' +
           '          var sliceHeightPx = Math.min(pageHeightPx, canvas.height - y);\n' +
@@ -4394,10 +4413,22 @@
           '          var sliceHeightMm = sliceHeightPx / pxPerMm;\n' +
           '          if (pageIndex > 0) pdf.addPage("a4", "portrait");\n' +
           '          pdf.addImage(imgData, "JPEG", 0, 0, pageWidth, sliceHeightMm);\n' +
+          '          // Aggiungi annotazioni link per gli <a> che cadono in questa pagina\n' +
+          '          anchors.forEach(function(link){\n' +
+          '            var linkYPxScaled = link.yPx * scaleFactor;\n' +
+          '            var within = (linkYPxScaled >= y) && (linkYPxScaled < (y + sliceHeightPx));\n' +
+          '            if (!within) return;\n' +
+          '            var xMm = (link.xPx * scaleFactor) / pxPerMm;\n' +
+          '            var yMm = ((link.yPx * scaleFactor) - y) / pxPerMm;\n' +
+          '            var wMm = (link.wPx * scaleFactor) / pxPerMm;\n' +
+          '            var hMm = (link.hPx * scaleFactor) / pxPerMm;\n' +
+          '            try { pdf.link(xMm, yMm, wMm, hMm, { url: link.href }); } catch(e){}\n' +
+          '          });\n' +
           '          y += sliceHeightPx; pageIndex += 1;\n' +
           '        }\n' +
-          '        pdf.save("Mauro-Arnone-CV.pdf");\n' +
-          '        setTimeout(function(){ window.close(); }, 500);\n' +
+          '        var docLang = (document.documentElement.getAttribute("lang") || "it").toLowerCase();\n' +
+          '        var suffix = (docLang === "it") ? "ita" : "eng";\n' +
+          '        pdf.save("Mauro-Arnone-CV-" + suffix + ".pdf");\n' +
           '      }).catch(function(err){ console.error("Errore download PDF:", err); try { window.print(); } catch(e){} setTimeout(function(){ window.close(); }, 500); });\n' +
           '    } catch(e){ console.error(e); try { window.print(); } catch(_){} setTimeout(function(){ window.close(); }, 500); }\n' +
           '  }\n' +
@@ -4492,16 +4523,26 @@
           '#cv-sheet-pdf { background: #ffffff !important; }'
         ].join('\n');
         try { document.head.appendChild(forceStyle); } catch(e){}
+        // Forza larghezza desktop costante per layout identico tra mobile e desktop
+        try {
+          clone.style.width = '1024px';
+          clone.style.maxWidth = 'none';
+          clone.style.minWidth = '1024px';
+          clone.style.boxSizing = 'border-box';
+        } catch(e){}
         // Imposta modalità PDF per layout/esclusioni sul clone;
         // rimuove temporaneamente cv-mode per evitare conflitti di visibilità
         document.documentElement.classList.remove('cv-mode');
         document.documentElement.classList.add('pdf-mode');
+        // Scegli il suffisso del nome file PDF in base alla lingua
+        var docLang = (document.documentElement.getAttribute('lang') || 'it').toLowerCase();
+        var suffix = (docLang === 'it') ? 'ita' : 'eng';
         // Opzioni PDF A4
         var opt = {
           margin:       [0, 0, 0, 0],
-          filename:     'Mauro-Arnone-CV.pdf',
+          filename:     'Mauro-Arnone-CV-' + suffix + '.pdf',
           image:        { type: 'jpeg', quality: 0.95 },
-          html2canvas:  { scale: 2, useCORS: true, allowTaint: false, scrollY: 0, backgroundColor: '#ffffff', logging: false },
+          html2canvas:  { scale: 2, useCORS: true, allowTaint: false, scrollY: 0, backgroundColor: '#ffffff', logging: false, windowWidth: 1024 },
           jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
         };
         try {
@@ -4536,7 +4577,7 @@
                   await new Promise(function(res){ requestAnimationFrame(function(){ requestAnimationFrame(res); }); });
                   var w = Math.max(clone.scrollWidth, clone.offsetWidth, Math.floor(rect.width));
                   var h = Math.max(clone.scrollHeight, clone.offsetHeight, Math.floor(rect.height));
-                  var h2cOpts = Object.assign({}, opt.html2canvas, { width: w, height: h, windowWidth: w, windowHeight: h });
+                  var h2cOpts = Object.assign({}, opt.html2canvas, { width: w, height: h, windowWidth: 1024, windowHeight: h });
                   if (w === 0 || h === 0) {
                     throw new Error('Clone ha dimensioni nulle: w=' + w + ' h=' + h);
                   }
@@ -4549,6 +4590,20 @@
                   var pageHeight = 297; // mm
                   var pxPerMm = canvas.width / pageWidth; // px per mm
                   var pageHeightPx = Math.floor(pxPerMm * pageHeight);
+                  var scaleFactor = (opt && opt.html2canvas && opt.html2canvas.scale) ? opt.html2canvas.scale : 1;
+                  // Rileva i link nel clone per creare annotazioni cliccabili
+                  var cloneRect = clone.getBoundingClientRect();
+                  var anchors = Array.from(clone.querySelectorAll('a[href]'))
+                    .map(function(a){
+                      var href = a.getAttribute('href') || '';
+                      var r = a.getBoundingClientRect();
+                      var x = Math.max(0, r.left - cloneRect.left);
+                      var yPos = Math.max(0, r.top - cloneRect.top);
+                      var w = Math.max(1, r.width);
+                      var h = Math.max(1, r.height);
+                      return { href: href, xPx: x, yPx: yPos, wPx: w, hPx: h };
+                    })
+                    .filter(function(l){ return /^(https?:|mailto:|tel:)/.test(l.href); });
                   var y = 0;
                   var pageIndex = 0;
                   while (y < canvas.height) {
@@ -4562,6 +4617,17 @@
                     var sliceHeightMm = sliceHeightPx / pxPerMm;
                     if (pageIndex > 0) pdf.addPage('a4', 'portrait');
                     pdf.addImage(imgData, 'JPEG', 0, 0, pageWidth, sliceHeightMm);
+                    // Aggiungi annotazioni link per gli <a> che cadono in questa pagina
+                    anchors.forEach(function(link){
+                      var linkYPxScaled = link.yPx * scaleFactor;
+                      var within = (linkYPxScaled >= y) && (linkYPxScaled < (y + sliceHeightPx));
+                      if (!within) return;
+                      var xMm = (link.xPx * scaleFactor) / pxPerMm;
+                      var yMm = ((link.yPx * scaleFactor) - y) / pxPerMm;
+                      var wMm = (link.wPx * scaleFactor) / pxPerMm;
+                      var hMm = (link.hPx * scaleFactor) / pxPerMm;
+                      try { pdf.link(xMm, yMm, wMm, hMm, { url: link.href }); } catch(e){}
+                    });
                     y += sliceHeightPx;
                     pageIndex += 1;
                   }
@@ -4581,6 +4647,19 @@
                       var pxPerMm2 = img.width / pageWidth2;
                       var pageHeightPx2 = Math.floor(pxPerMm2 * pageHeight2);
                       var pdf2 = new jsPDFCtor2({ unit: 'mm', format: 'a4', orientation: 'portrait' });
+                      // Rileva i link nel clone per creare annotazioni cliccabili anche nel fallback
+                      var cloneRect2 = clone.getBoundingClientRect();
+                      var anchors2 = Array.from(clone.querySelectorAll('a[href]'))
+                        .map(function(a){
+                          var href = a.getAttribute('href') || '';
+                          var r = a.getBoundingClientRect();
+                          var x = Math.max(0, r.left - cloneRect2.left);
+                          var yPos = Math.max(0, r.top - cloneRect2.top);
+                          var w = Math.max(1, r.width);
+                          var h = Math.max(1, r.height);
+                          return { href: href, xPx: x, yPx: yPos, wPx: w, hPx: h };
+                        })
+                        .filter(function(l){ return /^(https?:|mailto:|tel:)/.test(l.href); });
                       var canvasTmp = document.createElement('canvas');
                       var ctxTmp = canvasTmp.getContext('2d');
                       var y2 = 0, pageIndex2 = 0;
@@ -4594,6 +4673,16 @@
                         var sliceHeightMm2 = sliceHeightPx2 / pxPerMm2;
                         if (pageIndex2 > 0) pdf2.addPage('a4', 'portrait');
                         pdf2.addImage(imgData2, 'JPEG', 0, 0, pageWidth2, sliceHeightMm2);
+                        // Annotazioni link per la pagina corrente (fallback)
+                        anchors2.forEach(function(link){
+                          var within = (link.yPx >= y2) && (link.yPx < (y2 + sliceHeightPx2));
+                          if (!within) return;
+                          var xMm = link.xPx / pxPerMm2;
+                          var yMm = (link.yPx - y2) / pxPerMm2;
+                          var wMm = link.wPx / pxPerMm2;
+                          var hMm = link.hPx / pxPerMm2;
+                          try { pdf2.link(xMm, yMm, wMm, hMm, { url: link.href }); } catch(e){}
+                        });
                         y2 += sliceHeightPx2;
                         pageIndex2 += 1;
                       }
